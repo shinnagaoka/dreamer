@@ -1,8 +1,17 @@
 <?php
 session_start();
 require('../dbconnect.php');
-$_COOKIE['email']='1@gmail.com';
-$_COOKIE['password']='12345';
+if (isset($_COOKIE['email']) && $_COOKIE['email'] != '') {
+      $_POST['email'] = $_COOKIE['email'];
+      $_POST['password'] = $_COOKIE['password'];
+    }
+    if (empty($_POST)) {
+      if (empty($_COOKIE['email']) && empty($_COOKIE['password'])) {
+      	echo "<h1>NOOOOOO</h1>";
+      	header('Location: signin.php');
+      	exit();
+      }
+    }
 require('../require/read_users_session.php');
 if (!empty($_SESSION['user_id'])) {
 // if (!empty($_POST['cheer_btn'])) {
@@ -55,7 +64,7 @@ $category = array('職業','人間関係','健康','勉強','お金','その他'
 					<li><a id="header-settings" href="#"><em class="ion-more"></em></a></li>
 					<li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><em class="ion-ios-keypad"></em></a>
 					</li>
-					<li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/masaki.jpg" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
+					<li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-scale">
 							<h6 class="dropdown-header">ユーザーメニュー</h6><a class="dropdown-item" href="#"><!-- <span class="float-right badge badge-primary">4</span> --><em class="ion-ios-email-outline icon-lg text-primary"></em>マイページ</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>編集</a>
 							<div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="user.login.html"><em class="ion-log-out icon-lg text-primary"></em>ログアウト</a>
@@ -74,9 +83,9 @@ $category = array('職業','人間関係','健康','勉強','お金','その他'
 <div class="sidebar-content">
 	<div class="sidebar-toolbar">
 		<div class="sidebar-toolbar-background"></div>
-		<div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/masaki.jpg" alt="Profile"></a>
+		<div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="Profile"></a>
 			<div class="mt-3">
-				<div class="lead">田寺まさき</div>
+				<div class="lead"><?php echo $read_users['user_name']; ?></div>
 				<div class="text-thin">北海道</div>
 			</div>
 		</div>
@@ -100,8 +109,9 @@ $category = array('職業','人間関係','健康','勉強','お金','その他'
 			<li>
 				<div class="sidebar-nav-heading">閲覧</div>
 			</li>
-			<li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-list-outline"></em></span><span>カテゴリー別</span></a>
+			<li><a href="view_c_page.php"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-list-outline"></em></span><span>カテゴリー別</span></a>
 				<ul class="sidebar-subnav" id="tables">
+					<li><a href="view_c_page.php"><span class="float-right nav-label"></span><span>カテゴリー別</span></a></li>
 					<li><a href="view_c_page.php #1"><span class="float-right nav-label"></span><span>職業</span></a></li>
 					<li><a href="view_c_page.php #2"><span class="float-right nav-label"></span><span>人間関係</span></a></li>
 					<li><a href="view_c_page.php #3"><span class="float-right nav-label"></span><span>健康</span></a></li>
