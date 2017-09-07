@@ -1,0 +1,296 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'People'
+block content
+    .container.container-fluid
+
+        .mb-4.text-right
+            button.btn.btn-primary.btm-sm(type="button")
+                em.ion-plus.mr-2
+                | New Contact
+        .mb-4
+            .row
+                .col-lg-8
+                    form
+                        input.form-control.form-control-lg(type='text', placeholder='Search Name, Job, etc...')
+                .col-lg-4
+                    select.form-control.form-control-lg(name='area')
+                        option(value='') Select Area
+                        option(value='') Area 1
+                        option(value='') Area 2
+                        option(value='') Area 3
+
+        .card-columns
+            .card.mb-4
+                .card-block.pb-0.clearfix
+                    // START dropdown
+                    .float-right.dropdown.hidden-md-down
+                        button.btn.btn-flat.btn-flat-icon(type='button', data-toggle="dropdown")
+                            em.ion-android-more-horizontal
+                        .dropdown-menu.dropdown-scale.dropdown-menu-right(role='menu')
+                            a.dropdown-item(href="#") Call
+                            a.dropdown-item(href="#") Locate
+                            a.dropdown-item(href="#") Edit
+                    // END dropdown
+                .card-block.pt-0
+                    .text-center
+                        .mb-3
+                            img.wd-sm.rounded-circle.img-thumbnail(src="img/user/01.jpg", alt="user")
+                        .h3 Eleanor Harper
+                        p
+                            em.ion-briefcase.mr-2
+                            small.text-muted Art director
+                    p.mt-3 Proin est sapien, convallis non hendrerit nec, laoreet ut ipsum. Sed pharetra euismod dolor, id feugiat ante volutpat eget. Etiam at enim quis nulla facilisis lacinia.
+                    p
+                        em.ion-email.mr-2
+                        | mail@contact.com
+                    p
+                        em.ion-email.mr-2
+                        | mail2@contact.com
+                .card-footer.text-center
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-email.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-facebook.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-twitter.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-skype.icon-lg.icon-fw
+            .card.mb-4
+                .card-block.pb-0.clearfix
+                    // START dropdown
+                    .float-right.dropdown.hidden-md-down
+                        button.btn.btn-flat.btn-flat-icon(type='button', data-toggle="dropdown")
+                            em.ion-android-more-horizontal
+                        .dropdown-menu.dropdown-scale.dropdown-menu-right(role='menu')
+                            a.dropdown-item(href="#") Call
+                            a.dropdown-item(href="#") Locate
+                            a.dropdown-item(href="#") Edit
+                    // END dropdown
+                .card-block.pt-0
+                    .text-center
+                        .mb-3
+                            img.wd-sm.rounded-circle.img-thumbnail(src="img/user/02.jpg", alt="user")
+                        .h3 Theresa Foster
+                        p
+                            em.ion-briefcase.mr-2
+                            small.text-muted Art director
+                    p.mt-3 Proin est sapien, convallis non hendrerit nec, laoreet ut ipsum. Sed pharetra euismod dolor, id feugiat ante volutpat eget.
+                .card-footer.text-center
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-email.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-facebook.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-twitter.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-skype.icon-lg.icon-fw
+            .card.mb-4
+                .card-block.pb-0.clearfix
+                    // START dropdown
+                    .float-right.dropdown.hidden-md-down
+                        button.btn.btn-flat.btn-flat-icon(type='button', data-toggle="dropdown")
+                            em.ion-android-more-horizontal
+                        .dropdown-menu.dropdown-scale.dropdown-menu-right(role='menu')
+                            a.dropdown-item(href="#") Call
+                            a.dropdown-item(href="#") Locate
+                            a.dropdown-item(href="#") Edit
+                    // END dropdown
+                .card-block.pt-0
+                    .text-center
+                        .mb-3
+                            img.wd-sm.rounded-circle.img-thumbnail(src="img/user/03.jpg", alt="user")
+                        .h3 Don Carlson
+                        p
+                            em.ion-briefcase.mr-2
+                            small.text-muted Art director
+                    p.mt-3 Proin est sapien, convallis non hendrerit nec, laoreet ut ipsum. Sed pharetra euismod dolor, id feugiat ante volutpat eget.
+                .card-footer.text-center
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-email.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-facebook.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-twitter.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-skype.icon-lg.icon-fw
+            .card.mb-4
+                .card-block.pb-0.clearfix
+                    // START dropdown
+                    .float-right.dropdown.hidden-md-down
+                        button.btn.btn-flat.btn-flat-icon(type='button', data-toggle="dropdown")
+                            em.ion-android-more-horizontal
+                        .dropdown-menu.dropdown-scale.dropdown-menu-right(role='menu')
+                            a.dropdown-item(href="#") Call
+                            a.dropdown-item(href="#") Locate
+                            a.dropdown-item(href="#") Edit
+                    // END dropdown
+                .card-block.pt-0
+                    .text-center
+                        .mb-3
+                            img.wd-sm.rounded-circle.img-thumbnail(src="img/user/04.jpg", alt="user")
+                        .h3 Robin Richardson
+                        p
+                            em.ion-briefcase.mr-2
+                            small.text-muted Art director
+                    p.mt-3 Proin est sapien, convallis non hendrerit nec, laoreet ut ipsum. Sed pharetra euismod dolor, id feugiat ante volutpat eget.
+                .card-footer.text-center
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-email.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-facebook.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-twitter.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-skype.icon-lg.icon-fw
+            .card.mb-4
+                .card-block.pb-0.clearfix
+                    // START dropdown
+                    .float-right.dropdown.hidden-md-down
+                        button.btn.btn-flat.btn-flat-icon(type='button', data-toggle="dropdown")
+                            em.ion-android-more-horizontal
+                        .dropdown-menu.dropdown-scale.dropdown-menu-right(role='menu')
+                            a.dropdown-item(href="#") Call
+                            a.dropdown-item(href="#") Locate
+                            a.dropdown-item(href="#") Edit
+                    // END dropdown
+                .card-block.pt-0
+                    .text-center
+                        .mb-3
+                            img.wd-sm.rounded-circle.img-thumbnail(src="img/user/05.jpg", alt="user")
+                        .h3 Fernando Morrison
+                        p
+                            em.ion-briefcase.mr-2
+                            small.text-muted Art director
+                    p.mt-3 Proin est sapien, convallis non hendrerit nec, laoreet ut ipsum. Sed pharetra euismod dolor, id feugiat ante volutpat eget.
+                .card-footer.text-center
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-email.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-facebook.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-twitter.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-skype.icon-lg.icon-fw
+            .card.mb-4
+                .card-block.pb-0.clearfix
+                    // START dropdown
+                    .float-right.dropdown.hidden-md-down
+                        button.btn.btn-flat.btn-flat-icon(type='button', data-toggle="dropdown")
+                            em.ion-android-more-horizontal
+                        .dropdown-menu.dropdown-scale.dropdown-menu-right(role='menu')
+                            a.dropdown-item(href="#") Call
+                            a.dropdown-item(href="#") Locate
+                            a.dropdown-item(href="#") Edit
+                    // END dropdown
+                .card-block.pt-0
+                    .text-center
+                        .mb-3
+                            img.wd-sm.rounded-circle.img-thumbnail(src="img/user/06.jpg", alt="user")
+                        .h3 Nathaniel Gutierrez
+                        p
+                            em.ion-briefcase.mr-2
+                            small.text-muted Art director
+                    p.mt-3 Vestibulum vel dui vel magna vulputate tempus non eget magna.
+                .card-footer.text-center
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-email.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-facebook.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-twitter.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-skype.icon-lg.icon-fw
+            .card.mb-4
+                .card-block.pb-0.clearfix
+                    // START dropdown
+                    .float-right.dropdown.hidden-md-down
+                        button.btn.btn-flat.btn-flat-icon(type='button', data-toggle="dropdown")
+                            em.ion-android-more-horizontal
+                        .dropdown-menu.dropdown-scale.dropdown-menu-right(role='menu')
+                            a.dropdown-item(href="#") Call
+                            a.dropdown-item(href="#") Locate
+                            a.dropdown-item(href="#") Edit
+                    // END dropdown
+                .card-block.pt-0
+                    .text-center
+                        .mb-3
+                            img.wd-sm.rounded-circle.img-thumbnail(src="img/user/07.jpg", alt="user")
+                        .h3 Shannon Robinson
+                        p
+                            em.ion-briefcase.mr-2
+                            small.text-muted Art director
+                    p.mt-3 Proin est sapien, convallis non hendrerit nec, laoreet ut ipsum. Sed pharetra euismod dolor, id feugiat ante volutpat eget. Phasellus dolor velit, dictum a pulvinar eu, convallis a ante.
+                .card-footer.text-center
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-email.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-facebook.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-twitter.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-skype.icon-lg.icon-fw
+            .card.mb-4
+                .card-block.pb-0.clearfix
+                    // START dropdown
+                    .float-right.dropdown.hidden-md-down
+                        button.btn.btn-flat.btn-flat-icon(type='button', data-toggle="dropdown")
+                            em.ion-android-more-horizontal
+                        .dropdown-menu.dropdown-scale.dropdown-menu-right(role='menu')
+                            a.dropdown-item(href="#") Call
+                            a.dropdown-item(href="#") Locate
+                            a.dropdown-item(href="#") Edit
+                    // END dropdown
+                .card-block.pt-0
+                    .text-center
+                        .mb-3
+                            img.wd-sm.rounded-circle.img-thumbnail(src="img/user/04.jpg", alt="user")
+                        .h3 Irene Vasquez
+                        p
+                            em.ion-briefcase.mr-2
+                            small.text-muted Art director
+                    p.mt-3 Proin est sapien, convallis non hendrerit nec.
+                    p
+                        em.ion-email.mr-2
+                        | mail@contact.com
+                    p
+                        em.ion-email.mr-2
+                        | mail2@contact.com
+                .card-footer.text-center
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-email.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-facebook.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-twitter.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-skype.icon-lg.icon-fw
+            .card.mb-4
+                .card-block.pb-0.clearfix
+                    // START dropdown
+                    .float-right.dropdown.hidden-md-down
+                        button.btn.btn-flat.btn-flat-icon(type='button', data-toggle="dropdown")
+                            em.ion-android-more-horizontal
+                        .dropdown-menu.dropdown-scale.dropdown-menu-right(role='menu')
+                            a.dropdown-item(href="#") Call
+                            a.dropdown-item(href="#") Locate
+                            a.dropdown-item(href="#") Edit
+                    // END dropdown
+                .card-block.pt-0
+                    .text-center
+                        .mb-3
+                            img.wd-sm.rounded-circle.img-thumbnail(src="img/user/01.jpg", alt="user")
+                        .h3 Addison Nichols
+                        p
+                            em.ion-briefcase.mr-2
+                            small.text-muted Art director
+                    p.mt-3 Proin est sapien, convallis non hendrerit nec, laoreet ut ipsum. Sed pharetra euismod dolor, id feugiat ante volutpat eget. Proin sed erat sit amet metus rhoncus tincidunt.
+                .card-footer.text-center
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-email.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-facebook.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-twitter.icon-lg.icon-fw
+                    button.btn.btn-sm.btn-secondary(type="button")
+                        em.ion-social-skype.icon-lg.icon-fw

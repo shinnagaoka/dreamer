@@ -1,0 +1,305 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Utilities'
+block content
+    .container-fluid
+        h5 Utility classes
+        p Helpers classes to help build components without adding extra css. Default values can be changed via CSS or LESS @variables.
+        .row
+            .col-xl-6.col-xs-12
+                .cardbox
+                    .cardbox-heading Sizes
+                    table.table
+                        tr
+                            td: code .fh / .fw
+                            td Height or Width at 100%
+                        tr
+                            td: code .fh-sm / .fw-sm
+                            td Height or Width at 100% above 768px
+                        tr
+                            td: code .fh-md / .fw-md
+                            td Height or Width at 100% above 992px
+                        tr
+                            td: code .fh-lg / .fw-lg
+                            td Height or Width at 100% above 1200px
+                        tr
+                            td: code .thumb8
+                            td Set width and height of 8px
+                        tr
+                            td: code .thumb16
+                            td Set width and height of 16px
+                        tr
+                            td: code .thumb24
+                            td Set width and height of 24px
+                        tr
+                            td: code .thumb32
+                            td Set width and height of 32px
+                        tr
+                            td: code .thumb40
+                            td Set width and height of 40px
+                        tr
+                            td: code .thumb48
+                            td Set width and height of 48px
+                        tr
+                            td: code .thumb64
+                            td Set width and height of 64px
+                        tr
+                            td: code .thumb80
+                            td Set width and height of 80px
+                        tr
+                            td: code .thumb96
+                            td Set width and height of 96px
+                        tr
+                            td: code .thumb128
+                            td Circle with radius 128px
+                        tr
+                            td: code .initial8
+                            td Circle with radius 8px
+                        tr
+                            td: code .initial16
+                            td Circle with radius 16px
+                        tr
+                            td: code .initial24
+                            td Circle with radius 24px
+                        tr
+                            td: code .initial32
+                            td Circle with radius 32px
+                        tr
+                            td: code .initial40
+                            td Circle with radius 40px
+                        tr
+                            td: code .initial48
+                            td Circle with radius 48px
+                        tr
+                            td: code .initial64
+                            td Circle with radius 64px
+                        tr
+                            td: code .initial80
+                            td Circle with radius 80px
+                        tr
+                            td: code .initial96
+                            td Circle with radius 96px
+                        tr
+                            td: code .initial128
+                            td Circle with radius 128px
+                        tr
+                            td: code .wd-xxs
+                            td Set width of 60px
+                        tr
+                            td: code .wd-xs
+                            td Set width of 90px
+                        tr
+                            td: code .wd-sm
+                            td Set width of 150px
+                        tr
+                            td: code .wd-sd
+                            td Set width of 200px
+                        tr
+                            td: code .wd-md
+                            td Set width of 240px
+                        tr
+                            td: code .wd-lg
+                            td Set width of 280px
+                        tr
+                            td: code .wd-xl
+                            td Set width of 320px
+                        tr
+                            td: code .wd-xxl
+                            td Set width of 360px
+                        tr
+                            td: code .wd-wide
+                            td Set width of 100%
+                        tr
+                            td: code .wd-auto
+                            td Set width auto
+                        tr
+                            td: code .wd-zero
+                            td Set width of 0px
+
+                .cardbox
+                    .cardbox-heading Miscellaneous
+                    table.table
+                        tr
+                            td: code .table-fixed
+                            td Make table layout fixed
+                        tr
+                            td: code .oh
+                            td Overflow hidden (clear floats)
+                        tr
+                            td: code .oa
+                            td Overflow auto (adds scrollbars)
+                        tr
+                            td: code .shadow-clear
+                            td Remove box shadow
+                        tr
+                            td: code .radius-clear
+                            td Remove border radius
+                        tr
+                            td: code .link-unstyled
+                            td Remove underline and outline styles
+                        tr
+                            td: code .reader-block
+                            td Makes paragraphs more readable
+                        tr
+                            td: code .image-list
+                            td A list of images links overlap to the previous
+                        tr
+                            td: code textarea.no-resize
+                            td Remove resize option from Texareas
+                        tr
+                            td: code .inline
+                            td Forces display: inline
+                        tr
+                            td: code .block
+                            td Forces display: block
+
+            .col-xl-6.col-xs-12
+                .cardbox
+                    .cardbox-heading Text &amp; Font icons
+                    table.table
+                        tr
+                            td: code .text-white
+                            td Make text color white
+                        tr
+                            td: code .text-alpha
+                            td Make text color white 50% opacity
+                        tr
+                            td: code .text-alpha-inverse
+                            td Make text color dark 50% opacity
+                        tr
+                            td: code .text-gray-darker
+                            td Make text color @gray-darker
+                        tr
+                            td: code .text-gray-dark
+                            td Make text color @gray-dark
+                        tr
+                            td: code .text-gray
+                            td Make text color @gray
+                        tr
+                            td: code .text-gray-light
+                            td Make text color @gray-light
+                        tr
+                            td: code .text-gray-lighter
+                            td Make text color @gray-lighter
+                        tr
+                            td: code .text-inherit
+                            td Make text color inherit
+                        tr
+                            td: code .text-soft
+                            td Make text color black 26% opacity
+                        tr
+                            td: code .text-light
+                            td Make text color white 74% opacity
+                        tr
+                            td: code .text-sm
+                            td Make text 85% smaller
+                        tr
+                            td: code .text-md
+                            td Make text 90% bigger
+                        tr
+                            td: code .text-lg
+                            td Make text 3x bigger
+                        tr
+                            td: code .text-nowrap
+                            td Make text no wrap
+                        tr
+                            td: code .text-thin
+                            td Make text font weight 100
+                        tr
+                            td: code .text-bold
+                            td Make text font weight bold
+                        tr
+                            td: code .text-normal
+                            td Make text font weight normal
+                        tr
+                            td: code .icon-18
+                            td Make icon at font size 18px
+                        tr
+                            td: code .icon-24
+                            td Make icon at font size 24px
+                        tr
+                            td: code .icon-36
+                            td Make icon at font size 36px
+                        tr
+                            td: code .icon-48
+                            td Make icon at font size 48px
+                        tr
+                            td: code .icon-2x
+                            td Make icon 2x bigger
+                        tr
+                            td: code .icon-3x
+                            td Make icon 3x bigger
+                        tr
+                            td: code .icon-4x
+                            td Make icon 4x bigger
+                        tr
+                            td: code .icon-5x
+                            td Make icon 5x bigger
+                        tr
+                            td: code .icon-lg
+                            td Make icon 33% bigger
+                        tr
+                            td: code .icon-fw
+                            td Make icon fixed width
+                        tr
+                            td: code .icon-dark
+                            td Make icon dark for light backgrounds
+                        tr
+                            td: code .icon-light
+                            td Make icon light for dark backgrounds
+
+                .cardbox
+                    .cardbox-heading
+                        small.float-right
+                            a(href="colors.html") More Colors
+                        | Backgrounds
+                    table.table
+                        tr
+                            td: code .bg-white
+                            td Make background color white
+                        tr
+                            td: code .bg-primary
+                            td Make background color @primary
+                        tr
+                            td: code .bg-success
+                            td Make background color @success
+                        tr
+                            td: code .bg-info
+                            td Make background color @info
+                        tr
+                            td: code .bg-warning
+                            td Make background color @warning
+                        tr
+                            td: code .bg-danger
+                            td Make background color @danger
+                        tr
+                            td: code .bg-gray-darker
+                            td Make background color @gray-darker
+                        tr
+                            td: code .bg-gray-dark
+                            td Make background color @gray-dark
+                        tr
+                            td: code .bg-gray
+                            td Make background color @gray
+                        tr
+                            td: code .bg-gray-light
+                            td Make background color @gray-light
+                        tr
+                            td: code .bg-gray-lighter
+                            td Make background color @gray-lighter
+                        tr
+                            td: code .bg-transparent
+                            td Make background color transparent
+                        tr
+                            td: code .bg-fade
+                            td Make background dark faded from bottom
+                        tr
+                            td: code .bg-cover
+                            td Make background image cover
+                        tr
+                            td: code .bg-full
+                            td Make background image cover and no-repeat
+                        tr
+                            td: code .bg-center
+                            td Make background image cover and centered
+

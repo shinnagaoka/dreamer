@@ -1,0 +1,23 @@
+<div  class="container-fluid">
+    <div class="cardbox">
+        <div class="cardbox-heading">
+            <div class="pull-right"><span class="mr text-muted">Show last year events</span>
+                <label class="switch switch-info">
+                    <input type="checkbox" [(ngModel)]="showAllMarkers" (change)="displayAllMarkers(showAllMarkers)" /><span></span>
+                </label>
+            </div>
+            <div class="cardbox-title">World Events</div>
+        </div>
+        <div class="cardbox-body">
+            <div vectormap [mapHeight]="400" [mapOptions]="options" [mapSeries]="series" [mapMarkers]="markers" class="vector-map"></div>
+        </div>
+    </div>
+    <div class="cardbox">
+        <div class="cardbox-heading">
+            <div class="cardbox-title">Usa Makers</div>
+        </div>
+        <div class="cardbox-body">
+            <div vectormap [mapHeight]="400" [mapOptions]="usa_options" [mapSeries]="series" [mapMarkers]="usa_markers" class="vector-map"></div>
+        </div>
+    </div>
+</div>

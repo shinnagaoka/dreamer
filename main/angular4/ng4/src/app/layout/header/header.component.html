@@ -1,0 +1,86 @@
+<header class="header-container">
+    <nav>
+        <ul class="hidden-lg-up">
+            <li>
+                <a (click)="toggleSidebar()" class="sidebar-toggler menu-link menu-link-close">
+                    <span><em></em></span>
+                </a>
+            </li>
+        </ul>
+        <ul class="hidden-xs-down">
+            <li>
+                <a (click)="toggleSidebarCoverModeVisible()" class="covermode-toggler menu-link menu-link-close">
+                    <span><em></em></span>
+                </a>
+            </li>
+        </ul>
+        <h2 [innerHTML]="pt.getTitle()" class="header-title"></h2>
+        <ul class="float-right">
+            <li dropdown class="dropdown">
+                <a dropdownToggle class="dropdown-toggle has-badge">
+                    <img class="header-user-image" src="assets/img/user/01.jpg" alt="header-user-image"><sup class="badge bg-danger">3</sup>
+                </a>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown-scale">
+                    <h6 class="dropdown-header">User menu</h6>
+                    <a class="dropdown-item">
+                        <span class="float-right badge badge-primary">4</span>
+                        <em class="ion-ios-email-outline icon-lg text-primary"></em>
+                        Messages
+                    </a>
+                    <a class="dropdown-item">
+                        <em class="ion-ios-gear-outline icon-lg text-primary"></em>
+                        Settings
+                    </a>
+                    <div class="dropdown-divider" role="presentation"></div>
+                    <a class="dropdown-item" [routerLink]="'/signin'">
+                        <em class="ion-log-out icon-lg text-primary"></em>
+                        Logoff
+                    </a>
+                </div>
+            </li>
+            <li dropdown class="dropdown">
+                <a dropdownToggle class="dropdown-toggle has-badge"><em class="ion-ios-keypad"></em></a>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown-scale dropdown-card">
+                    <div class="p-3">
+                        <div class="d-flex mb-3">
+                            <div class="wd-xs mr-3">
+                                <div class="card bg-gradient-primary border-0">
+                                    <div class="card-block text-white text-center">
+                                        <div class="mb-1"><em class="ion-stats-bars icon-2x"></em></div><small class="text-bold">Stats</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wd-xs">
+                                <div class="card bg-gradient-info border-0">
+                                    <div class="card-block text-white text-center">
+                                        <div class="mb-1"><em class="ion-map icon-2x"></em></div><small class="text-bold">Places</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="wd-xs mr-3">
+                                <div class="card bg-gradient-warning border-0">
+                                    <div class="card-block text-white text-center">
+                                        <div class="mb-1"><em class="ion-clock icon-2x"></em></div><small class="text-bold">Events</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wd-xs">
+                                <div class="card bg-gradient-danger border-0">
+                                    <div class="card-block text-white text-center">
+                                        <div class="mb-1"><em class="ion-plane icon-2x"></em></div><small class="text-bold">Flights</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a (click)="headerSearch.searchModal.show()"><em class="ion-ios-search-strong"></em></a></li>
+            <li><a (click)="seetingsBar.settingsModal.show()"><em class="ion-more"></em></a></li>
+        </ul>
+    </nav>
+</header>
+<header-search #headerSearch></header-search>
+<app-settings #seetingsBar></app-settings>

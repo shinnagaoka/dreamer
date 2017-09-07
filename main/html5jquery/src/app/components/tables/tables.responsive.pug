@@ -1,0 +1,265 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Responsive Tables'
+block content
+    .container-fluid
+        h4 The Unseen Column
+        p
+            | This technique, first described by Stuart Curry (@irishstu) involves simply hiding less important columns on smaller screen sizes.
+            | Using Bootstrap 4 Responsive utilities you can achieve that easily.
+            a(href="https://v4-alpha.getbootstrap.com/layout/responsive-utilities/#available-classes").ml-1 More
+        table.table.table-bordered.table-striped.table-sm
+            thead
+                tr
+                    th Code
+                    th.hidden-lg-down Company
+                    th Price
+                    th.hidden-sm-down Change
+                    th.hidden-xs-down Change %
+                    th Open
+                    th High
+                    th.hidden-sm-down Low
+                    th.hidden-sm-down Volume
+            tbody
+                tr
+                    td AAC
+                    td.hidden-lg-down AUSTRALIAN AGRICULTURAL COMPANY LIMITED.
+                    td $1.38
+                    td.hidden-sm-down -0.01
+                    td.hidden-xs-down -0.36%
+                    td $1.39
+                    td $1.39
+                    td.hidden-sm-down $1.38
+                    td.hidden-sm-down 9,395
+                tr
+                    td AAD
+                    td.hidden-lg-down ARDENT LEISURE GROUP
+                    td $1.15
+                    td.hidden-sm-down   +0.02
+                    td.hidden-xs-down 1.32%
+                    td $1.14
+                    td $1.15
+                    td.hidden-sm-down $1.13
+                    td.hidden-sm-down 56,431
+                tr
+                    td AAX
+                    td.hidden-lg-down AUSENCO LIMITED
+                    td $4.00
+                    td.hidden-sm-down -0.04
+                    td.hidden-xs-down -0.99%
+                    td $4.01
+                    td $4.05
+                    td.hidden-sm-down $4.00
+                    td.hidden-sm-down 90,641
+                tr
+                    td ABC
+                    td.hidden-lg-down ADELAIDE BRIGHTON LIMITED
+                    td $3.00
+                    td.hidden-sm-down   +0.06
+                    td.hidden-xs-down 2.04%
+                    td $2.98
+                    td $3.00
+                    td.hidden-sm-down $2.96
+                    td.hidden-sm-down 862,518
+                tr
+                    td ABP
+                    td.hidden-lg-down ABACUS PROPERTY GROUP
+                    td $1.91
+                    td.hidden-sm-down 0.00
+                    td.hidden-xs-down 0.00%
+                    td $1.92
+                    td $1.93
+                    td.hidden-sm-down $1.90
+                    td.hidden-sm-down 595,701
+                tr
+                    td ABY
+                    td.hidden-lg-down ADITYA BIRLA MINERALS LIMITED
+                    td $0.77
+                    td.hidden-sm-down   +0.02
+                    td.hidden-xs-down 2.00%
+                    td $0.76
+                    td $0.77
+                    td.hidden-sm-down $0.76
+                    td.hidden-sm-down 54,567
+                tr
+                    td ACR
+                    td.hidden-lg-down ACRUX LIMITED
+                    td $3.71
+                    td.hidden-sm-down   +0.01
+                    td.hidden-xs-down 0.14%
+                    td $3.70
+                    td $3.72
+                    td.hidden-sm-down $3.68
+                    td.hidden-sm-down 191,373
+                tr
+                    td ADU
+                    td.hidden-lg-down ADAMUS RESOURCES LIMITED
+                    td $0.72
+                    td.hidden-sm-down 0.00
+                    td.hidden-xs-down 0.00%
+                    td $0.73
+                    td $0.74
+                    td.hidden-sm-down $0.72
+                    td.hidden-sm-down 8,602,291
+                tr
+                    td AGG
+                    td.hidden-lg-down ANGLOGOLD ASHANTI LIMITED
+                    td $7.81
+                    td.hidden-sm-down -0.22
+                    td.hidden-xs-down -2.74%
+                    td $7.82
+                    td $7.82
+                    td.hidden-sm-down $7.81
+                    td.hidden-sm-down 148
+                tr
+                    td AGK
+                    td.hidden-lg-down AGL ENERGY LIMITED
+                    td $13.82
+                    td.hidden-sm-down   +0.02
+                    td.hidden-xs-down 0.14%
+                    td $13.83
+                    td $13.83
+                    td.hidden-sm-down $13.67
+                    td.hidden-sm-down 846,403
+                tr
+                    td AGO
+                    td.hidden-lg-down ATLAS IRON LIMITED
+                    td $3.17
+                    td.hidden-sm-down -0.02
+                    td.hidden-xs-down -0.47%
+                    td $3.11
+                    td $3.22
+                    td.hidden-sm-down $3.10
+                    td.hidden-sm-down 5,416,303
+
+        h4 No More Tables
+        p
+            | This technique was developed by Chris Coyier and described in his post Responsive Data Tables at css-tricks.com.
+            br
+            | Wrap a table with an element with class 
+            code .no-more-tables
+            | to activate this.
+        .no-more-tables
+            table.table.table-bordered.table-striped.table-sm
+                thead
+                    tr
+                        th Code
+                        th Company
+                        th Price
+                        th Change
+                        th Change %
+                        th Open
+                        th High
+                        th Low
+                        th Volume
+                tbody
+                    tr
+                        td(data-title='Code') AAC
+                        td(data-title='Company') AUSTRALIAN AGRICULTURAL COMPANY LIMITED.
+                        td(data-title='Price') $1.38
+                        td(data-title='Change') -0.01
+                        td(data-title='Change %') -0.36%
+                        td(data-title='Open') $1.39
+                        td(data-title='High') $1.39
+                        td(data-title='Low') $1.38
+                        td(data-title='Volume') 9,395
+                    tr
+                        td(data-title='Code') AAD
+                        td(data-title='Company') ARDENT LEISURE GROUP
+                        td(data-title='Price') $1.15
+                        td(data-title='Change')   +0.02
+                        td(data-title='Change %') 1.32%
+                        td(data-title='Open') $1.14
+                        td(data-title='High') $1.15
+                        td(data-title='Low') $1.13
+                        td(data-title='Volume') 56,431
+                    tr
+                        td(data-title='Code') AAX
+                        td(data-title='Company') AUSENCO LIMITED
+                        td(data-title='Price') $4.00
+                        td(data-title='Change') -0.04
+                        td(data-title='Change %') -0.99%
+                        td(data-title='Open') $4.01
+                        td(data-title='High') $4.05
+                        td(data-title='Low') $4.00
+                        td(data-title='Volume') 90,641
+                    tr
+                        td(data-title='Code') ABC
+                        td(data-title='Company') ADELAIDE BRIGHTON LIMITED
+                        td(data-title='Price') $3.00
+                        td(data-title='Change')   +0.06
+                        td(data-title='Change %') 2.04%
+                        td(data-title='Open') $2.98
+                        td(data-title='High') $3.00
+                        td(data-title='Low') $2.96
+                        td(data-title='Volume') 862,518
+                    tr
+                        td(data-title='Code') ABP
+                        td(data-title='Company') ABACUS PROPERTY GROUP
+                        td(data-title='Price') $1.91
+                        td(data-title='Change') 0.00
+                        td(data-title='Change %') 0.00%
+                        td(data-title='Open') $1.92
+                        td(data-title='High') $1.93
+                        td(data-title='Low') $1.90
+                        td(data-title='Volume') 595,701
+                    tr
+                        td(data-title='Code') ABY
+                        td(data-title='Company') ADITYA BIRLA MINERALS LIMITED
+                        td(data-title='Price') $0.77
+                        td(data-title='Change')   +0.02
+                        td(data-title='Change %') 2.00%
+                        td(data-title='Open') $0.76
+                        td(data-title='High') $0.77
+                        td(data-title='Low') $0.76
+                        td(data-title='Volume') 54,567
+                    tr
+                        td(data-title='Code') ACR
+                        td(data-title='Company') ACRUX LIMITED
+                        td(data-title='Price') $3.71
+                        td(data-title='Change')   +0.01
+                        td(data-title='Change %') 0.14%
+                        td(data-title='Open') $3.70
+                        td(data-title='High') $3.72
+                        td(data-title='Low') $3.68
+                        td(data-title='Volume') 191,373
+                    tr
+                        td(data-title='Code') ADU
+                        td(data-title='Company') ADAMUS RESOURCES LIMITED
+                        td(data-title='Price') $0.72
+                        td(data-title='Change') 0.00
+                        td(data-title='Change %') 0.00%
+                        td(data-title='Open') $0.73
+                        td(data-title='High') $0.74
+                        td(data-title='Low') $0.72
+                        td(data-title='Volume') 8,602,291
+                    tr
+                        td(data-title='Code') AGG
+                        td(data-title='Company') ANGLOGOLD ASHANTI LIMITED
+                        td(data-title='Price') $7.81
+                        td(data-title='Change') -0.22
+                        td(data-title='Change %') -2.74%
+                        td(data-title='Open') $7.82
+                        td(data-title='High') $7.82
+                        td(data-title='Low') $7.81
+                        td(data-title='Volume') 148
+                    tr
+                        td(data-title='Code') AGK
+                        td(data-title='Company') AGL ENERGY LIMITED
+                        td(data-title='Price') $13.82
+                        td(data-title='Change')   +0.02
+                        td(data-title='Change %') 0.14%
+                        td(data-title='Open') $13.83
+                        td(data-title='High') $13.83
+                        td(data-title='Low') $13.67
+                        td(data-title='Volume') 846,403
+                    tr
+                        td(data-title='Code') AGO
+                        td(data-title='Company') ATLAS IRON LIMITED
+                        td(data-title='Price') $3.17
+                        td(data-title='Change') -0.02
+                        td(data-title='Change %') -0.47%
+                        td(data-title='Open') $3.11
+                        td(data-title='High') $3.22
+                        td(data-title='Low') $3.10
+                        td(data-title='Volume') 5,416,303

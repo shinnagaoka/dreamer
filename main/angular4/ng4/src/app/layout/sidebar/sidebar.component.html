@@ -1,0 +1,136 @@
+<div class="sidebar-container">
+    <div class="brand-header">
+        <div (click)="closeSidebar()" class="float-left pt-4 text-muted sidebar-close">
+            <em class="ion-arrow-left-c icon-lg"></em>
+        </div>
+        <a class="brand-header-logo">
+            <span class="brand-header-logo-text">Dasha</span>
+        </a>
+    </div>
+    <div class="sidebar-content">
+        <div *ngIf="settings.app.sidebar.showtoolbar" class="sidebar-toolbar">
+            <div class="sidebar-toolbar-background"></div>
+            <div class="sidebar-toolbar-content text-center">
+                <a href="#"><img class="rounded-circle thumb64" src="assets/img/user/01.jpg" alt="Profile"></a>
+                <div class="mt-3">
+                    <div class="lead">Jane Doe</div>
+                    <div class="text-thin">California, CA</div>
+                </div>
+            </div>
+        </div>
+        <nav class="sidebar-nav" (click)=handleSidebar($event)>
+            <!-- 1st level items-->
+            <ul>
+                <li *ngFor="let item of menu" [routerLinkActive]="['active']">
+                    <!-- support for headings -->
+                    <div *ngIf="item.heading" [innerHTML]="item.name" class="sidebar-nav-heading"></div>
+                    <!-- support for direct links-->
+                    <a [href]="item.href" *ngIf="item.href && !item.heading">
+                        <span *ngIf="item.subitems?.length" class="pull-right nav-caret">
+                            <em class="ion-ios-arrow-right"></em>
+                        </span>
+                        <span *ngIf="item.label" class="pull-right nav-label">
+                            <span [innerHTML]="item.label.value" [ngClass]="item.label?.classname"></span>
+                        </span>
+                        <span class="nav-icon" *ngIf="item.iconclass || item.imgpath">
+                            <em *ngIf="item.iconclass" [ngClass]="item.iconclass"></em>
+                            <img *ngIf="item.imgpath" [src]="item.imgpath"/>
+                        </span>
+                        <span *ngIf="item.name" [innerHTML]="item.name"></span>
+                    </a>
+                    <!-- support for router links-->
+                    <a [routerLink]="item.link" *ngIf="!item.href && !item.subitems?.length && !item.heading">
+                        <span *ngIf="item.subitems?.length" class="pull-right nav-caret">
+                            <em class="ion-ios-arrow-right"></em>
+                        </span>
+                        <span *ngIf="item.label" class="pull-right nav-label">
+                            <span [innerHTML]="item.label?.value" [ngClass]="item.label?.classname"></span>
+                        </span>
+                        <span class="nav-icon" *ngIf="item.iconclass || item.imgpath">
+                            <em *ngIf="item.iconclass" [ngClass]="item.iconclass"></em>
+                            <img *ngIf="item.imgpath" [src]="item.imgpath"/>
+                        </span>
+                        <span *ngIf="item.name" [innerHTML]="item.name"></span>
+                    </a>
+                    <!-- parent menu items have empty links-->
+                    <a *ngIf="!item.href && item.subitems?.length && !item.heading">
+                        <span *ngIf="item.subitems?.length" class="pull-right nav-caret">
+                            <em class="ion-ios-arrow-right"></em>
+                        </span>
+                        <span *ngIf="item.label" class="pull-right nav-label">
+                            <span [innerHTML]="item.label?.value" [ngClass]="item.label?.classname"></span>
+                        </span>
+                        <span class="nav-icon" *ngIf="item.iconclass || item.imgpath">
+                            <em *ngIf="item.iconclass" [ngClass]="item.iconclass"></em>
+                            <img *ngIf="item.imgpath" [src]="item.imgpath"/>
+                        </span>
+                        <span *ngIf="item.name" [innerHTML]="item.name"></span>
+                    </a>
+                    <!-- (2nd) level items-->
+                    <ul *ngIf="item.subitems?.length && !item.heading" class="sidebar-subnav">
+                        <li *ngFor="let sitem of item.subitems" [routerLinkActive]="['active']">
+                            <!-- (2nd) support for direct links-->
+                            <a [href]="sitem.href" *ngIf="sitem.href && !sitem.heading">
+                                <span *ngIf="sitem.subitems?.length" class="pull-right nav-caret">
+                                    <em class="ion-ios-arrow-right"></em>
+                                </span>
+                                <span *ngIf="sitem.label" class="pull-right nav-label">
+                                    <span [innerHTML]="sitem.label.value" [ngClass]="sitem.label?.classname"></span>
+                                </span>
+                                <span class="nav-icon" *ngIf="sitem.iconclass || sitem.imgpath">
+                                    <em *ngIf="sitem.iconclass" [ngClass]="sitem.iconclass"></em>
+                                    <img *ngIf="sitem.imgpath" [src]="sitem.imgpath"/>
+                                </span>
+                                <span *ngIf="sitem.name" [innerHTML]="sitem.name"></span>
+                            </a>
+                            <!-- (2nd) support for router links-->
+                            <a [routerLink]="sitem.link" *ngIf="!sitem.href && !sitem.subitems?.length && !sitem.heading">
+                                <span *ngIf="sitem.subitems?.length" class="pull-right nav-caret">
+                                    <em class="ion-ios-arrow-right"></em>
+                                </span>
+                                <span *ngIf="sitem.label" class="pull-right nav-label">
+                                    <span [innerHTML]="sitem.label?.value" *ngClass="sitem.label?.classname"></span>
+                                </span>
+                                <span class="nav-icon" *ngIf="sitem.iconclass || sitem.imgpath">
+                                    <em *ngIf="sitem.iconclass" [ngClass]="sitem.iconclass"></em>
+                                    <img *ngIf="sitem.imgpath" [src]="sitem.imgpath"/>
+                                </span>
+                                <span *ngIf="sitem.name" [innerHTML]="sitem.name"></span>
+                            </a>
+                            <!-- (2nd) parent menu items have empty links-->
+                            <a *ngIf="!sitem.href && sitem.subitems?.length && !sitem.heading">
+                                <span *ngIf="sitem.subitems?.length" class="pull-right nav-caret">
+                                    <em class="ion-ios-arrow-right"></em>
+                                </span>
+                                <span *ngIf="sitem.label" class="pull-right nav-label">
+                                    <span [innerHTML]="sitem.label?.value" [ngClass]="sitem.label?.classname"></span>
+                                </span>
+                                <span class="nav-icon" *ngIf="sitem.iconclass || sitem.imgpath">
+                                    <em *ngIf="sitem.iconclass" [ngClass]="sitem.iconclass"></em>
+                                    <img *ngIf="sitem.imgpath" [src]="sitem.imgpath"/>
+                                </span>
+                                <span *ngIf="sitem.name" [innerHTML]="sitem.name"></span>
+                            </a>
+                            <!-- (3rd) level items-->
+                            <ul *ngIf="sitem.subitems?.length" class="sidebar-subnav">
+                                <li *ngFor="let ssitem of sitem.subitems" [routerLinkActive]="['active']">
+                                    <!-- (2nd) support for router links-->
+                                    <a [routerLink]="ssitem.link" *ngIf="!ssitem.href && !ssitem.subitems?.length && !ssitem.heading">
+                                        <span *ngIf="ssitem.subitems?.length" class="pull-right nav-caret">
+                                            <em class="ion-ios-arrow-right"></em>
+                                        </span>
+                                        <span *ngIf="ssitem.label" class="pull-right nav-label">
+                                            <span [innerHTML]="ssitem.label?.value" [ngClass]="ssitem.label?.classname"></span>
+                                        </span>
+                                        <em [ngClass]="ssitem.iconclass" *ngIf="ssitem.iconclass"></em>
+                                        <span *ngIf="ssitem.name" [innerHTML]="ssitem.name"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

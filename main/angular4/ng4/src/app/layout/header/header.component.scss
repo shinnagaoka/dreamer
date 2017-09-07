@@ -1,0 +1,135 @@
+/**
+ * Header
+ */
+
+@import '../../shared/styles/common/variables';
+@import '../../shared/styles/common/mixins';
+
+.header-container {
+    position: relative;
+    background-color: $header-bg;
+    z-index: 1;
+    @media #{$min-desktop} {
+        margin-left: $sidebar-wd;
+    }
+    > nav {
+        min-height: $header-hg;
+        line-height: $header-hg;
+        box-shadow: $header-shadow;
+        @include clearfix;
+
+        > .header-title {
+            display: none;
+            position: relative;
+            float: left;
+            margin: 0;
+            padding: 0 .5rem;
+            font-size: 1.2rem;
+            line-height: inherit;
+            letter-spacing: .02em;
+            font-weight: 400;
+
+            @media (min-width: 340px) {
+                display: block;
+            }
+            @media (max-width: 420px) {
+                // hide large titles with ellipsis
+                max-width: 110px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            @media #{$min-tablet} {
+                padding: 0 1rem;
+                font-size: 1.5rem;
+            }
+        }
+
+        > ul {
+            float: left;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            @include clearfix;
+            > li {
+                float: left;
+                > a {
+                    display: block;
+                    padding: 0 1rem;
+                    text-decoration: none;
+                    color: inherit;
+                    > em {
+                        font-size: 1.3rem;
+                        vertical-align: -24%;
+                        line-height: 1;
+                    }
+                    > .header-user-image {
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50%;
+                        // support the user name right next to the image
+                        + span {
+                            margin-left: 14px;
+                        }
+                    }
+                }
+                > form,
+                > button {
+                    margin: 0 1rem;
+                }
+                > form {
+                    margin-top: 1.15rem;
+                }
+            }
+            // > li.active > a,
+            > li > a:hover {
+                background-color: rgba(0,0,0,.025);
+            }
+        }
+    }
+}
+
+// Locate badge in header correctly
+.has-badge {
+  position: relative;
+  .badge {
+    position: absolute;
+    top: 18%;
+    left: 38px;
+  }
+  &.dropdown-toggle::after {
+    display: none;
+  }
+}
+
+// Cover mode toggler
+
+.covermode-toggler {
+    display: none !important;
+}
+.sidebar-close {
+    display: none !important;
+}
+
+@media #{$min-desktop} {
+    .sidebar-cover {
+        .covermode-toggler{
+            display: block !important;
+        }
+        .sidebar-cover .sidebar-close {
+            display: block !important;
+        }
+    }
+}
+
+// Form search
+.modal-search-form {
+    margin: 0 auto;
+    @media #{$min-tablet} {
+        max-width: 70%;
+    }
+
+    .input-group-btn > .btn {
+        padding-left: 0;
+    }
+}

@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin Template">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>Dasha - Bootstrap Admin Template</title>
+    <!-- Vendor styles-->
+    <!-- Animate.CSS-->
+    <link rel="stylesheet" href="vendor/animate.css/animate.css">
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Ionicons-->
+    <link rel="stylesheet" href="vendor/ionicons/css/ionicons.css">
+    <!-- Material Colors-->
+    <link rel="stylesheet" href="vendor/material-colors/dist/colors.css">
+    <!-- Application styles-->
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body class="theme-default">
+    <div class="layout-container">
+      <!-- top navbar-->
+      <header class="header-container">
+        <nav>
+          <ul class="hidden-lg-up">
+            <li><a class="sidebar-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
+          </ul>
+          <ul class="hidden-xs-down">
+            <li><a class="covermode-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
+          </ul>
+          <h2 class="header-title">Widgets</h2>
+          <ul class="float-right">
+            <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/01.jpg" alt="header-user-image"><sup class="badge bg-danger">3</sup></a>
+              <div class="dropdown-menu dropdown-menu-right dropdown-scale">
+                <h6 class="dropdown-header">User menu</h6><a class="dropdown-item" href="#"><span class="float-right badge badge-primary">4</span><em class="ion-ios-email-outline icon-lg text-primary"></em>Messages</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>Settings</a>
+                <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="user.login.html"><em class="ion-log-out icon-lg text-primary"></em>Logoff</a>
+              </div>
+            </li>
+            <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><em class="ion-ios-keypad"></em></a>
+              <div class="dropdown-menu dropdown-menu-right dropdown-scale dropdown-card">
+                <div class="p-3">
+                  <div class="d-flex mb-3">
+                    <div class="wd-xs mr-3">
+                      <div class="card bg-gradient-primary border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-stats-bars icon-2x"></em></div><small class="text-bold">Stats</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="wd-xs">
+                      <div class="card bg-gradient-info border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-map icon-2x"></em></div><small class="text-bold">Places</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex">
+                    <div class="wd-xs mr-3">
+                      <div class="card bg-gradient-warning border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-clock icon-2x"></em></div><small class="text-bold">Events</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="wd-xs">
+                      <div class="card bg-gradient-danger border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-plane icon-2x"></em></div><small class="text-bold">Flights</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li><a id="header-search" href="#"><em class="ion-ios-search-strong"></em></a></li>
+            <li><a id="header-settings" href="#"><em class="ion-more"></em></a></li>
+          </ul>
+        </nav>
+      </header>
+      <!-- sidebar-->
+      <aside class="sidebar-container">
+        <div class="brand-header">
+          <div class="float-left pt-4 text-muted sidebar-close"><em class="ion-arrow-left-c icon-lg"></em></div><a class="brand-header-logo" href="#">
+            <!-- Logo Imageimg(src="img/logo.png", alt="logo")
+            --><span class="brand-header-logo-text">Dasha</span></a>
+        </div>
+        <div class="sidebar-content">
+          <div class="sidebar-toolbar">
+            <div class="sidebar-toolbar-background"></div>
+            <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/01.jpg" alt="Profile"></a>
+              <div class="mt-3">
+                <div class="lead">Jane Doe</div>
+                <div class="text-thin">California, CA</div>
+              </div>
+            </div>
+          </div>
+          <nav class="sidebar-nav">
+            <ul>
+              <li>
+                <div class="sidebar-nav-heading">MENU</div>
+              </li>
+              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>Dashboard</span></a></li>
+              <li><a href="widgets.html"><span class="float-right nav-label"><span class="badge-rounded badge-primary">!</span></span><span class="nav-icon"><em class="ion-ios-box-outline"></em></span><span>Widgets</span></a></li>
+              <li>
+                <div class="sidebar-nav-heading">COMPONENTS</div>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>Elements</span></a>
+                <ul class="sidebar-subnav" id="elements">
+                  <li><a href="buttons.html"><span class="float-right nav-label"></span><span>Buttons</span></a></li>
+                  <li><a href="bootstrapui.html"><span class="float-right nav-label"></span><span>Bootstrap</span></a></li>
+                  <li><a href="modals.html"><span class="float-right nav-label"></span><span>Modals</span></a></li>
+                  <li><a href="toaster.html"><span class="float-right nav-label"></span><span>Toaster</span></a></li>
+                  <li><a href="sweetalert.html"><span class="float-right nav-label"></span><span>Sweet Alert</span></a></li>
+                  <li><a href="spinners.html"><span class="float-right nav-label"></span><span>Spinners</span></a></li>
+                  <li><a href="nestable.html"><span class="float-right nav-label"></span><span>Nestable</span></a></li>
+                  <li><a href="grid.html"><span class="float-right nav-label"></span><span>Grid</span></a></li>
+                  <li><a href="grid-masonry.html"><span class="float-right nav-label"></span><span>Grid Masonry</span></a></li>
+                  <li><a href="typography.html"><span class="float-right nav-label"></span><span>Typography</span></a></li>
+                  <li><a href="icons.html"><span class="float-right nav-label"></span><span>Icons</span></a></li>
+                  <li><a href="utilities.html"><span class="float-right nav-label"></span><span>Utilities</span></a></li>
+                  <li><a href="colors.html"><span class="float-right nav-label"></span><span>Colors</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>Forms</span></a>
+                <ul class="sidebar-subnav">
+                  <li><a href="forms.standard.html"><span class="float-right nav-label"></span><span>Standard</span></a></li>
+                  <li><a href="forms.advanced.html"><span class="float-right nav-label"></span><span>Advanced</span></a></li>
+                  <li><a href="validation.html"><span class="float-right nav-label"></span><span>Validation</span></a></li>
+                  <li><a href="dropzone.html"><span class="float-right nav-label"></span><span>Dropzone</span></a></li>
+                  <li><a href="summernote.html"><span class="float-right nav-label"></span><span>Summernote</span></a></li>
+                  <li><a href="wizard.html"><span class="float-right nav-label"></span><span>Wizard Steps</span></a></li>
+                  <li><a href="typeahead.html"><span class="float-right nav-label"></span><span>Typeahead</span></a></li>
+                  <li><a href="xeditable.html"><span class="float-right nav-label"></span><span>xEditable</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-list-outline"></em></span><span>Tables</span></a>
+                <ul class="sidebar-subnav" id="tables">
+                  <li><a href="tables.classic.html"><span class="float-right nav-label"></span><span>Classic</span></a></li>
+                  <li><a href="tables.responsive.html"><span class="float-right nav-label"></span><span>Responsive</span></a></li>
+                  <li><a href="datatable.html"><span class="float-right nav-label"></span><span>Datatable</span></a></li>
+                  <li><a href="footable.html"><span class="float-right nav-label"></span><span>FooTable</span></a></li>
+                  <li><a href="bootgrid.html"><span class="float-right nav-label"></span><span>Bootgrid</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-pulse"></em></span><span>Charts</span></a>
+                <ul class="sidebar-subnav">
+                  <li><a href="flot.html"><span class="float-right nav-label"></span><span>Flot</span></a></li>
+                  <li><a href="peity.html"><span class="float-right nav-label"></span><span>Peity</span></a></li>
+                  <li><a href="rickshaw.html"><span class="float-right nav-label"></span><span>Rickshaw</span></a></li>
+                  <li><a href="radial.html"><span class="float-right nav-label"></span><span>Radial</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-location-outline"></em></span><span>Maps</span></a>
+                <ul class="sidebar-subnav" id="maps">
+                  <li><a href="google-map.html"><span class="float-right nav-label"></span><span>Google Maps</span></a></li>
+                  <li><a href="datamaps.html"><span class="float-right nav-label"></span><span>Datamaps</span></a></li>
+                  <li><a href="vector-map.html"><span class="float-right nav-label"></span><span>Vector Maps</span></a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="sidebar-nav-heading">MORE</div>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-person-outline"></em></span><span>User</span></a>
+                <ul class="sidebar-subnav" id="user">
+                  <li><a href="signin.html"><span class="float-right nav-label"></span><span>Signin</span></a></li>
+                  <li><a href="signup.html"><span class="float-right nav-label"></span><span>Signup</span></a></li>
+                  <li><a href="recover.html"><span class="float-right nav-label"></span><span>Recover</span></a></li>
+                  <li><a href="lock.html"><span class="float-right nav-label"></span><span>Lock</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-keypad-outline"></em></span><span>Pages</span></a>
+                <ul class="sidebar-subnav" id="pages">
+                  <li><a href="forum.html"><span class="float-right nav-label"></span><span>Forum</span></a></li>
+                  <li><a href="calendar.html"><span class="float-right nav-label"></span><span>Calendar</span></a></li>
+                  <li><a href="timeline.html"><span class="float-right nav-label"></span><span>Timeline</span></a></li>
+                  <li><a href="invoice.html"><span class="float-right nav-label"></span><span>Invoice</span></a></li>
+                  <li><a href="fullmap.html"><span class="float-right nav-label"></span><span>Fullmap</span></a></li>
+                  <li><a href="pricing.html"><span class="float-right nav-label"></span><span>Pricing</span></a></li>
+                  <li><a href="people.html"><span class="float-right nav-label"></span><span>People</span></a></li>
+                  <li><a href="contact.html"><span class="float-right nav-label"></span><span>Contact</span></a></li>
+                  <li><a href="wall.html"><span class="float-right nav-label"></span><span>Wall</span></a></li>
+                  <li><a href="mailbox.html"><span class="float-right nav-label"></span><span>Mailbox</span></a></li>
+                  <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span>Errors</span></a>
+                    <ul class="sidebar-subnav" id="errors">
+                      <li><a href="error404.html"><span class="float-right nav-label"></span><span>404</span></a></li>
+                      <li><a href="error403.html"><span class="float-right nav-label"></span><span>403</span></a></li>
+                      <li><a href="error500.html"><span class="float-right nav-label"></span><span>500</span></a></li>
+                      <li><a href="error503.html"><span class="float-right nav-label"></span><span>503</span></a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+      <div class="sidebar-layout-obfuscator"></div>
+      <!-- Main section-->
+      <main class="main-container">
+        <!-- Page content-->
+        <section class="section-container">
+          <div class="container container-lg">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="cardbox">
+                  <div class="pb-1 bg-gradient-warning"></div>
+                  <div class="cardbox-body">
+                    <div class="d-flex">
+                      <div>
+                        <div class="lead mb-2">Arlene Marshall</div>
+                        <p><em class="ion-ios-email-outline mr-2 icon-lg text-warning"></em><span>@marshall</span></p>
+                        <button class="btn btn-warning" type="button">Follow</button>
+                      </div>
+                      <div class="ml-auto"><img class="shadow-z5 thumb80 rounded" src="img/user/04.jpg" alt="user"></div>
+                    </div>
+                  </div>
+                  <div class="cardbox-body">
+                    <div class="row">
+                      <div class="col">
+                        <div class="text-muted">Comments</div>
+                        <div class="h4"><strong>15000</strong></div>
+                      </div>
+                      <div class="col bl">
+                        <div class="text-muted">Posts</div>
+                        <div class="h4"><strong>300</strong></div>
+                      </div>
+                      <div class="col bl hidden-sm-down">
+                        <div class="text-muted">Followers</div>
+                        <div class="h4"><strong>4000</strong></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="cardbox">
+                  <div class="pb-1 bg-gradient-success"></div>
+                  <div class="cardbox-body">
+                    <div class="d-flex">
+                      <div>
+                        <div class="lead mb-2">Charles West</div>
+                        <p><em class="ion-ios-email-outline mr-2 icon-lg text-success"></em><span>@Charles</span></p>
+                        <button class="btn btn-success" type="button">Follow</button>
+                      </div>
+                      <div class="ml-auto"><img class="shadow-z5 thumb80 rounded-circle" src="img/user/05.jpg" alt="user"></div>
+                    </div>
+                  </div>
+                  <div class="cardbox-body">
+                    <div class="row text-center">
+                      <div class="col">
+                        <div class="text-muted">Comments</div>
+                        <div class="h4"><strong>90900</strong></div>
+                      </div>
+                      <div class="col bl">
+                        <div class="text-muted">Posts</div>
+                        <div class="h4"><strong>700</strong></div>
+                      </div>
+                      <div class="col bl hidden-sm-down">
+                        <div class="text-muted">Followers</div>
+                        <div class="h4"><strong>5680</strong></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="cardbox">
+                  <div class="pb-1 bg-gradient-info"></div>
+                  <div class="cardbox-body">
+                    <div class="d-flex">
+                      <div class="mr-4"><img class="shadow-z5 thumb80 rounded" src="img/user/07.jpg" alt="user"></div>
+                      <div>
+                        <div class="h3 my-2"><strong>Kelly Obrien</strong></div>
+                        <p>Profile</p>
+                      </div>
+                      <div class="ml-auto">
+                        <button class="btn btn-info" type="button">Contact</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cardbox-body"><small>Friends</small>
+                    <div class="d-flex align-items-center"><img class="img-fluid thumb32 rounded mr-1" src="img/user/04.jpg" alt="User"><img class="img-fluid thumb32 rounded mr-1" src="img/user/05.jpg" alt="User"><img class="img-fluid thumb32 rounded mr-1" src="img/user/06.jpg" alt="User"><img class="img-fluid thumb32 rounded mr-1" src="img/user/03.jpg" alt="User"><strong class="thumb32 pt-1 rounded bg-blue-grey-500 text-center"><small>+10</small></strong></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="cardbox">
+                  <div class="pb-1 bg-gradient-primary"></div>
+                  <div class="cardbox-body">
+                    <div class="d-flex">
+                      <div class="mr-4"><img class="shadow-z5 thumb80 rounded" src="img/user/06.jpg" alt="user"></div>
+                      <div>
+                        <div class="h3 my-2"><strong>Raul Palmer</strong></div>
+                        <p>Profile</p>
+                      </div>
+                      <div class="ml-auto">
+                        <button class="btn btn-primary" type="button">Contact</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cardbox-body"><small>Friends</small>
+                    <div class="d-flex align-items-center"><img class="img-fluid thumb32 rounded mr-1" src="img/user/04.jpg" alt="User"><img class="img-fluid thumb32 rounded mr-1" src="img/user/05.jpg" alt="User"><img class="img-fluid thumb32 rounded mr-1" src="img/user/06.jpg" alt="User"><img class="img-fluid thumb32 rounded mr-1" src="img/user/03.jpg" alt="User"><strong class="thumb32 pt-1 rounded bg-blue-grey-500 text-center"><small>+5</small></strong>
+                      <div class="ml-auto">
+                        <button class="btn btn-sm btn-outline-danger" type="button">Invite</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="cardbox">
+                  <div class="cardbox-body">
+                    <div class="h2 text-bold">1,590</div>
+                    <div class="mb-2 text-muted"><small>Comments</small></div>
+                    <div class="progress progress-xs mb-0">
+                      <div class="progress-bar bg-success" style="width: 45%;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="cardbox">
+                  <div class="cardbox-body">
+                    <div class="h2 text-bold">15,350</div>
+                    <div class="mb-2 text-muted"><small>Requests</small></div>
+                    <div class="progress progress-xs mb-0">
+                      <div class="progress-bar bg-warning" style="width: 45%;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="cardbox color-indigo-400" style="border-left: 4px solid;">
+                  <div class="cardbox-body">
+                    <div class="d-flex justify-content-start align-items-center">
+                      <div>
+                        <p class="mb-0">DESIGN</p><span class="text-muted">Nunc posuere as loca.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="cardbox color-blue-400" style="border-left: 4px solid;">
+                  <div class="cardbox-body">
+                    <div class="d-flex justify-content-start align-items-center">
+                      <div>
+                        <p class="mb-0">DEVELOPMENT</p><span class="text-muted">Nunc posuere as loca.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="cardbox color-red-400" style="border-left: 4px solid;">
+                  <div class="cardbox-body">
+                    <div class="d-flex justify-content-start align-items-center">
+                      <div>
+                        <p class="mb-0">CONCEPT</p><span class="text-muted">Nunc posuere as loca.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="cardbox">
+                  <div class="cardbox-body">
+                    <div class="d-flex justify-content-start align-items-center">
+                      <div>
+                        <p class="mb-0"><small><em class="ion-record text-primary mr-2"></em></small>DEVELOPMENT</p><span class="text-muted">24 %</span>
+                      </div>
+                      <div class="ml-auto"><span class="line1">3,5,3,6,2,3,6,2</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="cardbox">
+                  <div class="cardbox-body">
+                    <div class="d-flex justify-content-start align-items-center">
+                      <div>
+                        <p class="mb-0"><small><em class="ion-record text-success mr-2"></em></small>DESIGN</p><span class="text-muted">32 %</span>
+                      </div>
+                      <div class="ml-auto"><span class="line2">3,5,3,6,5,3,4,6</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="cardbox">
+                  <div class="cardbox-body">
+                    <div class="d-flex justify-content-start align-items-center">
+                      <div>
+                        <p>Training time</p><span class="text-bold">140 hs</span>
+                      </div>
+                      <div class="ml-auto"><span class="bar1">3,5,3,6,5,3,4,6</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="cardbox">
+                  <div class="cardbox-body">
+                    <div class="d-flex justify-content-start align-items-center">
+                      <div>
+                        <p>Upgrade costs</p><span class="text-bold">$ 11,500</span>
+                      </div>
+                      <div class="ml-auto"><span class="bar2">3,5,3,6,2,3,6,2</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="cardbox text-white bg-gradient-success b0">
+                  <div class="cardbox-body text-center">
+                    <div class="text-bold display-1">1500</div>
+                    <p class="text-bold">Coding hours</p><span class="line3">3,5,3,6,2,3,6,2</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="cardbox text-white bg-gradient-primary b0">
+                  <div class="cardbox-body text-center">
+                    <div class="text-bold display-1">730</div>
+                    <p class="text-bold">Members</p><span class="line3">3,5,3,6,5,3,4,6</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="cardbox">
+                  <div class="cardbox-body text-center">
+                    <p class="text-muted text-bold">Cups of Coffee</p>
+                    <div class="text-bold display-1 text-success">150</div>
+                  </div>
+                  <div class="cardbox-footer">
+                    <div class="d-flex justify-content-start align-items-center">
+                      <div class="mr-auto"><em class="ion-arrow-up-b text-success mr-3 icon-lg"></em><span class="text-muted">12%</span></div>
+                      <div class="ml-auto"><span class="line2">3,5,3,6,5,3,4,6</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="cardbox">
+                  <div class="cardbox-body text-center">
+                    <p class="text-muted text-bold">Projects</p>
+                    <div class="text-bold display-1 text-primary">125</div>
+                  </div>
+                  <div class="cardbox-footer">
+                    <div class="d-flex justify-content-start align-items-center">
+                      <div class="mr-auto"><em class="ion-arrow-up-b text-success mr-3 icon-lg"></em><span class="text-muted">7.8%</span></div>
+                      <div class="ml-auto">
+                        <div class="ml-auto"><span class="line1">3,5,3,6,2,3,6,2</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="cardbox">
+                  <div class="cardbox-body">
+                    <p class="text-muted text-bold">Curabitur quis leo nulla.</p>
+                    <p class="lead text-bold">150</p>
+                    <div class="text-right"><em class="ion-arrow-up-b text-success mr-3"></em><span class="text-muted">12%</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="cardbox">
+                  <div class="cardbox-body">
+                    <p class="text-muted text-bold">Curabitur quis leo nulla.</p>
+                    <p class="lead text-bold">125</p>
+                    <div class="text-right"><em class="ion-arrow-down-b text-danger mr-3"></em><span class="text-muted">7.8%</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="cardbox">
+                  <div class="cardbox-body">
+                    <p class="text-muted text-bold">Curabitur quis leo nulla.</p>
+                    <p class="lead text-bold">25</p>
+                    <div class="text-right"><em class="ion-arrow-down-b text-danger mr-3"></em><span class="text-muted">2.6%</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="cardbox bb0">
+                  <div class="cardbox-body">
+                    <p class="text-muted text-bold">Curabitur quis leo nulla.</p>
+                    <p class="lead text-bold mb-0">150</p>
+                  </div>
+                  <div class="progress progress-xs mb-0 bg-transparent">
+                    <div class="progress-bar bg-success" style="width: 25%;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="cardbox bb0">
+                  <div class="cardbox-body">
+                    <p class="text-muted text-bold">Curabitur quis leo nulla.</p>
+                    <p class="lead text-bold mb-0">125</p>
+                  </div>
+                  <div class="progress progress-xs mb-0 bg-transparent">
+                    <div class="progress-bar bg-info" style="width: 55%;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="cardbox bb0">
+                  <div class="cardbox-body">
+                    <p class="text-muted text-bold">Nunc fringilla eros et erat</p>
+                    <p class="lead text-bold mb-0">1,550</p>
+                  </div>
+                  <div class="progress progress-xs mb-0 bg-transparent">
+                    <div class="progress-bar bg-danger" style="width: 12%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="cardbox">
+                  <div class="cardbox-body">
+                    <div class="float-right"><em class="ion-arrow-graph-up-right text-success mr-3 icon-lg"></em></div>
+                    <p class="text-bold">PROGRESS<br><small class="text-muted">Evolution of price</small></p>
+                    <p class="lead text-bold m-0">150</p>
+                  </div>
+                  <div class="cardbox-footer"><small>VARIATION 12%</small></div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="cardbox">
+                  <div class="cardbox-body">
+                    <div class="float-right"><em class="ion-arrow-graph-down-right text-warning mr-3 icon-lg"></em></div>
+                    <p class="text-bold">PROGRESS<br><small class="text-muted">Evolution of price</small></p>
+                    <p class="lead text-bold m-0">125</p>
+                  </div>
+                  <div class="cardbox-footer"><small>VARIATION 7.8%</small></div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="cardbox">
+                  <div class="cardbox-body">
+                    <div class="float-right"><em class="ion-arrow-graph-up-right text-success mr-3 icon-lg"></em></div>
+                    <p class="text-bold">PROGRESS<br><small class="text-muted">Evolution of price</small></p>
+                    <p class="lead text-bold m-0">25</p>
+                  </div>
+                  <div class="cardbox-footer"><small>VARIATION 2.6%</small></div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="cardbox">
+                  <div class="cardbox-body">
+                    <div class="d-flex justify-content-start align-items-center">
+                      <div class="wd-xxs color-indigo-400"><em class="ion-social-facebook icon-3x icon-fw"></em></div>
+                      <div>
+                        <p class="lead mb-0">Facebook</p><span class="text-muted">Social share</span>
+                      </div>
+                      <div class="ml-auto"><a class="text-muted" href="#"><em class="ion-chevron-right"></em></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="cardbox">
+                  <div class="cardbox-body">
+                    <div class="d-flex justify-content-start align-items-center">
+                      <div class="wd-xxs color-blue-400"><em class="ion-social-twitter icon-3x icon-fw"></em></div>
+                      <div>
+                        <p class="lead mb-0">Twitter</p><span class="text-muted">Social share</span>
+                      </div>
+                      <div class="ml-auto"><a class="text-muted" href="#"><em class="ion-chevron-right"></em></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="cardbox">
+                  <div class="cardbox-body">
+                    <div class="d-flex justify-content-start align-items-center">
+                      <div class="wd-xxs"><em class="ion-social-github icon-3x icon-fw"></em></div>
+                      <div>
+                        <p class="lead mb-0">Github</p><span class="text-muted">Code share</span>
+                      </div>
+                      <div class="ml-auto"><a class="text-muted" href="#"><em class="ion-chevron-right"></em></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Page footer-->
+        <footer class="footer-container">
+          <div class="d-flex justify-content-between fh"><a class="footer-icon" href="#"><em class="ion-chatboxes"></em><span>Messages</span></a><a class="footer-icon" href="#"><em class="ion-document-text"></em><span>Widgets</span></a><a class="footer-icon footer-icon-lg" href="#"><em class="ion-home"></em><span>Dashboard</span></a><a class="footer-icon" href="#"><em class="ion-map"></em><span>Maps</span></a><a class="footer-icon" href="#"><em class="ion-pie-graph"></em><span>Charts</span></a></div>
+        </footer>
+      </main>
+    </div>
+    <!-- Search template-->
+    <div class="modal modal-top fade modal-search" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="modal-search-form">
+              <form action="#">
+                <div class="input-group">
+                  <div class="input-group-btn">
+                    <button class="btn btn-flat" type="button" data-dismiss="modal"><em class="ion-arrow-left-c icon-lg text-muted"></em></button>
+                  </div>
+                  <input class="form-control header-input-search" type="text" placeholder="Search..">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Search template-->
+    <!-- Settings template-->
+    <div class="modal-settings modal modal-right fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="mt-0 modal-title"><span>Settings</span></h4>
+            <div class="float-right clickable" data-dismiss="modal"><em class="ion-close-round text-soft"></em></div>
+          </div>
+          <div class="modal-body">
+            <p>Dark sidebar</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-default">
+                  <input type="radio" checked name="setting-theme" value="theme-default"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-2">
+                  <input type="radio" name="setting-theme" value="theme-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-3">
+                  <input type="radio" name="setting-theme" value="theme-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-4">
+                  <input type="radio" name="setting-theme" value="theme-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-5">
+                  <input type="radio" name="setting-theme" value="theme-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-6">
+                  <input type="radio" name="setting-theme" value="theme-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>White sidebar</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-default">
+                  <input type="radio" name="setting-theme" value="theme-default-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-2">
+                  <input type="radio" name="setting-theme" value="theme-2-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-3">
+                  <input type="radio" name="setting-theme" value="theme-3-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-4">
+                  <input type="radio" name="setting-theme" value="theme-4-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-5">
+                  <input type="radio" name="setting-theme" value="theme-5-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-6">
+                  <input type="radio" name="setting-theme" value="theme-6-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>Sidebar Gradients</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-gradient-1">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-1"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-2">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-3">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-4">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-5">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-6">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>Header Gradients</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-gradient-1">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-1"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-2">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-3">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-4">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-5">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-6">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>Dark content</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-dark">
+                  <input type="radio" name="setting-theme" value="theme-dark"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <hr>
+            <p>
+              <label class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="sidebar-cover" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Sidebar Cover</span>
+              </label>
+            </p>
+            <p>
+              <label class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="sidebar-showtoolbar" type="checkbox" checked><span class="custom-control-indicator"></span><span class="custom-control-description">Sidebar profile</span>
+              </label>
+            </p>
+            <p>
+              <label class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="fixed-footer" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Fixed Footer</span>
+              </label>
+            </p>
+            <hr>
+            <button class="btn btn-secondary" type="button" data-toggle-fullscreen="">Toggle fullscreen</button>
+            <hr>
+            <p>Change language</p>
+            <!-- START Language list-->
+            <select class="language-select custom-select form-control">
+              <option value="en" selected="">English</option>
+              <option value="es">Spanish</option>
+              <option value="fr">French</option>
+            </select>
+            <!-- END Language list-->
+            <div class="mt-3" data-localize="translate.EXAMPLE">This is an example text using English as selected language.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Settings template-->
+    <!-- Modernizr-->
+    <script src="vendor/modernizr/modernizr.custom.js"></script>
+    <!-- PaceJS-->
+    <script src="vendor/pace/pace.min.js"></script>
+    <!-- jQuery-->
+    <script src="vendor/jquery/dist/jquery.js"></script>
+    <!-- Bootstrap-->
+    <script src="vendor/tether/dist/js/tether.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- Material Colors-->
+    <script src="vendor/material-colors/dist/colors.js"></script>
+    <!-- Screenfull-->
+    <script src="vendor/screenfull/dist/screenfull.js"></script>
+    <!-- jQuery Localize-->
+    <script src="vendor/jquery-localize-i18n/dist/jquery.localize.js"></script>
+    <!-- Peity charts-->
+    <script src="vendor/peity/jquery.peity.min.js"></script>
+    <!-- App script-->
+    <script src="js/app.js"></script>
+  </body>
+</html>

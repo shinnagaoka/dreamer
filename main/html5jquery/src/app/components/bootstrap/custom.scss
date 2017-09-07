@@ -1,0 +1,78 @@
+/**
+ * Bootstrap Custom
+ */
+
+// Include here quickly customized components
+// that uses styles from Bootstrap as base
+// but don't belong to the framework
+
+@import '../common/variables';
+@import '../common/mixins';
+
+// Progress
+// -----------------------------------
+
+// Different size of Progress bars
+.progress {
+    &.progress-sm {
+        height: $progress-height-sm;
+    }
+    &.progress-xs {
+        border-radius: $border-radius-small;
+        border: 0;
+        height: $progress-height-xs;
+    }
+}
+
+// Badges
+// -----------------------------------
+
+.badge-rounded {
+    $sz: 20px;
+    display: inline-block;
+    width: $sz;
+    height: $sz;
+    line-height: $sz;
+    font-size: 12px;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+
+// Cards
+// -----------------------------------
+
+.card-img-overlay-bottom {
+    top: 50%;
+}
+
+// Forms
+// -----------------------------------
+
+.form-control-inverse {
+    background-color: transparent;
+    border-color: rgba(#fff, .7);
+    color: #fff;
+    &:focus {
+        background-color: transparent;
+        color: #fff;
+    }
+    // Placeholders
+    &::-moz-placeholder { // Firefox
+      color: #fff;
+      opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+    }
+    &:-ms-input-placeholder { color: #fff; } // Internet Explorer 10+
+    &::-webkit-input-placeholder  { color: #fff; } // Safari and Chrome
+}
+
+// IE FIX FLEXBOX
+@media all and (-ms-high-contrast:none) {
+    // IE10-11
+    .align-items-center.align-items-center-ie {
+        height: 1px;
+        min-height: 100%;
+    }
+}

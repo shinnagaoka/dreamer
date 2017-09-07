@@ -1,0 +1,43 @@
+/**
+ * Layout Variants
+ */
+
+@import '../shared/styles/common/variables';
+@import '../shared/styles/common/mixins';
+
+.sidebar-cover {
+    .sidebar-container {
+        // top: $header-hg;
+        transform: translate3d(-100%, 0, 0);
+        .brand-header {
+            box-shadow: 0 0 0 #000;
+        }
+    }
+    .header-container {
+        z-index: 30;
+    }
+    .main-container,
+    .footer-container,
+    .header-container{
+        margin-left: 0 !important;
+    }
+
+    &.sidebar-cover-visible {
+        .sidebar-container {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}
+// old browsers
+.no-csstransforms3d .sidebar-cover {
+    .sidebar-cover {
+        .sidebar-container {
+            margin-left: -$sidebar-wd;
+        }
+        &.sidebar-cover-visible {
+            .sidebar-container {
+                margin-left: 0;
+            }
+        }
+    }
+}

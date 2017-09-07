@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin Template">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>Dasha - Bootstrap Admin Template</title>
+    <!-- Vendor styles-->
+    <!-- Animate.CSS-->
+    <link rel="stylesheet" href="vendor/animate.css/animate.css">
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Ionicons-->
+    <link rel="stylesheet" href="vendor/ionicons/css/ionicons.css">
+    <!-- Material Colors-->
+    <link rel="stylesheet" href="vendor/material-colors/dist/colors.css">
+    <!-- Application styles-->
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body class="theme-default">
+    <div class="layout-container">
+      <!-- top navbar-->
+      <header class="header-container">
+        <nav>
+          <ul class="hidden-lg-up">
+            <li><a class="sidebar-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
+          </ul>
+          <ul class="hidden-xs-down">
+            <li><a class="covermode-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
+          </ul>
+          <h2 class="header-title">Colors</h2>
+          <ul class="float-right">
+            <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/01.jpg" alt="header-user-image"><sup class="badge bg-danger">3</sup></a>
+              <div class="dropdown-menu dropdown-menu-right dropdown-scale">
+                <h6 class="dropdown-header">User menu</h6><a class="dropdown-item" href="#"><span class="float-right badge badge-primary">4</span><em class="ion-ios-email-outline icon-lg text-primary"></em>Messages</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>Settings</a>
+                <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="user.login.html"><em class="ion-log-out icon-lg text-primary"></em>Logoff</a>
+              </div>
+            </li>
+            <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><em class="ion-ios-keypad"></em></a>
+              <div class="dropdown-menu dropdown-menu-right dropdown-scale dropdown-card">
+                <div class="p-3">
+                  <div class="d-flex mb-3">
+                    <div class="wd-xs mr-3">
+                      <div class="card bg-gradient-primary border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-stats-bars icon-2x"></em></div><small class="text-bold">Stats</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="wd-xs">
+                      <div class="card bg-gradient-info border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-map icon-2x"></em></div><small class="text-bold">Places</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex">
+                    <div class="wd-xs mr-3">
+                      <div class="card bg-gradient-warning border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-clock icon-2x"></em></div><small class="text-bold">Events</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="wd-xs">
+                      <div class="card bg-gradient-danger border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-plane icon-2x"></em></div><small class="text-bold">Flights</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li><a id="header-search" href="#"><em class="ion-ios-search-strong"></em></a></li>
+            <li><a id="header-settings" href="#"><em class="ion-more"></em></a></li>
+          </ul>
+        </nav>
+      </header>
+      <!-- sidebar-->
+      <aside class="sidebar-container">
+        <div class="brand-header">
+          <div class="float-left pt-4 text-muted sidebar-close"><em class="ion-arrow-left-c icon-lg"></em></div><a class="brand-header-logo" href="#">
+            <!-- Logo Imageimg(src="img/logo.png", alt="logo")
+            --><span class="brand-header-logo-text">Dasha</span></a>
+        </div>
+        <div class="sidebar-content">
+          <div class="sidebar-toolbar">
+            <div class="sidebar-toolbar-background"></div>
+            <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/01.jpg" alt="Profile"></a>
+              <div class="mt-3">
+                <div class="lead">Jane Doe</div>
+                <div class="text-thin">California, CA</div>
+              </div>
+            </div>
+          </div>
+          <nav class="sidebar-nav">
+            <ul>
+              <li>
+                <div class="sidebar-nav-heading">MENU</div>
+              </li>
+              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>Dashboard</span></a></li>
+              <li><a href="widgets.html"><span class="float-right nav-label"><span class="badge-rounded badge-primary">!</span></span><span class="nav-icon"><em class="ion-ios-box-outline"></em></span><span>Widgets</span></a></li>
+              <li>
+                <div class="sidebar-nav-heading">COMPONENTS</div>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>Elements</span></a>
+                <ul class="sidebar-subnav" id="elements">
+                  <li><a href="buttons.html"><span class="float-right nav-label"></span><span>Buttons</span></a></li>
+                  <li><a href="bootstrapui.html"><span class="float-right nav-label"></span><span>Bootstrap</span></a></li>
+                  <li><a href="modals.html"><span class="float-right nav-label"></span><span>Modals</span></a></li>
+                  <li><a href="toaster.html"><span class="float-right nav-label"></span><span>Toaster</span></a></li>
+                  <li><a href="sweetalert.html"><span class="float-right nav-label"></span><span>Sweet Alert</span></a></li>
+                  <li><a href="spinners.html"><span class="float-right nav-label"></span><span>Spinners</span></a></li>
+                  <li><a href="nestable.html"><span class="float-right nav-label"></span><span>Nestable</span></a></li>
+                  <li><a href="grid.html"><span class="float-right nav-label"></span><span>Grid</span></a></li>
+                  <li><a href="grid-masonry.html"><span class="float-right nav-label"></span><span>Grid Masonry</span></a></li>
+                  <li><a href="typography.html"><span class="float-right nav-label"></span><span>Typography</span></a></li>
+                  <li><a href="icons.html"><span class="float-right nav-label"></span><span>Icons</span></a></li>
+                  <li><a href="utilities.html"><span class="float-right nav-label"></span><span>Utilities</span></a></li>
+                  <li><a href="colors.html"><span class="float-right nav-label"></span><span>Colors</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>Forms</span></a>
+                <ul class="sidebar-subnav">
+                  <li><a href="forms.standard.html"><span class="float-right nav-label"></span><span>Standard</span></a></li>
+                  <li><a href="forms.advanced.html"><span class="float-right nav-label"></span><span>Advanced</span></a></li>
+                  <li><a href="validation.html"><span class="float-right nav-label"></span><span>Validation</span></a></li>
+                  <li><a href="dropzone.html"><span class="float-right nav-label"></span><span>Dropzone</span></a></li>
+                  <li><a href="summernote.html"><span class="float-right nav-label"></span><span>Summernote</span></a></li>
+                  <li><a href="wizard.html"><span class="float-right nav-label"></span><span>Wizard Steps</span></a></li>
+                  <li><a href="typeahead.html"><span class="float-right nav-label"></span><span>Typeahead</span></a></li>
+                  <li><a href="xeditable.html"><span class="float-right nav-label"></span><span>xEditable</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-list-outline"></em></span><span>Tables</span></a>
+                <ul class="sidebar-subnav" id="tables">
+                  <li><a href="tables.classic.html"><span class="float-right nav-label"></span><span>Classic</span></a></li>
+                  <li><a href="tables.responsive.html"><span class="float-right nav-label"></span><span>Responsive</span></a></li>
+                  <li><a href="datatable.html"><span class="float-right nav-label"></span><span>Datatable</span></a></li>
+                  <li><a href="footable.html"><span class="float-right nav-label"></span><span>FooTable</span></a></li>
+                  <li><a href="bootgrid.html"><span class="float-right nav-label"></span><span>Bootgrid</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-pulse"></em></span><span>Charts</span></a>
+                <ul class="sidebar-subnav">
+                  <li><a href="flot.html"><span class="float-right nav-label"></span><span>Flot</span></a></li>
+                  <li><a href="peity.html"><span class="float-right nav-label"></span><span>Peity</span></a></li>
+                  <li><a href="rickshaw.html"><span class="float-right nav-label"></span><span>Rickshaw</span></a></li>
+                  <li><a href="radial.html"><span class="float-right nav-label"></span><span>Radial</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-location-outline"></em></span><span>Maps</span></a>
+                <ul class="sidebar-subnav" id="maps">
+                  <li><a href="google-map.html"><span class="float-right nav-label"></span><span>Google Maps</span></a></li>
+                  <li><a href="datamaps.html"><span class="float-right nav-label"></span><span>Datamaps</span></a></li>
+                  <li><a href="vector-map.html"><span class="float-right nav-label"></span><span>Vector Maps</span></a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="sidebar-nav-heading">MORE</div>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-person-outline"></em></span><span>User</span></a>
+                <ul class="sidebar-subnav" id="user">
+                  <li><a href="signin.html"><span class="float-right nav-label"></span><span>Signin</span></a></li>
+                  <li><a href="signup.html"><span class="float-right nav-label"></span><span>Signup</span></a></li>
+                  <li><a href="recover.html"><span class="float-right nav-label"></span><span>Recover</span></a></li>
+                  <li><a href="lock.html"><span class="float-right nav-label"></span><span>Lock</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-keypad-outline"></em></span><span>Pages</span></a>
+                <ul class="sidebar-subnav" id="pages">
+                  <li><a href="forum.html"><span class="float-right nav-label"></span><span>Forum</span></a></li>
+                  <li><a href="calendar.html"><span class="float-right nav-label"></span><span>Calendar</span></a></li>
+                  <li><a href="timeline.html"><span class="float-right nav-label"></span><span>Timeline</span></a></li>
+                  <li><a href="invoice.html"><span class="float-right nav-label"></span><span>Invoice</span></a></li>
+                  <li><a href="fullmap.html"><span class="float-right nav-label"></span><span>Fullmap</span></a></li>
+                  <li><a href="pricing.html"><span class="float-right nav-label"></span><span>Pricing</span></a></li>
+                  <li><a href="people.html"><span class="float-right nav-label"></span><span>People</span></a></li>
+                  <li><a href="contact.html"><span class="float-right nav-label"></span><span>Contact</span></a></li>
+                  <li><a href="wall.html"><span class="float-right nav-label"></span><span>Wall</span></a></li>
+                  <li><a href="mailbox.html"><span class="float-right nav-label"></span><span>Mailbox</span></a></li>
+                  <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span>Errors</span></a>
+                    <ul class="sidebar-subnav" id="errors">
+                      <li><a href="error404.html"><span class="float-right nav-label"></span><span>404</span></a></li>
+                      <li><a href="error403.html"><span class="float-right nav-label"></span><span>403</span></a></li>
+                      <li><a href="error500.html"><span class="float-right nav-label"></span><span>500</span></a></li>
+                      <li><a href="error503.html"><span class="float-right nav-label"></span><span>503</span></a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+      <div class="sidebar-layout-obfuscator"></div>
+      <!-- Main section-->
+      <main class="main-container">
+        <!-- Page content-->
+        <section class="section-container">
+          <div class="container container-lg">
+            <div class="cardbox">
+              <div class="cardbox-heading">
+                <div class="cardbox-title">Default Bootstrap Colors</div>
+              </div>
+              <div class="cardbox-body text-center">
+                <div class="d-flex justify-content-center flex-wrap">
+                  <div class="card bg-primary wd-sd mr-1 mb-1 b-0">
+                    <div class="card-block"><strong>Primary</strong></div>
+                    <div class="card-footer bg-transparent"><small class="text-white">.bg-primary</small></div>
+                  </div>
+                  <div class="card bg-info wd-sd mr-1 mb-1 b-0">
+                    <div class="card-block"><strong>Info</strong></div>
+                    <div class="card-footer bg-transparent"><small class="text-white">.bg-info</small></div>
+                  </div>
+                  <div class="card bg-success wd-sd mr-1 mb-1 b-0">
+                    <div class="card-block"><strong>Success</strong></div>
+                    <div class="card-footer bg-transparent"><small class="text-white">.bg-success</small></div>
+                  </div>
+                  <div class="card bg-warning wd-sd mr-1 mb-1 b-0">
+                    <div class="card-block"><strong>Warning</strong></div>
+                    <div class="card-footer bg-transparent"><small class="text-white">.bg-warning</small></div>
+                  </div>
+                  <div class="card bg-danger wd-sd mr-1 mb-1 b-0">
+                    <div class="card-block"><strong>Danger</strong></div>
+                    <div class="card-footer bg-transparent"><small class="text-white">.bg-danger</small></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cardbox">
+              <div class="cardbox-heading">
+                <div class="cardbox-title">Gradient Backgrounds</div>
+              </div>
+              <div class="cardbox-body text-center">
+                <div class="d-flex justify-content-center flex-wrap">
+                  <div class="card bg-gradient-primary wd-sd mr-1 mb-1 b-0">
+                    <div class="card-block text-white"><strong>Primary</strong></div>
+                    <div class="card-footer bg-transparent"><small class="text-white">.bg-gradient-primary</small></div>
+                  </div>
+                  <div class="card bg-gradient-info wd-sd mr-1 mb-1 b-0">
+                    <div class="card-block text-white"><strong>Info</strong></div>
+                    <div class="card-footer bg-transparent"><small class="text-white">.bg-gradient-info</small></div>
+                  </div>
+                  <div class="card bg-gradient-success wd-sd mr-1 mb-1 b-0">
+                    <div class="card-block text-white"><strong>Success</strong></div>
+                    <div class="card-footer bg-transparent"><small class="text-white">.bg-gradient-success</small></div>
+                  </div>
+                  <div class="card bg-gradient-warning wd-sd mr-1 mb-1 b-0">
+                    <div class="card-block text-white"><strong>Warning</strong></div>
+                    <div class="card-footer bg-transparent"><small class="text-white">.bg-gradient-warning</small></div>
+                  </div>
+                  <div class="card bg-gradient-danger wd-sd mr-1 mb-1 b-0">
+                    <div class="card-block text-white"><strong>Danger</strong></div>
+                    <div class="card-footer bg-transparent"><small class="text-white">.bg-gradient-danger</small></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cardbox">
+              <div class="cardbox-heading">
+                <div class="cardbox-title">Material Design Palette</div>
+              </div>
+              <div class="cardbox-body">
+                <div class="row mb-4">
+                  <div class="col-sm-4">
+                    <div class="p-3 bg-red-500">
+                      <div class="mb-4">Red</div>.bg-red-500
+                    </div>
+                    <div class="p-3 bg-red-50">.bg-red-50</div>
+                    <div class="p-3 bg-red-100">.bg-red-100</div>
+                    <div class="p-3 bg-red-200">.bg-red-200</div>
+                    <div class="p-3 bg-red-300">.bg-red-300</div>
+                    <div class="p-3 bg-red-400">.bg-red-400</div>
+                    <div class="p-3 bg-red-500">.bg-red-500</div>
+                    <div class="p-3 bg-red-600">.bg-red-600</div>
+                    <div class="p-3 bg-red-700">.bg-red-700</div>
+                    <div class="p-3 bg-red-800">.bg-red-800</div>
+                    <div class="p-3 bg-red-900">.bg-red-900</div>
+                    <div class="p-3 bg-red-a100">.bg-red-a100</div>
+                    <div class="p-3 bg-red-a200">.bg-red-a200</div>
+                    <div class="p-3 bg-red-a400">.bg-red-a400</div>
+                    <div class="p-3 bg-red-a700">.bg-red-a700</div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="p-3 bg-pink-500">
+                      <div class="mb-4">Pink</div>.bg-pink-500
+                    </div>
+                    <div class="p-3 bg-pink-50">.bg-pink-50</div>
+                    <div class="p-3 bg-pink-100">.bg-pink-100</div>
+                    <div class="p-3 bg-pink-200">.bg-pink-200</div>
+                    <div class="p-3 bg-pink-300">.bg-pink-300</div>
+                    <div class="p-3 bg-pink-400">.bg-pink-400</div>
+                    <div class="p-3 bg-pink-500">.bg-pink-500</div>
+                    <div class="p-3 bg-pink-600">.bg-pink-600</div>
+                    <div class="p-3 bg-pink-700">.bg-pink-700</div>
+                    <div class="p-3 bg-pink-800">.bg-pink-800</div>
+                    <div class="p-3 bg-pink-900">.bg-pink-900</div>
+                    <div class="p-3 bg-pink-a100">.bg-pink-a100</div>
+                    <div class="p-3 bg-pink-a200">.bg-pink-a200</div>
+                    <div class="p-3 bg-pink-a400">.bg-pink-a400</div>
+                    <div class="p-3 bg-pink-a700">.bg-pink-a700</div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="p-3 bg-purple-500">
+                      <div class="mb-4">Purple</div>.bg-purple-500
+                    </div>
+                    <div class="p-3 bg-purple-50">.bg-purple-50</div>
+                    <div class="p-3 bg-purple-100">.bg-purple-100</div>
+                    <div class="p-3 bg-purple-200">.bg-purple-200</div>
+                    <div class="p-3 bg-purple-300">.bg-purple-300</div>
+                    <div class="p-3 bg-purple-400">.bg-purple-400</div>
+                    <div class="p-3 bg-purple-500">.bg-purple-500</div>
+                    <div class="p-3 bg-purple-600">.bg-purple-600</div>
+                    <div class="p-3 bg-purple-700">.bg-purple-700</div>
+                    <div class="p-3 bg-purple-800">.bg-purple-800</div>
+                    <div class="p-3 bg-purple-900">.bg-purple-900</div>
+                    <div class="p-3 bg-purple-a100">.bg-purple-a100</div>
+                    <div class="p-3 bg-purple-a200">.bg-purple-a200</div>
+                    <div class="p-3 bg-purple-a400">.bg-purple-a400</div>
+                    <div class="p-3 bg-purple-a700">.bg-purple-a700</div>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div class="col-sm-4">
+                    <div class="p-3 bg-deep-purple-500">
+                      <div class="mb-4">Deep-purple</div>.bg-deep-purple-500
+                    </div>
+                    <div class="p-3 bg-deep-purple-50">.bg-deep-purple-50</div>
+                    <div class="p-3 bg-deep-purple-100">.bg-deep-purple-100</div>
+                    <div class="p-3 bg-deep-purple-200">.bg-deep-purple-200</div>
+                    <div class="p-3 bg-deep-purple-300">.bg-deep-purple-300</div>
+                    <div class="p-3 bg-deep-purple-400">.bg-deep-purple-400</div>
+                    <div class="p-3 bg-deep-purple-500">.bg-deep-purple-500</div>
+                    <div class="p-3 bg-deep-purple-600">.bg-deep-purple-600</div>
+                    <div class="p-3 bg-deep-purple-700">.bg-deep-purple-700</div>
+                    <div class="p-3 bg-deep-purple-800">.bg-deep-purple-800</div>
+                    <div class="p-3 bg-deep-purple-900">.bg-deep-purple-900</div>
+                    <div class="p-3 bg-deep-purple-a100">.bg-deep-purple-a100</div>
+                    <div class="p-3 bg-deep-purple-a200">.bg-deep-purple-a200</div>
+                    <div class="p-3 bg-deep-purple-a400">.bg-deep-purple-a400</div>
+                    <div class="p-3 bg-deep-purple-a700">.bg-deep-purple-a700</div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="p-3 bg-indigo-500">
+                      <div class="mb-4">Indigo</div>.bg-indigo-500
+                    </div>
+                    <div class="p-3 bg-indigo-50">.bg-indigo-50</div>
+                    <div class="p-3 bg-indigo-100">.bg-indigo-100</div>
+                    <div class="p-3 bg-indigo-200">.bg-indigo-200</div>
+                    <div class="p-3 bg-indigo-300">.bg-indigo-300</div>
+                    <div class="p-3 bg-indigo-400">.bg-indigo-400</div>
+                    <div class="p-3 bg-indigo-500">.bg-indigo-500</div>
+                    <div class="p-3 bg-indigo-600">.bg-indigo-600</div>
+                    <div class="p-3 bg-indigo-700">.bg-indigo-700</div>
+                    <div class="p-3 bg-indigo-800">.bg-indigo-800</div>
+                    <div class="p-3 bg-indigo-900">.bg-indigo-900</div>
+                    <div class="p-3 bg-indigo-a100">.bg-indigo-a100</div>
+                    <div class="p-3 bg-indigo-a200">.bg-indigo-a200</div>
+                    <div class="p-3 bg-indigo-a400">.bg-indigo-a400</div>
+                    <div class="p-3 bg-indigo-a700">.bg-indigo-a700</div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="p-3 bg-blue-500">
+                      <div class="mb-4">Blue</div>.bg-blue-500
+                    </div>
+                    <div class="p-3 bg-blue-50">.bg-blue-50</div>
+                    <div class="p-3 bg-blue-100">.bg-blue-100</div>
+                    <div class="p-3 bg-blue-200">.bg-blue-200</div>
+                    <div class="p-3 bg-blue-300">.bg-blue-300</div>
+                    <div class="p-3 bg-blue-400">.bg-blue-400</div>
+                    <div class="p-3 bg-blue-500">.bg-blue-500</div>
+                    <div class="p-3 bg-blue-600">.bg-blue-600</div>
+                    <div class="p-3 bg-blue-700">.bg-blue-700</div>
+                    <div class="p-3 bg-blue-800">.bg-blue-800</div>
+                    <div class="p-3 bg-blue-900">.bg-blue-900</div>
+                    <div class="p-3 bg-blue-a100">.bg-blue-a100</div>
+                    <div class="p-3 bg-blue-a200">.bg-blue-a200</div>
+                    <div class="p-3 bg-blue-a400">.bg-blue-a400</div>
+                    <div class="p-3 bg-blue-a700">.bg-blue-a700</div>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div class="col-sm-4">
+                    <div class="p-3 bg-light-blue-500">
+                      <div class="mb-4">Light-blue</div>.bg-light-blue-500
+                    </div>
+                    <div class="p-3 bg-light-blue-50">.bg-light-blue-50</div>
+                    <div class="p-3 bg-light-blue-100">.bg-light-blue-100</div>
+                    <div class="p-3 bg-light-blue-200">.bg-light-blue-200</div>
+                    <div class="p-3 bg-light-blue-300">.bg-light-blue-300</div>
+                    <div class="p-3 bg-light-blue-400">.bg-light-blue-400</div>
+                    <div class="p-3 bg-light-blue-500">.bg-light-blue-500</div>
+                    <div class="p-3 bg-light-blue-600">.bg-light-blue-600</div>
+                    <div class="p-3 bg-light-blue-700">.bg-light-blue-700</div>
+                    <div class="p-3 bg-light-blue-800">.bg-light-blue-800</div>
+                    <div class="p-3 bg-light-blue-900">.bg-light-blue-900</div>
+                    <div class="p-3 bg-light-blue-a100">.bg-light-blue-a100</div>
+                    <div class="p-3 bg-light-blue-a200">.bg-light-blue-a200</div>
+                    <div class="p-3 bg-light-blue-a400">.bg-light-blue-a400</div>
+                    <div class="p-3 bg-light-blue-a700">.bg-light-blue-a700</div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="p-3 bg-cyan-500">
+                      <div class="mb-4">Cyan</div>.bg-cyan-500
+                    </div>
+                    <div class="p-3 bg-cyan-50">.bg-cyan-50</div>
+                    <div class="p-3 bg-cyan-100">.bg-cyan-100</div>
+                    <div class="p-3 bg-cyan-200">.bg-cyan-200</div>
+                    <div class="p-3 bg-cyan-300">.bg-cyan-300</div>
+                    <div class="p-3 bg-cyan-400">.bg-cyan-400</div>
+                    <div class="p-3 bg-cyan-500">.bg-cyan-500</div>
+                    <div class="p-3 bg-cyan-600">.bg-cyan-600</div>
+                    <div class="p-3 bg-cyan-700">.bg-cyan-700</div>
+                    <div class="p-3 bg-cyan-800">.bg-cyan-800</div>
+                    <div class="p-3 bg-cyan-900">.bg-cyan-900</div>
+                    <div class="p-3 bg-cyan-a100">.bg-cyan-a100</div>
+                    <div class="p-3 bg-cyan-a200">.bg-cyan-a200</div>
+                    <div class="p-3 bg-cyan-a400">.bg-cyan-a400</div>
+                    <div class="p-3 bg-cyan-a700">.bg-cyan-a700</div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="p-3 bg-teal-500">
+                      <div class="mb-4">Teal</div>.bg-teal-500
+                    </div>
+                    <div class="p-3 bg-teal-50">.bg-teal-50</div>
+                    <div class="p-3 bg-teal-100">.bg-teal-100</div>
+                    <div class="p-3 bg-teal-200">.bg-teal-200</div>
+                    <div class="p-3 bg-teal-300">.bg-teal-300</div>
+                    <div class="p-3 bg-teal-400">.bg-teal-400</div>
+                    <div class="p-3 bg-teal-500">.bg-teal-500</div>
+                    <div class="p-3 bg-teal-600">.bg-teal-600</div>
+                    <div class="p-3 bg-teal-700">.bg-teal-700</div>
+                    <div class="p-3 bg-teal-800">.bg-teal-800</div>
+                    <div class="p-3 bg-teal-900">.bg-teal-900</div>
+                    <div class="p-3 bg-teal-a100">.bg-teal-a100</div>
+                    <div class="p-3 bg-teal-a200">.bg-teal-a200</div>
+                    <div class="p-3 bg-teal-a400">.bg-teal-a400</div>
+                    <div class="p-3 bg-teal-a700">.bg-teal-a700</div>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div class="col-sm-4">
+                    <div class="p-3 bg-green-500">
+                      <div class="mb-4">Green</div>.bg-green-500
+                    </div>
+                    <div class="p-3 bg-green-50">.bg-green-50</div>
+                    <div class="p-3 bg-green-100">.bg-green-100</div>
+                    <div class="p-3 bg-green-200">.bg-green-200</div>
+                    <div class="p-3 bg-green-300">.bg-green-300</div>
+                    <div class="p-3 bg-green-400">.bg-green-400</div>
+                    <div class="p-3 bg-green-500">.bg-green-500</div>
+                    <div class="p-3 bg-green-600">.bg-green-600</div>
+                    <div class="p-3 bg-green-700">.bg-green-700</div>
+                    <div class="p-3 bg-green-800">.bg-green-800</div>
+                    <div class="p-3 bg-green-900">.bg-green-900</div>
+                    <div class="p-3 bg-green-a100">.bg-green-a100</div>
+                    <div class="p-3 bg-green-a200">.bg-green-a200</div>
+                    <div class="p-3 bg-green-a400">.bg-green-a400</div>
+                    <div class="p-3 bg-green-a700">.bg-green-a700</div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="p-3 bg-light-green-500">
+                      <div class="mb-4">Light-green</div>.bg-light-green-500
+                    </div>
+                    <div class="p-3 bg-light-green-50">.bg-light-green-50</div>
+                    <div class="p-3 bg-light-green-100">.bg-light-green-100</div>
+                    <div class="p-3 bg-light-green-200">.bg-light-green-200</div>
+                    <div class="p-3 bg-light-green-300">.bg-light-green-300</div>
+                    <div class="p-3 bg-light-green-400">.bg-light-green-400</div>
+                    <div class="p-3 bg-light-green-500">.bg-light-green-500</div>
+                    <div class="p-3 bg-light-green-600">.bg-light-green-600</div>
+                    <div class="p-3 bg-light-green-700">.bg-light-green-700</div>
+                    <div class="p-3 bg-light-green-800">.bg-light-green-800</div>
+                    <div class="p-3 bg-light-green-900">.bg-light-green-900</div>
+                    <div class="p-3 bg-light-green-a100">.bg-light-green-a100</div>
+                    <div class="p-3 bg-light-green-a200">.bg-light-green-a200</div>
+                    <div class="p-3 bg-light-green-a400">.bg-light-green-a400</div>
+                    <div class="p-3 bg-light-green-a700">.bg-light-green-a700</div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="p-3 bg-lime-500">
+                      <div class="mb-4">Lime</div>.bg-lime-500
+                    </div>
+                    <div class="p-3 bg-lime-50">.bg-lime-50</div>
+                    <div class="p-3 bg-lime-100">.bg-lime-100</div>
+                    <div class="p-3 bg-lime-200">.bg-lime-200</div>
+                    <div class="p-3 bg-lime-300">.bg-lime-300</div>
+                    <div class="p-3 bg-lime-400">.bg-lime-400</div>
+                    <div class="p-3 bg-lime-500">.bg-lime-500</div>
+                    <div class="p-3 bg-lime-600">.bg-lime-600</div>
+                    <div class="p-3 bg-lime-700">.bg-lime-700</div>
+                    <div class="p-3 bg-lime-800">.bg-lime-800</div>
+                    <div class="p-3 bg-lime-900">.bg-lime-900</div>
+                    <div class="p-3 bg-lime-a100">.bg-lime-a100</div>
+                    <div class="p-3 bg-lime-a200">.bg-lime-a200</div>
+                    <div class="p-3 bg-lime-a400">.bg-lime-a400</div>
+                    <div class="p-3 bg-lime-a700">.bg-lime-a700</div>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div class="col-sm-4">
+                    <div class="p-3 bg-yellow-500">
+                      <div class="mb-4">Yellow</div>.bg-yellow-500
+                    </div>
+                    <div class="p-3 bg-yellow-50">.bg-yellow-50</div>
+                    <div class="p-3 bg-yellow-100">.bg-yellow-100</div>
+                    <div class="p-3 bg-yellow-200">.bg-yellow-200</div>
+                    <div class="p-3 bg-yellow-300">.bg-yellow-300</div>
+                    <div class="p-3 bg-yellow-400">.bg-yellow-400</div>
+                    <div class="p-3 bg-yellow-500">.bg-yellow-500</div>
+                    <div class="p-3 bg-yellow-600">.bg-yellow-600</div>
+                    <div class="p-3 bg-yellow-700">.bg-yellow-700</div>
+                    <div class="p-3 bg-yellow-800">.bg-yellow-800</div>
+                    <div class="p-3 bg-yellow-900">.bg-yellow-900</div>
+                    <div class="p-3 bg-yellow-a100">.bg-yellow-a100</div>
+                    <div class="p-3 bg-yellow-a200">.bg-yellow-a200</div>
+                    <div class="p-3 bg-yellow-a400">.bg-yellow-a400</div>
+                    <div class="p-3 bg-yellow-a700">.bg-yellow-a700</div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="p-3 bg-amber-500">
+                      <div class="mb-4">Amber</div>.bg-amber-500
+                    </div>
+                    <div class="p-3 bg-amber-50">.bg-amber-50</div>
+                    <div class="p-3 bg-amber-100">.bg-amber-100</div>
+                    <div class="p-3 bg-amber-200">.bg-amber-200</div>
+                    <div class="p-3 bg-amber-300">.bg-amber-300</div>
+                    <div class="p-3 bg-amber-400">.bg-amber-400</div>
+                    <div class="p-3 bg-amber-500">.bg-amber-500</div>
+                    <div class="p-3 bg-amber-600">.bg-amber-600</div>
+                    <div class="p-3 bg-amber-700">.bg-amber-700</div>
+                    <div class="p-3 bg-amber-800">.bg-amber-800</div>
+                    <div class="p-3 bg-amber-900">.bg-amber-900</div>
+                    <div class="p-3 bg-amber-a100">.bg-amber-a100</div>
+                    <div class="p-3 bg-amber-a200">.bg-amber-a200</div>
+                    <div class="p-3 bg-amber-a400">.bg-amber-a400</div>
+                    <div class="p-3 bg-amber-a700">.bg-amber-a700</div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="p-3 bg-orange-500">
+                      <div class="mb-4">Orange</div>.bg-orange-500
+                    </div>
+                    <div class="p-3 bg-orange-50">.bg-orange-50</div>
+                    <div class="p-3 bg-orange-100">.bg-orange-100</div>
+                    <div class="p-3 bg-orange-200">.bg-orange-200</div>
+                    <div class="p-3 bg-orange-300">.bg-orange-300</div>
+                    <div class="p-3 bg-orange-400">.bg-orange-400</div>
+                    <div class="p-3 bg-orange-500">.bg-orange-500</div>
+                    <div class="p-3 bg-orange-600">.bg-orange-600</div>
+                    <div class="p-3 bg-orange-700">.bg-orange-700</div>
+                    <div class="p-3 bg-orange-800">.bg-orange-800</div>
+                    <div class="p-3 bg-orange-900">.bg-orange-900</div>
+                    <div class="p-3 bg-orange-a100">.bg-orange-a100</div>
+                    <div class="p-3 bg-orange-a200">.bg-orange-a200</div>
+                    <div class="p-3 bg-orange-a400">.bg-orange-a400</div>
+                    <div class="p-3 bg-orange-a700">.bg-orange-a700</div>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div class="col-sm-4">
+                    <div class="p-3 bg-deep-orange-500">
+                      <div class="mb-4">Deep-orange</div>.bg-deep-orange-500
+                    </div>
+                    <div class="p-3 bg-deep-orange-50">.bg-deep-orange-50</div>
+                    <div class="p-3 bg-deep-orange-100">.bg-deep-orange-100</div>
+                    <div class="p-3 bg-deep-orange-200">.bg-deep-orange-200</div>
+                    <div class="p-3 bg-deep-orange-300">.bg-deep-orange-300</div>
+                    <div class="p-3 bg-deep-orange-400">.bg-deep-orange-400</div>
+                    <div class="p-3 bg-deep-orange-500">.bg-deep-orange-500</div>
+                    <div class="p-3 bg-deep-orange-600">.bg-deep-orange-600</div>
+                    <div class="p-3 bg-deep-orange-700">.bg-deep-orange-700</div>
+                    <div class="p-3 bg-deep-orange-800">.bg-deep-orange-800</div>
+                    <div class="p-3 bg-deep-orange-900">.bg-deep-orange-900</div>
+                    <div class="p-3 bg-deep-orange-a100">.bg-deep-orange-a100</div>
+                    <div class="p-3 bg-deep-orange-a200">.bg-deep-orange-a200</div>
+                    <div class="p-3 bg-deep-orange-a400">.bg-deep-orange-a400</div>
+                    <div class="p-3 bg-deep-orange-a700">.bg-deep-orange-a700</div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="p-3 bg-brown-500">
+                      <div class="mb-4">Brown</div>.bg-brown-500
+                    </div>
+                    <div class="p-3 bg-brown-50">.bg-brown-50</div>
+                    <div class="p-3 bg-brown-100">.bg-brown-100</div>
+                    <div class="p-3 bg-brown-200">.bg-brown-200</div>
+                    <div class="p-3 bg-brown-300">.bg-brown-300</div>
+                    <div class="p-3 bg-brown-400">.bg-brown-400</div>
+                    <div class="p-3 bg-brown-500">.bg-brown-500</div>
+                    <div class="p-3 bg-brown-600">.bg-brown-600</div>
+                    <div class="p-3 bg-brown-700">.bg-brown-700</div>
+                    <div class="p-3 bg-brown-800">.bg-brown-800</div>
+                    <div class="p-3 bg-brown-900">.bg-brown-900</div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="p-3 bg-blue-grey-500">
+                      <div class="mb-4">Blue-grey</div>.bg-blue-grey-500
+                    </div>
+                    <div class="p-3 bg-blue-grey-50">.bg-blue-grey-50</div>
+                    <div class="p-3 bg-blue-grey-100">.bg-blue-grey-100</div>
+                    <div class="p-3 bg-blue-grey-200">.bg-blue-grey-200</div>
+                    <div class="p-3 bg-blue-grey-300">.bg-blue-grey-300</div>
+                    <div class="p-3 bg-blue-grey-400">.bg-blue-grey-400</div>
+                    <div class="p-3 bg-blue-grey-500">.bg-blue-grey-500</div>
+                    <div class="p-3 bg-blue-grey-600">.bg-blue-grey-600</div>
+                    <div class="p-3 bg-blue-grey-700">.bg-blue-grey-700</div>
+                    <div class="p-3 bg-blue-grey-800">.bg-blue-grey-800</div>
+                    <div class="p-3 bg-blue-grey-900">.bg-blue-grey-900</div>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div class="col-sm-4">
+                    <div class="p-3 bg-grey-500">
+                      <div class="mb-4">Grey</div>.bg-grey-500
+                    </div>
+                    <div class="p-3 bg-grey-50">.bg-grey-50</div>
+                    <div class="p-3 bg-grey-100">.bg-grey-100</div>
+                    <div class="p-3 bg-grey-200">.bg-grey-200</div>
+                    <div class="p-3 bg-grey-300">.bg-grey-300</div>
+                    <div class="p-3 bg-grey-400">.bg-grey-400</div>
+                    <div class="p-3 bg-grey-500">.bg-grey-500</div>
+                    <div class="p-3 bg-grey-600">.bg-grey-600</div>
+                    <div class="p-3 bg-grey-700">.bg-grey-700</div>
+                    <div class="p-3 bg-grey-800">.bg-grey-800</div>
+                    <div class="p-3 bg-grey-900">.bg-grey-900</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Page footer-->
+        <footer class="footer-container">
+          <div class="d-flex justify-content-between fh"><a class="footer-icon" href="#"><em class="ion-chatboxes"></em><span>Messages</span></a><a class="footer-icon" href="#"><em class="ion-document-text"></em><span>Widgets</span></a><a class="footer-icon footer-icon-lg" href="#"><em class="ion-home"></em><span>Dashboard</span></a><a class="footer-icon" href="#"><em class="ion-map"></em><span>Maps</span></a><a class="footer-icon" href="#"><em class="ion-pie-graph"></em><span>Charts</span></a></div>
+        </footer>
+      </main>
+    </div>
+    <!-- Search template-->
+    <div class="modal modal-top fade modal-search" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="modal-search-form">
+              <form action="#">
+                <div class="input-group">
+                  <div class="input-group-btn">
+                    <button class="btn btn-flat" type="button" data-dismiss="modal"><em class="ion-arrow-left-c icon-lg text-muted"></em></button>
+                  </div>
+                  <input class="form-control header-input-search" type="text" placeholder="Search..">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Search template-->
+    <!-- Settings template-->
+    <div class="modal-settings modal modal-right fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="mt-0 modal-title"><span>Settings</span></h4>
+            <div class="float-right clickable" data-dismiss="modal"><em class="ion-close-round text-soft"></em></div>
+          </div>
+          <div class="modal-body">
+            <p>Dark sidebar</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-default">
+                  <input type="radio" checked name="setting-theme" value="theme-default"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-2">
+                  <input type="radio" name="setting-theme" value="theme-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-3">
+                  <input type="radio" name="setting-theme" value="theme-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-4">
+                  <input type="radio" name="setting-theme" value="theme-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-5">
+                  <input type="radio" name="setting-theme" value="theme-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-6">
+                  <input type="radio" name="setting-theme" value="theme-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>White sidebar</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-default">
+                  <input type="radio" name="setting-theme" value="theme-default-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-2">
+                  <input type="radio" name="setting-theme" value="theme-2-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-3">
+                  <input type="radio" name="setting-theme" value="theme-3-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-4">
+                  <input type="radio" name="setting-theme" value="theme-4-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-5">
+                  <input type="radio" name="setting-theme" value="theme-5-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-6">
+                  <input type="radio" name="setting-theme" value="theme-6-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>Sidebar Gradients</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-gradient-1">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-1"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-2">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-3">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-4">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-5">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-6">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>Header Gradients</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-gradient-1">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-1"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-2">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-3">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-4">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-5">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-6">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>Dark content</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-dark">
+                  <input type="radio" name="setting-theme" value="theme-dark"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <hr>
+            <p>
+              <label class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="sidebar-cover" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Sidebar Cover</span>
+              </label>
+            </p>
+            <p>
+              <label class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="sidebar-showtoolbar" type="checkbox" checked><span class="custom-control-indicator"></span><span class="custom-control-description">Sidebar profile</span>
+              </label>
+            </p>
+            <p>
+              <label class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="fixed-footer" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Fixed Footer</span>
+              </label>
+            </p>
+            <hr>
+            <button class="btn btn-secondary" type="button" data-toggle-fullscreen="">Toggle fullscreen</button>
+            <hr>
+            <p>Change language</p>
+            <!-- START Language list-->
+            <select class="language-select custom-select form-control">
+              <option value="en" selected="">English</option>
+              <option value="es">Spanish</option>
+              <option value="fr">French</option>
+            </select>
+            <!-- END Language list-->
+            <div class="mt-3" data-localize="translate.EXAMPLE">This is an example text using English as selected language.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Settings template-->
+    <!-- Modernizr-->
+    <script src="vendor/modernizr/modernizr.custom.js"></script>
+    <!-- PaceJS-->
+    <script src="vendor/pace/pace.min.js"></script>
+    <!-- jQuery-->
+    <script src="vendor/jquery/dist/jquery.js"></script>
+    <!-- Bootstrap-->
+    <script src="vendor/tether/dist/js/tether.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- Material Colors-->
+    <script src="vendor/material-colors/dist/colors.js"></script>
+    <!-- Screenfull-->
+    <script src="vendor/screenfull/dist/screenfull.js"></script>
+    <!-- jQuery Localize-->
+    <script src="vendor/jquery-localize-i18n/dist/jquery.localize.js"></script>
+    <!-- App script-->
+    <script src="js/app.js"></script>
+  </body>
+</html>

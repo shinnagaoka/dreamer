@@ -1,0 +1,68 @@
+/**
+ * Header menu links (animated hamburguer toggles)
+ */
+
+@import '../../shared/styles/common/variables';
+@import '../../shared/styles/common/mixins';
+
+// Transformed Navigation Link
+
+.header-container > nav > ul > li > .menu-link {
+    height: $header-hg;
+    padding-top: 25px;
+}
+
+// Transforma hamburger menu into a close icon
+.menu-link-close {
+    display: block;
+    position: relative;
+    span {
+        position: relative;
+        display: block;
+    }
+    // line size and styles
+    span,
+    span:before,
+    span:after {
+        width: 18px;
+        height: 0;
+        border-bottom: 2px solid;
+        will-change: transform;
+        transition: transform 0.4s;
+    }
+    span {
+        transition: border-color 0.4s;
+    }
+    // position lines
+    span:before,
+    span:after {
+        content: " ";
+        position: absolute;
+    }
+    span:before {
+        top: 6px;
+    }
+    span:after {
+        top: 12px;
+    }
+}
+// Close styles
+.active .menu-link-close {
+    span {
+        border-color: transparent;
+    }
+    span:before {
+        -webkit-transform: rotate(45deg) translate(1px,0px);
+        -moz-transform: rotate(45deg) translate(1px,0px);
+        -ms-transform: rotate(45deg) translate(1px,0px);
+        -o-transform: rotate(45deg) translate(1px,0px);
+        transform: rotate(45deg) translate(1px,0px);
+    }
+    span:after {
+        -webkit-transform: rotate(-45deg) translate(4px, -3px);
+        -moz-transform: rotate(-45deg) translate(4px, -3px);
+        -ms-transform: rotate(-45deg) translate(4px, -3px);
+        -o-transform: rotate(-45deg) translate(4px, -3px);
+        transform: rotate(-45deg) translate(4px, -3px);
+    }
+}

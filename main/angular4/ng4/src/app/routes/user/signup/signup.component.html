@@ -1,0 +1,39 @@
+<div class="page-container">
+    <div class="d-flex align-items-center align-items-center-ie bg-gradient-primary text-white">
+        <div class="fw">
+            <div class="container container-xs">
+                <form [formGroup]="regForm" (submit)="submitForm($event, regForm)" class="cardbox cardbox-flat text-white form-validate text-color" id="user-signup" action="" name="createForm" novalidate="">
+                    <div class="cardbox-heading">
+                        <div class="cardbox-title text-center">Create account</div>
+                    </div>
+                    <div class="cardbox-body pb-0">
+                        <div class="px-5">
+                            <div class="form-group">
+                                <input formControlName="email" [formControl]="regForm.controls['email']" class="form-control form-control-inverse" type="email" name="accountName" required="" placeholder="Email">
+                                <span class="text-danger" *ngIf="regForm.controls['email'].hasError('required') && (regForm.controls['email'].dirty || regForm.controls['email'].touched)">This field is required</span>
+                                <span class="text-danger" *ngIf="regForm.controls['email'].hasError('email') && (regForm.controls['email'].dirty || regForm.controls['email'].touched)">Please enter a valid email</span>
+                            </div>
+                            <div class="form-group">
+                                <input formControlName="password" [formControl]="regForm.controls['password']" class="form-control form-control-inverse" id="account-password" type="password" name="accountPassword" required="" placeholder="Password">
+                                <span class="text-danger" *ngIf="regForm.controls['password'].hasError('required') && (regForm.controls['password'].dirty || regForm.controls['password'].touched)">Input required</span>
+                            </div>
+                            <div class="form-group">
+                                <input formControlName="confirmPassword" [formControl]="regForm.controls['confirmPassword']" class="form-control form-control-inverse" type="password" name="accountPasswordCheck" required="" placeholder="Confirm password">
+                                <span class="text-danger" *ngIf="regForm.controls['confirmPassword'].errors?.equalTo">Input does Not match</span>
+                            </div>
+                            <div class="py-4 text-center">
+                                <button [disabled]="!regForm.valid || regForm.pristine" class="btn btn-lg btn-gradient btn-oval btn-info btn-block" type="submit">Create</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardbox-footer text-center text-sm"><span>By registering I accept the</span>
+                        <a>
+                            <u class="text-white">Terms of Service</u></a><span> and </span>
+                        <a>
+                            <u class="text-white">Privacy</u></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

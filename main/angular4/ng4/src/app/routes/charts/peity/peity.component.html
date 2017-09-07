@@ -1,0 +1,98 @@
+<div class="container container-md">
+    <div class="row">
+        <!-- Pie Chart-->
+        <div class="col-lg-6">
+            <div class="cardbox">
+                <div class="cardbox-heading">
+                    <div class="cardbox-title">Pie Charts</div><small>A "/" delimiter is assumed to mean "three out of five", otherwise all of the values are included in the chart and the total is the sum of all values.</small>
+                </div>
+                <div class="cardbox-body">
+                    <div class="d-flex justify-content-between">
+                        <span peity [type]="'pie'" [data]="pieData1" [options]="pieOptions"></span>
+                        <span peity [type]="'pie'" [data]="pieData2" [options]="pieOptions"></span>
+                        <span peity [type]="'pie'" [data]="pieData3" [options]="pieOptions"></span>
+                        <span peity [type]="'pie'" [data]="pieData4" [options]="pieOptions"></span>
+                    </div>
+                </div>
+                <div class="cardbox-body">
+                    <pre><code>&lt;span peity [type]=&quot;'pie'&quot; [data]=&quot;pieData1&quot; [options]=&quot;pieOptions&quot;&gt;&lt;/span&gt;
+&lt;span peity [type]=&quot;'pie'&quot; [data]=&quot;pieData2&quot; [options]=&quot;pieOptions&quot;&gt;&lt;/span&gt;
+&lt;span peity [type]=&quot;'pie'&quot; [data]=&quot;pieData3&quot; [options]=&quot;pieOptions&quot;&gt;&lt;/span&gt;
+&lt;span peity [type]=&quot;'pie'&quot; [data]=&quot;pieData4&quot; [options]=&quot;pieOptions&quot;&gt;&lt;/span&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+        <!-- Donut Charts-->
+        <div class="col-lg-6">
+            <div class="cardbox">
+                <div class="cardbox-heading">
+                    <div class="cardbox-title">Donut Charts</div><small>Donut charts are the same as pie charts and take the same options with an added innerRadius option which defaults to half the radius.</small>
+                </div>
+                <div class="cardbox-body">
+                    <div class="d-flex justify-content-between">
+                        <span peity [type]="'donut'" [data]="donutData1" [options]="donutOptions"></span>
+                        <span peity [type]="'donut'" [data]="donutData2" [options]="donutOptions"></span>
+                        <span peity [type]="'donut'" [data]="donutData3" [options]="donutOptions"></span>
+                        <span peity [type]="'donut'" [data]="donutData4" [options]="donutOptions"></span>
+                    </div>
+                </div>
+                <div class="cardbox-body">
+                    <pre><code>&lt;span peity [type]=&quot;'donut'&quot; [data]=&quot;donutData1&quot; [options]=&quot;donutOptions&quot;&gt;&lt;/span&gt;
+&lt;span peity [type]=&quot;'donut'&quot; [data]=&quot;donutData2&quot; [options]=&quot;donutOptions&quot;&gt;&lt;/span&gt;
+&lt;span peity [type]=&quot;'donut'&quot; [data]=&quot;donutData3&quot; [options]=&quot;donutOptions&quot;&gt;&lt;/span&gt;
+&lt;span peity [type]=&quot;'donut'&quot; [data]=&quot;donutData4&quot; [options]=&quot;donutOptions&quot;&gt;&lt;/span&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Line Chart-->
+        <div class="col-lg-6">
+            <div class="cardbox">
+                <div class="cardbox-heading">
+                    <div class="cardbox-title">Line Charts</div><small>Line charts work on a comma-separated list. Line charts can take as options: delimiter, fill, height, max, min, stroke, strokeWidth and width.</small>
+                </div>
+                <div class="cardbox-body">
+                    <div class="d-flex justify-content-between">
+                        <span peity [type]="'line'" [data]="lineData1" [options]="lineOptions"></span>
+                        <span peity [type]="'line'" [data]="lineData2" [options]="lineOptions"></span>
+                        <span peity [type]="'line'" [data]="lineData3" [options]="lineOptions"></span>
+                    </div>
+                </div>
+                <div class="cardbox-body">
+                    <pre><code>&lt;span peity [type]&quot;'line'&quot; [data]=&quot;lineData1&quot; [options]=&quot;lineOptions&quot;&gt;&lt;/span&gt;
+&lt;span peity [type]&quot;'line'&quot; [data]=&quot;lineData2&quot; [options]=&quot;lineOptions&quot;&gt;&lt;/span&gt;
+&lt;span peity [type]&quot;'line'&quot; [data]=&quot;lineData3&quot; [options]=&quot;lineOptions&quot;&gt;&lt;/span&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+        <!-- Bar Charts-->
+        <div class="col-lg-6">
+            <div class="cardbox">
+                <div class="cardbox-heading">
+                    <div class="cardbox-title">Bar Charts</div><small>Bar charts work in the same way as line charts and take the following options: delimiter, fill, height, max, min, padding and width.</small>
+                </div>
+                <div class="cardbox-body">
+                    <div class="d-flex justify-content-between">
+                        <span peity [type]="'bar'" [data]="barData1" [options]="barOptions"></span>
+                        <span peity [type]="'bar'" [data]="barData2" [options]="barOptions"></span>
+                        <span peity [type]="'bar'" [data]="barData3" [options]="barOptions"></span>
+                    </div>
+                </div>
+                <div class="cardbox-body">
+                    <pre><code>&lt;span peity [type]&quot;'bar'&quot; [data]=&quot;barData1&quot; [options]=&quot;barOptions&quot;&gt;&lt;/span&gt;
+&lt;span peity [type]&quot;'bar'&quot; [data]=&quot;barData2&quot; [options]=&quot;barOptions&quot;&gt;&lt;/span&gt;
+&lt;span peity [type]&quot;'bar'&quot; [data]=&quot;barData3&quot; [options]=&quot;barOptions&quot;&gt;&lt;/span&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cardbox mb-0">
+        <div class="cardbox-heading">
+            <div class="cardbox-title">Real time</div><small>Charts can be updated by changing the the jQuery selection's text content and calling change() on it. The chart will be redrawn with the same options that were originally passed to it.</small>
+            <div class="cardbox-body">
+                <span peity [type]="'line'" [data]="realTimeData" [options]="realTimeOptions"></span>
+            </div>
+        </div>
+    </div>
+</div>

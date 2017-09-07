@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin Template">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>Dasha - Bootstrap Admin Template</title>
+    <!-- Vendor styles-->
+    <!-- Animate.CSS-->
+    <link rel="stylesheet" href="vendor/animate.css/animate.css">
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Ionicons-->
+    <link rel="stylesheet" href="vendor/ionicons/css/ionicons.css">
+    <!-- Material Colors-->
+    <link rel="stylesheet" href="vendor/material-colors/dist/colors.css">
+    <!-- Application styles-->
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body class="theme-default">
+    <div class="layout-container">
+      <!-- top navbar-->
+      <header class="header-container">
+        <nav>
+          <ul class="hidden-lg-up">
+            <li><a class="sidebar-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
+          </ul>
+          <ul class="hidden-xs-down">
+            <li><a class="covermode-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
+          </ul>
+          <h2 class="header-title">Utilities</h2>
+          <ul class="float-right">
+            <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/01.jpg" alt="header-user-image"><sup class="badge bg-danger">3</sup></a>
+              <div class="dropdown-menu dropdown-menu-right dropdown-scale">
+                <h6 class="dropdown-header">User menu</h6><a class="dropdown-item" href="#"><span class="float-right badge badge-primary">4</span><em class="ion-ios-email-outline icon-lg text-primary"></em>Messages</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>Settings</a>
+                <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="user.login.html"><em class="ion-log-out icon-lg text-primary"></em>Logoff</a>
+              </div>
+            </li>
+            <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><em class="ion-ios-keypad"></em></a>
+              <div class="dropdown-menu dropdown-menu-right dropdown-scale dropdown-card">
+                <div class="p-3">
+                  <div class="d-flex mb-3">
+                    <div class="wd-xs mr-3">
+                      <div class="card bg-gradient-primary border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-stats-bars icon-2x"></em></div><small class="text-bold">Stats</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="wd-xs">
+                      <div class="card bg-gradient-info border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-map icon-2x"></em></div><small class="text-bold">Places</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex">
+                    <div class="wd-xs mr-3">
+                      <div class="card bg-gradient-warning border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-clock icon-2x"></em></div><small class="text-bold">Events</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="wd-xs">
+                      <div class="card bg-gradient-danger border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-plane icon-2x"></em></div><small class="text-bold">Flights</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li><a id="header-search" href="#"><em class="ion-ios-search-strong"></em></a></li>
+            <li><a id="header-settings" href="#"><em class="ion-more"></em></a></li>
+          </ul>
+        </nav>
+      </header>
+      <!-- sidebar-->
+      <aside class="sidebar-container">
+        <div class="brand-header">
+          <div class="float-left pt-4 text-muted sidebar-close"><em class="ion-arrow-left-c icon-lg"></em></div><a class="brand-header-logo" href="#">
+            <!-- Logo Imageimg(src="img/logo.png", alt="logo")
+            --><span class="brand-header-logo-text">Dasha</span></a>
+        </div>
+        <div class="sidebar-content">
+          <div class="sidebar-toolbar">
+            <div class="sidebar-toolbar-background"></div>
+            <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/01.jpg" alt="Profile"></a>
+              <div class="mt-3">
+                <div class="lead">Jane Doe</div>
+                <div class="text-thin">California, CA</div>
+              </div>
+            </div>
+          </div>
+          <nav class="sidebar-nav">
+            <ul>
+              <li>
+                <div class="sidebar-nav-heading">MENU</div>
+              </li>
+              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>Dashboard</span></a></li>
+              <li><a href="widgets.html"><span class="float-right nav-label"><span class="badge-rounded badge-primary">!</span></span><span class="nav-icon"><em class="ion-ios-box-outline"></em></span><span>Widgets</span></a></li>
+              <li>
+                <div class="sidebar-nav-heading">COMPONENTS</div>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>Elements</span></a>
+                <ul class="sidebar-subnav" id="elements">
+                  <li><a href="buttons.html"><span class="float-right nav-label"></span><span>Buttons</span></a></li>
+                  <li><a href="bootstrapui.html"><span class="float-right nav-label"></span><span>Bootstrap</span></a></li>
+                  <li><a href="modals.html"><span class="float-right nav-label"></span><span>Modals</span></a></li>
+                  <li><a href="toaster.html"><span class="float-right nav-label"></span><span>Toaster</span></a></li>
+                  <li><a href="sweetalert.html"><span class="float-right nav-label"></span><span>Sweet Alert</span></a></li>
+                  <li><a href="spinners.html"><span class="float-right nav-label"></span><span>Spinners</span></a></li>
+                  <li><a href="nestable.html"><span class="float-right nav-label"></span><span>Nestable</span></a></li>
+                  <li><a href="grid.html"><span class="float-right nav-label"></span><span>Grid</span></a></li>
+                  <li><a href="grid-masonry.html"><span class="float-right nav-label"></span><span>Grid Masonry</span></a></li>
+                  <li><a href="typography.html"><span class="float-right nav-label"></span><span>Typography</span></a></li>
+                  <li><a href="icons.html"><span class="float-right nav-label"></span><span>Icons</span></a></li>
+                  <li><a href="utilities.html"><span class="float-right nav-label"></span><span>Utilities</span></a></li>
+                  <li><a href="colors.html"><span class="float-right nav-label"></span><span>Colors</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>Forms</span></a>
+                <ul class="sidebar-subnav">
+                  <li><a href="forms.standard.html"><span class="float-right nav-label"></span><span>Standard</span></a></li>
+                  <li><a href="forms.advanced.html"><span class="float-right nav-label"></span><span>Advanced</span></a></li>
+                  <li><a href="validation.html"><span class="float-right nav-label"></span><span>Validation</span></a></li>
+                  <li><a href="dropzone.html"><span class="float-right nav-label"></span><span>Dropzone</span></a></li>
+                  <li><a href="summernote.html"><span class="float-right nav-label"></span><span>Summernote</span></a></li>
+                  <li><a href="wizard.html"><span class="float-right nav-label"></span><span>Wizard Steps</span></a></li>
+                  <li><a href="typeahead.html"><span class="float-right nav-label"></span><span>Typeahead</span></a></li>
+                  <li><a href="xeditable.html"><span class="float-right nav-label"></span><span>xEditable</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-list-outline"></em></span><span>Tables</span></a>
+                <ul class="sidebar-subnav" id="tables">
+                  <li><a href="tables.classic.html"><span class="float-right nav-label"></span><span>Classic</span></a></li>
+                  <li><a href="tables.responsive.html"><span class="float-right nav-label"></span><span>Responsive</span></a></li>
+                  <li><a href="datatable.html"><span class="float-right nav-label"></span><span>Datatable</span></a></li>
+                  <li><a href="footable.html"><span class="float-right nav-label"></span><span>FooTable</span></a></li>
+                  <li><a href="bootgrid.html"><span class="float-right nav-label"></span><span>Bootgrid</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-pulse"></em></span><span>Charts</span></a>
+                <ul class="sidebar-subnav">
+                  <li><a href="flot.html"><span class="float-right nav-label"></span><span>Flot</span></a></li>
+                  <li><a href="peity.html"><span class="float-right nav-label"></span><span>Peity</span></a></li>
+                  <li><a href="rickshaw.html"><span class="float-right nav-label"></span><span>Rickshaw</span></a></li>
+                  <li><a href="radial.html"><span class="float-right nav-label"></span><span>Radial</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-location-outline"></em></span><span>Maps</span></a>
+                <ul class="sidebar-subnav" id="maps">
+                  <li><a href="google-map.html"><span class="float-right nav-label"></span><span>Google Maps</span></a></li>
+                  <li><a href="datamaps.html"><span class="float-right nav-label"></span><span>Datamaps</span></a></li>
+                  <li><a href="vector-map.html"><span class="float-right nav-label"></span><span>Vector Maps</span></a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="sidebar-nav-heading">MORE</div>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-person-outline"></em></span><span>User</span></a>
+                <ul class="sidebar-subnav" id="user">
+                  <li><a href="signin.html"><span class="float-right nav-label"></span><span>Signin</span></a></li>
+                  <li><a href="signup.html"><span class="float-right nav-label"></span><span>Signup</span></a></li>
+                  <li><a href="recover.html"><span class="float-right nav-label"></span><span>Recover</span></a></li>
+                  <li><a href="lock.html"><span class="float-right nav-label"></span><span>Lock</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-keypad-outline"></em></span><span>Pages</span></a>
+                <ul class="sidebar-subnav" id="pages">
+                  <li><a href="forum.html"><span class="float-right nav-label"></span><span>Forum</span></a></li>
+                  <li><a href="calendar.html"><span class="float-right nav-label"></span><span>Calendar</span></a></li>
+                  <li><a href="timeline.html"><span class="float-right nav-label"></span><span>Timeline</span></a></li>
+                  <li><a href="invoice.html"><span class="float-right nav-label"></span><span>Invoice</span></a></li>
+                  <li><a href="fullmap.html"><span class="float-right nav-label"></span><span>Fullmap</span></a></li>
+                  <li><a href="pricing.html"><span class="float-right nav-label"></span><span>Pricing</span></a></li>
+                  <li><a href="people.html"><span class="float-right nav-label"></span><span>People</span></a></li>
+                  <li><a href="contact.html"><span class="float-right nav-label"></span><span>Contact</span></a></li>
+                  <li><a href="wall.html"><span class="float-right nav-label"></span><span>Wall</span></a></li>
+                  <li><a href="mailbox.html"><span class="float-right nav-label"></span><span>Mailbox</span></a></li>
+                  <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span>Errors</span></a>
+                    <ul class="sidebar-subnav" id="errors">
+                      <li><a href="error404.html"><span class="float-right nav-label"></span><span>404</span></a></li>
+                      <li><a href="error403.html"><span class="float-right nav-label"></span><span>403</span></a></li>
+                      <li><a href="error500.html"><span class="float-right nav-label"></span><span>500</span></a></li>
+                      <li><a href="error503.html"><span class="float-right nav-label"></span><span>503</span></a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+      <div class="sidebar-layout-obfuscator"></div>
+      <!-- Main section-->
+      <main class="main-container">
+        <!-- Page content-->
+        <section class="section-container">
+          <div class="container-fluid">
+            <h5>Utility classes</h5>
+            <p>Helpers classes to help build components without adding extra css. Default values can be changed via CSS or LESS @variables.</p>
+            <div class="row">
+              <div class="col-xl-6 col-xs-12">
+                <div class="cardbox">
+                  <div class="cardbox-heading">Sizes</div>
+                  <table class="table">
+                    <tr>
+                      <td><code>.fh / .fw</code></td>
+                      <td>Height or Width at 100%</td>
+                    </tr>
+                    <tr>
+                      <td><code>.fh-sm / .fw-sm</code></td>
+                      <td>Height or Width at 100% above 768px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.fh-md / .fw-md</code></td>
+                      <td>Height or Width at 100% above 992px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.fh-lg / .fw-lg</code></td>
+                      <td>Height or Width at 100% above 1200px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.thumb8</code></td>
+                      <td>Set width and height of 8px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.thumb16</code></td>
+                      <td>Set width and height of 16px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.thumb24</code></td>
+                      <td>Set width and height of 24px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.thumb32</code></td>
+                      <td>Set width and height of 32px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.thumb40</code></td>
+                      <td>Set width and height of 40px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.thumb48</code></td>
+                      <td>Set width and height of 48px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.thumb64</code></td>
+                      <td>Set width and height of 64px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.thumb80</code></td>
+                      <td>Set width and height of 80px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.thumb96</code></td>
+                      <td>Set width and height of 96px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.thumb128</code></td>
+                      <td>Circle with radius 128px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.initial8</code></td>
+                      <td>Circle with radius 8px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.initial16</code></td>
+                      <td>Circle with radius 16px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.initial24</code></td>
+                      <td>Circle with radius 24px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.initial32</code></td>
+                      <td>Circle with radius 32px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.initial40</code></td>
+                      <td>Circle with radius 40px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.initial48</code></td>
+                      <td>Circle with radius 48px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.initial64</code></td>
+                      <td>Circle with radius 64px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.initial80</code></td>
+                      <td>Circle with radius 80px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.initial96</code></td>
+                      <td>Circle with radius 96px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.initial128</code></td>
+                      <td>Circle with radius 128px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.wd-xxs</code></td>
+                      <td>Set width of 60px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.wd-xs</code></td>
+                      <td>Set width of 90px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.wd-sm</code></td>
+                      <td>Set width of 150px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.wd-sd</code></td>
+                      <td>Set width of 200px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.wd-md</code></td>
+                      <td>Set width of 240px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.wd-lg</code></td>
+                      <td>Set width of 280px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.wd-xl</code></td>
+                      <td>Set width of 320px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.wd-xxl</code></td>
+                      <td>Set width of 360px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.wd-wide</code></td>
+                      <td>Set width of 100%</td>
+                    </tr>
+                    <tr>
+                      <td><code>.wd-auto</code></td>
+                      <td>Set width auto</td>
+                    </tr>
+                    <tr>
+                      <td><code>.wd-zero</code></td>
+                      <td>Set width of 0px</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="cardbox">
+                  <div class="cardbox-heading">Miscellaneous</div>
+                  <table class="table">
+                    <tr>
+                      <td><code>.table-fixed</code></td>
+                      <td>Make table layout fixed</td>
+                    </tr>
+                    <tr>
+                      <td><code>.oh</code></td>
+                      <td>Overflow hidden (clear floats)</td>
+                    </tr>
+                    <tr>
+                      <td><code>.oa</code></td>
+                      <td>Overflow auto (adds scrollbars)</td>
+                    </tr>
+                    <tr>
+                      <td><code>.shadow-clear</code></td>
+                      <td>Remove box shadow</td>
+                    </tr>
+                    <tr>
+                      <td><code>.radius-clear</code></td>
+                      <td>Remove border radius</td>
+                    </tr>
+                    <tr>
+                      <td><code>.link-unstyled</code></td>
+                      <td>Remove underline and outline styles</td>
+                    </tr>
+                    <tr>
+                      <td><code>.reader-block</code></td>
+                      <td>Makes paragraphs more readable</td>
+                    </tr>
+                    <tr>
+                      <td><code>.image-list</code></td>
+                      <td>A list of images links overlap to the previous</td>
+                    </tr>
+                    <tr>
+                      <td><code>textarea.no-resize</code></td>
+                      <td>Remove resize option from Texareas</td>
+                    </tr>
+                    <tr>
+                      <td><code>.inline</code></td>
+                      <td>Forces display: inline</td>
+                    </tr>
+                    <tr>
+                      <td><code>.block</code></td>
+                      <td>Forces display: block</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="col-xl-6 col-xs-12">
+                <div class="cardbox">
+                  <div class="cardbox-heading">Text &amp; Font icons</div>
+                  <table class="table">
+                    <tr>
+                      <td><code>.text-white</code></td>
+                      <td>Make text color white</td>
+                    </tr>
+                    <tr>
+                      <td><code>.text-alpha</code></td>
+                      <td>Make text color white 50% opacity</td>
+                    </tr>
+                    <tr>
+                      <td><code>.text-alpha-inverse</code></td>
+                      <td>Make text color dark 50% opacity</td>
+                    </tr>
+                    <tr>
+                      <td><code>.text-gray-darker</code></td>
+                      <td>Make text color @gray-darker</td>
+                    </tr>
+                    <tr>
+                      <td><code>.text-gray-dark</code></td>
+                      <td>Make text color @gray-dark</td>
+                    </tr>
+                    <tr>
+                      <td><code>.text-gray</code></td>
+                      <td>Make text color @gray</td>
+                    </tr>
+                    <tr>
+                      <td><code>.text-gray-light</code></td>
+                      <td>Make text color @gray-light</td>
+                    </tr>
+                    <tr>
+                      <td><code>.text-gray-lighter</code></td>
+                      <td>Make text color @gray-lighter</td>
+                    </tr>
+                    <tr>
+                      <td><code>.text-inherit</code></td>
+                      <td>Make text color inherit</td>
+                    </tr>
+                    <tr>
+                      <td><code>.text-soft</code></td>
+                      <td>Make text color black 26% opacity</td>
+                    </tr>
+                    <tr>
+                      <td><code>.text-light</code></td>
+                      <td>Make text color white 74% opacity</td>
+                    </tr>
+                    <tr>
+                      <td><code>.text-sm</code></td>
+                      <td>Make text 85% smaller</td>
+                    </tr>
+                    <tr>
+                      <td><code>.text-md</code></td>
+                      <td>Make text 90% bigger</td>
+                    </tr>
+                    <tr>
+                      <td><code>.text-lg</code></td>
+                      <td>Make text 3x bigger</td>
+                    </tr>
+                    <tr>
+                      <td><code>.text-nowrap</code></td>
+                      <td>Make text no wrap</td>
+                    </tr>
+                    <tr>
+                      <td><code>.text-thin</code></td>
+                      <td>Make text font weight 100</td>
+                    </tr>
+                    <tr>
+                      <td><code>.text-bold</code></td>
+                      <td>Make text font weight bold</td>
+                    </tr>
+                    <tr>
+                      <td><code>.text-normal</code></td>
+                      <td>Make text font weight normal</td>
+                    </tr>
+                    <tr>
+                      <td><code>.icon-18</code></td>
+                      <td>Make icon at font size 18px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.icon-24</code></td>
+                      <td>Make icon at font size 24px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.icon-36</code></td>
+                      <td>Make icon at font size 36px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.icon-48</code></td>
+                      <td>Make icon at font size 48px</td>
+                    </tr>
+                    <tr>
+                      <td><code>.icon-2x</code></td>
+                      <td>Make icon 2x bigger</td>
+                    </tr>
+                    <tr>
+                      <td><code>.icon-3x</code></td>
+                      <td>Make icon 3x bigger</td>
+                    </tr>
+                    <tr>
+                      <td><code>.icon-4x</code></td>
+                      <td>Make icon 4x bigger</td>
+                    </tr>
+                    <tr>
+                      <td><code>.icon-5x</code></td>
+                      <td>Make icon 5x bigger</td>
+                    </tr>
+                    <tr>
+                      <td><code>.icon-lg</code></td>
+                      <td>Make icon 33% bigger</td>
+                    </tr>
+                    <tr>
+                      <td><code>.icon-fw</code></td>
+                      <td>Make icon fixed width</td>
+                    </tr>
+                    <tr>
+                      <td><code>.icon-dark</code></td>
+                      <td>Make icon dark for light backgrounds</td>
+                    </tr>
+                    <tr>
+                      <td><code>.icon-light</code></td>
+                      <td>Make icon light for dark backgrounds</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="cardbox">
+                  <div class="cardbox-heading"><small class="float-right"><a href="colors.html">More Colors</a></small>Backgrounds</div>
+                  <table class="table">
+                    <tr>
+                      <td><code>.bg-white</code></td>
+                      <td>Make background color white</td>
+                    </tr>
+                    <tr>
+                      <td><code>.bg-primary</code></td>
+                      <td>Make background color @primary</td>
+                    </tr>
+                    <tr>
+                      <td><code>.bg-success</code></td>
+                      <td>Make background color @success</td>
+                    </tr>
+                    <tr>
+                      <td><code>.bg-info</code></td>
+                      <td>Make background color @info</td>
+                    </tr>
+                    <tr>
+                      <td><code>.bg-warning</code></td>
+                      <td>Make background color @warning</td>
+                    </tr>
+                    <tr>
+                      <td><code>.bg-danger</code></td>
+                      <td>Make background color @danger</td>
+                    </tr>
+                    <tr>
+                      <td><code>.bg-gray-darker</code></td>
+                      <td>Make background color @gray-darker</td>
+                    </tr>
+                    <tr>
+                      <td><code>.bg-gray-dark</code></td>
+                      <td>Make background color @gray-dark</td>
+                    </tr>
+                    <tr>
+                      <td><code>.bg-gray</code></td>
+                      <td>Make background color @gray</td>
+                    </tr>
+                    <tr>
+                      <td><code>.bg-gray-light</code></td>
+                      <td>Make background color @gray-light</td>
+                    </tr>
+                    <tr>
+                      <td><code>.bg-gray-lighter</code></td>
+                      <td>Make background color @gray-lighter</td>
+                    </tr>
+                    <tr>
+                      <td><code>.bg-transparent</code></td>
+                      <td>Make background color transparent</td>
+                    </tr>
+                    <tr>
+                      <td><code>.bg-fade</code></td>
+                      <td>Make background dark faded from bottom</td>
+                    </tr>
+                    <tr>
+                      <td><code>.bg-cover</code></td>
+                      <td>Make background image cover</td>
+                    </tr>
+                    <tr>
+                      <td><code>.bg-full</code></td>
+                      <td>Make background image cover and no-repeat</td>
+                    </tr>
+                    <tr>
+                      <td><code>.bg-center</code></td>
+                      <td>Make background image cover and centered</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Page footer-->
+        <footer class="footer-container">
+          <div class="d-flex justify-content-between fh"><a class="footer-icon" href="#"><em class="ion-chatboxes"></em><span>Messages</span></a><a class="footer-icon" href="#"><em class="ion-document-text"></em><span>Widgets</span></a><a class="footer-icon footer-icon-lg" href="#"><em class="ion-home"></em><span>Dashboard</span></a><a class="footer-icon" href="#"><em class="ion-map"></em><span>Maps</span></a><a class="footer-icon" href="#"><em class="ion-pie-graph"></em><span>Charts</span></a></div>
+        </footer>
+      </main>
+    </div>
+    <!-- Search template-->
+    <div class="modal modal-top fade modal-search" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="modal-search-form">
+              <form action="#">
+                <div class="input-group">
+                  <div class="input-group-btn">
+                    <button class="btn btn-flat" type="button" data-dismiss="modal"><em class="ion-arrow-left-c icon-lg text-muted"></em></button>
+                  </div>
+                  <input class="form-control header-input-search" type="text" placeholder="Search..">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Search template-->
+    <!-- Settings template-->
+    <div class="modal-settings modal modal-right fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="mt-0 modal-title"><span>Settings</span></h4>
+            <div class="float-right clickable" data-dismiss="modal"><em class="ion-close-round text-soft"></em></div>
+          </div>
+          <div class="modal-body">
+            <p>Dark sidebar</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-default">
+                  <input type="radio" checked name="setting-theme" value="theme-default"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-2">
+                  <input type="radio" name="setting-theme" value="theme-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-3">
+                  <input type="radio" name="setting-theme" value="theme-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-4">
+                  <input type="radio" name="setting-theme" value="theme-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-5">
+                  <input type="radio" name="setting-theme" value="theme-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-6">
+                  <input type="radio" name="setting-theme" value="theme-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>White sidebar</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-default">
+                  <input type="radio" name="setting-theme" value="theme-default-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-2">
+                  <input type="radio" name="setting-theme" value="theme-2-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-3">
+                  <input type="radio" name="setting-theme" value="theme-3-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-4">
+                  <input type="radio" name="setting-theme" value="theme-4-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-5">
+                  <input type="radio" name="setting-theme" value="theme-5-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-6">
+                  <input type="radio" name="setting-theme" value="theme-6-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>Sidebar Gradients</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-gradient-1">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-1"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-2">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-3">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-4">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-5">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-6">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>Header Gradients</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-gradient-1">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-1"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-2">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-3">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-4">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-5">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-6">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>Dark content</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-dark">
+                  <input type="radio" name="setting-theme" value="theme-dark"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <hr>
+            <p>
+              <label class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="sidebar-cover" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Sidebar Cover</span>
+              </label>
+            </p>
+            <p>
+              <label class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="sidebar-showtoolbar" type="checkbox" checked><span class="custom-control-indicator"></span><span class="custom-control-description">Sidebar profile</span>
+              </label>
+            </p>
+            <p>
+              <label class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="fixed-footer" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Fixed Footer</span>
+              </label>
+            </p>
+            <hr>
+            <button class="btn btn-secondary" type="button" data-toggle-fullscreen="">Toggle fullscreen</button>
+            <hr>
+            <p>Change language</p>
+            <!-- START Language list-->
+            <select class="language-select custom-select form-control">
+              <option value="en" selected="">English</option>
+              <option value="es">Spanish</option>
+              <option value="fr">French</option>
+            </select>
+            <!-- END Language list-->
+            <div class="mt-3" data-localize="translate.EXAMPLE">This is an example text using English as selected language.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Settings template-->
+    <!-- Modernizr-->
+    <script src="vendor/modernizr/modernizr.custom.js"></script>
+    <!-- PaceJS-->
+    <script src="vendor/pace/pace.min.js"></script>
+    <!-- jQuery-->
+    <script src="vendor/jquery/dist/jquery.js"></script>
+    <!-- Bootstrap-->
+    <script src="vendor/tether/dist/js/tether.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- Material Colors-->
+    <script src="vendor/material-colors/dist/colors.js"></script>
+    <!-- Screenfull-->
+    <script src="vendor/screenfull/dist/screenfull.js"></script>
+    <!-- jQuery Localize-->
+    <script src="vendor/jquery-localize-i18n/dist/jquery.localize.js"></script>
+    <!-- App script-->
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,126 @@
+<div class="container-fluid">
+    <div class="cardbox">
+        <div class="cardbox-heading">
+            <div class="cardbox-title">ng2Select</div>
+            <small>Angular2 based replacement for select boxes </small>
+        </div>
+        <div class="cardbox-body">
+            <label class="mt">Single Select</label>
+            <ng-select [allowClear]="true" [items]="items" [disabled]="disabled" (data)="refreshValue($event)" (selected)="selected($event)" (removed)="removed($event)" (typed)="typed($event)" placeholder="No city selected">
+            </ng-select>
+            <label class="mt-2">Multiple</label>
+            <ng-select (data)="value" [multiple]="true" [items]="items" [disabled]="disabled" (data)="refreshValue($event)" (selected)="selected($event)" (removed)="removed($event)" placeholder="No city selected"></ng-select>
+        </div>
+    </div>
+    <div class="cardbox">
+        <div class="cardbox-heading">
+            <div class="cardbox-title">Datepicker</div>
+            <small>Datepicker is a highly configurable component that adds datepicker functionality to your pages. You can customize the date format and language, restrict the selectable date ranges.</small>
+        </div>
+        <div class="cardbox-body">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="ui-datepicker-responsive">
+                        <datepicker [(ngModel)]="dt" class="ui-datepicker dp-head-success dp-table-success"></datepicker>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="ui-datepicker-responsive">
+                        <datepicker [(ngModel)]="dt" class="ui-datepicker dp-head-primary dp-table-primary"></datepicker>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="ui-datepicker-responsive">
+                        <datepicker [(ngModel)]="dt" class="ui-datepicker dp-head-warning dp-table-warning"></datepicker>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cardbox-footer">
+            <strong>Selected: {{dt}}</strong>
+        </div>
+    </div>
+    <div class="cardbox">
+        <div class="cardbox-heading">
+            <div class="cardbox-title">Time Picker</div>
+            <small>A lightweight & configurable timepicker directive</small>
+        </div>
+        <div class="cardbox-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <timepicker [(ngModel)]="mytime" (change)="changed()" [hourStep]="hstep" [minuteStep]="mstep" [showMeridian]="ismeridian" [readonlyInput]="!isEnabled"></timepicker>
+                    <pre class="alert alert-info">Time is: {{mytime}}</pre>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            Hours step is:
+                            <select class="form-control" [(ngModel)]="hstep">
+                                <option *ngFor="let opt of options.hstep" [value]="opt">{{opt}}</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-6">
+                            Minutes step is:
+                            <select class="form-control" [(ngModel)]="mstep">
+                                <option *ngFor="let opt of options.mstep" [value]="opt">{{opt}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <hr/>
+                    <button type="button" class="btn btn-info" (click)="toggleMode()">12H / 24H</button>
+                    <button type="button" class="btn btn-info" (click)="isEnabled=!isEnabled">Enable / Disable input</button>
+                    <button type="button" class="btn btn-primary" (click)="update()">Set to 14:00</button>
+                    <button type="button" class="btn btn-danger" (click)="clear()">Clear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cardbox">
+        <div class="cardbox-heading">
+            <div class="cardbox-title">Color Picker</div>
+        </div>
+        <div class="cardbox-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>Input</p>
+                    <!-- <label for="" [style.color]="colorDemo1">Show me color</label> -->
+                    <input class="form-control" [(colorPicker)]="colorDemo1" [value]="colorDemo1" />
+                </div>
+                <div class="col-sm-6">
+                    <p>Html element:</p>
+                    <div class="mt-4 text-bold" [(colorPicker)]="colorDemo2" [cpPosition]="'bottom'" [style.color]="colorDemo2" [cpPositionOffset]="'50%'" [cpPositionRelativeToArrow]="true">Change me!</div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-sm-6">
+                    <p>Cancel button</p>
+                    <input class="form-control" [(colorPicker)]="colorDemo3" [value]="colorDemo3" [cpCancelButton]="true" [cpHeight]="'310px'" />
+                </div>
+                <div class="col-sm-6">
+                    <p>Output format</p>
+                    <input class="form-control" [(colorPicker)]="colorDemo4" [value]="colorDemo4" [cpOutputFormat]="'rgba'" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cardbox">
+        <div class="cardbox-heading">Note editors (textarea)</div>
+        <div class="cardbox-body">
+            <div class="cardbox">
+                <div class="cardbox-body">
+                    <div class="note-area">
+                        <textarea rows="10" class="form-control">In elementum magna sed sapien gravida scelerisque.</textarea>
+                    </div>
+                </div>
+            </div>
+            <p>With margin</p>
+            <div class="cardbox">
+                <div class="cardbox-body">
+                    <div class="note-area note-area-margin">
+                        <textarea rows="10" class="form-control">Curabitur tellus mauris, fringilla sed tempus eget, convallis id orci.</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

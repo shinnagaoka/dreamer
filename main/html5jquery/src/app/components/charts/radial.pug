@@ -1,0 +1,64 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Radial Charts'
+block content
+    .container-fluid
+
+        .cardbox
+            .cardbox-heading: .cardbox-title Knob Charts
+            .cardbox-body
+                .row
+                    .col-xl-3.col-sm-6
+                        .cardbox.cardbox-flat.text-center
+                            .cardbox-heading Default
+                            .cardbox-body.text-center
+                                input#knob-chart1(type="text", value="80", data-max="100")
+                    .col-xl-3.col-sm-6
+                        .cardbox.cardbox-flat.text-center
+                            .cardbox-heading Ready only
+                            .cardbox-body.text-center
+                                input#knob-chart2(type="text", value="45", data-max="100")
+                    .col-xl-3.col-sm-6
+                        .cardbox.cardbox-flat.text-center
+                            .cardbox-heading Offset and arc
+                            .cardbox-body.text-center
+                                input#knob-chart4(type="text", value="20", data-max="100")
+                    .col-xl-3.col-sm-6
+                        .cardbox.cardbox-flat.text-center
+                            .cardbox-heading Display previous
+                            .cardbox-body.text-center
+                                input#knob-chart3(type="text", value="30", data-max="100")
+
+        .cardbox
+            .cardbox-heading: .cardbox-title Easypie Charts
+            .cardbox-body
+                .row
+                    .col-xl-3.col-sm-6
+                        .cardbox.cardbox-flat.text-center
+                            .cardbox-heading Default
+                            .cardbox-body.text-center
+                                #easypiechart1.easypie-chart(data-percent='85')
+                                    span 85
+                    .col-xl-3.col-sm-6
+                        .cardbox.cardbox-flat.text-center
+                            .cardbox-heading Slim
+                            .cardbox-body.text-center
+                                #easypiechart2.easypie-chart(data-percent='45')
+                                    span 45
+                    .col-xl-3.col-sm-6
+                        .cardbox.cardbox-flat.text-center
+                            .cardbox-heading Track color
+                            .cardbox-body.text-center
+                                #easypiechart3.easypie-chart(data-percent='25')
+                                    span 25
+                    .col-xl-3.col-sm-6
+                        .cardbox.cardbox-flat.text-center
+                            .cardbox-heading Scale color
+                            .cardbox-body.text-center
+                                #easypiechart4.easypie-chart(data-percent='60')
+                                    span 60
+block vendor_js
+    // Easypie Charts
+    script(src='vendor/jquery.easy-pie-chart/dist/jquery.easypiechart.js')
+    // jQuery Knob charts
+    script(src='vendor/jquery-knob/js/jquery.knob.js')

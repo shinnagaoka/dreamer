@@ -1,0 +1,91 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Invoice'
+block content
+    .container.container-fluid
+        .cardbox
+            .cardbox-body
+                .row
+                    .col-sm-6
+                        h3.m-0 Dasha Inc.
+                        small.text-muted Nulla viverra dignissim metus ac placerat
+                    .col-sm-6.text-sm-right
+                        h5.my Invoice no. #2456544
+                hr
+                .row
+                    .col-lg-2
+                        h4.m-0 Deliver to:
+                    .col-lg-10
+                        address
+                            strong Twitter, Inc.
+                            br
+                            |   1355 Market Street, Suite 900
+                            br
+                            |   San Francisco, CA 94103
+                            br
+                            abbr(title='Phone') P:
+                            |  (123) 456-7890
+                        address.mb-0
+                            strong Full Name
+                            br
+                            a(href='mailto:#') first.last@example.com
+                .my-4
+                .table-responsive.my-4
+                    table.table.table-bordered
+                        thead.thead-inverse
+                            tr
+                                th Item #
+                                th Description
+                                th Quantity
+                                th Unit Price
+                                th.text-right Total
+                        tbody
+                            tr
+                                td 1001
+                                td Iphone 6+ - 64Gb
+                                td 2
+                                td $ 200
+                                td.text-right $ 600
+                            tr
+                                td 2002
+                                td Iphone 7 - 128Gb
+                                td 4
+                                td $ 500
+                                td.text-right $ 2,500
+                            tr
+                                td 3010
+                                td Ipad 12x - 512Gb
+                                td 5
+                                td $ 650
+                                td.text-right $ 650
+                            tr
+                                td 3009
+                                td iMac HyperRetina 45
+                                td 6
+                                td $ 1,100
+                                td.text-right $ 6,600
+
+                .row
+                    .col-lg-6
+                        p: strong Bottom words for this invoice
+                        p: small Nulla egestas faucibus tincidunt. Praesent non nulla et ligula luctus mattis eget at lacus. Pellentesque convallis mauris eu elit imperdiet quis eleifend quam aliquet. Suspendisse vehicula, magna non tristique tincidunt, massa nisi luctus tellus, vel laoreet sem lectus ut nibh. Vestibulum purus ipsum.
+                        hr.hidden-sm-up
+                    .col-lg-1.col-xl-3
+                    .col-lg-5.col-xl-3.text-right
+                        p.clearfix
+                            strong.float-left Sub Total:
+                            span.float-right 8,395.00
+                        p.clearfix
+                            strong.float-left Promo code:
+                            span.float-right ABC-XYZ
+                        p.clearfix
+                            strong.float-left Tax (10%):
+                            span.float-right 2,145.00
+                        hr
+                        h3.m-0.text-right USD 10,540.00
+                hr
+                .clearfix
+                    button.btn.btn-secondary.float-left.mr-3(type='button', data-toggle='tooltip', data-title='Edit this invoice'): em.ion-edit
+                    button.btn.btn-secondary.float-left(type='button', data-toggle='tooltip', data-title='Print this invoice'): em.ion-printer
+                    button.btn.btn-secondary.float-left(type='button', data-toggle='tooltip', data-title='Lock this invoice'): em.ion-unlocked
+                    button.btn.btn-primary.float-right(type='button') Send Invoice

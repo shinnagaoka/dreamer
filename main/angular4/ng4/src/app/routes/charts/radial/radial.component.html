@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <div class="cardbox">
+        <div class="cardbox-heading">
+            <div class="cardbox-title">Knob Charts</div>
+        </div>
+        <div class="cardbox-body">
+            <div class="row">
+                <div class="col-xl-3 col-sm-6">
+                    <div class="cardbox cardbox-flat text-center">
+                        <div class="cardbox-heading">Default</div>
+                        <div class="cardbox-body text-center">
+                            <input knob [data]="knobLoaderData1" [options]="knobLoaderOptions1"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6">
+                    <div class="cardbox cardbox-flat text-center">
+                        <div class="cardbox-heading">Ready only</div>
+                        <div class="cardbox-body text-center">
+                            <input knob [data]="knobLoaderData2" [options]="knobLoaderOptions2"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6">
+                    <div class="cardbox cardbox-flat text-center">
+                        <div class="cardbox-heading">Offset and arc</div>
+                        <div class="cardbox-body text-center">
+                            <input knob [data]="knobLoaderData3" [options]="knobLoaderOptions3"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6">
+                    <div class="cardbox cardbox-flat text-center">
+                        <div class="cardbox-heading">Display previous</div>
+                        <div class="cardbox-body text-center">
+                            <input knob [data]="knobLoaderData4" [options]="knobLoaderOptions4"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cardbox">
+        <div class="cardbox-heading">
+            <div class="cardbox-title">Easypie Charts</div>
+        </div>
+        <div class="cardbox-body">
+            <div class="row">
+                <div class="col-xl-3 col-sm-6">
+                    <div class="cardbox cardbox-flat text-center">
+                        <div class="cardbox-heading">Default</div>
+                        <div class="cardbox-body text-center">
+                            <div easypiechart [options]="pieOptions1" [percent]="piePercent1" class="easypie-chart"><span>{{piePercent1}}</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6">
+                    <div class="cardbox cardbox-flat text-center">
+                        <div class="cardbox-heading">Slim</div>
+                        <div class="cardbox-body text-center">
+                            <div easypiechart [options]="pieOptions2" [percent]="piePercent2" class="easypie-chart"><span>{{piePercent1}}</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6">
+                    <div class="cardbox cardbox-flat text-center">
+                        <div class="cardbox-heading">Track color</div>
+                        <div class="cardbox-body text-center">
+                            <div easypiechart [options]="pieOptions3" [percent]="piePercent3" class="easypie-chart"><span>{{piePercent1}}</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6">
+                    <div class="cardbox cardbox-flat text-center">
+                        <div class="cardbox-heading">Scale color</div>
+                        <div class="cardbox-body text-center">
+                            <div easypiechart [options]="pieOptions4" [percent]="piePercent4" class="easypie-chart"><span>{{piePercent1}}</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

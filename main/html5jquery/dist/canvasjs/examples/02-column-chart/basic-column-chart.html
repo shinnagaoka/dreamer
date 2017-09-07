@@ -1,0 +1,42 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<script type="text/javascript">
+		window.onload = function () {
+			var chart = new CanvasJS.Chart("chartContainer", {
+				title: {
+					text: "STUDY TIME"
+				},
+				data: [{
+					type: "column",
+					dataPoints: [
+						{ y: 4, label: "Apple" },
+						{ y: 3, label: "Man" },
+						{ y: 10, label: "Pineapple" },
+						{ y: 5, label: "Grapes" },
+						{ y: 2, label: "Lemon" },
+						{ y: 7, label: "Banana" },
+						{ y: 4, label: "Watermelon" },
+						{ y: 5, label: "Coconut" },
+						{ y: 5, label: "Lychee" },
+						{ y: 3, label: "Palm" },
+						{ y: 8, label: "Orange" },
+						{ y: 9, label: "Muskmelon" },
+						{ y: 4, label: "Strawberry" },
+						{ y: 2, label: "Kiwi" },
+						{ y: 8, label: "Guava" },
+					]
+				}]
+			});
+			chart.render();
+		}
+	</script>
+	<script src="../../canvasjs.min.js"></script>
+	<title>CanvasJS Example</title>
+</head>
+
+<body>
+	<div id="chartContainer" style="height: 400px; width: 100%;"></div>
+</body>
+
+</html>

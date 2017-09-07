@@ -1,0 +1,85 @@
+doctype html
+html(lang='en')
+
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+
+        meta(name='description', content='Bootstrap Admin Template')
+        meta(name='keywords', content='app, responsive, jquery, bootstrap, dashboard, admin')
+
+        title Dasha - Bootstrap Admin Template
+
+        // Vendor styles
+        // build:css(./) css/vendor.css
+        // Animate.CSS
+        link(rel='stylesheet', href='vendor/animate.css/animate.css')
+        // Bootstrap
+        link(rel='stylesheet', href='vendor/bootstrap/dist/css/bootstrap.min.css')
+        // Ionicons
+        link(rel='stylesheet', href='vendor/ionicons/css/ionicons.css')
+        // Material Colors
+        link(rel='stylesheet', href='vendor/material-colors/dist/colors.css')
+
+        block vendor_css
+
+        // endbuild
+
+        // Application styles
+        link(rel='stylesheet', href='css/app.css')
+
+    body.theme-default
+
+        .layout-container
+            // top navbar
+            header.header-container
+                include ../header/header.tpl.pug
+
+            // sidebar
+            aside.sidebar-container
+                include ../sidebar/sidebar.tpl.pug
+            .sidebar-layout-obfuscator
+
+            // Main section
+            main.main-container
+
+                // Page content
+                section.section-container
+                    block content
+                // Page footer
+                footer.footer-container
+                    include ../footer/footer.tpl.pug
+
+        block bodychild
+
+        // Search template
+        include ../header/header-search.tpl.pug
+        // End Search template
+        // Settings template
+        include ../settings/settings.tpl.pug
+        // End Settings template
+
+
+        // build:js
+        // Modernizr
+        script(src='vendor/modernizr/modernizr.custom.js')
+        // PaceJS
+        script(src='vendor/pace/pace.min.js')
+        // jQuery
+        script(src='vendor/jquery/dist/jquery.js')
+        // Bootstrap
+        script(src='vendor/tether/dist/js/tether.min.js')
+        script(src='vendor/bootstrap/dist/js/bootstrap.js')
+        // Material Colors
+        script(src='vendor/material-colors/dist/colors.js')
+        // Screenfull
+        script(src='vendor/screenfull/dist/screenfull.js')
+        // jQuery Localize
+        script(src='vendor/jquery-localize-i18n/dist/jquery.localize.js')
+
+        block vendor_js
+
+        // endbuild
+
+        // App script
+        script(src='js/app.js')

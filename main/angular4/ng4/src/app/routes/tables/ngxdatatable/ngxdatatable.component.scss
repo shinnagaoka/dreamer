@@ -1,0 +1,21 @@
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+
+@import '../../../shared/styles/common/variables';
+@import '../../../shared/styles/common/mixins';
+
+.ngx-datatable.material {
+    background-color: transparent;
+    box-shadow: 0 0 0 #000;
+}
+
+.ngx-datatable.scroll-vertical {
+    height: 300px;
+}
+
+// workaround for use of detail rows
+// with other table in the same page
+.no-detail-row .datatable-row-detail {
+    display: none !important;
+}

@@ -1,0 +1,183 @@
+/**
+ * Themes
+ */
+
+@import '../common/variables';
+@import '../common/mixins';
+
+// dark sidebar
+.theme-default {
+    @include theme-sidebar($mdc-blue-grey-900, #fff);
+    @include theme-brand($mdc-blue-grey-900, #fff);
+    @include theme-header(#fff, $text-color);
+    @include theme-content($body-bg);
+    @include theme-sidebar-items($brand-primary);
+}
+
+.theme-2 {
+    @include theme-sidebar($mdc-blue-grey-900, #fff);
+    @include theme-brand($mdc-blue-grey-900, #fff);
+    @include theme-header($mdc-teal-A700, #fff);
+    @include theme-content($body-bg);
+    @include theme-sidebar-items($mdc-teal-A700);
+}
+
+.theme-3 {
+    @include theme-sidebar($mdc-blue-grey-900, #fff);
+    @include theme-brand($mdc-blue-grey-900, #fff);
+    @include theme-header($mdc-cyan-A700, #fff);
+    @include theme-content($body-bg);
+    @include theme-sidebar-items($mdc-cyan-A700);
+}
+
+.theme-4 {
+    @include theme-sidebar($mdc-blue-grey-900, #fff);
+    @include theme-brand($mdc-blue-grey-900, #fff);
+    @include theme-header($mdc-blue-700, #fff);
+    @include theme-content($body-bg);
+    @include theme-sidebar-items($mdc-blue-700);
+}
+
+.theme-5 {
+    @include theme-sidebar($mdc-blue-grey-900, #fff);
+    @include theme-brand($mdc-blue-grey-900, #fff);
+    @include theme-header($mdc-deep-purple-A200, #fff);
+    @include theme-content($body-bg);
+    @include theme-sidebar-items($mdc-deep-purple-A200);
+}
+
+.theme-6 {
+    @include theme-sidebar($mdc-blue-grey-900, #fff);
+    @include theme-brand($mdc-blue-grey-900, #fff);
+    @include theme-header($mdc-pink-A400, #fff);
+    @include theme-content($body-bg);
+    @include theme-sidebar-items($mdc-pink-A400);
+}
+
+// white sidebar
+.theme-default-w {
+    @include theme-sidebar(#fff, $mdc-blue-grey-700);
+    @include theme-brand(#fff, $mdc-blue-grey-700);
+    @include theme-header(#fff, $text-color);
+    @include theme-content($body-bg);
+    @include theme-sidebar-items($brand-primary);
+}
+
+.theme-2-w {
+    @include theme-sidebar(#fff, $mdc-blue-grey-700);
+    @include theme-brand(#fff, $mdc-blue-grey-700);
+    @include theme-header($mdc-teal-A700, #fff);
+    @include theme-content($body-bg);
+    @include theme-sidebar-items($mdc-teal-A700, $mdc-teal-A700);
+}
+
+.theme-3-w {
+    @include theme-sidebar(#fff, $mdc-blue-grey-700);
+    @include theme-brand(#fff, $mdc-blue-grey-700);
+    @include theme-header($mdc-cyan-A700, #fff);
+    @include theme-content($body-bg);
+    @include theme-sidebar-items($mdc-cyan-A700, $mdc-cyan-A700);
+}
+
+.theme-4-w {
+    @include theme-sidebar(#fff, $mdc-blue-grey-700);
+    @include theme-brand(#fff, $mdc-blue-grey-700);
+    @include theme-header($mdc-blue-700, #fff);
+    @include theme-content($body-bg);
+    @include theme-sidebar-items($mdc-blue-700, $mdc-blue-700);
+}
+
+.theme-5-w {
+    @include theme-sidebar(#fff, $mdc-blue-grey-700);
+    @include theme-brand(#fff, $mdc-blue-grey-700);
+    @include theme-header($mdc-deep-purple-A200, #fff);
+    @include theme-content($body-bg);
+    @include theme-sidebar-items($mdc-deep-purple-A200, $mdc-deep-purple-A200);
+}
+
+.theme-6-w {
+    @include theme-sidebar(#fff, $mdc-blue-grey-700);
+    @include theme-brand(#fff, $mdc-blue-grey-700);
+    @include theme-header($mdc-pink-A400, #fff);
+    @include theme-content($body-bg);
+    @include theme-sidebar-items($mdc-pink-A400, $mdc-pink-A400);
+}
+
+// gradients sidebar
+.theme-gradient-sidebar-1 {
+    @include theme-sidebar-gradient('primary', #fff);
+    @include theme-sidebar-items(#fff, #fff);
+}
+.theme-gradient-sidebar-2 {
+    @include theme-sidebar-gradient('secondary', #fff);
+    @include theme-sidebar-items(#fff, #fff);
+}
+.theme-gradient-sidebar-3 {
+    @include theme-sidebar-gradient('info', #fff);
+    @include theme-sidebar-items(#fff, #fff);
+}
+.theme-gradient-sidebar-4 {
+    @include theme-sidebar-gradient('danger', #fff);
+    @include theme-sidebar-items(#fff, #fff);
+}
+.theme-gradient-sidebar-5 {
+    @include theme-sidebar-gradient('warning', #fff);
+    @include theme-sidebar-items(#fff, #fff);
+}
+.theme-gradient-sidebar-6 {
+    @include theme-sidebar-gradient('success', #fff);
+    @include theme-sidebar-items(#fff, #fff);
+}
+
+// gradients header
+.theme-gradient-header-1 {
+    @include theme-header-gradient('primary', #fff);
+    @include theme-sidebar-items($brand-primary, #fff);
+}
+.theme-gradient-header-2 {
+    @include theme-sidebar(#fff, $mdc-blue-grey-900);
+    @include theme-header-gradient('secondary', #fff);
+    @include theme-sidebar-items($mdc-blue-grey-200);
+}
+.theme-gradient-header-3 {
+    @include theme-header-gradient('info', #fff);
+    @include theme-sidebar-items($brand-info, #fff);
+}
+.theme-gradient-header-4 {
+    @include theme-header-gradient('danger', #fff);
+    @include theme-sidebar-items($brand-danger, #fff);
+}
+.theme-gradient-header-5 {
+    @include theme-sidebar(#fff, $mdc-blue-grey-900);
+    @include theme-header-gradient('warning', #fff);
+    @include theme-sidebar-items($brand-warning);
+}
+.theme-gradient-header-6 {
+    @include theme-header-gradient('success', #fff);
+    @include theme-sidebar-items($brand-success, #fff);
+}
+
+// Dark content
+.theme-dark {
+    // @include theme-sidebar-gradient('primary', #fff);
+    @include theme-sidebar($mdc-blue-grey-900, #fff);
+    @include theme-brand($mdc-blue-grey-900, #fff);
+    @include theme-header($mdc-blue-grey-800, #fff);
+    @include theme-content-dark($mdc-blue-grey-800);
+    @include theme-sidebar-items($brand-primary);
+}
+
+// Theme previews for settings panel
+.preview-theme-default { background-color: #fff; }
+.preview-theme-2 { background-color: $mdc-teal-A700; }
+.preview-theme-3 { background-color: $mdc-cyan-A700; }
+.preview-theme-4 { background-color: $mdc-blue-700; }
+.preview-theme-5 { background-color: $mdc-deep-purple-A200; }
+.preview-theme-6 { background-color: $mdc-pink-A400; }
+.preview-theme-dark { background-color: $mdc-blue-grey-900; }
+.preview-theme-gradient-1 { @include bg-gradient-primary; }
+.preview-theme-gradient-2 { @include bg-gradient-secondary; }
+.preview-theme-gradient-3 { @include bg-gradient-info; }
+.preview-theme-gradient-4 { @include bg-gradient-danger; }
+.preview-theme-gradient-5 { @include bg-gradient-warning; }
+.preview-theme-gradient-6 { @include bg-gradient-success; }

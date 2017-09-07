@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin Template">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>Dasha - Bootstrap Admin Template</title>
+    <!-- Vendor styles-->
+    <!-- Animate.CSS-->
+    <link rel="stylesheet" href="vendor/animate.css/animate.css">
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Ionicons-->
+    <link rel="stylesheet" href="vendor/ionicons/css/ionicons.css">
+    <!-- Material Colors-->
+    <link rel="stylesheet" href="vendor/material-colors/dist/colors.css">
+    <!-- Application styles-->
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body class="theme-default">
+    <div class="layout-container">
+      <!-- top navbar-->
+      <header class="header-container">
+        <nav>
+          <ul class="hidden-lg-up">
+            <li><a class="sidebar-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
+          </ul>
+          <ul class="hidden-xs-down">
+            <li><a class="covermode-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
+          </ul>
+          <h2 class="header-title">Responsive Tables</h2>
+          <ul class="float-right">
+            <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/01.jpg" alt="header-user-image"><sup class="badge bg-danger">3</sup></a>
+              <div class="dropdown-menu dropdown-menu-right dropdown-scale">
+                <h6 class="dropdown-header">User menu</h6><a class="dropdown-item" href="#"><span class="float-right badge badge-primary">4</span><em class="ion-ios-email-outline icon-lg text-primary"></em>Messages</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>Settings</a>
+                <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="user.login.html"><em class="ion-log-out icon-lg text-primary"></em>Logoff</a>
+              </div>
+            </li>
+            <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><em class="ion-ios-keypad"></em></a>
+              <div class="dropdown-menu dropdown-menu-right dropdown-scale dropdown-card">
+                <div class="p-3">
+                  <div class="d-flex mb-3">
+                    <div class="wd-xs mr-3">
+                      <div class="card bg-gradient-primary border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-stats-bars icon-2x"></em></div><small class="text-bold">Stats</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="wd-xs">
+                      <div class="card bg-gradient-info border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-map icon-2x"></em></div><small class="text-bold">Places</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex">
+                    <div class="wd-xs mr-3">
+                      <div class="card bg-gradient-warning border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-clock icon-2x"></em></div><small class="text-bold">Events</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="wd-xs">
+                      <div class="card bg-gradient-danger border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-plane icon-2x"></em></div><small class="text-bold">Flights</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li><a id="header-search" href="#"><em class="ion-ios-search-strong"></em></a></li>
+            <li><a id="header-settings" href="#"><em class="ion-more"></em></a></li>
+          </ul>
+        </nav>
+      </header>
+      <!-- sidebar-->
+      <aside class="sidebar-container">
+        <div class="brand-header">
+          <div class="float-left pt-4 text-muted sidebar-close"><em class="ion-arrow-left-c icon-lg"></em></div><a class="brand-header-logo" href="#">
+            <!-- Logo Imageimg(src="img/logo.png", alt="logo")
+            --><span class="brand-header-logo-text">Dasha</span></a>
+        </div>
+        <div class="sidebar-content">
+          <div class="sidebar-toolbar">
+            <div class="sidebar-toolbar-background"></div>
+            <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/01.jpg" alt="Profile"></a>
+              <div class="mt-3">
+                <div class="lead">Jane Doe</div>
+                <div class="text-thin">California, CA</div>
+              </div>
+            </div>
+          </div>
+          <nav class="sidebar-nav">
+            <ul>
+              <li>
+                <div class="sidebar-nav-heading">MENU</div>
+              </li>
+              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>Dashboard</span></a></li>
+              <li><a href="widgets.html"><span class="float-right nav-label"><span class="badge-rounded badge-primary">!</span></span><span class="nav-icon"><em class="ion-ios-box-outline"></em></span><span>Widgets</span></a></li>
+              <li>
+                <div class="sidebar-nav-heading">COMPONENTS</div>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>Elements</span></a>
+                <ul class="sidebar-subnav" id="elements">
+                  <li><a href="buttons.html"><span class="float-right nav-label"></span><span>Buttons</span></a></li>
+                  <li><a href="bootstrapui.html"><span class="float-right nav-label"></span><span>Bootstrap</span></a></li>
+                  <li><a href="modals.html"><span class="float-right nav-label"></span><span>Modals</span></a></li>
+                  <li><a href="toaster.html"><span class="float-right nav-label"></span><span>Toaster</span></a></li>
+                  <li><a href="sweetalert.html"><span class="float-right nav-label"></span><span>Sweet Alert</span></a></li>
+                  <li><a href="spinners.html"><span class="float-right nav-label"></span><span>Spinners</span></a></li>
+                  <li><a href="nestable.html"><span class="float-right nav-label"></span><span>Nestable</span></a></li>
+                  <li><a href="grid.html"><span class="float-right nav-label"></span><span>Grid</span></a></li>
+                  <li><a href="grid-masonry.html"><span class="float-right nav-label"></span><span>Grid Masonry</span></a></li>
+                  <li><a href="typography.html"><span class="float-right nav-label"></span><span>Typography</span></a></li>
+                  <li><a href="icons.html"><span class="float-right nav-label"></span><span>Icons</span></a></li>
+                  <li><a href="utilities.html"><span class="float-right nav-label"></span><span>Utilities</span></a></li>
+                  <li><a href="colors.html"><span class="float-right nav-label"></span><span>Colors</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>Forms</span></a>
+                <ul class="sidebar-subnav">
+                  <li><a href="forms.standard.html"><span class="float-right nav-label"></span><span>Standard</span></a></li>
+                  <li><a href="forms.advanced.html"><span class="float-right nav-label"></span><span>Advanced</span></a></li>
+                  <li><a href="validation.html"><span class="float-right nav-label"></span><span>Validation</span></a></li>
+                  <li><a href="dropzone.html"><span class="float-right nav-label"></span><span>Dropzone</span></a></li>
+                  <li><a href="summernote.html"><span class="float-right nav-label"></span><span>Summernote</span></a></li>
+                  <li><a href="wizard.html"><span class="float-right nav-label"></span><span>Wizard Steps</span></a></li>
+                  <li><a href="typeahead.html"><span class="float-right nav-label"></span><span>Typeahead</span></a></li>
+                  <li><a href="xeditable.html"><span class="float-right nav-label"></span><span>xEditable</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-list-outline"></em></span><span>Tables</span></a>
+                <ul class="sidebar-subnav" id="tables">
+                  <li><a href="tables.classic.html"><span class="float-right nav-label"></span><span>Classic</span></a></li>
+                  <li><a href="tables.responsive.html"><span class="float-right nav-label"></span><span>Responsive</span></a></li>
+                  <li><a href="datatable.html"><span class="float-right nav-label"></span><span>Datatable</span></a></li>
+                  <li><a href="footable.html"><span class="float-right nav-label"></span><span>FooTable</span></a></li>
+                  <li><a href="bootgrid.html"><span class="float-right nav-label"></span><span>Bootgrid</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-pulse"></em></span><span>Charts</span></a>
+                <ul class="sidebar-subnav">
+                  <li><a href="flot.html"><span class="float-right nav-label"></span><span>Flot</span></a></li>
+                  <li><a href="peity.html"><span class="float-right nav-label"></span><span>Peity</span></a></li>
+                  <li><a href="rickshaw.html"><span class="float-right nav-label"></span><span>Rickshaw</span></a></li>
+                  <li><a href="radial.html"><span class="float-right nav-label"></span><span>Radial</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-location-outline"></em></span><span>Maps</span></a>
+                <ul class="sidebar-subnav" id="maps">
+                  <li><a href="google-map.html"><span class="float-right nav-label"></span><span>Google Maps</span></a></li>
+                  <li><a href="datamaps.html"><span class="float-right nav-label"></span><span>Datamaps</span></a></li>
+                  <li><a href="vector-map.html"><span class="float-right nav-label"></span><span>Vector Maps</span></a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="sidebar-nav-heading">MORE</div>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-person-outline"></em></span><span>User</span></a>
+                <ul class="sidebar-subnav" id="user">
+                  <li><a href="signin.html"><span class="float-right nav-label"></span><span>Signin</span></a></li>
+                  <li><a href="signup.html"><span class="float-right nav-label"></span><span>Signup</span></a></li>
+                  <li><a href="recover.html"><span class="float-right nav-label"></span><span>Recover</span></a></li>
+                  <li><a href="lock.html"><span class="float-right nav-label"></span><span>Lock</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-keypad-outline"></em></span><span>Pages</span></a>
+                <ul class="sidebar-subnav" id="pages">
+                  <li><a href="forum.html"><span class="float-right nav-label"></span><span>Forum</span></a></li>
+                  <li><a href="calendar.html"><span class="float-right nav-label"></span><span>Calendar</span></a></li>
+                  <li><a href="timeline.html"><span class="float-right nav-label"></span><span>Timeline</span></a></li>
+                  <li><a href="invoice.html"><span class="float-right nav-label"></span><span>Invoice</span></a></li>
+                  <li><a href="fullmap.html"><span class="float-right nav-label"></span><span>Fullmap</span></a></li>
+                  <li><a href="pricing.html"><span class="float-right nav-label"></span><span>Pricing</span></a></li>
+                  <li><a href="people.html"><span class="float-right nav-label"></span><span>People</span></a></li>
+                  <li><a href="contact.html"><span class="float-right nav-label"></span><span>Contact</span></a></li>
+                  <li><a href="wall.html"><span class="float-right nav-label"></span><span>Wall</span></a></li>
+                  <li><a href="mailbox.html"><span class="float-right nav-label"></span><span>Mailbox</span></a></li>
+                  <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span>Errors</span></a>
+                    <ul class="sidebar-subnav" id="errors">
+                      <li><a href="error404.html"><span class="float-right nav-label"></span><span>404</span></a></li>
+                      <li><a href="error403.html"><span class="float-right nav-label"></span><span>403</span></a></li>
+                      <li><a href="error500.html"><span class="float-right nav-label"></span><span>500</span></a></li>
+                      <li><a href="error503.html"><span class="float-right nav-label"></span><span>503</span></a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+      <div class="sidebar-layout-obfuscator"></div>
+      <!-- Main section-->
+      <main class="main-container">
+        <!-- Page content-->
+        <section class="section-container">
+          <div class="container-fluid">
+            <h4>The Unseen Column</h4>
+            <p>
+              This technique, first described by Stuart Curry (@irishstu) involves simply hiding less important columns on smaller screen sizes.
+              Using Bootstrap 4 Responsive utilities you can achieve that easily.<a class="ml-1" href="https://v4-alpha.getbootstrap.com/layout/responsive-utilities/#available-classes">More</a>
+            </p>
+            <table class="table table-bordered table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th class="hidden-lg-down">Company</th>
+                  <th>Price</th>
+                  <th class="hidden-sm-down">Change</th>
+                  <th class="hidden-xs-down">Change %</th>
+                  <th>Open</th>
+                  <th>High</th>
+                  <th class="hidden-sm-down">Low</th>
+                  <th class="hidden-sm-down">Volume</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>AAC</td>
+                  <td class="hidden-lg-down">AUSTRALIAN AGRICULTURAL COMPANY LIMITED.</td>
+                  <td>$1.38</td>
+                  <td class="hidden-sm-down">-0.01</td>
+                  <td class="hidden-xs-down">-0.36%</td>
+                  <td>$1.39</td>
+                  <td>$1.39</td>
+                  <td class="hidden-sm-down">$1.38</td>
+                  <td class="hidden-sm-down">9,395</td>
+                </tr>
+                <tr>
+                  <td>AAD</td>
+                  <td class="hidden-lg-down">ARDENT LEISURE GROUP</td>
+                  <td>$1.15</td>
+                  <td class="hidden-sm-down">  +0.02</td>
+                  <td class="hidden-xs-down">1.32%</td>
+                  <td>$1.14</td>
+                  <td>$1.15</td>
+                  <td class="hidden-sm-down">$1.13</td>
+                  <td class="hidden-sm-down">56,431</td>
+                </tr>
+                <tr>
+                  <td>AAX</td>
+                  <td class="hidden-lg-down">AUSENCO LIMITED</td>
+                  <td>$4.00</td>
+                  <td class="hidden-sm-down">-0.04</td>
+                  <td class="hidden-xs-down">-0.99%</td>
+                  <td>$4.01</td>
+                  <td>$4.05</td>
+                  <td class="hidden-sm-down">$4.00</td>
+                  <td class="hidden-sm-down">90,641</td>
+                </tr>
+                <tr>
+                  <td>ABC</td>
+                  <td class="hidden-lg-down">ADELAIDE BRIGHTON LIMITED</td>
+                  <td>$3.00</td>
+                  <td class="hidden-sm-down">  +0.06</td>
+                  <td class="hidden-xs-down">2.04%</td>
+                  <td>$2.98</td>
+                  <td>$3.00</td>
+                  <td class="hidden-sm-down">$2.96</td>
+                  <td class="hidden-sm-down">862,518</td>
+                </tr>
+                <tr>
+                  <td>ABP</td>
+                  <td class="hidden-lg-down">ABACUS PROPERTY GROUP</td>
+                  <td>$1.91</td>
+                  <td class="hidden-sm-down">0.00</td>
+                  <td class="hidden-xs-down">0.00%</td>
+                  <td>$1.92</td>
+                  <td>$1.93</td>
+                  <td class="hidden-sm-down">$1.90</td>
+                  <td class="hidden-sm-down">595,701</td>
+                </tr>
+                <tr>
+                  <td>ABY</td>
+                  <td class="hidden-lg-down">ADITYA BIRLA MINERALS LIMITED</td>
+                  <td>$0.77</td>
+                  <td class="hidden-sm-down">  +0.02</td>
+                  <td class="hidden-xs-down">2.00%</td>
+                  <td>$0.76</td>
+                  <td>$0.77</td>
+                  <td class="hidden-sm-down">$0.76</td>
+                  <td class="hidden-sm-down">54,567</td>
+                </tr>
+                <tr>
+                  <td>ACR</td>
+                  <td class="hidden-lg-down">ACRUX LIMITED</td>
+                  <td>$3.71</td>
+                  <td class="hidden-sm-down">  +0.01</td>
+                  <td class="hidden-xs-down">0.14%</td>
+                  <td>$3.70</td>
+                  <td>$3.72</td>
+                  <td class="hidden-sm-down">$3.68</td>
+                  <td class="hidden-sm-down">191,373</td>
+                </tr>
+                <tr>
+                  <td>ADU</td>
+                  <td class="hidden-lg-down">ADAMUS RESOURCES LIMITED</td>
+                  <td>$0.72</td>
+                  <td class="hidden-sm-down">0.00</td>
+                  <td class="hidden-xs-down">0.00%</td>
+                  <td>$0.73</td>
+                  <td>$0.74</td>
+                  <td class="hidden-sm-down">$0.72</td>
+                  <td class="hidden-sm-down">8,602,291</td>
+                </tr>
+                <tr>
+                  <td>AGG</td>
+                  <td class="hidden-lg-down">ANGLOGOLD ASHANTI LIMITED</td>
+                  <td>$7.81</td>
+                  <td class="hidden-sm-down">-0.22</td>
+                  <td class="hidden-xs-down">-2.74%</td>
+                  <td>$7.82</td>
+                  <td>$7.82</td>
+                  <td class="hidden-sm-down">$7.81</td>
+                  <td class="hidden-sm-down">148</td>
+                </tr>
+                <tr>
+                  <td>AGK</td>
+                  <td class="hidden-lg-down">AGL ENERGY LIMITED</td>
+                  <td>$13.82</td>
+                  <td class="hidden-sm-down">  +0.02</td>
+                  <td class="hidden-xs-down">0.14%</td>
+                  <td>$13.83</td>
+                  <td>$13.83</td>
+                  <td class="hidden-sm-down">$13.67</td>
+                  <td class="hidden-sm-down">846,403</td>
+                </tr>
+                <tr>
+                  <td>AGO</td>
+                  <td class="hidden-lg-down">ATLAS IRON LIMITED</td>
+                  <td>$3.17</td>
+                  <td class="hidden-sm-down">-0.02</td>
+                  <td class="hidden-xs-down">-0.47%</td>
+                  <td>$3.11</td>
+                  <td>$3.22</td>
+                  <td class="hidden-sm-down">$3.10</td>
+                  <td class="hidden-sm-down">5,416,303</td>
+                </tr>
+              </tbody>
+            </table>
+            <h4>No More Tables</h4>
+            <p>This technique was developed by Chris Coyier and described in his post Responsive Data Tables at css-tricks.com.<br>Wrap a table with an element with class <code>.no-more-tables</code>to activate this.</p>
+            <div class="no-more-tables">
+              <table class="table table-bordered table-striped table-sm">
+                <thead>
+                  <tr>
+                    <th>Code</th>
+                    <th>Company</th>
+                    <th>Price</th>
+                    <th>Change</th>
+                    <th>Change %</th>
+                    <th>Open</th>
+                    <th>High</th>
+                    <th>Low</th>
+                    <th>Volume</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-title="Code">AAC</td>
+                    <td data-title="Company">AUSTRALIAN AGRICULTURAL COMPANY LIMITED.</td>
+                    <td data-title="Price">$1.38</td>
+                    <td data-title="Change">-0.01</td>
+                    <td data-title="Change %">-0.36%</td>
+                    <td data-title="Open">$1.39</td>
+                    <td data-title="High">$1.39</td>
+                    <td data-title="Low">$1.38</td>
+                    <td data-title="Volume">9,395</td>
+                  </tr>
+                  <tr>
+                    <td data-title="Code">AAD</td>
+                    <td data-title="Company">ARDENT LEISURE GROUP</td>
+                    <td data-title="Price">$1.15</td>
+                    <td data-title="Change">  +0.02</td>
+                    <td data-title="Change %">1.32%</td>
+                    <td data-title="Open">$1.14</td>
+                    <td data-title="High">$1.15</td>
+                    <td data-title="Low">$1.13</td>
+                    <td data-title="Volume">56,431</td>
+                  </tr>
+                  <tr>
+                    <td data-title="Code">AAX</td>
+                    <td data-title="Company">AUSENCO LIMITED</td>
+                    <td data-title="Price">$4.00</td>
+                    <td data-title="Change">-0.04</td>
+                    <td data-title="Change %">-0.99%</td>
+                    <td data-title="Open">$4.01</td>
+                    <td data-title="High">$4.05</td>
+                    <td data-title="Low">$4.00</td>
+                    <td data-title="Volume">90,641</td>
+                  </tr>
+                  <tr>
+                    <td data-title="Code">ABC</td>
+                    <td data-title="Company">ADELAIDE BRIGHTON LIMITED</td>
+                    <td data-title="Price">$3.00</td>
+                    <td data-title="Change">  +0.06</td>
+                    <td data-title="Change %">2.04%</td>
+                    <td data-title="Open">$2.98</td>
+                    <td data-title="High">$3.00</td>
+                    <td data-title="Low">$2.96</td>
+                    <td data-title="Volume">862,518</td>
+                  </tr>
+                  <tr>
+                    <td data-title="Code">ABP</td>
+                    <td data-title="Company">ABACUS PROPERTY GROUP</td>
+                    <td data-title="Price">$1.91</td>
+                    <td data-title="Change">0.00</td>
+                    <td data-title="Change %">0.00%</td>
+                    <td data-title="Open">$1.92</td>
+                    <td data-title="High">$1.93</td>
+                    <td data-title="Low">$1.90</td>
+                    <td data-title="Volume">595,701</td>
+                  </tr>
+                  <tr>
+                    <td data-title="Code">ABY</td>
+                    <td data-title="Company">ADITYA BIRLA MINERALS LIMITED</td>
+                    <td data-title="Price">$0.77</td>
+                    <td data-title="Change">  +0.02</td>
+                    <td data-title="Change %">2.00%</td>
+                    <td data-title="Open">$0.76</td>
+                    <td data-title="High">$0.77</td>
+                    <td data-title="Low">$0.76</td>
+                    <td data-title="Volume">54,567</td>
+                  </tr>
+                  <tr>
+                    <td data-title="Code">ACR</td>
+                    <td data-title="Company">ACRUX LIMITED</td>
+                    <td data-title="Price">$3.71</td>
+                    <td data-title="Change">  +0.01</td>
+                    <td data-title="Change %">0.14%</td>
+                    <td data-title="Open">$3.70</td>
+                    <td data-title="High">$3.72</td>
+                    <td data-title="Low">$3.68</td>
+                    <td data-title="Volume">191,373</td>
+                  </tr>
+                  <tr>
+                    <td data-title="Code">ADU</td>
+                    <td data-title="Company">ADAMUS RESOURCES LIMITED</td>
+                    <td data-title="Price">$0.72</td>
+                    <td data-title="Change">0.00</td>
+                    <td data-title="Change %">0.00%</td>
+                    <td data-title="Open">$0.73</td>
+                    <td data-title="High">$0.74</td>
+                    <td data-title="Low">$0.72</td>
+                    <td data-title="Volume">8,602,291</td>
+                  </tr>
+                  <tr>
+                    <td data-title="Code">AGG</td>
+                    <td data-title="Company">ANGLOGOLD ASHANTI LIMITED</td>
+                    <td data-title="Price">$7.81</td>
+                    <td data-title="Change">-0.22</td>
+                    <td data-title="Change %">-2.74%</td>
+                    <td data-title="Open">$7.82</td>
+                    <td data-title="High">$7.82</td>
+                    <td data-title="Low">$7.81</td>
+                    <td data-title="Volume">148</td>
+                  </tr>
+                  <tr>
+                    <td data-title="Code">AGK</td>
+                    <td data-title="Company">AGL ENERGY LIMITED</td>
+                    <td data-title="Price">$13.82</td>
+                    <td data-title="Change">  +0.02</td>
+                    <td data-title="Change %">0.14%</td>
+                    <td data-title="Open">$13.83</td>
+                    <td data-title="High">$13.83</td>
+                    <td data-title="Low">$13.67</td>
+                    <td data-title="Volume">846,403</td>
+                  </tr>
+                  <tr>
+                    <td data-title="Code">AGO</td>
+                    <td data-title="Company">ATLAS IRON LIMITED</td>
+                    <td data-title="Price">$3.17</td>
+                    <td data-title="Change">-0.02</td>
+                    <td data-title="Change %">-0.47%</td>
+                    <td data-title="Open">$3.11</td>
+                    <td data-title="High">$3.22</td>
+                    <td data-title="Low">$3.10</td>
+                    <td data-title="Volume">5,416,303</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <!-- Page footer-->
+        <footer class="footer-container">
+          <div class="d-flex justify-content-between fh"><a class="footer-icon" href="#"><em class="ion-chatboxes"></em><span>Messages</span></a><a class="footer-icon" href="#"><em class="ion-document-text"></em><span>Widgets</span></a><a class="footer-icon footer-icon-lg" href="#"><em class="ion-home"></em><span>Dashboard</span></a><a class="footer-icon" href="#"><em class="ion-map"></em><span>Maps</span></a><a class="footer-icon" href="#"><em class="ion-pie-graph"></em><span>Charts</span></a></div>
+        </footer>
+      </main>
+    </div>
+    <!-- Search template-->
+    <div class="modal modal-top fade modal-search" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="modal-search-form">
+              <form action="#">
+                <div class="input-group">
+                  <div class="input-group-btn">
+                    <button class="btn btn-flat" type="button" data-dismiss="modal"><em class="ion-arrow-left-c icon-lg text-muted"></em></button>
+                  </div>
+                  <input class="form-control header-input-search" type="text" placeholder="Search..">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Search template-->
+    <!-- Settings template-->
+    <div class="modal-settings modal modal-right fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="mt-0 modal-title"><span>Settings</span></h4>
+            <div class="float-right clickable" data-dismiss="modal"><em class="ion-close-round text-soft"></em></div>
+          </div>
+          <div class="modal-body">
+            <p>Dark sidebar</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-default">
+                  <input type="radio" checked name="setting-theme" value="theme-default"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-2">
+                  <input type="radio" name="setting-theme" value="theme-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-3">
+                  <input type="radio" name="setting-theme" value="theme-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-4">
+                  <input type="radio" name="setting-theme" value="theme-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-5">
+                  <input type="radio" name="setting-theme" value="theme-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-6">
+                  <input type="radio" name="setting-theme" value="theme-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>White sidebar</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-default">
+                  <input type="radio" name="setting-theme" value="theme-default-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-2">
+                  <input type="radio" name="setting-theme" value="theme-2-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-3">
+                  <input type="radio" name="setting-theme" value="theme-3-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-4">
+                  <input type="radio" name="setting-theme" value="theme-4-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-5">
+                  <input type="radio" name="setting-theme" value="theme-5-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-6">
+                  <input type="radio" name="setting-theme" value="theme-6-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>Sidebar Gradients</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-gradient-1">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-1"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-2">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-3">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-4">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-5">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-6">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>Header Gradients</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-gradient-1">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-1"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-2">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-3">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-4">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-5">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-6">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>Dark content</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-dark">
+                  <input type="radio" name="setting-theme" value="theme-dark"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <hr>
+            <p>
+              <label class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="sidebar-cover" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Sidebar Cover</span>
+              </label>
+            </p>
+            <p>
+              <label class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="sidebar-showtoolbar" type="checkbox" checked><span class="custom-control-indicator"></span><span class="custom-control-description">Sidebar profile</span>
+              </label>
+            </p>
+            <p>
+              <label class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="fixed-footer" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Fixed Footer</span>
+              </label>
+            </p>
+            <hr>
+            <button class="btn btn-secondary" type="button" data-toggle-fullscreen="">Toggle fullscreen</button>
+            <hr>
+            <p>Change language</p>
+            <!-- START Language list-->
+            <select class="language-select custom-select form-control">
+              <option value="en" selected="">English</option>
+              <option value="es">Spanish</option>
+              <option value="fr">French</option>
+            </select>
+            <!-- END Language list-->
+            <div class="mt-3" data-localize="translate.EXAMPLE">This is an example text using English as selected language.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Settings template-->
+    <!-- Modernizr-->
+    <script src="vendor/modernizr/modernizr.custom.js"></script>
+    <!-- PaceJS-->
+    <script src="vendor/pace/pace.min.js"></script>
+    <!-- jQuery-->
+    <script src="vendor/jquery/dist/jquery.js"></script>
+    <!-- Bootstrap-->
+    <script src="vendor/tether/dist/js/tether.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- Material Colors-->
+    <script src="vendor/material-colors/dist/colors.js"></script>
+    <!-- Screenfull-->
+    <script src="vendor/screenfull/dist/screenfull.js"></script>
+    <!-- jQuery Localize-->
+    <script src="vendor/jquery-localize-i18n/dist/jquery.localize.js"></script>
+    <!-- App script-->
+    <script src="js/app.js"></script>
+  </body>
+</html>

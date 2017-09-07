@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin Template">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>Dasha - Bootstrap Admin Template</title>
+    <!-- Vendor styles-->
+    <!-- Animate.CSS-->
+    <link rel="stylesheet" href="vendor/animate.css/animate.css">
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Ionicons-->
+    <link rel="stylesheet" href="vendor/ionicons/css/ionicons.css">
+    <!-- Material Colors-->
+    <link rel="stylesheet" href="vendor/material-colors/dist/colors.css">
+    <!-- Application styles-->
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body class="theme-default">
+    <div class="layout-container">
+      <!-- top navbar-->
+      <header class="header-container">
+        <nav>
+          <ul class="hidden-lg-up">
+            <li><a class="sidebar-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
+          </ul>
+          <ul class="hidden-xs-down">
+            <li><a class="covermode-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
+          </ul>
+          <h2 class="header-title">Buttons</h2>
+          <ul class="float-right">
+            <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/01.jpg" alt="header-user-image"><sup class="badge bg-danger">3</sup></a>
+              <div class="dropdown-menu dropdown-menu-right dropdown-scale">
+                <h6 class="dropdown-header">User menu</h6><a class="dropdown-item" href="#"><span class="float-right badge badge-primary">4</span><em class="ion-ios-email-outline icon-lg text-primary"></em>Messages</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>Settings</a>
+                <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="user.login.html"><em class="ion-log-out icon-lg text-primary"></em>Logoff</a>
+              </div>
+            </li>
+            <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><em class="ion-ios-keypad"></em></a>
+              <div class="dropdown-menu dropdown-menu-right dropdown-scale dropdown-card">
+                <div class="p-3">
+                  <div class="d-flex mb-3">
+                    <div class="wd-xs mr-3">
+                      <div class="card bg-gradient-primary border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-stats-bars icon-2x"></em></div><small class="text-bold">Stats</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="wd-xs">
+                      <div class="card bg-gradient-info border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-map icon-2x"></em></div><small class="text-bold">Places</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex">
+                    <div class="wd-xs mr-3">
+                      <div class="card bg-gradient-warning border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-clock icon-2x"></em></div><small class="text-bold">Events</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="wd-xs">
+                      <div class="card bg-gradient-danger border-0">
+                        <div class="card-block text-white text-center">
+                          <div class="mb-1"><em class="ion-plane icon-2x"></em></div><small class="text-bold">Flights</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li><a id="header-search" href="#"><em class="ion-ios-search-strong"></em></a></li>
+            <li><a id="header-settings" href="#"><em class="ion-more"></em></a></li>
+          </ul>
+        </nav>
+      </header>
+      <!-- sidebar-->
+      <aside class="sidebar-container">
+        <div class="brand-header">
+          <div class="float-left pt-4 text-muted sidebar-close"><em class="ion-arrow-left-c icon-lg"></em></div><a class="brand-header-logo" href="#">
+            <!-- Logo Imageimg(src="img/logo.png", alt="logo")
+            --><span class="brand-header-logo-text">Dasha</span></a>
+        </div>
+        <div class="sidebar-content">
+          <div class="sidebar-toolbar">
+            <div class="sidebar-toolbar-background"></div>
+            <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/01.jpg" alt="Profile"></a>
+              <div class="mt-3">
+                <div class="lead">Jane Doe</div>
+                <div class="text-thin">California, CA</div>
+              </div>
+            </div>
+          </div>
+          <nav class="sidebar-nav">
+            <ul>
+              <li>
+                <div class="sidebar-nav-heading">MENU</div>
+              </li>
+              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>Dashboard</span></a></li>
+              <li><a href="widgets.html"><span class="float-right nav-label"><span class="badge-rounded badge-primary">!</span></span><span class="nav-icon"><em class="ion-ios-box-outline"></em></span><span>Widgets</span></a></li>
+              <li>
+                <div class="sidebar-nav-heading">COMPONENTS</div>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>Elements</span></a>
+                <ul class="sidebar-subnav" id="elements">
+                  <li><a href="buttons.html"><span class="float-right nav-label"></span><span>Buttons</span></a></li>
+                  <li><a href="bootstrapui.html"><span class="float-right nav-label"></span><span>Bootstrap</span></a></li>
+                  <li><a href="modals.html"><span class="float-right nav-label"></span><span>Modals</span></a></li>
+                  <li><a href="toaster.html"><span class="float-right nav-label"></span><span>Toaster</span></a></li>
+                  <li><a href="sweetalert.html"><span class="float-right nav-label"></span><span>Sweet Alert</span></a></li>
+                  <li><a href="spinners.html"><span class="float-right nav-label"></span><span>Spinners</span></a></li>
+                  <li><a href="nestable.html"><span class="float-right nav-label"></span><span>Nestable</span></a></li>
+                  <li><a href="grid.html"><span class="float-right nav-label"></span><span>Grid</span></a></li>
+                  <li><a href="grid-masonry.html"><span class="float-right nav-label"></span><span>Grid Masonry</span></a></li>
+                  <li><a href="typography.html"><span class="float-right nav-label"></span><span>Typography</span></a></li>
+                  <li><a href="icons.html"><span class="float-right nav-label"></span><span>Icons</span></a></li>
+                  <li><a href="utilities.html"><span class="float-right nav-label"></span><span>Utilities</span></a></li>
+                  <li><a href="colors.html"><span class="float-right nav-label"></span><span>Colors</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>Forms</span></a>
+                <ul class="sidebar-subnav">
+                  <li><a href="forms.standard.html"><span class="float-right nav-label"></span><span>Standard</span></a></li>
+                  <li><a href="forms.advanced.html"><span class="float-right nav-label"></span><span>Advanced</span></a></li>
+                  <li><a href="validation.html"><span class="float-right nav-label"></span><span>Validation</span></a></li>
+                  <li><a href="dropzone.html"><span class="float-right nav-label"></span><span>Dropzone</span></a></li>
+                  <li><a href="summernote.html"><span class="float-right nav-label"></span><span>Summernote</span></a></li>
+                  <li><a href="wizard.html"><span class="float-right nav-label"></span><span>Wizard Steps</span></a></li>
+                  <li><a href="typeahead.html"><span class="float-right nav-label"></span><span>Typeahead</span></a></li>
+                  <li><a href="xeditable.html"><span class="float-right nav-label"></span><span>xEditable</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-list-outline"></em></span><span>Tables</span></a>
+                <ul class="sidebar-subnav" id="tables">
+                  <li><a href="tables.classic.html"><span class="float-right nav-label"></span><span>Classic</span></a></li>
+                  <li><a href="tables.responsive.html"><span class="float-right nav-label"></span><span>Responsive</span></a></li>
+                  <li><a href="datatable.html"><span class="float-right nav-label"></span><span>Datatable</span></a></li>
+                  <li><a href="footable.html"><span class="float-right nav-label"></span><span>FooTable</span></a></li>
+                  <li><a href="bootgrid.html"><span class="float-right nav-label"></span><span>Bootgrid</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-pulse"></em></span><span>Charts</span></a>
+                <ul class="sidebar-subnav">
+                  <li><a href="flot.html"><span class="float-right nav-label"></span><span>Flot</span></a></li>
+                  <li><a href="peity.html"><span class="float-right nav-label"></span><span>Peity</span></a></li>
+                  <li><a href="rickshaw.html"><span class="float-right nav-label"></span><span>Rickshaw</span></a></li>
+                  <li><a href="radial.html"><span class="float-right nav-label"></span><span>Radial</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-location-outline"></em></span><span>Maps</span></a>
+                <ul class="sidebar-subnav" id="maps">
+                  <li><a href="google-map.html"><span class="float-right nav-label"></span><span>Google Maps</span></a></li>
+                  <li><a href="datamaps.html"><span class="float-right nav-label"></span><span>Datamaps</span></a></li>
+                  <li><a href="vector-map.html"><span class="float-right nav-label"></span><span>Vector Maps</span></a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="sidebar-nav-heading">MORE</div>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-person-outline"></em></span><span>User</span></a>
+                <ul class="sidebar-subnav" id="user">
+                  <li><a href="signin.html"><span class="float-right nav-label"></span><span>Signin</span></a></li>
+                  <li><a href="signup.html"><span class="float-right nav-label"></span><span>Signup</span></a></li>
+                  <li><a href="recover.html"><span class="float-right nav-label"></span><span>Recover</span></a></li>
+                  <li><a href="lock.html"><span class="float-right nav-label"></span><span>Lock</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-keypad-outline"></em></span><span>Pages</span></a>
+                <ul class="sidebar-subnav" id="pages">
+                  <li><a href="forum.html"><span class="float-right nav-label"></span><span>Forum</span></a></li>
+                  <li><a href="calendar.html"><span class="float-right nav-label"></span><span>Calendar</span></a></li>
+                  <li><a href="timeline.html"><span class="float-right nav-label"></span><span>Timeline</span></a></li>
+                  <li><a href="invoice.html"><span class="float-right nav-label"></span><span>Invoice</span></a></li>
+                  <li><a href="fullmap.html"><span class="float-right nav-label"></span><span>Fullmap</span></a></li>
+                  <li><a href="pricing.html"><span class="float-right nav-label"></span><span>Pricing</span></a></li>
+                  <li><a href="people.html"><span class="float-right nav-label"></span><span>People</span></a></li>
+                  <li><a href="contact.html"><span class="float-right nav-label"></span><span>Contact</span></a></li>
+                  <li><a href="wall.html"><span class="float-right nav-label"></span><span>Wall</span></a></li>
+                  <li><a href="mailbox.html"><span class="float-right nav-label"></span><span>Mailbox</span></a></li>
+                  <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span>Errors</span></a>
+                    <ul class="sidebar-subnav" id="errors">
+                      <li><a href="error404.html"><span class="float-right nav-label"></span><span>404</span></a></li>
+                      <li><a href="error403.html"><span class="float-right nav-label"></span><span>403</span></a></li>
+                      <li><a href="error500.html"><span class="float-right nav-label"></span><span>500</span></a></li>
+                      <li><a href="error503.html"><span class="float-right nav-label"></span><span>503</span></a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+      <div class="sidebar-layout-obfuscator"></div>
+      <!-- Main section-->
+      <main class="main-container">
+        <!-- Page content-->
+        <section class="section-container">
+          <div class="container container-lg">
+            <!-- START card-->
+            <div class="cardbox">
+              <div class="cardbox-heading">
+                <div class="cardbox-title">Button colors</div><small>Standard Bootstrap buttons and color variants</small>
+              </div>
+              <div class="cardbox-body">
+                <div class="text-center">
+                  <button class="mb-4 btn btn-secondary" type="button">Secondary</button>
+                  <button class="mb-4 btn btn-primary" type="button">Primary</button>
+                  <button class="mb-4 btn btn-success" type="button">Success</button>
+                  <button class="mb-4 btn btn-info" type="button">Info</button>
+                  <button class="mb-4 btn btn-warning" type="button">Warning</button>
+                  <button class="mb-4 btn btn-danger" type="button">Danger</button><br><br><a class="btn btn-link" href="#">Button Link</a>
+                  <button class="btn btn-secondary mr-3" type="button">button tag</button><a class="btn btn-secondary" href="#">anchor tag</a>
+                </div>
+              </div>
+            </div>
+            <!-- END card-->
+            <!-- START card-->
+            <div class="cardbox">
+              <div class="cardbox-heading">
+                <div class="cardbox-title">Gradient Button colors</div><small>Add class <code>.btn-gradient</code>to standard Bootstrap buttons</small>
+              </div>
+              <div class="cardbox-body">
+                <div class="text-center">
+                  <button class="mb-4 btn btn-lg btn-gradient wd-sm btn-secondary" type="button">Secondary</button>
+                  <button class="mb-4 btn btn-lg btn-gradient wd-sm btn-primary" type="button">Primary</button>
+                  <button class="mb-4 btn btn-lg btn-gradient wd-sm btn-success" type="button">Success</button>
+                  <button class="mb-4 btn btn-lg btn-gradient wd-sm btn-info" type="button">Info</button>
+                  <button class="mb-4 btn btn-lg btn-gradient wd-sm btn-warning" type="button">Warning</button>
+                  <button class="mb-4 btn btn-lg btn-gradient wd-sm btn-danger" type="button">Danger</button>
+                </div>
+              </div>
+            </div>
+            <!-- END card-->
+            <!-- START card-->
+            <div class="cardbox">
+              <div class="cardbox-heading">
+                <div class="cardbox-title">Button Flat</div><small>Add class <code>.btn-flat</code>to standard Bootstrap buttons</small>
+              </div>
+              <div class="cardbox-body">
+                <div class="text-center">
+                  <button class="btn btn-flat btn-secondary" type="button">Secondary</button>
+                  <button class="btn btn-flat btn-primary" type="button">Primary</button>
+                  <button class="btn btn-flat btn-success" type="button">Success</button>
+                  <button class="btn btn-flat btn-info" type="button">Info</button>
+                  <button class="btn btn-flat btn-warning" type="button">Warning</button>
+                  <button class="btn btn-flat btn-danger" type="button">Danger</button>
+                </div>
+              </div>
+            </div>
+            <!-- END card-->
+            <!-- START card-->
+            <div class="cardbox">
+              <div class="cardbox-heading">
+                <div class="cardbox-title">Button Outline</div><small>Add class <code>.btn-outline-secondary</code><code>.btn-outline-primary</code><code>.btn-outline-success</code><code>.btn-outline-info</code><code>.btn-outline-warning</code><code>.btn-outline-danger</code>to standard Bootstrap buttons</small>
+              </div>
+              <div class="cardbox-body">
+                <div class="text-center">
+                  <button class="btn btn-outline-secondary" type="button">Secondary</button>
+                  <button class="btn btn-outline-primary" type="button">Primary</button>
+                  <button class="btn btn-outline-success" type="button">Success</button>
+                  <button class="btn btn-outline-info" type="button">Info</button>
+                  <button class="btn btn-outline-warning" type="button">Warning</button>
+                  <button class="btn btn-outline-danger" type="button">Danger</button>
+                </div>
+              </div>
+            </div>
+            <!-- END card-->
+            <!-- START card-->
+            <div class="cardbox">
+              <div class="cardbox-heading">
+                <div class="cardbox-title">Button Circle</div><small>Add class <code>.btn-circle</code>to standard Bootstrap buttons</small>
+              </div>
+              <div class="cardbox-body">
+                <div class="text-center">
+                  <button class="btn btn-circle btn-secondary" type="button">D</button>
+                  <button class="btn btn-circle btn-primary" type="button">P</button>
+                  <button class="btn btn-circle btn-success" type="button">S</button>
+                  <button class="btn btn-circle btn-info" type="button">I</button>
+                  <button class="btn btn-circle btn-warning" type="button">W</button>
+                  <button class="btn btn-circle btn-danger" type="button">D</button>
+                </div>
+              </div>
+            </div>
+            <!-- END card-->
+            <!-- START card-->
+            <div class="cardbox">
+              <div class="cardbox-heading">
+                <div class="cardbox-title">Button Labeled</div><small>Special buttons supporting icons labels</small>
+              </div>
+              <div class="cardbox-body">
+                <div class="text-center">
+                  <!-- Success button with label-->
+                  <button class="btn btn-labeled btn-success" type="button"><span class="btn-label"><i class="ion-checkmark-round"></i></span>Success</button>
+                  <!-- Danger button with label-->
+                  <button class="btn btn-labeled btn-danger" type="button"><span class="btn-label"><i class="ion-close-round"></i></span>Danger</button>
+                  <!-- Info button with label-->
+                  <button class="btn btn-labeled btn-info" type="button"><span class="btn-label"><i class="ion-alert"></i></span>Info</button>
+                  <!-- Warning button with label-->
+                  <button class="btn btn-labeled btn-warning" type="button"><span class="btn-label"><i class="ion-nuclear"></i></span>Warning</button><br><br>
+                  <!-- Standard button with label-->
+                  <button class="btn btn-labeled btn-secondary" type="button"><span class="btn-label"><i class="ion-arrow-left-c"></i></span>Left</button>
+                  <!-- Standard button with label on the right side-->
+                  <button class="btn btn-labeled btn-secondary" type="button">Right<span class="btn-label btn-label-right"><i class="ion-arrow-right-c"></i></span></button>
+                </div>
+              </div>
+            </div>
+            <!-- END card-->
+            <!-- START card-->
+            <div class="cardbox">
+              <div class="cardbox-heading">
+                <div class="cardbox-title">Button sizing</div><small>Add class <code>.btn-xl, .btn-lg, .btn-sm</code>to standard Bootstrap buttons</small>
+              </div>
+              <div class="cardbox-body">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <p>
+                      <button class="btn btn-primary btn-xl" type="button">X-Large button</button>
+                      <button class="btn btn-secondary btn-xl" type="button">X-Large button</button>
+                    </p>
+                    <p>
+                      <button class="btn btn-primary btn-lg" type="button">Large button</button>
+                      <button class="btn btn-secondary btn-lg" type="button">Large button</button>
+                    </p>
+                  </div>
+                  <div class="col-lg-6">
+                    <p>
+                      <button class="btn btn-primary" type="button">Normal button</button>
+                      <button class="btn btn-secondary" type="button">Normal button</button>
+                    </p>
+                    <p>
+                      <button class="btn btn-primary btn-sm" type="button">Small button</button>
+                      <button class="btn btn-secondary btn-sm" type="button">Small button</button>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END card-->
+            <!-- START card-->
+            <div class="cardbox">
+              <div class="cardbox-heading">
+                <div class="cardbox-title">Button group</div><small>Organize buttons in groups</small>
+              </div>
+              <div class="cardbox-body">
+                <div class="text-center mb-4">
+                  <div class="btn-group">
+                    <button class="btn btn-secondary" type="button">Left</button>
+                    <button class="btn btn-secondary" type="button">Middle</button>
+                    <button class="btn btn-secondary" type="button">Right</button>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <div class="btn-group">
+                    <button class="btn btn-secondary" type="button">1</button>
+                    <button class="btn btn-secondary" type="button">2</button>
+                    <button class="btn btn-secondary" type="button">3</button>
+                    <button class="btn btn-secondary" type="button">4</button>
+                  </div>
+                  <div class="btn-group">
+                    <button class="btn btn-secondary" type="button">5</button>
+                    <button class="btn btn-secondary" type="button">6</button>
+                    <button class="btn btn-secondary" type="button">7</button>
+                  </div>
+                  <div class="btn-group">
+                    <button class="btn btn-secondary" type="button">8</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END card-->
+            <!-- START card-->
+            <div class="cardbox">
+              <div class="cardbox-heading">
+                <div class="cardbox-title">Button Pills</div><small>Add class <code>.btn-pill-left</code>or<code>.btn-pill-right</code>to standard Bootstrap buttons</small>
+              </div>
+              <div class="cardbox-body">
+                <div class="text-center">
+                  <p>Pill left</p>
+                  <p>
+                    <button class="btn btn-pill-left btn-secondary" type="button">Secondary</button>
+                    <button class="btn btn-pill-left btn-primary" type="button">Primary</button>
+                    <button class="btn btn-pill-left btn-success" type="button">Success</button>
+                    <button class="btn btn-pill-left btn-info" type="button">Info</button>
+                    <button class="btn btn-pill-left btn-warning" type="button">Warning</button>
+                    <button class="btn btn-pill-left btn-danger" type="button">Danger</button>
+                  </p>
+                </div>
+                <div class="text-center">
+                  <p>Pill right</p>
+                  <p>
+                    <button class="btn btn-pill-right btn-secondary" type="button">Secondary</button>
+                    <button class="btn btn-pill-right btn-primary" type="button">Primary</button>
+                    <button class="btn btn-pill-right btn-success" type="button">Success</button>
+                    <button class="btn btn-pill-right btn-info" type="button">Info</button>
+                    <button class="btn btn-pill-right btn-warning" type="button">Warning</button>
+                    <button class="btn btn-pill-right btn-danger" type="button">Danger</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- END card-->
+            <!-- START card-->
+            <div class="cardbox">
+              <div class="cardbox-heading">
+                <div class="cardbox-title">Button Oval</div><small>Add class <code>.btn-oval</code>to standard Bootstrap buttons</small>
+              </div>
+              <div class="cardbox-body">
+                <div class="text-center">
+                  <button class="btn btn-oval btn-secondary" type="button">Secondary</button>
+                  <button class="btn btn-oval btn-primary" type="button">Primary</button>
+                  <button class="btn btn-oval btn-success" type="button">Success</button>
+                  <button class="btn btn-oval btn-info" type="button">Info</button>
+                  <button class="btn btn-oval btn-warning" type="button">Warning</button>
+                  <button class="btn btn-oval btn-danger" type="button">Danger</button>
+                </div>
+              </div>
+            </div>
+            <!-- END card-->
+            <!-- START card-->
+            <div class="cardbox">
+              <div class="cardbox-heading">
+                <div class="cardbox-title">Button Square</div><small>Add class <code>.btn-square</code>to standard Bootstrap buttons</small>
+              </div>
+              <div class="cardbox-body">
+                <div class="text-center">
+                  <button class="btn btn-square btn-secondary" type="button">Secondary</button>
+                  <button class="btn btn-square btn-primary" type="button">Primary</button>
+                  <button class="btn btn-square btn-success" type="button">Success</button>
+                  <button class="btn btn-square btn-info" type="button">Info</button>
+                  <button class="btn btn-square btn-warning" type="button">Warning</button>
+                  <button class="btn btn-square btn-danger" type="button">Danger</button>
+                </div>
+              </div>
+            </div>
+            <!-- END card-->
+            <!-- START card-->
+            <div class="cardbox">
+              <div class="cardbox-heading">
+                <div class="cardbox-title">Button dropdown</div>
+              </div>
+              <div class="cardbox-body">
+                <div class="text-center">
+                            <!-- START button group-->
+                            <div class="dropdown btn-group mb-4">
+                              <button class="btn dropdown-toggle btn-primary" type="button" data-toggle="dropdown">primary<span class="caret"></span>
+                              </button>
+                              <div class="dropdown-menu" role="menu"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a>
+                              </div>
+                            </div>
+                            <!-- END button group-->
+                            <!-- START button group-->
+                            <div class="dropdown btn-group mb-4">
+                              <button class="btn dropdown-toggle btn-secondary" type="button" data-toggle="dropdown">secondary<span class="caret"></span>
+                              </button>
+                              <div class="dropdown-menu" role="menu"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a>
+                              </div>
+                            </div>
+                            <!-- END button group-->
+                            <!-- START button group-->
+                            <div class="dropdown btn-group mb-4">
+                              <button class="btn dropdown-toggle btn-success" type="button" data-toggle="dropdown">success<span class="caret"></span>
+                              </button>
+                              <div class="dropdown-menu" role="menu"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a>
+                              </div>
+                            </div>
+                            <!-- END button group-->
+                            <!-- START button group-->
+                            <div class="dropdown btn-group mb-4">
+                              <button class="btn dropdown-toggle btn-info" type="button" data-toggle="dropdown">info<span class="caret"></span>
+                              </button>
+                              <div class="dropdown-menu" role="menu"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a>
+                              </div>
+                            </div>
+                            <!-- END button group-->
+                            <!-- START button group-->
+                            <div class="dropdown btn-group mb-4">
+                              <button class="btn dropdown-toggle btn-warning" type="button" data-toggle="dropdown">warning<span class="caret"></span>
+                              </button>
+                              <div class="dropdown-menu" role="menu"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a>
+                              </div>
+                            </div>
+                            <!-- END button group-->
+                            <!-- START button group-->
+                            <div class="dropdown btn-group mb-4">
+                              <button class="btn dropdown-toggle btn-danger" type="button" data-toggle="dropdown">danger<span class="caret"></span>
+                              </button>
+                              <div class="dropdown-menu" role="menu"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a>
+                              </div>
+                            </div>
+                            <!-- END button group-->
+                </div>
+              </div>
+            </div>
+            <!-- END card-->
+            <!-- START card-->
+            <div class="cardbox">
+              <div class="cardbox-heading">
+                <div class="cardbox-title">Split button dropdown</div>
+              </div>
+              <div class="cardbox-body">
+                <div class="text-center">
+                            <!-- START button group-->
+                            <div class="btn-group dropdown">
+                              <button class="btn btn-primary" type="button">Action</button>
+                              <button class="btn dropdown-toggle btn-primary" type="button" data-toggle="dropdown"><span class="caret"></span><span class="sr-only">primary</span></button>
+                              <div class="dropdown-menu" role="menu"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a>
+                              </div>
+                            </div>
+                            <!-- END button group-->
+                            <!-- START button group-->
+                            <div class="btn-group dropdown">
+                              <button class="btn btn-secondary" type="button">Action</button>
+                              <button class="btn dropdown-toggle btn-secondary" type="button" data-toggle="dropdown"><span class="caret"></span><span class="sr-only">secondary</span></button>
+                              <div class="dropdown-menu" role="menu"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a>
+                              </div>
+                            </div>
+                            <!-- END button group-->
+                            <!-- START button group-->
+                            <div class="btn-group dropdown">
+                              <button class="btn btn-success" type="button">Action</button>
+                              <button class="btn dropdown-toggle btn-success" type="button" data-toggle="dropdown"><span class="caret"></span><span class="sr-only">success</span></button>
+                              <div class="dropdown-menu" role="menu"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a>
+                              </div>
+                            </div>
+                            <!-- END button group-->
+                            <!-- START button group-->
+                            <div class="btn-group dropdown">
+                              <button class="btn btn-info" type="button">Action</button>
+                              <button class="btn dropdown-toggle btn-info" type="button" data-toggle="dropdown"><span class="caret"></span><span class="sr-only">info</span></button>
+                              <div class="dropdown-menu" role="menu"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a>
+                              </div>
+                            </div>
+                            <!-- END button group-->
+                            <!-- START button group-->
+                            <div class="btn-group dropdown">
+                              <button class="btn btn-warning" type="button">Action</button>
+                              <button class="btn dropdown-toggle btn-warning" type="button" data-toggle="dropdown"><span class="caret"></span><span class="sr-only">warning</span></button>
+                              <div class="dropdown-menu" role="menu"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a>
+                              </div>
+                            </div>
+                            <!-- END button group-->
+                            <!-- START button group-->
+                            <div class="btn-group dropdown">
+                              <button class="btn btn-danger" type="button">Action</button>
+                              <button class="btn dropdown-toggle btn-danger" type="button" data-toggle="dropdown"><span class="caret"></span><span class="sr-only">danger</span></button>
+                              <div class="dropdown-menu" role="menu"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a>
+                              </div>
+                            </div>
+                            <!-- END button group-->
+                </div>
+              </div>
+            </div>
+            <!-- END card-->
+          </div>
+        </section>
+        <!-- Page footer-->
+        <footer class="footer-container">
+          <div class="d-flex justify-content-between fh"><a class="footer-icon" href="#"><em class="ion-chatboxes"></em><span>Messages</span></a><a class="footer-icon" href="#"><em class="ion-document-text"></em><span>Widgets</span></a><a class="footer-icon footer-icon-lg" href="#"><em class="ion-home"></em><span>Dashboard</span></a><a class="footer-icon" href="#"><em class="ion-map"></em><span>Maps</span></a><a class="footer-icon" href="#"><em class="ion-pie-graph"></em><span>Charts</span></a></div>
+        </footer>
+      </main>
+    </div>
+    <!-- Search template-->
+    <div class="modal modal-top fade modal-search" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="modal-search-form">
+              <form action="#">
+                <div class="input-group">
+                  <div class="input-group-btn">
+                    <button class="btn btn-flat" type="button" data-dismiss="modal"><em class="ion-arrow-left-c icon-lg text-muted"></em></button>
+                  </div>
+                  <input class="form-control header-input-search" type="text" placeholder="Search..">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Search template-->
+    <!-- Settings template-->
+    <div class="modal-settings modal modal-right fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="mt-0 modal-title"><span>Settings</span></h4>
+            <div class="float-right clickable" data-dismiss="modal"><em class="ion-close-round text-soft"></em></div>
+          </div>
+          <div class="modal-body">
+            <p>Dark sidebar</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-default">
+                  <input type="radio" checked name="setting-theme" value="theme-default"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-2">
+                  <input type="radio" name="setting-theme" value="theme-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-3">
+                  <input type="radio" name="setting-theme" value="theme-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-4">
+                  <input type="radio" name="setting-theme" value="theme-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-5">
+                  <input type="radio" name="setting-theme" value="theme-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-6">
+                  <input type="radio" name="setting-theme" value="theme-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>White sidebar</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-default">
+                  <input type="radio" name="setting-theme" value="theme-default-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-2">
+                  <input type="radio" name="setting-theme" value="theme-2-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-3">
+                  <input type="radio" name="setting-theme" value="theme-3-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-4">
+                  <input type="radio" name="setting-theme" value="theme-4-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-5">
+                  <input type="radio" name="setting-theme" value="theme-5-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-6">
+                  <input type="radio" name="setting-theme" value="theme-6-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>Sidebar Gradients</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-gradient-1">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-1"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-2">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-3">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-4">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-5">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-6">
+                  <input type="radio" name="setting-theme" value="theme-gradient-sidebar-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>Header Gradients</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-gradient-1">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-1"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-2">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-3">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-4">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-5">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+              <div class="setting-color">
+                <label class="preview-theme-gradient-6">
+                  <input type="radio" name="setting-theme" value="theme-gradient-header-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <p>Dark content</p>
+            <div class="d-flex flex-wrap mb-3">
+              <div class="setting-color">
+                <label class="preview-theme-dark">
+                  <input type="radio" name="setting-theme" value="theme-dark"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+                </label>
+              </div>
+            </div>
+            <hr>
+            <p>
+              <label class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="sidebar-cover" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Sidebar Cover</span>
+              </label>
+            </p>
+            <p>
+              <label class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="sidebar-showtoolbar" type="checkbox" checked><span class="custom-control-indicator"></span><span class="custom-control-description">Sidebar profile</span>
+              </label>
+            </p>
+            <p>
+              <label class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="fixed-footer" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Fixed Footer</span>
+              </label>
+            </p>
+            <hr>
+            <button class="btn btn-secondary" type="button" data-toggle-fullscreen="">Toggle fullscreen</button>
+            <hr>
+            <p>Change language</p>
+            <!-- START Language list-->
+            <select class="language-select custom-select form-control">
+              <option value="en" selected="">English</option>
+              <option value="es">Spanish</option>
+              <option value="fr">French</option>
+            </select>
+            <!-- END Language list-->
+            <div class="mt-3" data-localize="translate.EXAMPLE">This is an example text using English as selected language.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Settings template-->
+    <!-- Modernizr-->
+    <script src="vendor/modernizr/modernizr.custom.js"></script>
+    <!-- PaceJS-->
+    <script src="vendor/pace/pace.min.js"></script>
+    <!-- jQuery-->
+    <script src="vendor/jquery/dist/jquery.js"></script>
+    <!-- Bootstrap-->
+    <script src="vendor/tether/dist/js/tether.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- Material Colors-->
+    <script src="vendor/material-colors/dist/colors.js"></script>
+    <!-- Screenfull-->
+    <script src="vendor/screenfull/dist/screenfull.js"></script>
+    <!-- jQuery Localize-->
+    <script src="vendor/jquery-localize-i18n/dist/jquery.localize.js"></script>
+    <!-- App script-->
+    <script src="js/app.js"></script>
+  </body>
+</html>

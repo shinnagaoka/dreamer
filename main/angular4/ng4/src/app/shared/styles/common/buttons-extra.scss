@@ -1,0 +1,272 @@
+/**
+ * Buttons Extras
+ */
+
+@import '../common/variables';
+@import '../common/mixins';
+
+// global button styles
+
+.input-group-btn > .btn {
+    border-color: rgba(0,0,0,.26);
+}
+
+.btn-shadow {
+    box-shadow: 0px 5px 25px 0px rgba(123, 123, 123, 0.15);
+}
+
+.btn-transparent {
+    background-color: transparent;
+    color: rgba(255,255,255,.9);
+    border-color: rgba(255,255,255,.5);
+    border-radius: 20px;
+}
+
+
+// Material like flat buttons (show bg on hover)
+
+@mixin btn-flat-colors($color) {
+    color: $color;
+    &:hover, &:focus, &:active { color: #fff  }
+    &:focus {
+        background-color: $color;
+    }
+    &[disabled], &.disabled {
+        color: rgba($color, .75) !important;
+    }
+}
+
+.btn-flat {
+    border-color: transparent !important;
+    border-radius: 2px;
+    background-color: transparent;
+    text-transform: uppercase;
+    &:active, &.active {
+        box-shadow: 0 0 0 #000;
+    }
+
+    &.btn-primary {
+        @include btn-flat-colors($brand-primary);
+    }
+    &.btn-success {
+        @include btn-flat-colors($brand-success);
+    }
+    &.btn-danger {
+        @include btn-flat-colors($brand-danger);
+    }
+    &.btn-warning {
+        @include btn-flat-colors($brand-warning);
+    }
+    &.btn-info {
+        @include btn-flat-colors($brand-info);
+    }
+
+    &.text-white { color: #fff !important; }
+
+    &[disabled],
+    &.disabled {
+        // color: rgba(255,255,255,.45) !important;
+        background-color: transparent !important;
+    }
+
+    &.btn-flat-icon {
+        border-radius: 50%;
+        font-size: 24px;
+        height: 32px;
+        width: 32px;
+        padding: 0;
+        overflow: hidden;
+        color: inherit !important;
+        > em {
+            line-height: 32px;
+        }
+        &:hover, &:focus, &:active {
+            background-color: rgba(158,158,158,.2) !important;
+        }
+    }
+}
+
+// adjust button icon under float
+.float-right > .btn-flat-icon {
+    margin-top: -4px;
+}
+
+// A circle button
+.btn-circle {
+    width: 46px;
+    height: 46px;
+    overflow: hidden;
+    border-radius: 50% !important;
+    line-height: 46px;
+    padding: 0;
+    text-align: center;
+}
+
+// Extra size
+.btn-xl {
+    padding: 20px 16px;
+    font-size: 18px;
+}
+
+// Button square
+.btn-square {
+    border-radius: 0;
+}
+
+// Button pill
+.btn-pill-left {
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    padding-left: 18px;
+}
+
+.btn-pill-right {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    padding-right: 18px;
+}
+
+// Rounded buttons
+.btn-oval {
+    @extend .btn-pill-right;
+    @extend .btn-pill-left;
+}
+
+// Labels for buttons
+// --------------------------------------------------
+
+// BUTTONS LABEL mixin
+@mixin button-label-size($padding-vertical, $padding-horizontal, $border-radius) {
+    padding: $padding-vertical $padding-horizontal;
+    left: (-1 * $padding-horizontal);
+    border-radius: ($border-radius - 1px) 0 0 ($border-radius - 1px);
+
+    &.btn-label-right {
+        left: auto;
+        right: (-1 * $padding-horizontal);
+        border-radius: 0 ($border-radius - 1px) ($border-radius - 1px) 0;
+    }
+}
+
+.btn-labeled {
+    padding-top: 0;
+    padding-bottom: 0;
+    text-align: left;
+}
+
+.btn-label {
+    position: relative;
+    background: transparent;
+    // background: rgba(0, 0, 0, 0.05);
+    display: inline-block;
+    @include button-label-size(6px, 16px, 4px);
+    &:after {
+        content: "";
+        position: absolute;
+        top: 5px;
+        bottom: 5px;
+        right: 0;
+        width: 1px;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    &.btn-label-right {
+        text-indent: -2px;
+        &:after {
+            left: 0;
+            right: auto;
+        }
+    }
+}
+
+.btn-lg .btn-label { @include button-label-size(10px, 20px, 6px); }
+.btn-sm .btn-label { @include button-label-size(1px, 5px, 3px); }
+
+
+// Fixed width buttons
+// --------------------------------------------------
+
+$btn-fw-default:  80px;
+$btn-fw-sm:       40px;
+$btn-fw-md:       60px;
+$btn-fw-lg:       140px;
+
+.btn-fw {
+    min-width: $btn-fw-default;
+    &.btn-sm {
+        min-width: $btn-fw-sm;
+    }
+    &.btn-md {
+        min-width: $btn-fw-md;
+    }
+    &.btn-lg {
+        min-width: $btn-fw-lg;
+    }
+}
+
+// defualt buttons transition delays the effect
+// of hide/show buttons in some components
+.btn[ng-if],
+.btn[ng-show] {
+    //transition: none 0s;
+}
+
+
+// Pagination rounded
+.pagination-rounded {
+    .page-item > .page-link {
+        border-radius: 50% !important;
+        margin-right: 4px;
+        margin-left: 4px;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        padding: 0;
+        text-align: center;
+        > span {
+            position: relative;
+            top: -1px;
+        }
+    }
+    &.pagination-lg {
+        .page-item > .page-link {
+            width: 44px;
+            height: 44px;
+            line-height: 44px;
+
+        }
+    }
+}
+
+.float-left.btn-group,
+.float-right.btn-group {
+    position: relative;
+    z-index: 1;
+}
+
+@mixin btn-gradient($colorStart, $colorStop) {
+    border: 0;
+    background: -webkit-linear-gradient(135deg, $colorStart 0, $colorStop 100%);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(135deg, $colorStart 0, $colorStop 100%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.btn-gradient {
+    &.btn-secondary {
+        @include btn-gradient($mdc-blue-grey-200, $mdc-blue-grey-400);
+        color: #fff;
+    }
+    &.btn-primary {
+        @include btn-gradient($mdc-deep-purple-500, $mdc-blue-500);
+    }
+    &.btn-info {
+        @include btn-gradient($mdc-teal-500, $mdc-blue-400);
+    }
+    &.btn-success {
+        @include btn-gradient($mdc-lime-500, $mdc-green-500);
+    }
+    &.btn-danger {
+        @include btn-gradient($mdc-purple-700, $mdc-red-500);
+    }
+    &.btn-warning {
+        @include btn-gradient($mdc-yellow-600, $mdc-orange-500);
+    }
+}

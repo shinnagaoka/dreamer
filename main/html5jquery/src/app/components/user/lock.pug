@@ -1,0 +1,17 @@
+extends user.layout.pug
+block content
+    .d-flex.align-items-center.align-items-center-ie.bg-gradient-danger
+        .fw: .container.container-xs
+            .text-center.my-4
+                img.rounded-circle.mb-3.block-center.img-fluid.img-thumbnail.thumb80(src="img/user/01.jpg", alt="user")
+                p Jane Doe
+            form.cardbox.cardbox-flat.text-white.form-validate#user-lock(name="loginForm", novalidate='').text-color
+                .cardbox-heading
+                    p.text-center Type your password to unlock terminal
+                .cardbox-body
+                    .input-group
+                        input.form-control.form-control-inverse(type='password', name="accountPassword",required="", placeholder="Password", data-msg="Please type your password")
+                        span.input-group-btn
+                            button.btn.btn-secondary.btn-gradient(type="submit")
+                                em.ion-ios-locked-outline.icon-lg
+                    .text-right: small: a.text-white(href="signin.html") Not you?

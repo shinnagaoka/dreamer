@@ -1,0 +1,66 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Calendar'
+block content
+    .container-fluid
+        .calendar-app
+            .row
+                .col-xl-3
+                    .card.mb-4
+                        .card-block.bb
+                            .d-flex
+                                .display-4.text-bold.mr-4 15
+                                .mt-2
+                                    div July, 2017
+                                    div: strong Saturday
+                        .card-block.bb
+                            #external-events
+                                p.text-muted Assigned
+                                .external-event.text-sm
+                                    .mb-3.rounded.p-2.bg-green-500 Lunch
+                                .external-event.text-sm
+                                    .mb-3.rounded.p-2.bg-danger Go home
+                                .external-event.text-sm
+                                    .mb-3.rounded.p-2.bg-warning Work on UI design
+                        .card-block
+                            p Next Events
+                            .d-flex.align-content-center.mb-4
+                                em.ion-ios-circle-outline.text-danger.mr-3
+                                div.text-sm
+                                    div Meet designer
+                                    .text-muted 20 June, 10am
+                            .d-flex.align-content-center.mb-4
+                                em.ion-ios-circle-outline.text-success.mr-3
+                                div.text-sm
+                                    div Go to office
+                                    .text-muted 21 June, 11am
+                            .d-flex.align-content-center.mb-4
+                                em.ion-ios-circle-outline.text-info.mr-3
+                                div.text-sm
+                                    div Find new plugins
+                                    .text-muted 22 June, 12pm
+                            .d-flex.align-content-center
+                                em.ion-ios-circle-outline.text-warning.mr-3
+                                div.text-sm
+                                    div Meet designer (again?)
+                                    .text-muted 23 June, 01pm
+                                .ml-auto
+                                    em.ion-alert-circled.text-warning
+                .col-xl-9
+                    .card
+                        .card-block
+                            #calendar
+                    small.text-muted * Best viewed on desktops
+
+block vendor_css
+    // FULLCALENDAR
+    link(rel='stylesheet', href='vendor/fullcalendar/dist/fullcalendar.css')
+block vendor_js
+    // JQUERY UI
+    script(src='vendor/jquery-ui/jquery-ui.js')
+    script(src='vendor/jqueryui-touch-punch/jquery.ui.touch-punch.min.js')
+    // MOMENT JS
+    script(src='vendor/moment/min/moment-with-locales.min.js')
+    // FULLCALENDAR
+    script(src='vendor/fullcalendar/dist/fullcalendar.min.js')
+    script(src='vendor/fullcalendar/dist/gcal.js')

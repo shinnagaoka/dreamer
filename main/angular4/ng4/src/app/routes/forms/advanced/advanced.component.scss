@@ -1,0 +1,30 @@
+// Fix for NGX Bootstrap Timepicker
+.glyphicon.glyphicon-chevron-down:before,
+.glyphicon.glyphicon-chevron-up:before {
+    display: inline-block;
+    font-family: "Ionicons";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon.glyphicon-chevron-up:before {
+    content: "\F126";
+}
+
+.glyphicon.glyphicon-chevron-down:before {
+    content: "\F123";
+}
+
+// Support BS4
+.ui-select-container.dropdown.open {
+    .dropdown-menu {
+        display: block;
+    }
+}

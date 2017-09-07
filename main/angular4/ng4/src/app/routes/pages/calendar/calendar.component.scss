@@ -1,0 +1,69 @@
+@import "~angular-calendar/dist/css/angular-calendar.css";
+
+@import '../../../shared/styles/common/variables';
+@import '../../../shared/styles/common/mixins';
+
+.cal-month-view .cal-day-badge {
+    background-color: $brand-info;
+}
+.cal-month-view .cal-open-day-events {
+    box-shadow: 0 0 0 #000;
+    background-color: rgba(162,162,162,.15);
+    overflow: hidden;
+}
+// weekend days
+.cal-month-view .cal-day-cell.cal-weekend .cal-day-number,
+.cal-week-view .cal-header.cal-weekend span {
+    color: $text-color;
+    font-weight: bold;
+}
+// hilighted today
+.cal-month-view .cal-day-cell.cal-today,
+.cal-week-view .cal-header.cal-today {
+    background-color: rgba($brand-info, .15);
+}
+// event text for months view
+.cal-month-view .cal-event-title {
+    color: $text-color;
+}
+// event text for week/day views
+.cal-week-view .cal-event,
+.cal-day-view .cal-event {
+    .cal-event-title {
+        color: #fff !important;
+    }
+    em {
+        color: rgba(255,255,255,.5) !important;
+    }
+}
+// hover header
+.cal-month-view .cal-cell-row:hover, {
+    background-color: transparent;
+}
+// hover cells
+.cal-week-view .cal-day-headers .cal-header:hover, .cal-week-view .cal-day-headers .cal-drag-over,
+.cal-month-view .cal-cell-row .cal-cell:hover, .cal-month-view .cal-cell.cal-has-events.cal-open {
+    background-color: rgba(160,160,160,.15);
+}
+// hover and odd cells in day view
+.cal-day-view .cal-hour-segment:hover, .cal-day-view .cal-drag-over .cal-hour-segment,
+.cal-day-view .cal-hour:nth-child(odd) {
+    background-color: transparent;
+}
+// border colors
+.cal-month-view .cal-days,
+.cal-month-view .cal-days .cal-cell-row,
+.cal-month-view .cal-day-cell:not(:last-child),
+.cal-week-view .cal-day-headers .cal-header:not(:last-child),
+.cal-week-view .cal-day-headers,
+.cal-day-view .cal-hour:not(:last-child) .cal-hour-segment, .cal-day-view .cal-hour:last-child :not(:last-child) .cal-hour-segment,
+.cal-day-view .cal-hour-rows {
+    border-color: rgba(160,160,160,.15);
+}
+
+// Customize for dark theme
+.theme-dark {
+    .cal-month-view .cal-event-title {
+        color: #fff;
+    }
+}

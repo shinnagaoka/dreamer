@@ -1,0 +1,89 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Peity Charts'
+block content
+    .container.container-md
+        .row
+            // Pie Chart
+            .col-lg-6
+                .cardbox
+                    .cardbox-heading
+                        .cardbox-title Pie Charts
+                        small A "/" delimiter is assumed to mean "three out of five", otherwise all of the values are included in the chart and the total is the sum of all values.
+                    .cardbox-body
+                        .d-flex.justify-content-between
+                            span.peity-pie 1/5
+                            span.peity-pie 226/360
+                            span.peity-pie 0.52,1.041
+                            span.peity-pie 1,2,3,2,2
+                    .cardbox-body
+                        pre
+                            code.
+                               &lt;span class=&quot;peity-pie&quot;&gt;1/5&lt;/span&gt;
+                               &lt;span class=&quot;peity-pie&quot;&gt;226/360&lt;/span&gt;
+                               &lt;span class=&quot;peity-pie&quot;&gt;0.52,1.041&lt;/span&gt;
+                               &lt;span class=&quot;peity-pie&quot;&gt;1,2,3,2,2&lt;/span&gt;
+            // Donut Charts
+            .col-lg-6
+                .cardbox
+                    .cardbox-heading
+                        .cardbox-title Donut Charts
+                        small Donut charts are the same as pie charts and take the same options with an added innerRadius option which defaults to half the radius.
+                    .cardbox-body
+                        .d-flex.justify-content-between
+                            span.peity-donut 1/5
+                            span.peity-donut 226/360
+                            span.peity-donut 0.52,1.041
+                            span.peity-donut 1,2,3,2,2
+                    .cardbox-body
+                        pre
+                            code.
+                                &lt;span class=&quot;peity-donut&quot;&gt;1/5&lt;/span&gt;
+                                &lt;span class=&quot;peity-donut&quot;&gt;226/360&lt;/span&gt;
+                                &lt;span class=&quot;peity-donut&quot;&gt;0.52,1.041&lt;/span&gt;
+                                &lt;span class=&quot;peity-donut&quot;&gt;1,2,3,2,2&lt;/span&gt;
+        .row
+            // Line Chart
+            .col-lg-6
+                .cardbox
+                    .cardbox-heading
+                        .cardbox-title Line Charts
+                        small Line charts work on a comma-separated list. Line charts can take as options: delimiter, fill, height, max, min, stroke, strokeWidth and width.
+                    .cardbox-body
+                        .d-flex.justify-content-between
+                            span.peity-line 5,3,9,6,5,9,7,3,5,2
+                            span.peity-line 5,3,2,-1,-3,-2,2,3,5,2
+                            span.peity-line 0,-3,-6,-4,-5,-4,-7,-3,-5,-2
+                    .cardbox-body
+                        pre
+                            code.
+                                &lt;span class=&quot;peity-line&quot;&gt;5,3,9,6,5,9,7,3,5,2&lt;/span&gt;
+                                &lt;span class=&quot;peity-line&quot;&gt;5,3,2,-1,-3,-2,2,3,5,2&lt;/span&gt;
+                                &lt;span class=&quot;peity-line&quot;&gt;0,-3,-6,-4,-5,-4,-7,-3,-5,-2&lt;/span&gt;
+            // Bar Charts
+            .col-lg-6
+                .cardbox
+                    .cardbox-heading
+                        .cardbox-title Bar Charts
+                        small Bar charts work in the same way as line charts and take the following options: delimiter, fill, height, max, min, padding and width.
+                    .cardbox-body
+                        .d-flex.justify-content-between
+                            span.peity-bar 5,3,9,6,5,9,7,3,5,2
+                            span.peity-bar 5,3,2,-1,-3,-2,2,3,5,2
+                            span.peity-bar 0,-3,-6,-4,-5,-4,-7,-3,-5,-2
+                    .cardbox-body
+                        pre
+                            code.
+                                &lt;span class=&quot;peity-bar&quot;&gt;5,3,9,6,5,9,7,3,5,2&lt;/span&gt;
+                                &lt;span class=&quot;peity-bar&quot;&gt;5,3,2,-1,-3,-2,2,3,5,2&lt;/span&gt;
+                                &lt;span class=&quot;peity-bar&quot;&gt;0,-3,-6,-4,-5,-4,-7,-3,-5,-2&lt;/span&gt;
+        .cardbox.mb-0
+            .cardbox-heading
+                .cardbox-title Real time
+                small Charts can be updated by changing the the jQuery selection's text content and calling change() on it. The chart will be redrawn with the same options that were originally passed to it.
+                .cardbox-body
+                    span.realtime-peity-chart 5,3,9,6,5,9,7,3,5,2,5,3,9,6,5,9,7,3,5,2
+
+block vendor_js
+    // Peity charts
+    script(src='vendor/peity/jquery.peity.min.js')

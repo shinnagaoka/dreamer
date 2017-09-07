@@ -1,0 +1,118 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Nestable'
+block content
+    .container-fluid
+        .js-nestable-action
+            a.btn.btn-secondary.btn-sm.mr-2(href="#", data-action="expand-all") Expand All
+            a.btn.btn-secondary.btn-sm(href="#", data-action="collapse-all") CollapseAll
+        .row
+            .col-xl-6.col-xs-12
+                .dd#nestable
+                    ol.dd-list.list-unstyled
+                        li.dd-item(data-id='1')
+                            .cardbox.b0.dd-handle: .cardbox-body
+                                .d-flex
+                                    .mr-4: img.thumb48.rounded-circle(src="img/user/01.jpg", alt="List user")
+                                    div
+                                        .lead: a(href="#") Eric Graves
+                                        .text-muted.text-ellipsis Ut ac nisi id mauris
+                        li.dd-item(data-id='2')
+                            .cardbox.b0.dd-handle: .cardbox-body
+                                .d-flex
+                                    .mr-4: img.thumb48.rounded-circle(src="img/user/02.jpg", alt="List user")
+                                    div
+                                        .lead: a(href="#") Eric Graves
+                                        .text-muted.text-ellipsis Ut ac nisi id mauris
+                            ol.dd-list.list-unstyled
+                                li.dd-item(data-id='3')
+                                    .cardbox.b0.dd-handle: .cardbox-body
+                                        .d-flex
+                                            .mr-4: img.thumb48.rounded-circle(src="img/user/03.jpg", alt="List user")
+                                            div
+                                                .lead: a(href="#") Eric Graves
+                                                .text-muted.text-ellipsis Ut ac nisi id mauris
+                                li.dd-item(data-id='4')
+                                    .cardbox.b0.dd-handle: .cardbox-body
+                                        .d-flex
+                                            .mr-4: img.thumb48.rounded-circle(src="img/user/04.jpg", alt="List user")
+                                            div
+                                                .lead: a(href="#") Eric Graves
+                                                .text-muted.text-ellipsis Ut ac nisi id mauris
+                                li.dd-item(data-id='5')
+                                    .cardbox.b0.dd-handle: .cardbox-body
+                                        .d-flex
+                                            .mr-4: img.thumb48.rounded-circle(src="img/user/05.jpg", alt="List user")
+                                            div
+                                                .lead: a(href="#") Eric Graves
+                                                .text-muted.text-ellipsis Ut ac nisi id mauris
+                                    ol.dd-list.list-unstyled
+                                        li.dd-item(data-id='6')
+                                            .cardbox.b0.dd-handle: .cardbox-body
+                                                .d-flex
+                                                    .mr-4: img.thumb48.rounded-circle(src="img/user/06.jpg", alt="List user")
+                                                    div
+                                                        .lead: a(href="#") Eric Graves
+                                                        .text-muted.text-ellipsis Ut ac nisi id mauris
+                        li.dd-item(data-id='11')
+                            .cardbox.b0.dd-handle: .cardbox-body
+                                .d-flex
+                                    .mr-4: img.thumb48.rounded-circle(src="img/user/07.jpg", alt="List user")
+                                    div
+                                        .lead: a(href="#") Eric Graves
+                                        .text-muted.text-ellipsis Ut ac nisi id mauris
+                p Output
+                .card: .card-block: #nestable-output
+
+            .col-xl-6.col-xs-12
+                .dd#nestable2
+                    ol.dd-list.list-unstyled
+                        li.dd-item(data-id='1')
+                            .cardbox.b0.dd-handle: .cardbox-body
+                                .d-flex.align-items-center
+                                    .mr-4: em.ion-folder.icon-3x.text-info
+                                    div
+                                        .text-bold Pictures
+                        li.dd-item(data-id='2')
+                            .cardbox.b0.dd-handle: .cardbox-body
+                                .d-flex.align-items-center
+                                    .mr-4: em.ion-folder.icon-3x.text-info
+                                    div
+                                        .text-bold Documents
+                            ol.dd-list.list-unstyled
+                                li.dd-item(data-id='3')
+                                    .cardbox.b0.dd-handle: .cardbox-body
+                                        .d-flex.align-items-center
+                                            .mr-4: em.ion-folder.icon-3x.text-info
+                                            div
+                                                .text-bold Projects
+                                li.dd-item(data-id='4')
+                                    .cardbox.b0.dd-handle: .cardbox-body
+                                        .d-flex.align-items-center
+                                            .mr-4: em.ion-folder.icon-3x.text-info
+                                            div
+                                                .text-bold Clients
+                                li.dd-item(data-id='5')
+                                    .cardbox.b0.dd-handle: .cardbox-body
+                                        .d-flex.align-items-center
+                                            .mr-4: em.ion-folder.icon-3x.text-info
+                                            div
+                                                .text-bold Invoices
+                                    ol.dd-list.list-unstyled
+                                        li.dd-item(data-id='6')
+                                            .cardbox.b0.dd-handle: .cardbox-body
+                                                .d-flex.align-items-center
+                                                    .mr-4: em.ion-folder.icon-3x.text-info
+                                                    div
+                                                        .text-bold Last year
+                        li.dd-item(data-id='11')
+                            .cardbox.b0.dd-handle: .cardbox-body
+                                .d-flex.align-items-center
+                                    .mr-4: em.ion-folder.icon-3x.text-info
+                                    div
+                                        .text-bold Movies
+                p Output
+                .card: .card-block: #nestable-output2
+block vendor_js
+    // Nestable
+    script(src='vendor/nestable/jquery.nestable.js')

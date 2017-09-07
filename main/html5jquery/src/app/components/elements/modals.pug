@@ -1,0 +1,153 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Bootstrap'
+block content
+    .container.container-md
+        .cardbox.mb-3
+            .cardbox-heading
+                .cardbox-title Modals
+            .cardbox-body
+                .modal.d-block(style="position: relative; z-index: 0")
+                    .modal-dialog.shadow-z5
+                        .modal-content
+                            .modal-header
+                                h5.modal-title Modal title
+                                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                                    span &times;
+                            .modal-body
+                                p Modal body text goes here.
+                            .modal-footer
+                                button.btn.btn-primary(type='button') Save changes
+                                button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+        .cardbox.mb-3
+            .cardbox-heading
+                .cardbox-title Live demo
+            .cardbox-body
+                .d-flex.flex-column.flex-sm-row
+                    button.mr-2.mb-2.btn.btn-primary(type='button', data-toggle='modal', data-target='.demo-modal-std') Default modal
+                    button.mr-2.mb-2.btn.btn-primary(type='button', data-toggle='modal', data-target='.demo-modal-lg') Large modal
+                    button.mr-2.mb-2.btn.btn-primary(type='button', data-toggle='modal', data-target='.demo-modal-sm') Small modal
+                    button.mr-2.mb-2.btn.btn-info(type='button', data-toggle='modal', data-target='.demo-modal-form') Form modal
+                    button.mr-2.mb-2.btn.btn-danger(type='button', data-toggle='modal', data-target='.demo-modal-alert') Alert modal
+
+        .cardbox.mb-3
+            .cardbox-heading
+                .cardbox-title Modal Positions
+                small Modals can be located to different location by attaching any of the classes 
+                    code .modal-top
+                    code .modal-bottom
+                    code .modal-left
+                    code .modal-right
+                    | to the root element
+                    br
+                    span This modals can have any content and can be used as secondary sidebars.
+            .cardbox-body
+                .d-flex.flex-column.flex-sm-row
+                    button.mr-2.mb-2.btn.btn-success(type='button', data-toggle='modal', data-target='.demo-modal-top'): strong Top modal
+                    button.mr-2.mb-2.btn.btn-success(type='button', data-toggle='modal', data-target='.demo-modal-bottom'): strong Bottom modal
+                    button.mr-2.mb-2.btn.btn-success(type='button', data-toggle='modal', data-target='.demo-modal-left'): strong Left modal
+                    button.mr-2.mb-2.btn.btn-success(type='button', data-toggle='modal', data-target='.demo-modal-right'): strong Right modal
+
+
+block bodychild
+    // Default modal
+    .modal.fade.demo-modal-std
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h5.mt-0.modal-title Default modal
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span &times;
+                .modal-body
+                    p Mauris eu lacus massa, vel condimentum lectus.
+    // Large modal
+    .modal.fade.demo-modal-lg
+        .modal-dialog.modal-lg
+            .modal-content
+                .modal-header
+                    h5.mt-0.modal-title Large modal
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span &times;
+                .modal-body
+                    p Mauris eu lacus massa, vel condimentum lectus.
+    // Small Modal
+    .modal.fade.demo-modal-sm
+        .modal-dialog.modal-sm
+            .modal-content
+                .modal-header
+                    h5.mt-0.modal-title Small modal
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span &times;
+                .modal-body
+                    p Vestibulum molestie commodo elit ut feugiat.
+    // Form Modal
+    .modal.fade.demo-modal-form
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h5.mt-0.modal-title Form modal
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span &times;
+                .modal-body
+                    form
+                        .form-group
+                            label.control-label(for='recipient') To:
+                            input#recipient.form-control(type='text')
+                        .form-group
+                            label.control-label(for='message-content') Message content:
+                            textarea#message-content.form-control
+                .modal-footer
+                    button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+                    button.btn.btn-info(type='button') Save changes
+    // Alert Modal
+    .modal.fade.demo-modal-alert
+        .modal-dialog.modal-sm
+            .modal-content
+                .modal-body.bg-gradient-danger.text-white
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        em.text-white.ion-close
+                    strong.text-white Important message from Modals
+
+    // Top Modal
+    .modal.fade.demo-modal-top.modal-top
+        .modal-dialog.modal-sm
+            .modal-content
+                .modal-header
+                    h5.mt-0.modal-title Top Modal
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span &times;
+                .modal-body
+                    p Vestibulum rutrum venenatis pretium. Mauris a velit id neque dignissim congue. Nullam lobortis consectetur hendrerit. 
+
+    // Bottom Modal
+    .modal.fade.demo-modal-bottom.modal-bottom
+        .modal-dialog.modal-sm
+            .modal-content
+                .modal-header
+                    h5.mt-0.modal-title Bottom Modal
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span &times;
+                .modal-body
+                    p Vestibulum rutrum venenatis pretium. Mauris a velit id neque dignissim congue. Nullam lobortis consectetur hendrerit. 
+
+    // Left Modal
+    .modal.fade.demo-modal-left.modal-left
+        .modal-dialog.modal-sm
+            .modal-content
+                .modal-header
+                    h5.mt-0.modal-title Left Modal
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span &times;
+                .modal-body
+                    p Vestibulum rutrum venenatis pretium. Mauris a velit id neque dignissim congue. Nullam lobortis consectetur hendrerit. 
+
+    // Right Modal
+    .modal.fade.demo-modal-right.modal-right
+        .modal-dialog.modal-sm
+            .modal-content
+                .modal-header
+                    h5.mt-0.modal-title Right Modal
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span &times;
+                .modal-body
+                    p Vestibulum rutrum venenatis pretium. Mauris a velit id neque dignissim congue. Nullam lobortis consectetur hendrerit. 

@@ -1,0 +1,144 @@
+<toaster-container [toasterconfig]="toasterConfig"></toaster-container>
+<div class="container container-md">
+    <div class="clearfix mb-4">
+        <div class="float-right">
+            <button class="btn btn-danger" (click)="clearAll()" type="button">Clear all</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card mb-4">
+                <div class="card-header">Top Right Info</div>
+                <div class="card-block text-center">
+                    <button class="btn btn-info" (click)="showToaster('info', 'toast-top-right')" type="button">Click</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card mb-4">
+                <div class="card-header">Top Left Info</div>
+                <div class="card-block text-center">
+                    <button class="btn btn-info" (click)="showToaster('info', 'toast-top-left')" type="button">Click</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card mb-4">
+                <div class="card-header">Bottom Right Info</div>
+                <div class="card-block text-center">
+                    <button class="btn btn-info" (click)="showToaster('info', 'toast-bottom-right')" type="button">Click</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card mb-4">
+                <div class="card-header">Bottom Left Info</div>
+                <div class="card-block text-center">
+                    <button class="btn btn-info" (click)="showToaster('info', 'toast-bottom-left')" type="button">Click</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card mb-4">
+                <div class="card-header">Top Right Success</div>
+                <div class="card-block text-center">
+                    <button class="btn btn-success" (click)="showToaster('success', 'toast-top-right')" type="button">Click</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card mb-4">
+                <div class="card-header">Top Left Success</div>
+                <div class="card-block text-center">
+                    <button class="btn btn-success" (click)="showToaster('success', 'toast-top-left')" type="button">Click</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card mb-4">
+                <div class="card-header">Bottom Right Success</div>
+                <div class="card-block text-center">
+                    <button class="btn btn-success" (click)="showToaster('success', 'toast-bottom-right')" type="button">Click</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card mb-4">
+                <div class="card-header">Bottom Left Success</div>
+                <div class="card-block text-center">
+                    <button class="btn btn-success" (click)="showToaster('success', 'toast-bottom-left')" type="button">Click</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card mb-4">
+                <div class="card-header">Top Right Warning</div>
+                <div class="card-block text-center">
+                    <button class="btn btn-warning" (click)="showToaster('warning', 'toast-top-right')" type="button">Click</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card mb-4">
+                <div class="card-header">Top Left Warning</div>
+                <div class="card-block text-center">
+                    <button class="btn btn-warning" (click)="showToaster('warning', 'toast-top-left')" type="button">Click</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card mb-4">
+                <div class="card-header">Bottom Right Warning</div>
+                <div class="card-block text-center">
+                    <button class="btn btn-warning" (click)="showToaster('warning', 'toast-bottom-right')" type="button">Click</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card mb-4">
+                <div class="card-header">Bottom Left Warning</div>
+                <div class="card-block text-center">
+                    <button class="btn btn-warning" (click)="showToaster('warning', 'toast-bottom-left')" type="button">Click</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card mb-4">
+                <div class="card-header">Top Right Error</div>
+                <div class="card-block text-center">
+                    <button class="btn btn-danger" (click)="showToaster('error', 'toast-top-right')" type="button">Click</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card mb-4">
+                <div class="card-header">Top Left Error</div>
+                <div class="card-block text-center">
+                    <button class="btn btn-danger" (click)="showToaster('error', 'toast-top-left')" type="button">Click</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card mb-4">
+                <div class="card-header">Bottom Right Error</div>
+                <div class="card-block text-center">
+                    <button class="btn btn-danger" (click)="showToaster('error', 'toast-bottom-right')" type="button">Click</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card mb-4">
+                <div class="card-header">Bottom Left Error</div>
+                <div class="card-block text-center">
+                    <button class="btn btn-danger" (click)="showToaster('error', 'toast-bottom-left')" type="button">Click</button>
+                </div>
+            </div>
+        </div>
+    </div><small class="text-muted">If Toastr shows all toasts in the same position, click on 'Clear all' button and wait a few seconds for the container to be removed.</small>
+</div>

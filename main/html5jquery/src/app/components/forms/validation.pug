@@ -1,0 +1,154 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Forms Validation'
+block content
+    .container-fluid
+        h5.mt-0 jQuery Form validation
+        p.mb-4 This jQuery plugin makes simple clientside form validation easy, whilst still offering plenty of customization options. It makes a good choice if you’re building something new from scratch, but also when you’re trying to integrate something into an existing application with lots of existing markup.
+        // START row
+        form.form-validate#form-register(name="registerForm", novalidate='')
+            // START panel
+            .cardbox
+                .cardbox-heading
+                    small.float-right * Required fields
+                    span Form Register
+                .cardbox-body
+                    .form-group
+                        label Email Address *
+                        input.form-control(type='email', placeholder="mail@example.com", name='email', required='')
+                    .form-group
+                        label Password *
+                        input#id-password.form-control(type='password', name="password1", required='')
+                    .form-group
+                        label Confirm Password *
+                        input.form-control(type='password', name="confirm_match", required='')
+                .cardbox-body
+                    .clearfix
+                        .float-left.mt-1
+                            label.custom-control.custom-checkbox
+                                input.custom-control-input(type='checkbox', name="agreements", required='')
+                                span.custom-control-indicator
+                                span.custom-control-description
+                                    span.ml-1 I agree with the
+                                    a(href="#")  terms
+                        .float-right
+                            button.btn.btn-info(type='submit') Register
+            // END panel
+        form.form-validate#form-example(name="form.formValidate" novalidate="")
+            .cardbox
+                .cardbox-heading Basics
+                .cardbox-body
+                    fieldset
+                        .form-group.row
+                            label.col-sm-2.col-form-label Required Text
+                            .col-sm-6
+                                input.form-control(type='text', name='sometext', required='')
+                    fieldset
+                        .form-group.row
+                            label.col-sm-2.col-form-label Email
+                            .col-sm-6
+                                input.form-control(type='email', placeholder="mail@example.com", name='email', required='')
+                    fieldset
+                        .form-group.row
+                            label.col-sm-2.col-form-label Checkbox &amp; Radio
+                            .col-sm-6
+                                div: label.custom-control.custom-checkbox
+                                    input.custom-control-input(type='checkbox', required='', name="checkbox")
+                                    span.custom-control-indicator
+                                    span.custom-control-description Check this custom checkbox
+                                div: label.custom-control.custom-radio
+                                    input.custom-control-input(type='radio', required='', name='radio', value='option1')
+                                    span.custom-control-indicator
+                                    span.custom-control-description Option one
+                                div: label.custom-control.custom-radio
+                                    input.custom-control-input(type='radio', required='', name='radio', value='option2')
+                                    span.custom-control-indicator
+                                    span.custom-control-description Option two checked
+                    fieldset
+                        .form-group.row
+                            label.col-sm-2.col-form-label Select
+                            .col-sm-6
+                                select.form-control(name='select', required="")
+                                    option(value="") Nothing
+                                    option(value="1") Option 1
+                                    option(value="2") Option 2
+                                    option(value="3") Option 3
+                                    option(value="4") Option 4
+                    fieldset
+                        .form-group.row
+                            label.col-sm-2.col-form-label Number
+                            .col-sm-6
+                                input.form-control(type='number', name='anumber', required='')
+                    fieldset
+                        .form-group.row
+                            label.col-sm-2.col-form-label Digits
+                            .col-sm-6
+                                input.form-control(type='text', name='digits')
+                    fieldset.bb0
+                        .form-group.row
+                            label.col-sm-2.col-form-label Url
+                            .col-sm-6
+                                input.form-control(type='url', name='url', placeholder="protocol://")
+            .cardbox
+                .cardbox-heading Lengths
+                .cardbox-body
+                    fieldset
+                        .form-group.row
+                            label.col-sm-2.col-form-label Min
+                            .col-sm-4.push-sm-6
+                                small.text-muted Value greater than or equal to 6
+                            .col-sm-6.pull-sm-4
+                                input.form-control(type='text', name='min')
+                    fieldset
+                        .form-group.row
+                            label.col-sm-2.col-form-label Max
+                            .col-sm-4.push-sm-6
+                                small.text-muted Value less than or equal to 6
+                            .col-sm-6.pull-sm-4
+                                input.form-control(type='text', name='max')
+                    fieldset
+                        .form-group.row
+                            label.col-sm-2.col-form-label Minlength
+                            .col-sm-4.push-sm-6
+                                small.text-muted At least 6 characters
+                            .col-sm-6.pull-sm-4
+                                input.form-control(type='text', name='minlength')
+                    fieldset
+                        .form-group.row
+                            label.col-sm-2.col-form-label Maxlength
+                            .col-sm-4.push-sm-6
+                                small.text-muted No more than 10 characters
+                            .col-sm-6.pull-sm-4
+                                input.form-control(type='text', name='maxlength')
+            .cardbox
+                .cardbox-heading Range
+                .cardbox-body
+                    fieldset.b0
+                        .form-group.row
+                            label.col-sm-2.col-form-label Length range
+                            .col-sm-4.push-sm-6
+                                small.text-muted A value between 6 and 10
+                            .col-sm-6.pull-sm-4
+                                input.form-control(type='text', name='length')
+            .cardbox
+                .cardbox-heading Comparison
+                .cardbox-body
+                    fieldset.b0
+                        .form-group.row
+                            label.col-sm-2.col-form-label Equal to
+                            .col-sm-6
+                                .row
+                                    .col-sm-6
+                                        input.form-control#id-source(type='password', name="match1", placeholder="Type something here..")
+                                    .col-sm-6
+                                        input.form-control(type='password', name="confirm_match", placeholder="Type the same here..")
+            hr
+            .text-center
+                button.btn.btn-primary(type='submit') Run validation
+                            // END panel
+                // END row
+
+block vendor_js
+    // jQuery Form Validation
+    script(src='vendor/jquery-validation/dist/jquery.validate.js')
+    script(src='vendor/jquery-validation/dist/additional-methods.js')

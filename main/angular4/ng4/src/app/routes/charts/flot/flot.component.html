@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <!-- START row-->
+    <div class="row">
+        <div class="col-xl-6 col-xs-12">
+            <div class="cardbox">
+                <div class="cardbox-body">
+                    <div flot [dataset]="barData" [options]="barOptions" class="flot-chart" height="275" id="bar-flotchart"></div>
+                </div>
+                <div class="cardbox-footer"><strong>Single Bars</strong></div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-xs-12">
+            <div class="cardbox">
+                <div class="cardbox-body">
+                    <div flot [dataset]="barStackeData" [options]="barStackedOptions" class="flot-chart" height="275" id="barstacked-flotchart"></div>
+                </div>
+                <div class="cardbox-footer"><strong>Stacked Bars</strong></div>
+            </div>
+        </div>
+    </div>
+    <!-- END row-->
+    <!-- START row-->
+    <div class="row">
+        <div class="col-xl-6 col-xs-12">
+            <div class="cardbox">
+                <div class="cardbox-body">
+                    <div flot [dataset]="areaData" [options]="areaOptions" class="flot-chart" height="275" id="area-flotchart"></div>
+                </div>
+                <div class="cardbox-footer"><strong>Area Chart</strong></div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-xs-12">
+            <div class="cardbox">
+                <div class="cardbox-body">
+                    <div flot [dataset]="splineData" [options]="splineOptions" class="flot-chart" height="275" id="spline-flotchart"></div>
+                </div>
+                <div class="cardbox-footer"><strong>Spline Chart</strong></div>
+            </div>
+        </div>
+    </div>
+    <!-- END row-->
+    <!-- START row-->
+    <div class="row">
+        <div class="col-xl-6 col-xs-12">
+            <div class="cardbox">
+                <div class="cardbox-body">
+                    <div flot [dataset]="realTimeData" [options]="realTimeOptions" class="flot-chart" height="275" id="realtime-flotchart"></div>
+                </div>
+                <div class="cardbox-footer"><strong>Real Time</strong></div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-xs-12">
+            <div class="cardbox">
+                <div class="cardbox-body">
+                    <div flot [dataset]="lineData" [options]="lineOptions" class="flot-chart" height="275" id="line-flotchart"></div>
+                </div>
+                <div class="cardbox-footer"><strong>Line</strong></div>
+            </div>
+        </div>
+    </div>
+    <!-- END row-->
+    <!-- START row-->
+    <div class="row">
+        <div class="col-xl-6 col-xs-12">
+            <div class="cardbox">
+                <div class="cardbox-body">
+                    <div flot [dataset]="pieData" [options]="pieOptions" class="flot-chart" height="275" id="pie-flotchart"></div>
+                </div>
+                <div class="cardbox-footer"><strong>Pie</strong></div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-xs-12">
+            <div class="cardbox">
+                <div class="cardbox-body">
+                    <div flot [dataset]="donutData" [options]="donutOptions" class="flot-chart" height="275" id="donut-flotchart"></div>
+                </div>
+                <div class="cardbox-footer"><strong>Donut</strong></div>
+            </div>
+        </div>
+    </div>
+    <!-- END row-->
+</div>

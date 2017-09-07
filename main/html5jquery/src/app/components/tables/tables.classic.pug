@@ -1,0 +1,217 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Classic Tables'
+block content
+    .container-fluid
+
+        .row
+            .col-xl-6.col-xs-12
+                .cardbox
+                    .cardbox-heading Basic Table
+                    table.table
+                        thead
+                            tr
+                                th #
+                                th First Name
+                                th Last Name
+                                th Username
+                        tbody
+                            tr
+                                td 1
+                                td Mark
+                                td Otto
+                                td @mdo
+                            tr
+                                td 2
+                                td Jacob
+                                td Thornton
+                                td @fat
+                            tr
+                                td 3
+                                td Larry
+                                td the Bird
+                                td @twitter
+            .col-xl-6.col-xs-12
+                .cardbox
+                    .cardbox-heading Bordered Table
+                    table.table.table-bordered
+                        thead
+                            tr
+                                th #
+                                th First Name
+                                th Last Name
+                                th Username
+                        tbody
+                            tr
+                                td 1
+                                td Mark
+                                td Otto
+                                td @mdo
+                            tr
+                                td 2
+                                td Jacob
+                                td Thornton
+                                td @fat
+                            tr
+                                td 3
+                                td Larry
+                                td the Bird
+                                td @twitter
+        .row
+            .col-xl-6.col-xs-12
+                .cardbox
+                    .cardbox-heading Striped Rows
+                    table.table.table-striped
+                        thead
+                            tr
+                                th #
+                                th First Name
+                                th Last Name
+                                th Username
+                        tbody
+                            tr
+                                td 1
+                                td Mark
+                                td Otto
+                                td @mdo
+                            tr
+                                td 2
+                                td Jacob
+                                td Thornton
+                                td @fat
+                            tr
+                                td 3
+                                td Larry
+                                td the Bird
+                                td @twitter
+            .col-xl-6.col-xs-12
+                .cardbox
+                    .cardbox-heading Hover Rows
+                    table.table.table-hover
+                        thead
+                            tr
+                                th #
+                                th First Name
+                                th Last Name
+                                th Username
+                        tbody
+                            tr
+                                td 1
+                                td Mark
+                                td Otto
+                                td @mdo
+                            tr
+                                td 2
+                                td Jacob
+                                td Thornton
+                                td @fat
+                            tr
+                                td 3
+                                td Larry
+                                td the Bird
+                                td @twitter
+
+        .cardbox
+            .cardbox-heading Responsive tables
+            .table-responsive
+                table.table
+                    thead
+                        tr
+                            th Row #
+                            th Header1
+                            th Header2
+                            th Header3
+                            th Header4
+                    tbody
+                        tr
+                            td 1
+                            td Cell content 1
+                            td Cell content 2
+                            td Cell content 3
+                            td Cell content 4
+                        tr
+                            td 2
+                            td Cell content 5
+                            td Cell content 6
+                            td Cell content 7
+                            td Cell content 8
+                        tr
+                            td 3
+                            td Cell content 9
+                            td Cell content 10
+                            td Cell content 11
+                            td Cell content 12
+
+        .row
+            .col-xl-6.col-xs-12
+                .cardbox
+                    .cardbox-heading Context Classes
+                    table.table
+                        thead
+                            tr
+                                th #
+                                th First Name
+                                th Last Name
+                                th Username
+                        tbody
+                            tr.table-success
+                                td 1
+                                td Mark
+                                td Otto
+                                td @mdo
+                            tr.table-info
+                                td 2
+                                td Jacob
+                                td Thornton
+                                td @fat
+                            tr.table-warning
+                                td 3
+                                td Larry
+                                td the Bird
+                                td @twitter
+                            tr.table-danger
+                                td 4
+                                td John
+                                td Smith
+                                td @jsmith
+            .col-xl-6.col-xs-12
+                .cardbox
+                    .cardbox-heading Small Table
+                    table.table.table-sm
+                        thead
+                            tr
+                                th #
+                                th First Name
+                                th Last Name
+                                th Username
+                        tbody
+                            tr
+                                td 1
+                                td Mark
+                                td Otto
+                                td @mdo
+                            tr
+                                td 2
+                                td Jacob
+                                td Thornton
+                                td @fat
+                            tr
+                                td 3
+                                td Larry
+                                td the Bird
+                                td @twitter
+                            tr
+                                td 4
+                                td Mark
+                                td Otto
+                                td @mdo
+                            tr
+                                td 5
+                                td Jacob
+                                td Thornton
+                                td @fat
+                            tr
+                                td 6
+                                td Larry
+                                td the Bird
+                                td @twitter

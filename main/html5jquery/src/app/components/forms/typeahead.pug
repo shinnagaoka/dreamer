@@ -1,0 +1,64 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Typeahead'
+block content
+    .container-fluid
+        .row
+            .col-md-6
+                .cardbox
+                    .cardbox-heading
+                        .cardbox-title Basic usage
+                        small Tpeahead jQuery plugin, requires to pass to the plugin method one or more datasets. The source of a dataset is responsible for computing a set of suggestions for a given query.
+                    .cardbox-body
+                        #the-basics
+                            input.typeahead.form-control(type='text' placeholder='States of USA')
+            .col-md-6
+                .cardbox
+                    .cardbox-heading
+                        .cardbox-title Bloodhound (Suggestion Engine)
+                        small Bloodhound is robust, flexible, and offers advanced functionalities such as prefetching, intelligent caching, fast lookups, and backfilling with remote data.
+                    .cardbox-body
+                        #bloodhound
+                            input.typeahead.form-control(type='text' placeholder='States of USA')
+
+        // row
+        .row
+            .col-md-6
+                .cardbox
+                    .cardbox-heading
+                        .cardbox-title Prefetch
+                        small Prefetched data is fetched and processed on initialization. If the browser supports local storage, the processed data will be cached there to prevent additional network requests.
+                    .cardbox-body
+                        #prefetch
+                            input.typeahead.form-control(type='text' placeholder='Countries')
+            .col-md-6
+                .cardbox
+                    .cardbox-heading
+                        .cardbox-title Default Suggestions
+                        small Default suggestions can be shown for empty queries by setting the minLength option to 0 and having the source return suggestions for empty queries.
+                    .cardbox-body
+                        #default-suggestions
+                            input.typeahead.form-control(type='text' placeholder='NFL Teams')
+
+        // row
+        .row
+            .col-md-6
+                .cardbox
+                    .cardbox-heading
+                        .cardbox-title Multiple Datasets with Custom Templates
+                        small Mix different datasets and use custom templates
+                    .cardbox-body
+                        #multiple-datasets
+                            input.typeahead.form-control(type='text' placeholder='NBA and NHL teams')
+            .col-md-6
+                .cardbox
+                    .cardbox-heading
+                        .cardbox-title Scrollable Dropdown Menu
+                        small Is possible to scroll content by limiting the max-height of the Typeahead dropdown via CSS.
+                    .cardbox-body
+                        #scrollable-dropdown-menu
+                            input.typeahead.form-control(type='text' placeholder='Countries')
+
+block vendor_js
+    // Typeahead.js
+    script(src='vendor/typeahead.js/dist/typeahead.bundle.js')

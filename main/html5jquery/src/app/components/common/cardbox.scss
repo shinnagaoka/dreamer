@@ -1,0 +1,236 @@
+/**
+ * Cards
+ */
+
+@import '../common/variables';
+@import '../common/mixins';
+
+// Cards works similar to panels
+.cardbox {
+    position: relative;
+    border-radius: 3px;
+    background-color: #fff;
+    // border: 1px solid rgba(0,0,0,0.02);
+    box-shadow: 0px 5px 25px 0px rgba(123, 123, 123, 0.15);
+
+    margin-bottom: 8px;
+
+    @media #{$min-mobile} {
+        margin-bottom: 16px;
+    }
+
+    @media #{$min-desktop} {
+        margin-bottom: 24px;
+    }
+
+    .cardbox-heading {
+        padding: $card-padding;
+        margin: 0;
+        > .cardbox-title {
+            margin: 0;
+            font-size: 18px;
+        }
+        > .cardbox-icon {
+            float: right;
+            color: rgba(255,255,255,.87);
+            font-size: 20px;
+        }
+        // quick use subheadings
+        > small {
+            font-size: .85rem;
+            color: rgba($gray-base,.92);
+            letter-spacing: .01em;
+        }
+    }
+    .cardbox-body {
+        position: relative;
+        padding: $card-padding;
+    }
+    .cardbox-footer {
+        padding: $card-padding;
+        border-top: 1px solid rgba($gray-base,.12);
+    }
+
+    // Item spaces for images in cards
+    .cardbox-item {
+        position: relative;
+        display: block;
+        min-height: 120px;
+        > .cardbox-item-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0,0,0,0.35);
+            margin: 0;
+            color: #fff;
+            padding: 8px;
+            a { color: inherit; }
+        }
+        > .cardbox-item-image {
+            display: block;
+            width: 100%;
+            height: 190px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+        }
+        &.cardbox-media {
+            min-height: 280px;
+            background-repeat: repeat;
+            background-position: 50% 50%;
+            background-size: cover;
+            background-attachment: scroll;
+            background-origin: padding-box;
+            // large centered text
+            .cardbox-media-quote {
+                padding: 16px;
+                font-size: 35px;
+                @media #{$min-tablet} {
+                    font-size: 45px;
+                }
+                > a {
+                    color: inherit;
+                    text-decoration: none;
+                }
+                &:before {
+                    content: '“';
+                    display: block;
+                    font-size: 2em;
+                    line-height: 1;
+                    margin-top: 0.25em;
+                }
+            }
+        }
+    }
+
+    &.cardbox-transparent {
+        background-color: transparent;
+        border: 0;
+        box-shadow: 0 0 0 #000;
+    }
+
+    // Set elements with a negative offset
+    .cardbox-offset {
+        position: relative;
+        padding-bottom: 36px;
+        z-index: 10;
+        > .cardbox-offset-item {
+            position: absolute;
+            top: -24px; // half of button circle
+            left: 15px;
+            right: 15px;
+            // transform: translate(0, -50%);
+        }
+    }
+
+    .cardbox-toolbar {
+        position: relative;
+        width: 100%;
+        min-height: 64px;
+        font-size: 18px;
+        line-height: 64px;
+        padding-left: 22px;
+        z-index: 2;
+    }
+
+    // Subtitle for cards
+    .cardbox-subheader {
+        padding: 16px 0 16px 16px;
+        line-height: .75em;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: .01em;
+        color: rgba(0,0,0,0.54);
+    }
+
+    .cardbox-divider {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 1px solid rgba(0,0,0,0.12);
+        + .cardbox-offset {
+            margin-top: -10px;
+        }
+    }
+
+    // Special behavior for BootstrapUI datepicker
+    > .ui-datepicker,
+    > .ui-datepicker-responsive > .ui-datepicker {
+        width: 100%;
+        box-shadow: 0 0 0 #000;
+        margin: 0;
+        > table {
+            width: 100%;
+        }
+    }
+
+    .editable-wrap { width: 100%; }
+
+    // Special behavior for List groups
+    > .list-group {
+        > .list-group-item {
+            border-left: 0;
+            border-right: 0;
+            &:first-child {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+            &:last-child {
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+                border-bottom: 0;
+            }
+        }
+    }
+
+    // Tables
+    > .table-responsive > .table,
+    > .table {
+        margin-bottom: 0;
+    }
+    > .table-responsive {
+        border: 0;
+    }
+
+    // Full size buttons
+    > .btn {
+        border-radius: 0;
+        width: 100%;
+        padding-top: $card-padding;
+        padding-bottom: $card-padding;
+        text-align: center;
+        &:last-child {
+            border-bottom-right-radius: 2px;
+            border-bottom-left-radius: 2px;
+        }
+    }
+
+    // Card with a map and bottom floated and transparent footer
+    &.cardbox-map {
+        border: 0;
+        .cardbox-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border: 0;
+            background-color: transparent;
+            padding-bottom: .5rem;
+            padding-top: 2.5rem;
+            @include gradient-y-three-colors(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), 35%, rgba(255, 255, 255, 1));
+        }
+    }
+
+
+    &.cardbox-flat {
+        box-shadow: 0 0 0 #000;
+        background-color:transparent !important; // override themes
+        border: 0;
+    }
+
+    .cardbox-overlay-light {
+
+    }
+
+} //.cardbox

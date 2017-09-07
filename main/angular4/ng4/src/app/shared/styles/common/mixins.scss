@@ -1,0 +1,459 @@
+// Custom Mixins
+// --------------------------------------------------
+
+@import '../common/variables';
+@import '../bootstrap/mixins';
+
+$colors: (
+  'brand-primary':       $brand-primary,
+  'brand-success':       $brand-success,
+  'brand-info':          $brand-info,
+  'brand-warning':       $brand-warning,
+  'brand-danger':        $brand-danger
+);
+
+
+@function color($key) {
+  @return map-get($colors, $key);
+}
+
+// Gradients
+
+@mixin bg-gradient($colorStart, $colorStop) {
+    background-image: -webkit-linear-gradient(135deg, $colorStart 0, $colorStop 100%);  /* Chrome 10-25, Safari 5.1-6 */
+    background-image: linear-gradient(135deg, $colorStart 0, $colorStop 100%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+// Predefined Gradients
+@mixin bg-gradient-secondary { @include bg-gradient($mdc-blue-grey-200, $mdc-blue-grey-400); }
+@mixin bg-gradient-primary { @include bg-gradient($mdc-deep-purple-500, $mdc-blue-500); }
+@mixin bg-gradient-info { @include bg-gradient($mdc-teal-500, $mdc-blue-400); }
+@mixin bg-gradient-success { @include bg-gradient($mdc-lime-500, $mdc-green-500); }
+@mixin bg-gradient-danger { @include bg-gradient($mdc-purple-700, $mdc-red-500); }
+@mixin bg-gradient-warning { @include bg-gradient($mdc-yellow-600, $mdc-orange-500); }
+
+// Utilities mixins
+
+@mixin bgcolor-variant($bgcolor, $text-color: #fff) {
+    & {
+        background-color: color($bgcolor) !important;
+        color: $text-color !important;
+    }
+    .text-muted {
+        color: rgba($text-color, .5) !important;
+    }
+    small {
+        color: inherit;
+    }
+}
+
+@mixin make-bg($bgcolor, $text-color: #fff) {
+    background-color: $bgcolor;
+    color: $text-color !important;
+}
+
+@mixin thumnbail-size($sz: 8px) {
+    width: $sz !important;
+    height: $sz !important;
+}
+
+@mixin square-block-size($sz: 8px) {
+    display: block;
+    width: $sz !important;
+    height: $sz !important;
+}
+
+@mixin initial-size($sz: 8px) {
+    @include square-block-size($sz);
+    display: inline-block;
+    line-height: $sz;
+    text-align: center;
+    border-radius: 50%;
+}
+
+// Icons sizes
+@mixin icon-size($size) {
+    .icon-#{$size} {
+        font-size: $size * 1px;
+        vertical-align: $size * -1 * 1%;
+    }
+}
+
+
+//== Themes mixins
+
+@mixin theme-header($header-bg, $header-color) {
+    .layout-container {
+        .header-container {
+            background-color: $header-bg;
+            color: $header-color;
+        }
+    }
+}
+
+@mixin theme-sidebar($sidebar-bg, $sidebar-color) {
+    .layout-container {
+        .sidebar-container {
+            background-color: $sidebar-bg;
+            color: $sidebar-color;
+        }
+    }
+}
+
+@mixin theme-header-gradient($gradient, $header-color) {
+    .layout-container {
+        .header-container {
+            @if ( $gradient == 'secondary' ) { @include bg-gradient-secondary; }
+            @if ( $gradient == 'primary' ) { @include bg-gradient-primary; }
+            @if ( $gradient == 'info' ) { @include bg-gradient-info; }
+            @if ( $gradient == 'success' ) { @include bg-gradient-success; }
+            @if ( $gradient == 'danger' ) { @include bg-gradient-danger; }
+            @if ( $gradient == 'warning' ) { @include bg-gradient-warning; }
+            color: $header-color;
+        }
+    }
+}
+
+@mixin theme-sidebar-gradient($gradient, $sidebar-color) {
+    .layout-container {
+        .sidebar-container {
+            @if ( $gradient == 'secondary' ) { @include bg-gradient-secondary; }
+            @if ( $gradient == 'primary' ) { @include bg-gradient-primary; }
+            @if ( $gradient == 'info' ) { @include bg-gradient-info; }
+            @if ( $gradient == 'success' ) { @include bg-gradient-success; }
+            @if ( $gradient == 'danger' ) { @include bg-gradient-danger; }
+            @if ( $gradient == 'warning' ) { @include bg-gradient-warning; }
+            color: $sidebar-color;
+        }
+    }
+}
+
+@mixin theme-brand($brand-header-bg, $brand-header-color) {
+    .brand-header {
+        background-color: $brand-header-bg;
+        color: $brand-header-color;
+    }
+}
+
+@mixin theme-sidebar-items($color-border, $color-icon: none, $color-fill-svg: none) {
+    .brand-header-logo,
+    .sidebar-nav ul > li > a {
+        > .nav-icon {
+            > svg, > em {
+                @if( $color-icon != none) { color: $color-icon; }
+                @if( $color-fill-svg != none) { fill: $color-fill-svg; }
+            }
+        }
+    }
+    .sidebar-nav ul > li.active > a {
+        border-left-color: $color-border;
+    }
+}
+
+@mixin theme-content($content-color) {
+    .layout-container {
+        .main-container {
+            background-color: $content-color;
+        }
+    }
+}
+
+@mixin theme-content-dark($content-color) {
+    background-color: darken($content-color, 4%);
+    @include is-dark($content-color);
+}
+
+
+//== Dark theme setup
+
+@mixin is-dark($base-color) {
+
+    .layout-container {
+        .main-container {
+            background-color: darken($base-color, 4%);
+            color: #f1f1f1;
+        }
+    }
+
+    .header-container > nav {
+        box-shadow: 0px 5px 25px 0px rgba(23, 23, 23, 0.15);
+    }
+
+    .footer-container {
+        background-color: darken($base-color, 4%);
+        box-shadow: 0px 5px 25px 0px rgba(23, 23, 23, 0.15);
+    }
+
+    %bg-dark {
+        background-color: darken($base-color, 1%);
+        color: inherit;
+    }
+
+    .bg-white,
+    .card,
+    // .cardbox,
+    .card-secondary > .card-header {
+        &:not([class*='bg-']) {
+            @extend %bg-dark;
+        }
+    }
+
+    .cardbox {
+        background-color: darken($base-color, 1%);
+        box-shadow: 0px 5px 25px 0px rgba(23, 23, 23, 0.15);
+    }
+
+    .cardbox.cardbox-map .cardbox-footer {
+        background-image: linear-gradient(rgba($base-color, 0), rgba($base-color, 0.55) 45%, $base-color);
+    }
+
+    .card:not([class*='bg-'],.card-primary,.card-success,.card-info,.card-warning,.card-danger) {
+        &, > .card-header, > .card-footer {
+            @extend %bg-dark;
+        }
+    }
+
+    .bg-white {
+        background-color: darken($base-color, 1%);
+        color: inherit;
+    }
+    .well, .jumbotron, .breadcrumb {
+        background-color: darken($base-color, 1%);
+        color: inherit;
+    }
+    .modal-content {
+        background-color: $base-color;
+        color: #fff;
+    }
+    .btn-secondary,
+    .note-btn-group .btn-default { // summernote button toolbar
+        @include button-variant(#fff, $base-color, darken($base-color, 5%));
+    }
+    .dropdown-menu {
+        background-color: $base-color;
+        border-color: darken($base-color, 5%);
+        .dropdown-item {
+            color: #fff;
+        }
+    }
+    .show > .dropdown-toggle.btn-secondary {
+        &, &:hover, &:active, &.active, &:focus {
+            color: #fff;
+            background-color: $base-color;
+            border-color: darken($base-color, 5%);
+        }
+    }
+    .form-control, .custom-select, .custom-file-control {
+        color: inherit;
+        background-color: rgba(240,240,240,.1);
+        border-color: rgba(240,240,240,.12);
+        &:focus {
+            border-color: rgba(240,240,240,.36)
+        }
+    }
+    .custom-file-control:before {
+        background: $base-color;
+        color: #fff;
+        border-color: rgba(240,240,240,.12);
+    }
+    .form-control[disabled],
+    .form-control[readonly],
+    fieldset[disabled] .form-control {
+        background-color: rgba(240,240,240,.1);
+    }
+    select:not([multiple]) {
+        option {
+            color: $text-color;
+        }
+    }
+    .custom-select {
+        background-image: url('../assets/img/custom-select-angle-down-white.svg');
+    }
+    .input-group-addon,
+    .input-group-button {
+        background-color: transparent;
+        border: 1px solid rgba($gray-base,.26);
+        color: inherit;
+    }
+    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+        background: $base-color;
+        color: #fff;
+    }
+    .note-editor .note-editing-area .note-editable {
+        background-color: rgba(240,240,240,.1);
+    }
+    .progress {
+        background-color: rgba(240,240,240,.1);
+    }
+    // table
+    .thead-inverse th {
+        background-color: $mdc-blue-grey-700;
+    }
+    // popover
+    .popover {
+        background-color: $base-color;
+        color: #fff;
+        .popover-title {
+            background-color: lighten($base-color, 5%);
+            border-color: rgba(160,160,160,.15);
+            color: inherit;
+        }
+        .popover-content {
+            background-color: $base-color;
+            border-color: rgba(160,160,160,.15);
+            color: inherit;
+        }
+        &.bs-tether-element-attached-left::after, &.popover-right::after {
+            border-right-color: $base-color;
+        }
+        &.bs-tether-element-attached-right::after, &.popover-left::after {
+            border-left-color: $base-color;
+        }
+        &.bs-tether-element-attached-top::after, &.popover-bottom::after {
+            border-bottom-color: $base-color;
+        }
+        &.bs-tether-element-attached-bottom::after, &.popover-top::after {
+            border-top-color: $base-color;
+        }
+    }
+    // Typeahead
+    .twitter-typeahead {
+        .tt-hint {
+            color: inherit !important;
+            background-color: rgba(240,240,240,.1) !important;
+            border-color: rgba(240,240,240,.12) !important;
+        }
+        .tt-menu {
+            background-color: $base-color;
+            border: 1px solid rgba(160,160,160,.5);
+        }
+        .tt-suggestion {
+            color: #fff;
+            &:hover {
+                background-color: rgba(160,160,160,.12);
+            }
+        }
+    }
+    // Multiselect
+    .ms-container {
+        .ms-selectable {
+            background: $base-color;
+            li {
+                &.ms-elem-selectable {
+                    color: #fff;
+                }
+                &.disabled {
+                    background-color: transparent;
+                    color: lighten($base-color, 25%);
+                }
+            }
+        }
+        .ms-selection {
+            background: $base-color;
+            li {
+                &.ms-elem-selection {
+                    color: #fff;
+                }
+                &.disabled {
+                    background-color: transparent;
+                    color: lighten($base-color, 25%);
+                }
+            }
+        }
+    }
+    // select2
+    .select2-container--default .select2-dropdown {
+        background-color: $base-color;
+        color: #fff;
+        .select2-search__field {
+            color: inherit;
+            background-color: rgba(240,240,240,.1);
+            border-color: rgba(240,240,240,.12);
+            &:focus {
+                border-color: rgba(240,240,240,.36)
+            }
+        }
+    }
+
+} // is-dark()
+
+// Preview for settings panel
+@mixin preview-theme($prev-header, $prev-sidebar, $prev-content) {
+    .preview-header { background-color: $prev-header; }
+    .preview-sidebar { background-color: $prev-sidebar; }
+    .preview-content { background-color: $prev-content; }
+}
+
+// Loader.CSS
+@mixin loader-color($loader-color) {
+
+    // Global background override
+    .ball-pulse > div,
+    .ball-grid-pulse > div,
+    .square-spin > div,
+    .ball-pulse-rise > div,
+    .ball-rotate > div,
+    .ball-rotate > div:before, .ball-rotate > div:after,
+    .cube-transition > div,
+    .ball-zig-zag > div,
+    .ball-zig-zag-deflect > div,
+    .ball-triangle-path > div,
+    .ball-scale > div,
+    .line-scale > div,
+    .line-scale-party > div,
+    .ball-scale-multiple > div,
+    .ball-pulse-sync > div,
+    .ball-beat > div,
+    .line-scale-pulse-out > div,
+    .line-scale-pulse-out-rapid > div,
+    .ball-spin-fade-loader > div,
+    .line-spin-fade-loader > div,
+    .triangle-skew-spin > div,
+    .ball-grid-beat > div,
+    .semi-circle-spin > div {
+        background-color: $loader-color;
+    }
+
+    // custom override
+    .ball-clip-rotate-multiple {
+        width: 1px;
+        > div {
+            border-color: $loader-color transparent $loader-color transparent;
+            &:last-child {
+                border-color: transparent  $loader-color transparent $loader-color;
+            }
+        }
+    }
+    .ball-clip-rotate > div {
+        border-color: $loader-color;
+        border-bottom-color: transparent;
+    }
+    .ball-clip-rotate-pulse > div {
+        &:first-child {
+            background-color: $loader-color;
+            top: 5px;
+            left: -8px;
+        }
+        &:last-child {
+            border-color: $loader-color transparent $loader-color transparent;
+        }
+    }
+    .square-spin > div,
+    .ball-scale-ripple > div,
+    .ball-scale-ripple-multiple > div {
+        border-color: $loader-color;
+    }
+    .pacman > div:first-of-type {
+        border-top-color: $loader-color;
+        border-left-color: $loader-color;
+        border-bottom-color: $loader-color;
+    }
+    .pacman > div:nth-child(2) {
+        border-top-color: $loader-color;
+        border-left-color: $loader-color;
+        border-bottom-color: $loader-color;
+    }
+    .pacman > div:nth-child(3), .pacman > div:nth-child(4), .pacman > div:nth-child(5), .pacman > div:nth-child(6) {
+        background-color: $loader-color;
+    }
+}

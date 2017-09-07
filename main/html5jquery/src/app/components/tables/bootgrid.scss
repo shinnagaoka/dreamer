@@ -1,0 +1,87 @@
+/**
+ * Tables - Bootgrid
+ */
+
+@import '../common/variables';
+@import '../common/mixins';
+
+.bootgrid {
+    .table > thead > tr > td.active, .table > tbody > tr > td.active, .table > tfoot > tr > td.active, .table > thead > tr > th.active, .table > tbody > tr > th.active, .table > tfoot > tr > th.active, .table > thead > tr.active > td, .table > tbody > tr.active > td, .table > tfoot > tr.active > td, .table > thead > tr.active > th, .table > tbody > tr.active > th, .table > tfoot > tr.active > th {
+        background-color: $gray-lighter;
+    }
+}
+
+.bootgrid-header {
+    .search {
+        @media #{$max-mobile} {
+            max-width: 130px;
+        }
+        .input-group-addon {
+            border: 0 !important;
+            background-color: transparent;
+        }
+        &.form-group {
+            float: left;
+        }
+    }
+
+    .dropdown {
+        color: inherit;
+        > .btn {
+            border: 0;
+        }
+        .dropdown-item {
+            & {
+                &:hover {
+                    background-color: $brand-primary !important;
+                    color: #fff !important;
+                }
+            }
+            > a {
+                color: inherit;
+            }
+        }
+        .active > .dropdown-item {
+            color: #fff;
+        }
+    }
+}
+
+.bootgrid-table {
+    th {
+        > .column-header-anchor {
+            color: inherit;
+        }
+        &:hover, &:active {
+            background-color: rgba($gray-base,.12);
+        }
+    }
+    td.loading, td.no-results {
+        background-color: transparent;
+        color: inherit;
+    }
+}
+
+.bootgrid-footer {
+    .infoBar {
+        margin-top: .5rem;
+    }
+}
+@media #{$max-mobile} {
+    .bootgrid-footer {
+        .pagination {
+            -webkit-box-pack: center!important;
+            -webkit-justify-content: center!important;
+            -ms-flex-pack: center!important;
+            justify-content: center!important;
+        }
+        .infoBar {
+            text-align: center;
+            margin-top: 1rem;
+        }
+    }
+}
+// Active cells background
+.bootgrid .table > thead > tr > td.active, .bootgrid .table > tbody > tr > td.active, .bootgrid .table > tfoot > tr > td.active, .bootgrid .table > thead > tr > th.active, .bootgrid .table > tbody > tr > th.active, .bootgrid .table > tfoot > tr > th.active, .bootgrid .table > thead > tr.active > td, .bootgrid .table > tbody > tr.active > td, .bootgrid .table > tfoot > tr.active > td, .bootgrid .table > thead > tr.active > th, .bootgrid .table > tbody > tr.active > th, .bootgrid .table > tfoot > tr.active > th {
+    background-color: rgba($gray-base,.12);
+}

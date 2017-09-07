@@ -1,0 +1,22 @@
+extends user.layout.pug
+block content
+    .d-flex.align-items-center.align-items-center-ie.bg-gradient-primary
+        .fw: .container.container-xs
+            form.cardbox.cardbox-flat.text-white.form-validate#user-signup(action="", name="createForm", novalidate='').text-color
+                .cardbox-heading
+                    .cardbox-title.text-center Create account
+                .cardbox-body.pb-0
+                    .px-5
+                        .form-group
+                            input.form-control.form-control-inverse(type='email', name="accountName", required="", placeholder="Email")
+                        .form-group
+                            input.form-control.form-control-inverse#account-password(type='password', name="accountPassword", required="", placeholder="Password")
+                        .form-group
+                            input.form-control.form-control-inverse(type='password', name="accountPasswordCheck", required="", placeholder="Confirm password")
+                        .py-4.text-center
+                            button.btn.btn-lg.btn-gradient.btn-oval.btn-info.btn-block(type="submit") Create
+                .cardbox-footer.text-center.text-sm
+                    span By registering I accept the
+                    a(href="#"): u.text-white Terms of Service
+                    span  and 
+                    a(href="#"): u.text-white Privacy

@@ -1,0 +1,96 @@
+<div class="container-fluid">
+    <div class="cardbox">
+        <div class="cardbox-heading">
+            <div class="cardbox-title">Form wizard</div><small>Using Angular native component methods</small>
+        </div>
+        <div class="cardbox-body">
+            <form class="form-validate" novalidate="novalidate">
+                <div class="wizard clearfix">
+                    <div class="steps clearfix">
+                        <ul class="list-inline">
+                            <li [class.current]="stepActive(1)">
+                                <a>
+                                    <span class="number">1.</span>
+                                    Account
+                                </a>
+                            </li>
+                            <li [class.current]="stepActive(2)">
+                                <a>
+                                    <span class="number">2.</span>
+                                    Profile
+                                </a>
+                            </li>
+                            <li [class.current]="stepActive(3)">
+                                <a>
+                                    <span class="number">3.</span>
+                                    Hints
+                                </a>
+                            </li>
+                            <li [class.current]="stepActive(4)">
+                                <a>
+                                    <span class="number">4.</span>
+                                    Finish
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="content clearfix">
+                        <fieldset class="body" [class.current]="stepActive(1)">
+                            <div class="form-group">
+                                <label for="userName">User name *</label>
+                                <input class="form-control" id="userName" name="userName" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password *</label>
+                                <input class="form-control" id="password" name="password" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm">Confirm Password *</label>
+                                <input class="form-control" id="confirm" name="confirm" type="text">
+                            </div>
+                        </fieldset>
+                        <fieldset class="body" [class.current]="stepActive(2)">
+                            <div class="form-group">
+                                <label for="name">First name *</label>
+                                <input class="form-control" id="name" name="name" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="surname">Last name *</label>
+                                <input class="form-control" id="surname" name="surname" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input class="form-control email" id="email" name="email" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input class="form-control" id="address" name="address" type="text">
+                            </div>
+                        </fieldset>
+                        <fieldset class="body" [class.current]="stepActive(3)">
+                            <p class="lead text-center">Almost there!</p>
+                        </fieldset>
+                        <fieldset class="body" [class.current]="stepActive(4)">
+                            <p class="lead">One last check</p>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="terms">I agree with the Terms and Conditions.
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="actions clearfix">
+                        <ul class="list-inline">
+                            <li [class.disabled]="isFirstStep()">
+                                <a (click)="stepPrev()">Previous</a>
+                            </li>
+                            <li>
+                                <a (click)="stepNext()" [innerHTML]="isLastStep() ? 'Finish' : 'Next'">Next</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

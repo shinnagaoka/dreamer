@@ -1,0 +1,190 @@
+<div class="container container-md">
+    <div class="cardbox mb-3">
+        <div class="cardbox-heading">
+            <div class="cardbox-title">Modals</div>
+        </div>
+        <div class="cardbox-body">
+            <div class="modal d-block" style="position: relative; z-index: 0;">
+                <div class="modal-dialog shadow-z5">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Modal title</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Modal body text goes here.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" type="button">Save changes</button>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cardbox mb-3">
+        <div class="cardbox-heading">
+            <div class="cardbox-title">Live demo</div>
+        </div>
+        <div class="cardbox-body">
+            <div class="d-flex flex-column flex-sm-row">
+                <button class="mr-2 mb-2 btn btn-primary" type="button" (click)="modalStd.show()">Default modal</button>
+                <button class="mr-2 mb-2 btn btn-primary" type="button" (click)="modalLg.show()">Large modal</button>
+                <button class="mr-2 mb-2 btn btn-primary" type="button" (click)="modalSm.show()">Small modal</button>
+                <button class="mr-2 mb-2 btn btn-info" type="button" (click)="modalForm.show()">Form modal</button>
+                <button class="mr-2 mb-2 btn btn-danger" type="button" (click)="modalAlert.show()">Alert modal</button>
+            </div>
+        </div>
+    </div>
+    <div class="cardbox mb-3">
+        <div class="cardbox-heading">
+            <div class="cardbox-title">Modal Positions</div><small>Modals can be located to different location by attaching any of the classes <code>.modal-top</code><code>.modal-bottom</code><code>.modal-left</code><code>.modal-right</code>to the root element<br><span>This modals can have any content and can be used as secondary sidebars.</span></small>
+        </div>
+        <div class="cardbox-body">
+            <div class="d-flex flex-column flex-sm-row">
+                <button class="mr-2 mb-2 btn btn-success" type="button" (click)="modalTop.show()"><strong>Top modal</strong></button>
+                <button class="mr-2 mb-2 btn btn-success" type="button" (click)="modalBottom.show()"><strong>Bottom modal</strong></button>
+                <button class="mr-2 mb-2 btn btn-success" type="button" (click)="modalLeft.show()"><strong>Left modal</strong></button>
+                <button class="mr-2 mb-2 btn btn-success" type="button" (click)="modalRight.show()"><strong>Right modal</strong></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Default modal-->
+<div bsModal class="modal fade" #modalStd="bs-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="mt-0 modal-title">Default modal</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Mauris eu lacus massa, vel condimentum lectus.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Large modal-->
+<div bsModal class="modal fade" #modalLg="bs-modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="mt-0 modal-title">Large modal</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Mauris eu lacus massa, vel condimentum lectus.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Small Modal-->
+<div bsModal class="modal fade" #modalSm="bs-modal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="mt-0 modal-title">Small modal</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Vestibulum molestie commodo elit ut feugiat.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Form Modal-->
+<div bsModal class="modal fade" #modalForm="bs-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="mt-0 modal-title">Form modal</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label class="control-label" for="recipient">To:</label>
+                        <input class="form-control" id="recipient" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="message-content">Message content:</label>
+                        <textarea class="form-control" id="message-content"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                <button class="btn btn-info" type="button">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Alert Modal-->
+<div bsModal class="modal fade" #modalAlert="bs-modal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body bg-gradient-danger text-white">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><em class="text-white ion-close"></em></button><strong class="text-white">Important message from Modals</strong>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Top Modal-->
+<div bsModal class="modal fade modal-top" #modalTop="bs-modal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="mt-0 modal-title">Top Modal</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Vestibulum rutrum venenatis pretium. Mauris a velit id neque dignissim congue. Nullam lobortis consectetur hendrerit. </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bottom Modal-->
+<div bsModal class="modal fade modal-bottom" #modalBottom="bs-modal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="mt-0 modal-title">Bottom Modal</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Vestibulum rutrum venenatis pretium. Mauris a velit id neque dignissim congue. Nullam lobortis consectetur hendrerit. </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Left Modal-->
+<div bsModal class="modal fade modal-left" #modalLeft="bs-modal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="mt-0 modal-title">Left Modal</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Vestibulum rutrum venenatis pretium. Mauris a velit id neque dignissim congue. Nullam lobortis consectetur hendrerit. </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Right Modal-->
+<div bsModal class="modal fade modal-right" #modalRight="bs-modal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="mt-0 modal-title">Right Modal</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Vestibulum rutrum venenatis pretium. Mauris a velit id neque dignissim congue. Nullam lobortis consectetur hendrerit. </p>
+            </div>
+        </div>
+    </div>
+</div>

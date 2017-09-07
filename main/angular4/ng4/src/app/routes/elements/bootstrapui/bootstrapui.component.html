@@ -1,0 +1,370 @@
+<!-- Breadcrumb next to view title-->
+<ul class="breadcrumb mb-0">
+    <li class="breadcrumb-item"><a [routerLink]="'/'">Home</a></li>
+    <li class="breadcrumb-item"><a [routerLink]="'/dashboard'">Dashboard</a></li>
+    <li class="breadcrumb-item active">
+        <span>Bootstrap</span>
+    </li>
+</ul>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12 col-xs-12">
+            <div class="jumbotron bg-gradient-primary text-white">
+                <div class="container">
+                    <h1>Hello, Jumbotron</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing.</p>
+                    <p>Vivamus commodo, tortor ut interdum posuere, urna risus aliquet purus, eu fringilla dui neque quis nisi.</p>
+                    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- START panel-->
+            <div class="card mb-3">
+                <div class="card-header">Alert Styles</div>
+                <div class="card-block">
+                    <div class="alert alert-success">Lorem ipsum dolor sit amet, consectetur adipisicing elit.<a href="#" class="alert-link">Alert Link</a></div>
+                    <div class="alert alert-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit.<a href="#" class="alert-link">Alert Link</a></div>
+                    <div>
+                        <alert *ngFor="let alert of alerts;let i = index" [type]="alert.type" dismissible="true" (close)="closeAlert(i)">
+                            {{ alert?.msg }}
+                        </alert>
+                        <button type="button" class='btn btn-primary' (click)="addAlert()">Add Alert</button>
+                    </div>
+                </div>
+            </div>
+            <!-- END panel-->
+            <!-- START panel-->
+            <div class="card mb-3">
+                <div class="card-header">Progress Bar
+<!--                     <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-xs btn-primary" (click)="randomStacked()">Stacked</button>
+                        <button type="button" class="btn btn-xs btn-primary" (click)="random()">Randomize</button>
+                    </div>
+ -->                </div>
+                <div class="card-block">
+                    <p class="lead">Static</p>
+                    <div class="progress mb-3">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">60%</div>
+                    </div>
+                    <div class="progress mb-3">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">60%</div>
+                    </div>
+                    <div class="progress mb-3">
+                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">60%</div>
+                    </div>
+                    <p class="lead">Striped</p>
+                    <div class="progress mb-3">
+                        <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"><span class="sr-only">40% Complete (success)</span></div>
+                    </div>
+                    <div class="progress mb-3">
+                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;"><span class="sr-only">20% Complete</span></div>
+                    </div>
+                    <div class="progress mb-3">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;"><span class="sr-only">45% Complete</span></div>
+                    </div>
+                    <p class="lead">Stacked</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" style="width: 35%;"><span class="sr-only">35% Complete (success)</span></div>
+                        <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 20%;"><span class="sr-only">20% Complete (warning)</span></div>
+                        <div class="progress-bar progress-bar-danger" style="width: 10%;"><span class="sr-only">10% Complete (danger)</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- END panel-->
+            <!-- START panel-->
+            <div class="card mb-3">
+                <div class="card-header">Ratings</div>
+                <div class="card-block">
+                    <p class="lead">Default</p>
+                    <rating [(ngModel)]="rate" [max]="maxRat" [readonly]="isReadonly" (onHover)="hoveringOver($event)" (onLeave)="resetStar()" [titles]="['one','two','three']" stateOn="ion-ios-star text-warning" stateOff="ion-ios-star-outline"></rating>
+                    <span class="label" [ngClass]="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" [ngStyle]="{display: (overStar && !isReadonly) ? 'inline' : 'none'}">{{percent}}%</span>
+                    <pre class="card card-block card-header" style="margin:15px 0;">Rate: <b>{{rate}}</b> - Readonly is: <i>{{isReadonly}}</i> - Hovering over: <b>{{overStar || "none"}}</b></pre>
+                    <button type="button" class="btn btn-sm btn-danger" (click)="rate = 0" [disabled]="isReadonly">Clear
+                    </button>
+                    <button type="button" class="btn btn-secondary btn-sm" (click)="isReadonly = ! isReadonly">Toggle Readonly
+                    </button>
+                    <hr/>
+                    <p class="lead">Custom icons</p>
+                    <div>
+                        <rating [(ngModel)]="x" max="15" stateOn="ion-wifi text-info" stateOff="ion-wifi"></rating>
+                        <p><b>(<i>Strenght:</i> {{x}})</b></p>
+                    </div>
+                    <div>
+                        <rating [(ngModel)]="y" [ratingStates]="ratingStates"></rating>
+                        <p><b>(<i>Things:</i> {{y}})</b></p>
+                    </div>
+                </div>
+            </div>
+            <!-- END panel-->
+        </div>
+        <div class="col-lg-6">
+            <div class="card mb-3">
+                <div class="card-header">Popovers</div>
+                <div class="card-block">
+                    <p class="lead">Positional</p>
+                    <div class="mb-4">
+                        <button type="button" class="btn btn-secondary" popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on left" placement="left">
+                            Popover on left
+                        </button>
+                        <button type="button" class="btn btn-secondary" popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on top" placement="top">
+                            Popover on top
+                        </button>
+                        <button type="button" class="btn btn-secondary" popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on bottom" placement="bottom">
+                            Popover on bottom
+                        </button>
+                        <button type="button" class="btn btn-secondary" popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on right" placement="right">
+                            Popover on right
+                        </button>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="lead">Dismiss on click</p>
+                            <button type="button" class="btn btn-info" popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Dismissible popover" triggers="focus">
+                                Dismissible popover
+                            </button>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="lead">Append to body</p>
+                            <button type="button" class="btn btn-info" popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." container="body">
+                                Popover appended to body
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header">Carousel</div>
+                <div class="card-block">
+                    <div class="mb-4">
+                        <carousel [interval]="myInterval" [noWrap]="false">
+                            <slide *ngFor="let slidez of slides; let index=index" [active]="slidez.active" class="fw">
+                                <img [src]="slidez.image" class="img-responsive fw">
+                                <div class="carousel-caption">
+                                    <h4>Slide {{index}}</h4>
+                                    <p>{{slidez.text}}</p>
+                                </div>
+                            </slide>
+                        </carousel>
+                    </div>
+                    <div>
+                        <p>Interval, in milliseconds:</p>
+                        <input class="form-control" type="number" [(ngModel)]="myInterval" />
+                        <p>Add a slide with a random image</p>
+                        <button class="btn btn-info" type="button" (click)="addSlide()">Add Slide</button>
+                    </div>
+                </div>
+            </div>
+            <!-- START panel-->
+            <div class="card mb-3">
+                <div class="card-header">Tooltips</div>
+                <div class="card-block">
+                    <div class="form-group">
+                        <label>Dynamic Tooltip Text</label>
+                        <input type="text" [(ngModel)]="dynamicTooltipText" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Dynamic Tooltip Popup Text</label>
+                        <input type="text" [(ngModel)]="dynamicTooltip" class="form-control">
+                    </div>
+                    <p>
+                        Pellentesque <a href="#" [tooltip]="dynamicTooltip">{{dynamicTooltipText}}</a>, sit amet venenatis urna cursus eget nunc scelerisque viverra mauris, in aliquam. Tincidunt lobortis feugiat vivamus at
+                        <a href="#" placement="left" tooltip="On the Left!">left</a> eget arcu dictum varius duis at consectetur lorem. Vitae elementum curabitur
+                        <a href="#" placement="right" tooltip="On the Right!">right</a> nunc sed velit dignissim sodales ut eu sem integer vitae. Turpis egestas
+                        <a href="#" placement="bottom" tooltip="On the Bottom!">bottom</a> pharetra convallis posuere morbi leo urna,
+                        <a href="#" [tooltipAnimation]="false" tooltip="I don't fade. :-(">fading</a> at elementum eu, facilisis sed odio morbi quis commodo odio. In cursus
+                        <a href="#" tooltipPopupDelay='1000' tooltip='appears with delay'>delayed</a> turpis massa tincidunt dui ut. nunc sed velit dignissim sodales ut eu sem integer vitae. Turpis egestas
+                    </p>
+                    <p>
+                        I can even contain HTML. <a href="#" [tooltip]="htmlTooltip" (tooltipStateChanged)="tooltipStateChanged($event)">Check me out!</a>
+                    </p>
+                    <ng-template #toolTipTemplate let-model="model">
+                        <h4>Tool tip custom content defined inside a template</h4>
+                        <h5>With context binding: {{model.text}}</h5>
+                    </ng-template>
+                    <form role="form">
+                        <div class="form-group">
+                            <label>Or use custom triggers, like focus: </label>
+                            <input type="text" name="clickMe" value="Click me!" tooltip="See? Now click away..." triggers="focus" placement="right" class="form-control" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- END panel-->
+        </div>
+    </div>
+    <!-- END row-->
+    <div class="row">
+        <div class="col-xl-4 col-xs-12">
+            <!-- START panel-->
+            <div class="card mb-3" id="cardDemo7">
+                <div class="card-header">Default Card</div>
+                <div class="card-block">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                </div>
+                <div class="card-footer">Card Footer</div>
+            </div>
+            <!-- END Card-->
+        </div>
+        <div class="col-xl-4 col-xs-12">
+            <!-- START Card-->
+            <div class="card mb-3 card-primary card-inverse" id="cardDemo8">
+                <div class="card-header">Primary Card</div>
+                <div class="card-block">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                </div>
+                <div class="card-footer">Card Footer</div>
+            </div>
+            <!-- END Card-->
+        </div>
+        <div class="col-xl-4 col-xs-12">
+            <!-- START Card-->
+            <div class="card mb-3 card-success card-inverse" id="cardDemo9">
+                <div class="card-header">Success Card</div>
+                <div class="card-block">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                </div>
+                <div class="card-footer">Card Footer</div>
+            </div>
+            <!-- END Card-->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-4 col-xs-12">
+            <!-- START Card-->
+            <div class="card mb-3 card-info card-inverse" id="cardDemo10">
+                <div class="card-header">Info Card</div>
+                <div class="card-block">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                </div>
+                <div class="card-footer">Card Footer</div>
+            </div>
+            <!-- END Card-->
+        </div>
+        <div class="col-xl-4 col-xs-12">
+            <!-- START Card-->
+            <div class="card mb-3 card-warning card-inverse" id="cardDemo11">
+                <div class="card-header">Warning Card</div>
+                <div class="card-block">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                </div>
+                <div class="card-footer">Card Footer</div>
+            </div>
+            <!-- END Card-->
+        </div>
+        <div class="col-xl-4 col-xs-12">
+            <!-- START Card-->
+            <div class="card mb-3 card-danger card-inverse" id="cardDemo12">
+                <div class="card-header">Danger Card</div>
+                <div class="card-block">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                </div>
+                <div class="card-footer">Card Footer</div>
+            </div>
+            <!-- END Card-->
+        </div>
+    </div>
+    <!-- START row-->
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- START panel-->
+            <div class="card mb-3">
+                <div class="card-header">Collapsible Accordion</div>
+                <div class="card-block">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" [(ngModel)]="oneAtATime"> Open only one at a time
+                        </label>
+                    </div>
+                    <accordion closeOthers="oneAtATime" class="card-accordion mt-2">
+                        <accordion-group [panelClass]="'mt-2'">
+                            <div accordion-heading>Accordion Heading #1</div>
+                            <p>In vitae porttitor eros. Vivamus et urna magna. Mauris a velit id neque dignissim congue. Phasellus ut neque sem, ac vestibulum tellus. Integer eu diam neque, quis euismod turpis.</p>
+                        </accordion-group>
+                        <accordion-group [panelClass]="'mt-2'">
+                            <div accordion-heading>Accordion Heading #2</div>
+                            <p>In vitae porttitor eros. Vivamus et urna magna. Sed euismod massa quis diam viverra eu consectetur elit imperdiet. Aenean rhoncus, est vel vestibulum tristique, ante lectus elementum augue, eu dictum turpis dui ut ipsum.</p>
+                        </accordion-group>
+                        <accordion-group [panelClass]="'mt-2'">
+                            <div accordion-heading>Accordion Heading #3</div>
+                            <p>In vitae porttitor eros. Vivamus et urna magna. In consequat massa eget dui ultrices sit amet auctor libero molestie. Vestibulum nec viverra libero.</p>
+                        </accordion-group>
+                    </accordion>
+                </div>
+            </div>
+            <!-- END panel-->
+        </div>
+    </div>
+    <!-- END row-->
+    <!-- START row-->
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- START panel-->
+            <div class="card mb-3">
+                <div class="card-header">Basic Tabs</div>
+                <div class="card-block">
+                    <tabset class="mb-4">
+                        <tab heading="Home">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nul qui officia deserunt mollit anim id est laborum.</tab>
+                        <tab heading="Profile">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat , sunt in culpa qui officia deserunt mollit anim id est laborum.</tab>
+                        <tab heading="Messages">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</tab>
+                        <tab heading="Settings">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</tab>
+                    </tabset>
+                </div>
+            </div>
+            <!-- END panel-->
+        </div>
+        <div class="col-lg-6">
+            <!-- START panel-->
+            <div class="card mb-3">
+                <div class="card-header">Pill Tabs</div>
+                <div class="card-block">
+                    <tabset type="pills" class="mb-4">
+                        <tab heading="Home">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nul qui officia deserunt mollit anim id est laborum.</tab>
+                        <tab heading="Profile">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat , sunt in culpa qui officia deserunt mollit anim id est laborum.</tab>
+                        <tab heading="Messages">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</tab>
+                        <tab heading="Settings">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</tab>
+                    </tabset>
+                </div>
+            </div>
+            <!-- END panel-->
+        </div>
+    </div>
+    <!-- END row-->
+    <!-- START panel-->
+    <div class="card mb-3">
+        <div class="card-header">Pagination</div>
+        <div class="card-block h-scroll">
+            <div class="text-right">
+                <button class="btn btn-info" (click)="setPage(3)">Set current page to: 3</button>
+            </div>
+            <div class="text-center">
+                <p class="lead">Standard and sizing</p>
+                <nav class="mx-auto">
+                    <pagination class="justify-content-center" [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"></pagination>
+                </nav>
+                <nav class="mx-auto">
+                    <pagination class="justify-content-center" [directionLinks]="false" [totalItems]="totalItems" [(ngModel)]="currentPage" (numPages)="smallnumPages"></pagination>
+                </nav>
+                <pre>The selected page no: {{currentPage}}</pre>
+                <p>Pager</p>
+                <pager [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" pageBtnClass="btn" itemsPerPage="10"></pager>
+                <hr/>
+                <p>Limit the maximum visible buttons</p>
+                <nav class="mx-auto">
+                    <pagination [totalItems]="bigTotalItems" [(ngModel)]="bigCurrentPage" [maxSize]="maxSize" class="pagination-sm justify-content-center" [boundaryLinks]="true" [rotate]="false" (numPages)="numPages = $event"></pagination>
+                </nav>
+                <pre>Page: {{bigCurrentPage}} / {{numPages}}</pre>
+                <p class="lead">Rounded buttons</p>
+                <nav class="mx-auto">
+                    <pagination class="pagination-rounded justify-content-center" [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" previousText="<" nextText=">"></pagination>
+                </nav>
+                <nav class="mx-auto">
+                    <pagination class="pagination-lg pagination-rounded justify-content-center" [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" previousText="<" nextText=">"></pagination>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- END panel-->
+</div>

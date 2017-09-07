@@ -1,0 +1,62 @@
+/**
+ * Form Editors
+ */
+
+@import '../../../shared/styles/common/variables';
+@import '../../../shared/styles/common/mixins';
+
+
+.note-editor {
+    .note-editing-area .note-editable {
+        color: inherit !important;
+    }
+    .note-statusbar {
+        background-color: rgba($gray-base,.26) !important;
+    }
+    &.note-frame {
+        border-color: rgba(162, 162, 162, 0.26) !important;
+    }
+
+    .dropdown-menu {
+        max-height: 280px;
+        overflow: auto;
+    }
+}
+
+.summernote-air {
+    + .note-editor .note-editing-area .note-editable {
+        background-color: transparent !important;
+    }
+}
+
+.panel-heading.note-toolbar {
+    @extend .card-header !optional;
+    padding: 1.6rem 2.4rem;
+}
+
+.note-btn-group {
+    .btn-default {
+        // btn-secondary
+        @include button-variant($text-color, #fff, $gray-lighter);
+    }
+
+    .dropdown-menu {
+        > li {
+            > a {
+                display: block;
+                padding: 3px 20px;
+                clear: both;
+                font-weight: normal;
+                line-height: 1.42857143;
+                color: #333;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+.note-popover .popover-content .note-color .dropdown-toggle,
+.note-editor .panel-heading.note-toolbar .note-color .dropdown-toggle {
+    width: 20px;
+    padding-left: 1px;
+}

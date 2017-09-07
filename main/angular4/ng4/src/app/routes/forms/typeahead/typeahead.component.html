@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="cardbox">
+                <div class="cardbox-heading">Static arrays</div>
+                <div class="cardbox-body">
+                    <div class="rel-wrapper mb-4">
+                        <input [(ngModel)]="selected" [typeahead]="states" class="form-control">
+                    </div>
+                    <pre class="card card-block card-header">Model: {{selected | json}}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="cardbox">
+                <div class="cardbox-heading">Custom item template</div>
+                <div class="cardbox-body">
+                    <ng-template #customItemTemplate let-model="item" let-index="index">
+                        <div>This is: {{model | json}} Index: {{ index }}</div>
+                    </ng-template>
+                    <div class="rel-wrapper mb-4">
+                        <input [(ngModel)]="customSelected" [typeahead]="statesComplex" [typeaheadItemTemplate]="customItemTemplate" [typeaheadOptionField]="'name'" (typeaheadOnSelect)="typeaheadOnSelect($event)" class="form-control">
+                    </div>
+                    <pre class="card card-block card-header">Model: {{customSelected | json}}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="cardbox">
+                <div class="cardbox-heading">Asynchronous results</div>
+                <div class="cardbox-body">
+                    <div class="mb-4">
+                        <div class="rel-wrapper">
+                            <input [(ngModel)]="asyncSelected" [typeahead]="dataSource" (typeaheadLoading)="changeTypeaheadLoading($event)" (typeaheadNoResults)="changeTypeaheadNoResults($event)" (typeaheadOnSelect)="typeaheadOnSelect($event)" [typeaheadOptionsLimit]="7" [typeaheadOptionField]="'name'" placeholder="Locations loaded with timeout" class="form-control">
+                        </div>
+                        <div *ngIf="typeaheadLoading===true">
+                            <i class="fa fa-refresh ng-hide"></i>
+                        </div>
+                        <div *ngIf="typeaheadNoResults===true">
+                            <i class="fa fa-times"></i> No Results Found
+                        </div>
+                    </div>
+                    <pre class="card card-block card-header">Model: {{asyncSelected | json}}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="cardbox">
+                <div class="cardbox-heading">Typeahead inside a form</div>
+                <div class="cardbox-body">
+                    <form [formGroup]="myForm" class="rel-wrapper mb-4">
+                        <input formControlName="state" [typeahead]="states" (typeaheadOnSelect)="typeaheadOnSelect($event)" [typeaheadOptionsLimit]="7" [typeaheadOptionField]="'name'" [typeaheadMinLength]="0" placeholder="Typeahead inside a form" class="form-control">
+                    </form>
+                    <pre class="card card-block card-header">Model: {{myForm.value.state | json}}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

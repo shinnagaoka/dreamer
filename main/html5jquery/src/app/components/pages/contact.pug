@@ -1,0 +1,133 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Contact'
+block content
+    .container-overlap.bg-gradient-info.text-center
+        .mb-3
+            img.wd-sm.rounded-circle.img-thumbnail(src="img/user/03.jpg", alt="user")
+        .text-white
+            .h3 Jane Frazier
+            small Aenean condimentum augue sapien.
+    .container.container-md
+        form.cardbox
+            h5.cardbox-heading.pb-0 Personal Information
+            .cardbox-body
+                table.table.table-striped.mb-0
+                  tbody
+                    tr
+                        td
+                            em.ion-document-text.icon-fw.mr-3
+                            | Area
+                        td Research &amp; development
+                    tr
+                        td
+                            em.ion-egg.icon-fw.mr-3
+                            | Birthday
+                        td
+                            span.is-editable.text-inherit 10/11/2000
+                    tr
+                        td
+                            em.ion-ios-body.icon-fw.mr-3
+                            | Member since
+                        td
+                            span.is-editable.text-inherit 05/11/2015
+                    tr
+                        td
+                            em.ion-man.icon-fw.mr-3
+                            | Female
+                        td
+                            a.text-inherit#gender(href='#')
+                    tr
+                        td
+                            em.ion-android-home.icon-fw.mr-3
+                            | Address
+                        td
+                            span.is-editable.text-inherit Some street, 123
+                    tr
+                        td
+                            em.ion-email.icon-fw.mr-3
+                            | Email
+                        td
+                            span.is-editable.text-inherit
+                                a(href='#') user@mail.com
+                    tr
+                        td
+                            em.ion-ios-telephone.icon-fw.mr-3
+                            | Contact phone
+                        td
+                            span.is-editable.text-inherit 13-123-46578
+        .cardbox
+            h5.cardbox-heading Activity
+            .cardbox-body.pb-0
+                p.float-left.mr-3
+                    em.ion-record.text-info
+                .oh
+                    p
+                        strong.mr-2 Added
+                        span.mr-2 a new issue
+                        a(href="#") #5478
+                    .clearfix
+                        .float-left.text-muted
+                            em.ion-android-time.mr-2
+                            span an hour ago
+            .cardbox-body.pb-0
+                p.float-left.mr-3
+                    em.ion-record.text-danger
+                .oh
+                    p
+                        strong.mr-2 Commented
+                        span.mr-2  on the project
+                        a(href="#") Material
+                    p.bl.pl-3: i That's awesome!
+                    .clearfix
+                        .float-left.text-muted
+                            em.ion-android-time.mr-2
+                            span 2 hours ago
+            .cardbox-body.pb-0
+                p.float-left.mr-3
+                    em.ion-record.text-success
+                .oh
+                    p
+                        strong.mr-2 Completed
+                        span  all tasks asigned this week
+                    .clearfix
+                        .float-left.text-muted
+                            em.ion-android-time.mr-2
+                            span 3 hours ago
+            .cardbox-body.pb-0
+                p.float-left.mr-3
+                    em.ion-record.text-info
+                .oh
+                    p
+                        strong.mr-2 Published
+                        span.mr-2  new photos on the album
+                        a(href="#") WorldTrip
+                    p
+                        a(href="#"): img.mr-2.thumb48(src="img/pic4.jpg", alt="Pic")
+                        a(href="#"): img.mr-2.thumb48(src="img/pic5.jpg", alt="Pic")
+                        a(href="#"): img.mr-2.thumb48(src="img/pic6.jpg", alt="Pic")
+                    .clearfix
+                        .float-left.text-muted
+                            em.ion-android-time.mr-2
+                            span 4 hours ago
+            .cardbox-body
+                .clearfix
+                    p.float-left.mr-3
+                        em.ion-record.text-primary
+                    .oh
+                        p
+                            strong.mr-2 Following
+                            span.mr-2 Jane Kuhn
+                        p
+                            span.image-list
+                                a(href="#"): img.rounded-circle.thumb32(src="img/user/03.jpg", alt="User")
+                                a(href="#"): img.rounded-circle.thumb32(src="img/user/04.jpg", alt="User")
+                                a(href="#"): img.rounded-circle.thumb32(src="img/user/05.jpg", alt="User")
+                                a(href="#"): img.rounded-circle.thumb32(src="img/user/06.jpg", alt="User")
+                                a(href="#"): img.rounded-circle.thumb32(src="img/user/07.jpg", alt="User")
+                                strong: a.ml-2.link-unstyled(href="#") +200
+                        .clearfix
+                            .float-left.text-muted
+                                em.ion-android-time.mr-2
+                                span yesterday
+

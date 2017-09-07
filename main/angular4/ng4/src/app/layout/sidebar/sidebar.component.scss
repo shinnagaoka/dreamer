@@ -1,0 +1,308 @@
+/**
+ * Sidebar
+ */
+
+@import '../../shared/styles/common/variables';
+@import '../../shared/styles/common/mixins';
+
+.sidebar-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: $sidebar-wd;
+    overflow-y: auto;
+    overflow-x: visible;
+    -webkit-overflow-scrolling: touch;
+    background-color: $sidebar-bg;
+    color: #fff;
+    z-index: 40;
+
+    // link colors in sidebar
+    a.sb-link {
+        color: rgba(255,255,255,.75);
+        text-decoration: none;
+    }
+}
+
+// Header with brand logo
+.brand-header {
+    height: $brand-header-hg;
+    padding: 0 1rem;
+    text-align: center;
+    box-shadow: $brand-header-shadow;
+    // background-color: $brand-header-bg;
+    > .brand-header-logo {
+        display: block;
+        height: 100%;
+        text-decoration: none;
+        color: inherit;
+        padding: 1rem 0;
+        > img,
+        > svg {
+            width: auto;
+            max-height: 100%;
+            + .brand-header-logo-text {
+                margin-left: .5rem;
+            }
+        }
+        > svg {
+            fill: #fff;
+        }
+
+        > .brand-header-logo-text {
+            font-size: 22px;
+            letter-spacing: .023em;
+            font-weight: 500;
+            font-size: 20px;
+        }
+        > img,
+        > .brand-header-logo-text {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}
+
+// moves the scroll bar to the sidebar (below the header)
+.brand-header + .sidebar-content {
+    height: calc(100% - #{$brand-header-hg});
+    overflow: auto;
+}
+// white background needs a soft border
+.sidebar-content {
+    // border-right: 1px solid rgba(123,123,123,.11);
+    box-shadow: -1px 0 0 rgba(160,160,160,.12) inset;
+}
+
+// Sidebar area for profile
+.sidebar-toolbar {
+    position: relative;
+    .sidebar-toolbar-content {
+        position: relative;
+        padding: 2rem 1rem;
+        z-index: 3;
+    }
+    .sidebar-toolbar-background {
+        display: block;
+        position: absolute;
+        top: 0; bottom:0;
+        left: 0; right: 0;
+        background-color: $sidebar-toolbar-bg;
+        background-image: url('../../../assets/img/profile-bg.jpg');
+        background-repeat: no-repeat;
+        background-position: left top;
+        background-size: cover;
+        opacity: 0.5;
+        z-index: 1;
+    }
+    + .sidebar-nav {
+        padding-top: 0;
+    }
+}
+
+// offcanvas setup
+
+.sidebar-container {
+    transform: translate3d(0, 0, 0);
+    transition: transform .28s ease-in-out;
+    will-change: transform;
+    @media #{$max-tablet} and (min-width: 1px) {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+// backdrop to hide main content and dismiss sidebar
+.sidebar-layout-obfuscator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 30; // value should be: sidbear-z-index > value > header-z-index
+    visibility: hidden;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    will-change: opacity;
+    transition: opacity .28s ease-in-out, visibility .28s ease-in-out;
+    @media #{$min-desktop} {
+        // display: none;
+    }
+}
+
+// @media #{$max-tablet} {
+    .sidebar-visible, .sidebar-cover-visible {
+        overflow: hidden;
+        .sidebar-container {
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+            transform: translate3d(0, 0, 0);
+        }
+        .sidebar-layout-obfuscator {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+// }
+
+
+.no-csstransforms3d {
+    .sidebar-container {
+        margin-left: -$sidebar-wd;
+        @media #{$min-desktop} {
+            margin-left: 0;
+        }
+    }
+    @media #{$max-desktop} {
+        .sidebar-visible {
+            .sidebar-container {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+// Navigation menu styles
+// -----------------------------------
+.sidebar-nav {
+    padding-top: 16px;
+    font-weight: 500;
+    background-color: inherit;
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        > li > .sidebar-nav-heading {
+            padding: 1.2rem 1rem;
+            font-size: .8rem;
+            font-weight: bold;
+            letter-spacing: .045rem;
+        }
+        > li > a {
+            display: block;
+            padding: 0 1rem;
+            border-left: 4px solid transparent;
+            height: 50px;
+            line-height: 50px;
+            text-decoration: none;
+            letter-spacing: 0.0125em;
+            color: inherit;
+            overflow: hidden;
+            cursor: default;
+            > .nav-icon {
+                position: relative;
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+                margin-right: 16px;
+                text-align: center;
+                font-size: 24px;
+                vertical-align: middle;
+                // color: $sidebar-icon-color;
+                > em,
+                > img,
+                > svg {
+                    position: absolute;
+                    display: inline-block;
+                    color: inherit;
+                    top:0; left: 0;
+                    width: 100%;
+                    height: 100%;
+                    line-height: 1;
+                }
+                // primary and accent colors for use with SVG
+                > svg {
+                    color: $sidebar-icon-color-active;
+                    fill: $mdc-blue-300;
+                }
+                // font icons
+                > em {
+                    color: $sidebar-icon-color;
+                }
+            }
+            // Labels an carets
+            > .nav-label,
+            > .nav-caret {
+                line-height: inherit;
+            }
+            > .nav-label {
+                margin-right: 16px;
+                margin-top: -2px;
+            }
+            > .nav-caret {
+                margin-left: 11px; // small icons width are ~5px
+                + .nav-label {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        // Hover an active states
+        > li > a:hover,
+        > li > a:focus {
+            background-color: rgba($gray-base,.09);
+            > .nav-icon em {
+                // color: $sidebar-icon-color-active;
+            }
+        }
+        > li.active {
+            > a {
+                background-color: rgba(0,0,0,.025);
+                border-left-color: $sidebar-item-color-active;
+            }
+
+            > a > .nav-icon em {
+                // color: $sidebar-icon-color-active;
+            }
+            > ul li.active > a {
+                background-color: rgba($gray-base,.026);
+                font-weight: bold;
+            }
+        }
+
+        // supports up to 3 leves (more isn't recommended)
+        > li ul > li {
+            > a {
+                padding-left: 40px + (16px * 1);
+                border-left: 0;
+            }
+            ul > li > a {  padding-left: 40px + (16px * 2); }
+        }
+
+        // Styles to animate collapsible sub menu
+        > li {
+            > ul {
+                height: 0;
+                overflow: hidden;
+                // transition: height 0.55s cubic-bezier(0.35, 0, 0.25, 1);
+                // "slide from" subitems animation
+                // > li > a {
+                //     margin-left: -20px;
+                //     opacity: 0;
+                //     transition: .5s ease;
+                //     transition-property: opacity, margin-left;
+                // }
+            }
+            > a > .nav-caret {
+                transition-transform: .2s ease;
+            }
+            &.active {
+                > ul {
+                    height: auto;
+                    > li > a {
+                        opacity: 1;
+                        margin-left: 0;
+                    }
+                }
+                > a > .nav-caret {
+                    transform: rotate(90deg);
+                }
+            }
+        }
+
+    }
+}
+
+// only for ng4
+.sidebar-nav > ul > li > a > span:last-of-type {
+    margin-left: -4px;
+}

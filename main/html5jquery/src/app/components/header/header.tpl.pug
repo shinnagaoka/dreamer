@@ -1,0 +1,64 @@
+block pagetitle
+    - pageTitle = ''
+nav
+    ul.hidden-lg-up
+        li
+            a.sidebar-toggler.menu-link.menu-link-close(href='#')
+                span: em
+    ul.hidden-xs-down
+        li
+            a.covermode-toggler.menu-link.menu-link-close(href='#')
+                span: em
+    h2.header-title= pageTitle
+    ul.float-right
+        li.dropdown
+            a.dropdown-toggle.has-badge(href='#', data-toggle='dropdown')
+                img.header-user-image(src='img/user/01.jpg', alt="header-user-image")
+                //- span Jane Doe
+                sup.badge.bg-danger 3
+            .dropdown-menu.dropdown-menu-right.dropdown-scale
+                h6.dropdown-header User menu
+                a.dropdown-item(href='#')
+                    span.float-right.badge.badge-primary 4
+                    em.ion-ios-email-outline.icon-lg.text-primary
+                    | Messages
+                a.dropdown-item(href='#')
+                    em.ion-ios-gear-outline.icon-lg.text-primary
+                    | Settings
+                .dropdown-divider(role='presentation')
+                a.dropdown-item(href='user.login.html')
+                    em.ion-log-out.icon-lg.text-primary
+                    | Logoff
+        li.dropdown
+            a.dropdown-toggle.has-badge(href='#', data-toggle='dropdown')
+                em.ion-ios-keypad
+            .dropdown-menu.dropdown-menu-right.dropdown-scale.dropdown-card
+                .p-3
+                    .d-flex.mb-3
+                        .wd-xs.mr-3
+                            .card.bg-gradient-primary.border-0
+                                .card-block.text-white.text-center
+                                    .mb-1: em.ion-stats-bars.icon-2x
+                                    small.text-bold Stats
+                        .wd-xs
+                            .card.bg-gradient-info.border-0
+                                .card-block.text-white.text-center
+                                    .mb-1: em.ion-map.icon-2x
+                                    small.text-bold Places
+                    .d-flex
+                        .wd-xs.mr-3
+                            .card.bg-gradient-warning.border-0
+                                .card-block.text-white.text-center
+                                    .mb-1: em.ion-clock.icon-2x
+                                    small.text-bold Events
+                        .wd-xs
+                            .card.bg-gradient-danger.border-0
+                                .card-block.text-white.text-center
+                                    .mb-1: em.ion-plane.icon-2x
+                                    small.text-bold Flights
+        li
+            a#header-search(href='#')
+                em.ion-ios-search-strong
+        li
+            a#header-settings(href='#')
+                em.ion-more

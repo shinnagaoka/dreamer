@@ -1,0 +1,22 @@
+@import '../../../shared/styles/common/variables';
+@import '../../../shared/styles/common/mixins';
+
+.toast {
+    background-color: $gray-lighter;
+}
+
+.toast-success {
+    background-color: $brand-success;
+}
+
+.toast-error {
+    background-color: $brand-danger;
+}
+
+.toast-info {
+    background-color: $brand-info;
+}
+
+.toast-warning {
+    background-color: $brand-warning;
+}

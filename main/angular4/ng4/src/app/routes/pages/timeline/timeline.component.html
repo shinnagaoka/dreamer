@@ -1,0 +1,104 @@
+<div class="container container-sm">
+    <!-- START timeline-->
+    <ul class="timeline">
+        <li class="timeline-separator" data-datetime="Today"></li>
+        <!-- START timeline item-->
+        <li>
+            <div class="timeline-badge bg-danger"></div>
+            <div class="timeline-panel">
+                <div class="cardbox">
+                    <div class="cardbox-heading">Client Meeting</div>
+                    <div class="cardbox-body">
+                        <p>Pellentesque ut diam velit, eget porttitor risus. Nullam posuere euismod volutpat.</p>
+                    </div>
+                    <div class="cardbox-body">
+                        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [scrollwheel]="scrollwheel" [style.height]="'300px'" class="center-block">
+                            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                        </agm-map>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <!-- END timeline item-->
+        <!-- START timeline item-->
+        <li class="timeline-inverted">
+            <div class="timeline-badge bg-cyan-500"></div>
+            <div class="timeline-panel">
+                <div class="cardbox right">
+                    <div class="card-block">
+                        <p><strong>Appointment</strong></p>
+                        <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam.</p>
+                        <p><strong>People</strong></p>
+                        <p>
+                            <a tooltip="@Fowler"><img class="wd-xxs img-thumbnail rounded-circle mr-2" src="assets/img/user/02.jpg" alt="user"></a>
+                            <a tooltip="@Castro"><img class="wd-xxs img-thumbnail rounded-circle mr-2" src="assets/img/user/03.jpg" alt="user"></a>
+                            <a tooltip="@Jackson"><img class="wd-xxs img-thumbnail rounded-circle mr-2" src="assets/img/user/04.jpg" alt="user"></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <!-- END timeline item-->
+        <!-- START timeline separator-->
+        <li class="timeline-separator" data-datetime="1 day ago"></li>
+        <!-- END timeline separator-->
+        <!-- START timeline item-->
+        <li>
+            <div class="timeline-badge bg-yellow-500"></div>
+            <div class="timeline-panel">
+                <div class="cardbox">
+                    <div class="cardbox-body"><small class="float-right text-muted">50m ago</small>
+                        <p><strong>Conference</strong></p>
+                        <p>Join development group</p><small><a href="skype:echo123?call"><em class="ion-ios-telephone mr-2 icon-lg"></em> Call the Skype Echo</a></small>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <!-- END timeline item-->
+        <!-- START timeline item-->
+        <li class="timeline-inverted">
+            <div class="timeline-badge bg-purple-400"></div>
+            <div class="timeline-panel">
+                <div class="cardbox">
+                    <div class="cardbox-body"><small class="float-right text-muted">2h ago</small><em class="mr-3 ion-ios-telephone icon-lg"></em>Call with Michael</div>
+                </div>
+            </div>
+        </li>
+        <!-- END timeline item-->
+        <!-- START timeline item-->
+        <li>
+            <div class="timeline-badge bg-info"></div>
+            <div class="timeline-panel">
+                <div class="cardbox bg-lime-500">
+                    <div class="card-block"><small class="float-right text-muted">10h ago</small>
+                        <p><strong>Fly</strong></p>
+                        <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <!-- END timeline item-->
+        <!-- START timeline separator-->
+        <li class="timeline-separator" data-datetime="This week"></li>
+        <!-- END timeline separator-->
+        <!-- START timeline item-->
+        <li class="timeline-inverted">
+            <div class="timeline-badge bg-warning"></div>
+            <div class="timeline-panel">
+                <div class="card">
+                    <div class="card-block">
+                        <p><strong>Use any element</strong></p>
+                        <p>This component doesn't have a shadow because it's based on Bootstrap 4 Card.</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <!-- END timeline item-->
+        <!-- START timeline item-->
+        <li class="timeline-end">
+            <a class="timeline-badge bg-blue-grey-200"></a>
+        </li>
+        <!-- END timeline item-->
+    </ul>
+    <!-- END timeline-->
+</div>

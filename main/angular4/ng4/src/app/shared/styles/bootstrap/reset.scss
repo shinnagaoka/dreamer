@@ -1,0 +1,412 @@
+/**
+ * Bootstrap Reset
+ */
+
+@import '../common/variables';
+@import '../common/mixins';
+
+// Scaffolding
+
+html, body {
+  direction:ltr;
+  width: 100%;
+  height: 100%;
+  min-width: 320px;
+  background-color: $body-bg;
+  font-size: $font-size-root;
+}
+
+body {
+  font-family: $font-family;
+  color: $text-color;
+  font-size: $font-size-base;
+}
+
+.text-muted {
+    color: $text-muted !important;
+}
+
+code {
+    background-color: rgba(160,160,160,.12);
+    color: $mdc-pink-300;
+    + code {
+        margin-left: .25rem;
+    }
+}
+
+.close {
+    text-shadow: 0 0 0 #000;
+    color: $text-color;
+}
+// Buttons
+// -----------------------------------
+
+.btn {
+    outline: none !important;
+    border-radius: 2px;
+    font-size: .95rem;
+    font-family: inherit;
+    &:active, &.active {
+        box-shadow: 0 0 0 #000;
+    }
+}
+
+.btn-primary   { @include button-variant(#fff, $brand-primary, $brand-primary); }
+.btn-secondary { @include button-variant($text-color, #fff, $gray-lighter); }
+.btn-success   { @include button-variant(#fff, $brand-success, $brand-success); }
+.btn-info      { @include button-variant(#fff, $brand-info, $brand-info); }
+.btn-warning   { @include button-variant(#fff, $brand-warning, $brand-warning); }
+.btn-danger    { @include button-variant(#fff, $brand-danger, $brand-danger); }
+
+// Emphasis
+// -----------------------------------
+
+.text-primary { color: $brand-primary !important; }
+.text-success { color: $brand-success !important; }
+.text-info { color: $brand-info !important; }
+.text-warning { color: $brand-warning !important; }
+.text-danger { color: $brand-danger !important; }
+
+// Forms
+
+@media #{$max-desktop} {
+  // Remove Input Shadows on iPad
+  input[type="text"], input[type="email"], input[type="search"], input[type="password"] {
+    -webkit-appearance: none;
+  }
+}
+
+.form-check-input {
+    margin-right: .5rem;
+}
+
+.has-success {
+    @include form-control-validation($brand-success);
+}
+.has-warning {
+    @include form-control-validation($brand-warning);
+}
+.has-danger {
+    @include form-control-validation($brand-danger);
+}
+
+.custom-control-indicator {
+    top: .25rem;
+    width: 1.1rem;
+    height: 1.1rem;
+    background-color: rgba(160,160,160,.25);
+}
+
+// change select icon
+.custom-select {
+    background-image: url('../assets/img/custom-select-angle-down.svg');
+    -webkit-background-size: 12px 16px;
+    background-size: 12px 16px;
+}
+
+// Tables
+// -----------------------------------
+
+.table {
+    font-weight: 400;
+    margin-bottom: 2rem;
+    // Bottom align for column headings
+    > thead > tr > th {
+        border-bottom-width: 1px;
+        border-color: rgba($gray-base,.16);
+        position: relative;
+        vertical-align: bottom;
+        text-overflow: ellipsis;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0;
+        height: 48px;
+        font-size: 12px;
+        padding: 0 18px 0 18px !important;
+        padding-bottom: 8px !important;
+    }
+    > tbody > tr > td {
+        position: relative;
+        vertical-align: middle;
+        border-top: 1px solid rgba(0,0,0,.045);
+    }
+
+    // Account for multiple tbody instances
+    > tbody + tbody {
+        border-bottom-width: 1px;
+    }
+
+    .table {
+        background-color: transparent;
+    }
+}
+
+.table-hover>tbody>tr:hover {
+    background-color: rgba($gray-base,.06);
+}
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: rgba($gray-base,.06);
+}
+.table-bordered {
+    border-color: rgba($gray-base,.26);
+    > thead > tr {
+        > th,
+        > td {
+            border-bottom-width: 1px;
+        }
+    }
+    >tbody>tr>td,
+    >tbody>tr>th,
+    >tfoot>tr>td,
+    >tfoot>tr>th,
+    >thead>tr>td,
+    >thead>tr>th {
+        border-color: rgba($gray-base,.26);
+    }
+}
+
+// Generate the contextual variants
+@include table-row-variant(active, lighten($mdc-blue-grey-100, 22));
+@include table-row-variant(success, lighten($brand-success, 22));
+@include table-row-variant(info, lighten($brand-info, 22));
+@include table-row-variant(warning, lighten($brand-warning, 22));
+@include table-row-variant(danger, lighten($brand-danger, 22));
+
+// improve colorization
+tr {
+    &.active,&.success,&.info,&.warning,&.danger {
+        color: rgba(0,0,0,0.67);
+        > td {border-top: 0 !important;}
+    }
+}
+
+// Progress
+// -----------------------------------
+
+.progress {
+    .progress-bar {
+        transition: width .5s ease;
+    }
+}
+
+.progress-bar { background-color: $brand-primary; }
+.progress-bar-info { background-color: $brand-info; }
+.progress-bar-success { background-color: $brand-success; }
+.progress-bar-warning { background-color: $brand-warning; }
+.progress-bar-danger { background-color: $brand-danger; }
+
+// Alerts
+// -----------------------------------
+.alert-primary {
+    @include alert-variant($brand-primary, $brand-primary, #fff);
+    a, .alert-link { color: rgba(255,255,255,.58); }
+}
+.alert-success {
+    @include alert-variant($brand-success, $brand-success, #fff);
+    a, .alert-link { color: rgba(255,255,255,.58); }
+}
+.alert-info {
+    @include alert-variant($brand-info, $brand-info, #fff);
+    a, .alert-link { color: rgba(255,255,255,.58); }
+}
+.alert-warning {
+    @include alert-variant($brand-warning, $brand-warning, #fff);
+    a, .alert-link { color: rgba(255,255,255,.58); }
+}
+.alert-danger {
+    @include alert-variant($brand-danger, $brand-danger, #fff);
+    a, .alert-link { color: rgba(255,255,255,.58); }
+}
+
+.alert-dismissable .close, .alert-dismissible .close {
+    color: rgba(0,0,0,.75);
+}
+
+// Well & Jumbotron
+// -----------------------------------
+
+.jumbotron {
+    padding: 1rem;
+    border: 1px solid rgba($gray-base,.12);
+    background-color: #fff;
+    @media #{$min-tablet} {
+        padding: 2rem;
+    }
+}
+
+// Cards
+// -----------------------------------
+
+.card {
+    .card-header {
+        background-color: transparent;
+    }
+}
+
+.card-primary { @include card-variant($brand-primary, $brand-primary); }
+.card-success { @include card-variant($brand-success, $brand-success); }
+.card-info    { @include card-variant($brand-info, $brand-info); }
+.card-warning { @include card-variant($brand-warning, $brand-warning); }
+.card-danger  { @include card-variant($brand-danger, $brand-danger); }
+
+.card-accordion {
+    .card {
+        .card-header {
+            padding: 12px 24px;
+            a {
+                color: inherit;
+                text-decoration: none;
+                &:hover, &:focus {
+                    color: $brand-primary;
+                }
+            }
+        }
+        .card-title a {
+            text-decoration: none;
+        }
+    }
+}
+
+// List
+// -----------------------------------
+
+.list-group {
+    .list-group-item {
+        color: inherit;
+        background-color: transparent;
+        border-color: rgba($gray-base,.12);
+        padding: 1rem 1.5rem;
+        &.active {
+            color: #fff;
+        }
+        &.disabled, &.disabled:focus, &.disabled:hover {
+            background-color: rgba($gray-base, .12);
+            color: inherit;
+        }
+        .card > & {
+            border-top: 0;
+        }
+    }
+}
+a.list-group-item:focus,
+a.list-group-item:hover,
+button.list-group-item:focus,
+button.list-group-item:hover {
+    background-color: transparent;
+    color: $brand-primary;
+}
+.list-group-item.active,
+.list-group-item.active:focus,
+.list-group-item.active:hover {
+    background-color: $brand-info;
+    border-color: $brand-info;
+}
+
+// Breadcrumb
+// -----------------------------------
+
+.breadcrumb {
+    font-weight: normal;
+    border-radius: 0;
+    color: $text-muted;
+    padding: 20px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid rgba($gray-base,.16);
+    margin-bottom: 2rem;
+    .breadcrumb-item::before {
+        color: #ccc;
+    }
+    &.breadcrumb-transparent {
+        background-color: transparent;
+    }
+}
+
+// Dropdowns
+// -----------------------------------
+
+.dropdown-menu {
+    top: 50%;
+    border: 1px solid $gray-lighter;
+    border-radius: 1px;
+    line-height: 1;
+    min-width: 12rem;
+    box-shadow: 0px 5px 25px 0px rgba(123, 123, 123, 0.15);
+    .dropdown-item {
+        padding: 1rem;
+        // icon support
+        > em {
+            margin-right: 1rem;
+            color: $text-muted;
+        }
+        &:hover, &:active {
+            background-color: rgba($gray-base,.1);
+            color: inherit;
+        }
+        &.active {
+            background-color: $brand-primary;
+            color: #fff;
+            > em {
+                color: #fff;
+            }
+        }
+    }
+    .dropdown-divider {
+        margin: .5rem 0;
+        background-color: rgba($gray-base,.16);
+    }
+    .dropdown-header {
+        color: #a1a2a3;
+        padding: 1rem 1rem .5rem 1rem
+    }
+}
+// fix for ie9 (dropdwon no showing)
+.navbar,
+.navbar .dropdown-menu {
+    filter: none !important;
+}
+
+// Badges
+// -----------------------------------
+
+.badge-primary { @include badge-variant($brand-primary); }
+.badge-success { @include badge-variant($brand-success); }
+.badge-info    { @include badge-variant($brand-info); }
+.badge-warning { @include badge-variant($brand-warning); }
+.badge-danger  { @include badge-variant($brand-danger); }
+
+
+// Tabs
+// -----------------------------------
+.nav-tabs {
+    border-color: rgba(162,162,162,.5);
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    border-color: rgba(162,162,162,.5) rgba(162,162,162,.5) transparent rgba(162,162,162,.5);
+}
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    color: $brand-primary;
+    border-color: rgba(162,162,162,.5) rgba(162,162,162,.5) transparent rgba(162,162,162,.5);
+}
+
+.tab-container.mb-4 {
+    > .nav-tabs, > .nav-pills {
+        margin-bottom: map-get(map-get($spacers, 4), y);
+    }
+}
+
+// Pagination
+// -----------------------------------
+
+.page-link {
+    background: transparent;
+    border-color: rgba(162,162,162,.5);
+}
+.page-item.disabled .page-link {
+    background-color: rgba(160,160,160,.25);
+    border-color: rgba(162,162,162,.5);
+}
+.page-link:focus, .page-link:hover {
+    border-color: darken($brand-primary,5);
+    background: $brand-primary;
+    color: #fff;
+}

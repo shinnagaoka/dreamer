@@ -1,0 +1,26 @@
+<div class="page-container">
+    <div class="d-flex align-items-center align-items-center-ie bg-gradient-danger text-white">
+        <div class="fw">
+            <div class="container container-xs">
+                <div class="text-center my-4"><img class="rounded-circle mb-3 block-center img-fluid img-thumbnail thumb80" src="assets/img/user/01.jpg" alt="user">
+                    <p>Jane Doe</p>
+                </div>
+                <form [formGroup]="lockForm" (submit)="submitForm($event, lockForm)" class="cardbox cardbox-flat text-white form-validate text-color" id="user-lock" name="loginForm" novalidate="">
+                    <div class="cardbox-heading">
+                        <p class="text-center">Type your password to unlock terminal</p>
+                    </div>
+                    <div class="cardbox-body">
+                        <div class="input-group">
+                            <input formControlName="password" [formControl]="lockForm.controls['password']" class="form-control form-control-inverse" type="password" name="accountPassword" required="" placeholder="Password">
+                            <span class="input-group-btn">
+                                    <button class="btn btn-secondary btn-gradient" type="submit"><em class="ion-ios-locked-outline icon-lg"></em></button>
+                                </span>
+                        </div>
+                        <span class="text-danger" *ngIf="lockForm.controls['password'].hasError('required') && (lockForm.controls['password'].dirty || lockForm.controls['password'].touched)">Please type your password</span>
+                        <div class="text-right"><small><a class="text-white" [routerLink]="'/signin'">Not you?</a></small></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

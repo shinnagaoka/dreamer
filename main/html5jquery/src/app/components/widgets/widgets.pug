@@ -1,0 +1,327 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Widgets'
+block content
+    .container.container-lg
+        .row
+            .col-sm-6
+                .cardbox
+                    .pb-1.bg-gradient-warning
+                    .cardbox-body
+                        .d-flex
+                            div
+                                .lead.mb-2 Arlene Marshall
+                                p
+                                    em.ion-ios-email-outline.mr-2.icon-lg.text-warning
+                                    span @marshall
+                                button.btn.btn-warning(type="button") Follow
+                            .ml-auto
+                                img.shadow-z5.thumb80.rounded(src="img/user/04.jpg", alt="user")
+                    .cardbox-body
+                        .row
+                            .col
+                                .text-muted Comments
+                                .h4: strong 15000
+                            .col.bl
+                                .text-muted Posts
+                                .h4: strong 300
+                            .col.bl.hidden-sm-down
+                                .text-muted Followers
+                                .h4: strong 4000
+            .col-sm-6
+                .cardbox
+                    .pb-1.bg-gradient-success
+                    .cardbox-body
+                        .d-flex
+                            div
+                                .lead.mb-2 Charles West
+                                p
+                                    em.ion-ios-email-outline.mr-2.icon-lg.text-success
+                                    span @Charles
+                                button.btn.btn-success(type="button") Follow
+                            .ml-auto
+                                img.shadow-z5.thumb80.rounded-circle(src="img/user/05.jpg", alt="user")
+                    .cardbox-body
+                        .row.text-center
+                            .col
+                                .text-muted Comments
+                                .h4: strong 90900
+                            .col.bl
+                                .text-muted Posts
+                                .h4: strong 700
+                            .col.bl.hidden-sm-down
+                                .text-muted Followers
+                                .h4: strong 5680
+
+        .row
+            .col-sm-6
+                .cardbox
+                    .pb-1.bg-gradient-info
+                    .cardbox-body
+                        .d-flex
+                            .mr-4
+                                img.shadow-z5.thumb80.rounded(src="img/user/07.jpg", alt="user")
+                            div
+                                .h3.my-2: strong Kelly Obrien
+                                p Profile
+                            .ml-auto
+                                button.btn.btn-info(type="button") Contact
+                    .cardbox-body
+                        small Friends
+                        .d-flex.align-items-center
+                            img.img-fluid.thumb32.rounded.mr-1(src="img/user/04.jpg", alt="User")
+                            img.img-fluid.thumb32.rounded.mr-1(src="img/user/05.jpg", alt="User")
+                            img.img-fluid.thumb32.rounded.mr-1(src="img/user/06.jpg", alt="User")
+                            img.img-fluid.thumb32.rounded.mr-1(src="img/user/03.jpg", alt="User")
+                            strong.thumb32.pt-1.rounded.bg-blue-grey-500.text-center: small +10
+            .col-sm-6
+                .cardbox
+                    .pb-1.bg-gradient-primary
+                    .cardbox-body
+                        .d-flex
+                            .mr-4
+                                img.shadow-z5.thumb80.rounded(src="img/user/06.jpg", alt="user")
+                            div
+                                .h3.my-2: strong Raul Palmer
+                                p Profile
+                            .ml-auto
+                                button.btn.btn-primary(type="button") Contact
+                    .cardbox-body
+                        small Friends
+                        .d-flex.align-items-center
+                            img.img-fluid.thumb32.rounded.mr-1(src="img/user/04.jpg", alt="User")
+                            img.img-fluid.thumb32.rounded.mr-1(src="img/user/05.jpg", alt="User")
+                            img.img-fluid.thumb32.rounded.mr-1(src="img/user/06.jpg", alt="User")
+                            img.img-fluid.thumb32.rounded.mr-1(src="img/user/03.jpg", alt="User")
+                            strong.thumb32.pt-1.rounded.bg-blue-grey-500.text-center: small +5
+                            .ml-auto
+                                button.btn.btn-sm.btn-outline-danger(type="button") Invite
+        .row
+            .col
+                .cardbox
+                    .cardbox-body
+                        .h2.text-bold 1,590
+                        .mb-2.text-muted
+                            small Comments
+                        .progress.progress-xs.mb-0
+                            .progress-bar.bg-success(style='width: 45%')
+            .col
+                .cardbox
+                    .cardbox-body
+                        .h2.text-bold 15,350
+                        .mb-2.text-muted
+                            small Requests
+                        .progress.progress-xs.mb-0
+                            .progress-bar.bg-warning(style='width: 45%')
+        .row
+            .col-sm-4
+                .cardbox(style="border-left: 4px solid").color-indigo-400
+                    .cardbox-body
+                        .d-flex.justify-content-start.align-items-center
+                            div
+                                p.mb-0 DESIGN
+                                span.text-muted Nunc posuere as loca.
+            .col-sm-4
+                .cardbox(style="border-left: 4px solid").color-blue-400
+                    .cardbox-body
+                        .d-flex.justify-content-start.align-items-center
+                            div
+                                p.mb-0 DEVELOPMENT
+                                span.text-muted Nunc posuere as loca.
+            .col-sm-4
+                .cardbox(style="border-left: 4px solid").color-red-400
+                    .cardbox-body
+                        .d-flex.justify-content-start.align-items-center
+                            div
+                                p.mb-0 CONCEPT
+                                span.text-muted Nunc posuere as loca.
+        .row
+            .col-sm-6
+                .cardbox
+                    .cardbox-body
+                        .d-flex.justify-content-start.align-items-center
+                            div
+                                p.mb-0
+                                    small: em.ion-record.text-primary.mr-2
+                                    | DEVELOPMENT
+                                span.text-muted 24 %
+                            .ml-auto: span.line1 3,5,3,6,2,3,6,2
+            .col-sm-6
+                .cardbox
+                    .cardbox-body
+                        .d-flex.justify-content-start.align-items-center
+                            div
+                                p.mb-0
+                                    small: em.ion-record.text-success.mr-2
+                                    | DESIGN
+                                span.text-muted 32 %
+                            .ml-auto: span.line2 3,5,3,6,5,3,4,6
+        .row
+            .col-sm-6
+                .cardbox
+                    .cardbox-body
+                        .d-flex.justify-content-start.align-items-center
+                            div
+                                p Training time
+                                span.text-bold 140 hs
+                            .ml-auto: span.bar1 3,5,3,6,5,3,4,6
+            .col-sm-6
+                .cardbox
+                    .cardbox-body
+                        .d-flex.justify-content-start.align-items-center
+                            div
+                                p Upgrade costs
+                                span.text-bold $ 11,500
+                            .ml-auto: span.bar2 3,5,3,6,2,3,6,2
+
+        .row
+            .col-sm-6
+                .cardbox.text-white.bg-gradient-success.b0
+                    .cardbox-body.text-center
+                        .text-bold.display-1 1500
+                        p.text-bold Coding hours
+                        span.line3 3,5,3,6,2,3,6,2
+            .col-sm-6
+                .cardbox.text-white.bg-gradient-primary.b0
+                    .cardbox-body.text-center
+                        .text-bold.display-1 730
+                        p.text-bold Members
+                        span.line3 3,5,3,6,5,3,4,6
+        .row
+            .col-sm-6
+                .cardbox
+                    .cardbox-body.text-center
+                        p.text-muted.text-bold Cups of Coffee
+                        .text-bold.display-1.text-success 150
+                    .cardbox-footer
+                        .d-flex.justify-content-start.align-items-center
+                            .mr-auto
+                                em.ion-arrow-up-b.text-success.mr-3.icon-lg
+                                span.text-muted 12%
+                            .ml-auto
+                                span.line2 3,5,3,6,5,3,4,6
+            .col-sm-6
+                .cardbox
+                    .cardbox-body.text-center
+                        p.text-muted.text-bold Projects
+                        .text-bold.display-1.text-primary 125
+                    .cardbox-footer
+                        .d-flex.justify-content-start.align-items-center
+                            .mr-auto
+                                em.ion-arrow-up-b.text-success.mr-3.icon-lg
+                                span.text-muted 7.8%
+                            .ml-auto
+                                .ml-auto: span.line1 3,5,3,6,2,3,6,2
+        .row
+            .col-sm-4
+                .cardbox
+                    .cardbox-body
+                        p.text-muted.text-bold Curabitur quis leo nulla.
+                        p.lead.text-bold 150
+                        .text-right
+                            em.ion-arrow-up-b.text-success.mr-3
+                            span.text-muted 12%
+            .col-sm-4
+                .cardbox
+                    .cardbox-body
+                        p.text-muted.text-bold Curabitur quis leo nulla.
+                        p.lead.text-bold 125
+                        .text-right
+                            em.ion-arrow-down-b.text-danger.mr-3
+                            span.text-muted 7.8%
+            .col-sm-4
+                .cardbox
+                    .cardbox-body
+                        p.text-muted.text-bold Curabitur quis leo nulla.
+                        p.lead.text-bold 25
+                        .text-right
+                            em.ion-arrow-down-b.text-danger.mr-3
+                            span.text-muted 2.6%
+        .row
+            .col-sm-4
+                .cardbox.bb0
+                    .cardbox-body
+                        p.text-muted.text-bold Curabitur quis leo nulla.
+                        p.lead.text-bold.mb-0 150
+                    .progress.progress-xs.mb-0.bg-transparent
+                        .progress-bar.bg-success(style='width: 25%')
+            .col-sm-4
+                .cardbox.bb0
+                    .cardbox-body
+                        p.text-muted.text-bold Curabitur quis leo nulla.
+                        p.lead.text-bold.mb-0 125
+                    .progress.progress-xs.mb-0.bg-transparent
+                        .progress-bar.bg-info(style='width: 55%')
+            .col-sm-4
+                .cardbox.bb0
+                    .cardbox-body
+                        p.text-muted.text-bold Nunc fringilla eros et erat
+                        p.lead.text-bold.mb-0 1,550
+                    .progress.progress-xs.mb-0.bg-transparent
+                        .progress-bar.bg-danger(style='width: 12%')
+        .row
+            .col-sm-4
+                .cardbox
+                    .cardbox-body
+                        .float-right
+                            em.ion-arrow-graph-up-right.text-success.mr-3.icon-lg
+                        p.text-bold PROGRESS
+                            br
+                            small.text-muted Evolution of price
+                        p.lead.text-bold.m-0 150
+                    .cardbox-footer
+                        small VARIATION 12%
+            .col-sm-4
+                .cardbox
+                    .cardbox-body
+                        .float-right
+                            em.ion-arrow-graph-down-right.text-warning.mr-3.icon-lg
+                        p.text-bold PROGRESS
+                            br
+                            small.text-muted Evolution of price
+                        p.lead.text-bold.m-0 125
+                    .cardbox-footer
+                        small VARIATION 7.8%
+            .col-sm-4
+                .cardbox
+                    .cardbox-body
+                        .float-right
+                            em.ion-arrow-graph-up-right.text-success.mr-3.icon-lg
+                        p.text-bold PROGRESS
+                            br
+                            small.text-muted Evolution of price
+                        p.lead.text-bold.m-0 25
+                    .cardbox-footer
+                        small VARIATION 2.6%
+        .row
+            .col-sm-4
+                .cardbox
+                    .cardbox-body
+                        .d-flex.justify-content-start.align-items-center
+                            div.wd-xxs.color-indigo-400: em.ion-social-facebook.icon-3x.icon-fw
+                            div
+                                p.lead.mb-0 Facebook
+                                span.text-muted Social share
+                            div.ml-auto: a(href="#").text-muted: em.ion-chevron-right
+            .col-sm-4
+                .cardbox
+                    .cardbox-body
+                        .d-flex.justify-content-start.align-items-center
+                            div.wd-xxs.color-blue-400: em.ion-social-twitter.icon-3x.icon-fw
+                            div
+                                p.lead.mb-0 Twitter
+                                span.text-muted Social share
+                            div.ml-auto: a(href="#").text-muted: em.ion-chevron-right
+            .col-sm-4
+                .cardbox
+                    .cardbox-body
+                        .d-flex.justify-content-start.align-items-center
+                            div.wd-xxs: em.ion-social-github.icon-3x.icon-fw
+                            div
+                                p.lead.mb-0 Github
+                                span.text-muted Code share
+                            div.ml-auto: a(href="#").text-muted: em.ion-chevron-right
+
+block vendor_js
+    // Peity charts
+    script(src='vendor/peity/jquery.peity.min.js')

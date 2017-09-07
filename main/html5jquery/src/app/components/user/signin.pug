@@ -1,0 +1,24 @@
+extends user.layout.pug
+block content
+    .d-flex.align-items-center.align-items-center-ie.bg-gradient-primary
+        .fw: .container.container-xs
+            form.cardbox.cardbox-flat.text-white.form-validate#user-login(action="", name="loginForm", novalidate='').text-color
+                .cardbox-heading
+                    .cardbox-title.text-center Login
+                .cardbox-body
+                    .px-5
+                        .form-group
+                            input.form-control.form-control-inverse(type='email', name="accountName", required="", placeholder="Email address")
+                        .form-group
+                            input.form-control.form-control-inverse(type='password', name="accountPassword", required="", placeholder="Password")
+                        .form-group.mt-4
+                            label.custom-control.custom-checkbox.mb-0
+                                input.custom-control-input(type='checkbox', checked)
+                                span.custom-control-indicator
+                                span.custom-control-description Keep me logged in
+                        .text-center.my-4
+                            button.btn.btn-lg.btn-gradient.btn-oval.btn-info.btn-block(type="submit") Authenticate
+                    .text-center: small: a.text-inherit(href="recover.html") Forgot password?
+                .cardbox-footer.text-center.text-sm
+                    span.mr-2 No account yet?
+                    a.text-inherit(href="signup.html"): strong Register Now

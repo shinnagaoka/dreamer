@@ -1,0 +1,16 @@
+extends user.layout.pug
+block content
+    .d-flex.align-items-center.align-items-center-ie.bg-gradient-primary
+        .fw: .container.container-xs
+            .text-center.my-4
+                img.rounded-circle.mb-3.block-center.img-fluid.img-thumbnail.thumb80(src="img/user/01.jpg", alt="user")
+                p Jane Doe
+            form.cardbox.cardbox-flat.text-white.form-validate#user-recover(action="", name="loginForm", novalidate='').text-color
+                .cardbox-heading
+                    p.text-center.text-inherit Type your mail to receive instructions to reset your password.
+                .cardbox-body
+                    .form-group
+                        .input-group
+                            input.form-control.form-control-inverse(type='email', name="accountName", required="", placeholder="Email address")
+                            span.input-group-btn
+                                button.btn.btn-success.btn-gradient(type="submit") Reset

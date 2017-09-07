@@ -1,0 +1,424 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Bootstrap'
+block content
+    // Breadcrumb next to view title
+    ul.breadcrumb.mb-0
+        li.breadcrumb-item
+            a(href='dashboard.html') Home
+        li.breadcrumb-item
+            a(href='dashboard.html') Dashboard
+        li.breadcrumb-item.active
+            span Bootstrap
+
+    .container-fluid
+
+        // START row
+        .row
+            .col-xl-12.col-xs-12
+                .jumbotron.bg-gradient-primary.text-white
+                    .container
+                        h1 Hello, Jumbotron
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing.
+                        p Vivamus commodo, tortor ut interdum posuere, urna risus aliquet purus, eu fringilla dui neque quis nisi.
+                        p
+                            a.btn.btn-primary.btn-lg(href="#", role='button') Learn more
+        // END row
+
+        // START row
+        .row
+            .col-xl-6.col-xs-12
+                // START panel
+                .card.mb-3
+                    .card-header
+                        | Alert Styles
+                    .card-block
+                        .alert.alert-success.mb-3
+                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            a.alert-link(href='#') Alert Link
+                        .alert.alert-info.mb-3
+                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            a.alert-link(href='#') Alert Link
+                        .alert.alert-danger.mb-3
+                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            a.alert-link(href='#') Alert Link
+                        .alert.alert-warning.mb-3
+                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            a.alert-link(href='#') Alert Link
+                // END panel
+
+                // START panel
+                .card.mb-3
+                    .card-header Progress Bar
+                    .card-block
+                        p.lead Static
+                        .progress.mb-3
+                            .progress-bar(role='progressbar', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100', style='width: 60%;') 60%
+                        .progress.mb-3
+                            .progress-bar.progress-bar-success(role='progressbar', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100', style='width: 60%;') 60%
+                        .progress.mb-3
+                            .progress-bar.progress-bar-danger(role='progressbar', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100', style='width: 60%;') 60%
+
+                        p.lead Striped
+                        .progress.mb-3
+                            .progress-bar.progress-bar-success.progress-bar-striped(role='progressbar', aria-valuenow='40', aria-valuemin='0', aria-valuemax='100', style='width: 40%')
+                                span.sr-only 40% Complete (success)
+                        .progress.mb-3
+                            .progress-bar.progress-bar-info.progress-bar-striped(role='progressbar', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100', style='width: 20%')
+                                span.sr-only 20% Complete
+                        .progress.mb-3
+                            .progress-bar.progress-bar-striped.active(role='progressbar', aria-valuenow='45', aria-valuemin='0', aria-valuemax='100', style='width: 45%')
+                                span.sr-only 45% Complete
+
+                        p.lead Stacked
+                        .progress
+                            .progress-bar.progress-bar-success(style='width: 35%')
+                                span.sr-only 35% Complete (success)
+                            .progress-bar.progress-bar-warning.progress-bar-striped(style='width: 20%')
+                                span.sr-only 20% Complete (warning)
+                            .progress-bar.progress-bar-danger(style='width: 10%')
+                                span.sr-only 10% Complete (danger)
+
+                // END panel
+                // START panel
+                .card.mb-3
+                    .card-header Tooltips
+                    .card-block
+                        p.lead Tooltip placement
+                        .d-flex.justify-content-between.mb-4
+                            button.btn.btn-secondary.btn-block(type='button', data-toggle="tooltip", data-placement='left', title='Tooltip on left') Left
+                            button.btn.btn-secondary.btn-block.m-0(type='button', data-toggle="tooltip", data-placement='top', title='Tooltip on top') Top
+                            button.btn.btn-secondary.btn-block.m-0(type='button', data-toggle="tooltip", data-placement='bottom', title='Tooltip on bottom') Bottom
+                            button.btn.btn-secondary.btn-block.m-0(type='button', data-toggle="tooltip", data-placement='right', title='Tooltip on right') Right
+                        p.mb-4
+                            | Pellentesque 
+                            a(href='#', data-toggle="tooltip", title='Some text') eget nunc scelerisque 
+                            | ,
+                            | sit amet venenatis urna cursus eget nunc scelerisque viverra mauris, in 
+                            | aliquam. Tincidunt lobortis feugiat vivamus at 
+                            a(href='#', data-placement='left', data-toggle="tooltip" title='On the Left!') left 
+                            | eget 
+                            | arcu dictum varius duis at consectetur lorem. Vitae elementum curabitur 
+                            a(href='#', data-placement='right', data-toggle="tooltip" title='On the Right!') right 
+                            | nunc sed velit dignissim sodales ut eu sem integer vitae. Turpis egestas
+                            a(href='#', data-placement='bottom', data-toggle="tooltip" title='On the Bottom!') bottom
+                            | pharetra convallis posuere morbi leo urna, 
+                            a(href='#', data-animation='true', data-toggle="tooltip" title='I don\'t fade. :-(') fading 
+                            | at elementum eu, facilisis sed odio morbi quis commodo odio. In cursus 
+                            a(href='#', data-delay='1000', data-toggle="tooltip" title='appears with delay') delayed 
+                            | turpis massa tincidunt dui ut.
+                        p
+                            | I can even contain HTML. 
+                            a(href='#', data-toggle="tooltip" data-html="true" title='<b>Check me bold</b>') Check me out!
+
+                        form
+                            .form-group
+                                label Or use custom triggers, like focus:
+                                input.form-control(type='text', value='Click me!', data-toggle="tooltip" data-title='See? Now click away...', data-trigger='focus', data-placement='top')
+                // END panel
+
+            .col-xl-6.col-xs-12
+                // START panel
+                .card.mb-3
+                    .card-header
+                        | Popovers
+                    .card-block
+                        p.lead Positional
+                        .mb-4
+                            button.btn.btn-secondary(type='button', data-container='body', data-toggle='popover', data-placement='left', data-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus.')
+                              | Popover on left
+                            button.btn.btn-secondary(type='button', data-container='body', data-toggle='popover', data-placement='top', data-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus.')
+                              | Popover on top
+                            button.btn.btn-secondary(type='button', data-container='body', data-toggle='popover', data-placement='bottom', data-content='Vivamus\
+                            sagittis lacus vel augue laoreet rutrum faucibus.')
+                              | Popover on bottom
+                            button.btn.btn-secondary(type='button', data-container='body', data-toggle='popover', data-placement='right', data-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus.')
+                              | Popover on right
+                        .row
+                            .col-sm-6
+                                p.lead Click to open
+                                button.btn.btn-info(type='button', data-toggle='popover', title='Popover title', data-content="And here's some amazing content. It's very engaging. Right?") Click to toggle popover
+                            .col-sm-6
+                                p.lead Dismiss on click
+                                button.btn.btn-info(type='button', tabindex='0', data-toggle='popover', data-trigger='focus', title='Dismissible popover', data-content="And here's some amazing content. It's very engaging. Right?") Dismissible popover
+
+                // END panel
+                // END row
+                .card.mb-3
+                    .card-header Carousel
+                    .card-block
+                        #carousel-example-generic.carousel.slide(data-ride='carousel')
+                          // Indicators
+                          ol.carousel-indicators
+                            li.active(data-target='#carousel-example-generic', data-slide-to='0')
+                            li(data-target='#carousel-example-generic', data-slide-to='1')
+                            li(data-target='#carousel-example-generic', data-slide-to='2')
+                          // Wrapper for slides
+                          .carousel-inner(role='listbox')
+                            .carousel-item.active
+                              img.fw(src='img/pic1.jpg', alt='Carousel')
+                              .carousel-caption Aliquam interdum, erat et accumsan iaculis, sapien ipsum aliquam tellus, eget posuere arcu ligula ac risus.
+                            .carousel-item
+                              img.fw(src='img/pic2.jpg', alt='Carousel')
+                              .carousel-caption Suspendisse aliquam dignissim dictum.
+                            .carousel-item
+                              img.fw(src='img/pic3.jpg', alt='Carousel')
+                              .carousel-caption Suspendisse aliquam dignissim dictum.
+                          // Controls
+                          a.carousel-control-prev(href='#carousel-example-generic', role='button', data-slide='prev')
+                            span.ion-chevron-left(aria-hidden='true')
+                            span.sr-only Previous
+                          a.carousel-control-next(href='#carousel-example-generic', role='button', data-slide='next')
+                            span.ion-chevron-right(aria-hidden='true')
+                            span.sr-only Next
+
+                .card.mb-3
+                    .card-header List groups
+                    .card-block
+                        .list-group.mb-4
+                            a.list-group-item.active(href='#')
+                                span.badge.mr-2 25
+                                |  Active list item group #100
+                            a.list-group-item(href='#') Llist item group #200
+                            a.list-group-item.disabled(href='#') Disabled list item group #300
+                        .list-group
+                            a.list-group-item.list-group-item-action.flex-column.align-items-start.active(href='#')
+                                .d-flex.w-100.justify-content-between
+                                    h5.mb-1 List group item heading
+                                    small 3 days ago
+                                p.mb-1
+                                    | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                                small Donec id elit non mi porta.
+                            a.list-group-item.list-group-item-action.flex-column.align-items-start(href='#')
+                                .d-flex.w-100.justify-content-between
+                                    h5.mb-1 List group item heading
+                                    small.text-muted 3 days ago
+                                p.mb-1
+                                    | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                                small.text-muted Donec id elit non mi porta.
+        // START row
+        .row
+            .col-xl-4.col-xs-12
+                // START panel
+                #cardDemo7.card.mb-3
+                    .card-header Default Card
+                    .card-block
+                        p
+                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+                    .card-footer
+                        | Card Footer
+                // END Card
+            .col-xl-4.col-xs-12
+                // START Card
+                #cardDemo8.card.mb-3.card-primary.card-inverse
+                    .card-header Primary Card
+                    .card-block
+                        p
+                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+                    .card-footer
+                        | Card Footer
+                // END Card
+            .col-xl-4.col-xs-12
+                // START Card
+                #cardDemo9.card.mb-3.card-success.card-inverse
+                    .card-header Success Card
+                    .card-block
+                        p
+                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+                    .card-footer
+                        | Card Footer
+                // END Card
+        // END row
+        // START row
+        .row
+            .col-xl-4.col-xs-12
+                // START Card
+                #cardDemo10.card.mb-3.card-info.card-inverse
+                    .card-header Info Card
+                    .card-block
+                        p
+                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+                    .card-footer
+                        | Card Footer
+                // END Card
+            .col-xl-4.col-xs-12
+                // START Card
+                #cardDemo11.card.mb-3.card-warning.card-inverse
+                    .card-header Warning Card
+                    .card-block
+                        p
+                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+                    .card-footer
+                        | Card Footer
+                // END Card
+            .col-xl-4.col-xs-12
+                // START Card
+                #cardDemo12.card.mb-3.card-danger.card-inverse
+                    .card-header Danger Card
+                    .card-block
+                        p
+                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+                    .card-footer
+                        | Card Footer
+                // END Card
+        // END row
+        // START row
+        .row
+            .col-xl-12.col-xs-12
+                // START panel
+                #cardDemo13.card.mb-3.card-accordion
+                    .card-header Collapsible Accordion
+                    .card-block
+                        #accordion(role='tablist', aria-multiselectable='true')
+                            .card.mt-2
+                                #headingOne.card-header(role='tab')
+                                    a(data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne') Collapsible Group Item #1
+                                #collapseOne.collapse.show(role='tabpanel', aria-labelledby='headingOne')
+                                    .card-block Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus labore sustainable VHS.
+                            .card.mt-2
+                                #headingTwo.card-header(role='tab')
+                                    a.collapsed(data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo') Collapsible Group Item #2
+                                #collapseTwo.collapse(role='tabpanel', aria-labelledby='headingTwo')
+                                    .card-block Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus labore sustainable VHS.
+                            .card.mt-2
+                                #headingThree.card-header(role='tab')
+                                    a.collapsed(data-toggle='collapse', data-parent='#accordion', href='#collapseThree', aria-expanded='false', aria-controls='collapseThree') Collapsible Group Item #3
+                                #collapseThree.collapse(role='tabpanel', aria-labelledby='headingThree')
+                                    .card-block Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus labore sustainable VHS.
+
+                // END panel
+        // END row
+        // START row
+        .row
+            .col-xl-6.col-xs-12
+                // START panel
+                #cardDemo14.card.mb-3
+                    .card-header Basic Tabs
+                    .card-block.h-scroll
+                        div
+                            // Nav tabs
+                            ul.nav.nav-tabs.mb-4(role='tablist')
+                                li.nav-item(role='presentation')
+                                    a.nav-link.active(href='#home', aria-controls='home', role='tab', data-toggle='tab') Home
+                                li.nav-item(role='presentation')
+                                    a.nav-link(href='#profile', aria-controls='profile', role='tab', data-toggle='tab') Profile
+                                li.nav-item(role='presentation')
+                                    a.nav-link(href='#messages', aria-controls='messages', role='tab', data-toggle='tab') Messages
+                                li.nav-item(role='presentation')
+                                    a.nav-link(href='#settings', aria-controls='settings', role='tab', data-toggle='tab') Settings
+                            // Tab panes
+                            .tab-content
+                                #home.tab-pane.active(role='tabpanel') Maecenas elementum, justo in pulvinar bibendum, tellus nulla adipiscing libero, at rutrum velit sapien vel velit. Phasellus hendrerit ullamcorper est eget tincidunt. Aenean non neque a tortor tempor consequat a ut ligula. Mauris eros nibh, adipiscing ac commodo vel, molestie mattis magna. Curabitur adipiscing, tellus ut congue tempus, dui lacus cursus risus, nec pellentesque mi purus eget augue. Fusce ullamcorper placerat tortor, placerat consequat diam cursus posuere.
+                                #profile.tab-pane(role='tabpanel') Nullam eu lacus in nibh rutrum ornare at eget tellus. Nullam rutrum convallis lacus non mattis. Praesent dapibus justo dolor. Duis convallis placerat egestas. Aenean non neque a tortor tempor consequat a ut ligula. Mauris eros nibh, adipiscing ac commodo vel, molestie mattis magna. Curabitur adipiscing, tellus ut congue tempus, dui lacus cursus risus, nec pellentesque mi purus eget augue. Fusce ullamcorper placerat tortor, placerat consequat diam cursus posuere.
+                                #messages.tab-pane(role='tabpanel') Aenean non neque a tortor tempor consequat a ut ligula. Mauris eros nibh, adipiscing ac commodo vel, molestie mattis magna. Curabitur adipiscing, tellus ut congue tempus, dui lacus cursus risus, nec pellentesque mi purus eget augue. Fusce ullamcorper placerat tortor, placerat consequat diam cursus posuere. Aenean non neque a tortor tempor consequat a ut ligula. Mauris eros nibh, adipiscing ac commodo vel, molestie mattis magna. Curabitur adipiscing, tellus ut congue tempus, dui lacus cursus risus, nec pellentesque mi purus eget augue. Fusce ullamcorper placerat tortor, placerat consequat diam cursus posuere.
+                                #settings.tab-pane(role='tabpanel') Sed id lacus enim, sit amet imperdiet orci. Phasellus sed dui massa, vitae dapibus augue. Nam vehicula rhoncus nisl, et ullamcorper augue ullamcorper semper. Aenean non neque a tortor tempor consequat a ut ligula. Mauris eros nibh, adipiscing ac commodo vel, molestie mattis magna. Curabitur adipiscing, tellus ut congue tempus, dui lacus cursus risus, nec pellentesque mi purus eget augue. Fusce ullamcorper placerat tortor, placerat consequat diam cursus posuere.
+
+                // END panel
+            .col-xl-6.col-xs-12
+                // START panel
+                #cardDemo15.card.mb-3
+                    .card-header Pill Tabs
+                    .card-block.h-scroll
+                        div
+                            // Nav tabs
+                            ul.nav.nav-pills.mb-4(role='tablist')
+                                li.nav-item(role='presentation')
+                                    a.nav-link.active(href='#home1', aria-controls='home', role='tab', data-toggle='tab') Home
+                                li.nav-item(role='presentation')
+                                    a.nav-link(href='#profile1', aria-controls='profile', role='tab', data-toggle='tab') Profile
+                                li.nav-item(role='presentation')
+                                    a.nav-link(href='#messages1', aria-controls='messages', role='tab', data-toggle='tab') Messages
+                                li.nav-item(role='presentation')
+                                    a.nav-link(href='#settings1', aria-controls='settings', role='tab', data-toggle='tab') Settings
+                            // Tab panes
+                            .tab-content
+                                #home1.tab-pane.active(role='tabpanel') Maecenas elementum, justo in pulvinar bibendum, tellus nulla adipiscing libero, at rutrum velit sapien vel velit. Phasellus hendrerit ullamcorper est eget tincidunt. Aenean non neque a tortor tempor consequat a ut ligula. Mauris eros nibh, adipiscing ac commodo vel, molestie mattis magna. Curabitur adipiscing, tellus ut congue tempus, dui lacus cursus risus, nec pellentesque mi purus eget augue. Fusce ullamcorper placerat tortor, placerat consequat diam cursus posuere.
+                                #profile1.tab-pane(role='tabpanel') Nullam eu lacus in nibh rutrum ornare at eget tellus. Nullam rutrum convallis lacus non mattis. Praesent dapibus justo dolor. Duis convallis placerat egestas. Aenean non neque a tortor tempor consequat a ut ligula. Mauris eros nibh, adipiscing ac commodo vel, molestie mattis magna. Curabitur adipiscing, tellus ut congue tempus, dui lacus cursus risus, nec pellentesque mi purus eget augue. Fusce ullamcorper placerat tortor, placerat consequat diam cursus posuere.
+                                #messages1.tab-pane(role='tabpanel') Aenean non neque a tortor tempor consequat a ut ligula. Mauris eros nibh, adipiscing ac commodo vel, molestie mattis magna. Curabitur adipiscing, tellus ut congue tempus, dui lacus cursus risus, nec pellentesque mi purus eget augue. Fusce ullamcorper placerat tortor, placerat consequat diam cursus posuere. Aenean non neque a tortor tempor consequat a ut ligula. Mauris eros nibh, adipiscing ac commodo vel, molestie mattis magna. Curabitur adipiscing, tellus ut congue tempus, dui lacus cursus risus, nec pellentesque mi purus eget augue. Fusce ullamcorper placerat tortor, placerat consequat diam cursus posuere.
+                                #settings1.tab-pane(role='tabpanel') Sed id lacus enim, sit amet imperdiet orci. Phasellus sed dui massa, vitae dapibus augue. Nam vehicula rhoncus nisl, et ullamcorper augue ullamcorper semper. Aenean non neque a tortor tempor consequat a ut ligula. Mauris eros nibh, adipiscing ac commodo vel, molestie mattis magna. Curabitur adipiscing, tellus ut congue tempus, dui lacus cursus risus, nec pellentesque mi purus eget augue. Fusce ullamcorper placerat tortor, placerat consequat diam cursus posuere.
+
+                // END panel
+        // END row
+        // START panel
+        .card.mb-3
+          .card-header Pagination
+          .card-block.h-scroll
+                .text-center
+                    p.lead Standard and sizing
+                    nav.mx-auto
+                        ul.pagination.justify-content-center
+                            li.page-item
+                                a.page-link(href='#') Previous
+                            li.page-item
+                                a.page-link(href='#') 1
+                            li.page-item
+                                a.page-link(href='#') 2
+                            li.page-item
+                                a.page-link(href='#') 3
+                            li.page-item
+                                a.page-link(href='#') Next
+                    p.lead Sizing
+                    nav
+                        ul.pagination.pagination-sm.justify-content-center
+                            li.page-item.disabled
+                                a.page-link(href='#', tabindex='-1') Previous
+                            li.page-item
+                                a.page-link(href='#') 1
+                            li.page-item
+                                a.page-link(href='#') 2
+                            li.page-item
+                                a.page-link(href='#') 3
+                            li.page-item
+                                a.page-link(href='#') Next
+                    nav
+                        ul.pagination.pagination-lg.justify-content-center
+                            li.page-item.disabled
+                                a.page-link(href='#', tabindex='-1') Previous
+                            li.page-item
+                                a.page-link(href='#') 1
+                            li.page-item
+                                a.page-link(href='#') 2
+                            li.page-item
+                                a.page-link(href='#') 3
+                            li.page-item
+                                a.page-link(href='#') Next
+                    p.lead Rounded buttons
+                    nav
+                      ul.pagination.pagination-rounded.justify-content-center
+                        li.page-item
+                            a.page-link(href='#', aria-label='Previous')
+                                span(aria-hidden='true') &laquo;
+                        li.page-item
+                            a.page-link(href='#') 1
+                        li.page-item
+                            a.page-link(href='#') 2
+                        li.page-item
+                            a.page-link(href='#') 3
+                        li.page-item
+                            a.page-link(href='#') 4
+                        li.page-item
+                            a.page-link(href='#') 5
+                        li.page-item.disabled
+                            a.page-link(href='#', aria-label='Next')
+                                span(aria-hidden='true') &raquo;
+
+                    nav
+                      ul.pagination.pagination-lg.pagination-rounded.justify-content-center
+                        li.page-item
+                            a.page-link(href='#', aria-label='Previous')
+                                span(aria-hidden='true') &laquo;
+                        li.page-item
+                            a.page-link(href='#') 1
+                        li.page-item
+                            a.page-link(href='#') 2
+                        li.page-item.active
+                            a.page-link(href='#') 3
+                        li.page-item
+                            a.page-link(href='#') 4
+                        li.page-item
+                            a.page-link(href='#') 5
+                        li.page-item
+                            a.page-link(href='#', aria-label='Next')
+                                span(aria-hidden='true') &raquo;
+        // END panel
+

@@ -1,0 +1,51 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Fullsize Map'
+block content
+    .container-full
+        .row.fh.bg-white
+            .col-md-5.col-xl-3.fh.hidden-sm-down.hidden-xs-down.pr-0
+                .v-scroll-wrapper
+                    .p-4
+                        h5.text-center Locations
+                        .text-center.text-muted
+                            small Click on each item to focus a marker in the map
+                    #markers-list
+                        .card.card-inverse.b0(data-panto-marker="0")
+                            img.card-img(src='img/map/p1.jpg' alt='Card image')
+                            .card-img-overlay.card-img-overlay-bottom.bg-fade
+                                h5.mb-0.card-title 1456, street address
+                                small.card-text Canada
+                        .card.card-inverse.b0(data-panto-marker="1")
+                            img.card-img(src='img/map/p2.jpg' alt='Card image')
+                            .card-img-overlay.card-img-overlay-bottom.bg-fade
+                                h5.mb-0.card-title 1456, street address
+                                small.card-text New York
+                        .card.card-inverse.b0(data-panto-marker="2")
+                            img.card-img(src='img/map/p3.jpg' alt='Card image')
+                            .card-img-overlay.card-img-overlay-bottom.bg-fade
+                                h5.mb-0.card-title 1456, street address
+                                small.card-text Toronto
+                        .card.card-inverse.b0(data-panto-marker="3")
+                            img.card-img(src='img/map/p4.jpg' alt='Card image')
+                            .card-img-overlay.card-img-overlay-bottom.bg-fade
+                                h5.mb-0.card-title 1456, street address
+                                small.card-text San Francisco, CA
+                        .card.card-inverse.b0(data-panto-marker="4")
+                            img.card-img(src='img/map/p5.jpg' alt='Card image')
+                            .card-img-overlay.card-img-overlay-bottom.bg-fade
+                                h5.mb-0.card-title 1456, street address
+                                small.card-text Utah
+                        .card.card-inverse.b0(data-panto-marker="0")
+                            img.card-img(src='img/map/p1.jpg' alt='Card image')
+                            .card-img-overlay.card-img-overlay-bottom.bg-fade
+                                h5.mb-0.card-title 1456, street address
+                                small.card-text Canada
+            .col-md-7.col-xl-9.fh.pl-0
+                #mapfull-markers.gmap.fh
+
+block vendor_js
+    // Google Maps API
+    script(type='text/javascript', src='//maps.google.com/maps/api/js?key=AIzaSyBNs42Rt_CyxAqdbIBK0a5Ut83QiauESPA')
+    // Google Maps
+    script(src='vendor/gmaps/gmaps.js')

@@ -1,0 +1,48 @@
+doctype html
+html(lang="en")
+
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+
+        meta(name='description', content='Bootstrap Admin Template')
+        meta(name='keywords', content='app, responsive, jquery, bootstrap, dashboard, admin')
+
+        title Dasha - Bootstrap Admin Template
+
+        // build:css
+        // Animate.CSS
+        link(rel='stylesheet', href='vendor/animate.css/animate.css')
+        // Bootstrap
+        link(rel='stylesheet', href='vendor/bootstrap/dist/css/bootstrap.min.css')
+        // Ionicons
+        link(rel='stylesheet', href='vendor/ionicons/css/ionicons.css')
+        // Material Colors
+        link(rel='stylesheet', href='vendor/material-colors/dist/colors.css')
+        // endbuild
+
+        // Application styles
+        link(rel='stylesheet', href='css/app.css')
+    body
+
+        .layout-container
+            .page-container.bg-blue-grey-900
+                block content
+
+        // build:js
+        // Modernizr
+        script(src="vendor/modernizr/modernizr.custom.js")
+        // jQuery
+        script(src="vendor/jquery/dist/jquery.js")
+        // Bootstrap
+        script(src="vendor/tether/dist/js/tether.min.js")
+        script(src="vendor/bootstrap/dist/js/bootstrap.js")
+        // Material Colors
+        script(src="vendor/material-colors/dist/colors.js")
+        // jQuery Form Validation
+        script(src="vendor/jquery-validation/dist/jquery.validate.js")
+        script(src="vendor/jquery-validation/dist/additional-methods.js")
+        // endbuild
+
+        // App script
+        script(src="js/app.js")

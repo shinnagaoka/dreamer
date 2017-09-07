@@ -1,0 +1,27 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Rickshaw'
+block content
+    .container-fluid
+        .cardbox
+            .cardbox-body
+                #rickshaw-chart1
+            .cardbox-footer: strong Area graph
+        .row
+            .col-lg-6
+                .cardbox
+                    .cardbox-body
+                      #rickshaw-chart2
+                    .cardbox-footer: strong Bar graph
+            .col-lg-6
+                .cardbox
+                    .cardbox-body
+                      #rickshaw-chart3
+                    .cardbox-footer: strong Scatterplot graph
+block vendor_css
+    // Rickshaw
+    link(rel='stylesheet', href='vendor/rickshaw/rickshaw.css')
+block vendor_js
+    // Rickshaw
+    script(src='vendor/d3/d3.js')
+    script(src='vendor/rickshaw/rickshaw.js')

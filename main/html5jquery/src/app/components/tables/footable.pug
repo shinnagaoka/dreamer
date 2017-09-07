@@ -1,0 +1,246 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'FooTable'
+block content
+    .container-fluid
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Row Toggle
+                small To change where the toggle is positioned you can use the toggleColumn option.
+            .cardbox-body
+                table.table.footable(data-toggle-column='last')
+                    thead
+                        tr
+                            th(data-breakpoints='xs') ID
+                            th First Name
+                            th Last Name
+                            th(data-breakpoints='xs') Job Title
+                            th(data-breakpoints='xs sm') Started On
+                            th(data-breakpoints='all' data-title='DOB') Date of Birth
+                    tbody
+                        tr(data-expanded='true')
+                            td 1
+                            td Dennise
+                            td Fuhrman
+                            td High School History Teacher
+                            td November 8th 2011
+                            td July 25th 1960
+                        tr
+                            td 2
+                            td Elodia
+                            td Weisz
+                            td Wallpaperer Helper
+                            td October 15th 2010
+                            td March 30th 1982
+                        tr
+                            td 3
+                            td Raeann
+                            td Haner
+                            td Internal Medicine Nurse Practitioner
+                            td November 28th 2013
+                            td February 26th 1966
+                        tr
+                            td 4
+                            td Junie
+                            td Landa
+                            td Offbearer
+                            td October 31st 2010
+                            td March 29th 1966
+                        tr
+                            td 5
+                            td Solomon
+                            td Bittinger
+                            td Roller Skater
+                            td December 29th 2011
+                            td September 22nd 1964
+                        tr
+                            td 6
+                            td Bar
+                            td Lewis
+                            td Clown
+                            td November 12th 2012
+                            td August 4th 1991
+                        tr
+                            td 7
+                            td Usha
+                            td Leak
+                            td Ships Electronic Warfare Officer
+                            td August 14th 2012
+                            td November 20th 1979
+                        tr
+                            td 8
+                            td Lorriane
+                            td Cooke
+                            td Technical Services Librarian
+                            td September 21st 2010
+                            td April 7th 1969
+
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Sort Columns
+                small Enable column sorting on table by adding 
+                    code data-sorting='true'
+            .cardbox-body
+                table.table.footable(data-sorting='true')
+                    thead
+                        tr
+                            th(data-breakpoints='xs' data-type='number') ID
+                            th First Name
+                            th Last Name
+                            th(data-breakpoints='xs') Job Title
+                            th(data-breakpoints='xs sm' data-type='date' data-format-string='MMMM Do YYYY') Started On
+                            th(data-breakpoints='xs sm md' data-type='date' data-format-string='MMMM Do YYYY') Date of Birth
+                    tbody
+                        tr
+                            td 1
+                            td Dennise
+                            td Fuhrman
+                            td High School History Teacher
+                            td November 8th 2011
+                            td July 25th 1960
+                        tr
+                            td 2
+                            td Elodia
+                            td Weisz
+                            td Wallpaperer Helper
+                            td October 15th 2010
+                            td March 30th 1982
+                        tr
+                            td 3
+                            td Raeann
+                            td Haner
+                            td Internal Medicine Nurse Practitioner
+                            td November 28th 2013
+                            td February 26th 1966
+                        tr
+                            td 4
+                            td Junie
+                            td Landa
+                            td Offbearer
+                            td October 31st 2010
+                            td March 29th 1966
+                        tr
+                            td 5
+                            td Solomon
+                            td Bittinger
+                            td Roller Skater
+                            td December 29th 2011
+                            td September 22nd 1964
+                        tr
+                            td 6
+                            td Bar
+                            td Lewis
+                            td Clown
+                            td November 12th 2012
+                            td August 4th 1991
+                        tr
+                            td 7
+                            td Usha
+                            td Leak
+                            td Ships Electronic Warfare Officer
+                            td August 14th 2012
+                            td November 20th 1979
+                        tr
+                            td 8
+                            td Lorriane
+                            td Cooke
+                            td Technical Services Librarian
+                            td September 21st 2010
+                            td April 7th 1969
+
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Filtering columns
+                small Enable column filtering on table by adding 
+                    code data-filtering='true'
+            .cardbox-body
+                table.table.footable(data-filtering='true')
+                    thead
+                        tr
+                            th(data-breakpoints='xs') ID
+                            th First Name
+                            th Last Name
+                            th(data-breakpoints='xs') Job Title
+                            th(data-breakpoints='xs sm') Started On
+                            th(data-breakpoints='xs sm md') Date of Birth
+                            th(data-type='html' data-breakpoints='xs sm md') Info
+                    tbody
+                        tr
+                            td 1
+                            td Dennise
+                            td Fuhrman
+                            td High School History Teacher
+                            td November 8th 2011
+                            td July 25th 1960
+                            td
+                                a(href='#placeholder') Info link
+                        tr
+                            td 2
+                            td Elodia
+                            td Weisz
+                            td Wallpaperer Helper
+                            td October 15th 2010
+                            td March 30th 1982
+                            td
+                                a(href='#placeholder') Info link
+                        tr
+                            td 3
+                            td Raeann
+                            td Haner
+                            td Internal Medicine Nurse Practitioner
+                            td November 28th 2013
+                            td February 26th 1966
+                            td
+                                a(href='#placeholder') Info link
+                        tr
+                            td 4
+                            td Junie
+                            td Landa
+                            td Offbearer
+                            td October 31st 2010
+                            td March 29th 1966
+                            td
+                                a(href='#placeholder') Info link
+                        tr
+                            td 5
+                            td Solomon
+                            td Bittinger
+                            td Roller Skater
+                            td December 29th 2011
+                            td September 22nd 1964
+                            td
+                                a(href='#placeholder') Info link
+                        tr
+                            td 6
+                            td Bar
+                            td Lewis
+                            td Clown
+                            td November 12th 2012
+                            td August 4th 1991
+                            td
+                                a(href='#placeholder') Info link
+                        tr
+                            td 7
+                            td Usha
+                            td Leak
+                            td Ships Electronic Warfare Officer
+                            td August 14th 2012
+                            td November 20th 1979
+                            td
+                                a(href='#placeholder') Info link
+                        tr
+                            td 8
+                            td Lorriane
+                            td Cooke
+                            td Technical Services Librarian
+                            td September 21st 2010
+                            td April 7th 1969
+                            td
+                                a(href='#placeholder') Info link
+
+block vendor_css
+    // FooTable
+    link(rel='stylesheet', href='vendor/footable/compiled/footable.bootstrap.min.css')
+block vendor_js
+    // FooTable
+    script(src='vendor/footable/compiled/footable.min.js')

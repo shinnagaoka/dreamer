@@ -1,0 +1,36 @@
+/**
+ * Forms Validation
+ */
+
+@import '../common/variables';
+@import '../common/mixins';
+
+//
+// Styles for validation results
+//
+
+.form-validate {
+    .form-control {
+
+        // Invalid input
+        &.error {
+            border-color: $brand-danger;
+        }
+        // Valid input
+        &.valid,
+        &.valid:focus {
+                border-color: $brand-success;
+        }
+
+    }
+
+    .has-error .form-control {
+        border-color: $brand-danger !important;
+    }
+
+    // checkbox errors
+    label + label.error {
+        display: block;
+    }
+
+}

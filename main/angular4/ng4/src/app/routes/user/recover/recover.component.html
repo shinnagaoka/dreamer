@@ -1,0 +1,26 @@
+<div class="page-container">
+    <div class="d-flex align-items-center align-items-center-ie bg-gradient-primary text-white">
+        <div class="fw">
+            <div class="container container-xs">
+                <div class="text-center my-4"><img class="rounded-circle mb-3 block-center img-fluid img-thumbnail thumb80" src="assets/img/user/01.jpg" alt="user">
+                    <p>Jane Doe</p>
+                </div>
+                <form [formGroup]="recForm" (submit)="submitForm($event, recForm)" class="cardbox cardbox-flat text-white form-validate text-color" id="user-recover" action="" name="loginForm" novalidate="">
+                    <div class="cardbox-heading">
+                        <p class="text-center text-inherit">Type your mail to receive instructions to reset your password.</p>
+                    </div>
+                    <div class="cardbox-body">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input formControlName="email" [formControl]="recForm.controls['email']" class="form-control form-control-inverse" type="email" name="accountName" required="" placeholder="Email address"><span class="input-group-btn">
+                                <span class="text-danger" *ngIf="recForm.controls['email'].hasError('required') && (recForm.controls['email'].dirty || recForm.controls['email'].touched)">This field is required</span>
+                                <span class="text-danger" *ngIf="recForm.controls['email'].hasError('email') && (recForm.controls['email'].dirty || recForm.controls['email'].touched)">Please enter a valid email</span>
+                              <button class="btn btn-success btn-gradient" type="submit">Reset</button></span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+@import '../../../shared/styles/common/variables';
+@import '../../../shared/styles/common/mixins';
+
+// Limits the typeahead list when it becomes too large
+typeahead-container {
+    &.dropdown-menu {
+        max-height: 300px;
+        overflow: auto;
+        .dropdown-item:hover {
+            background-color: $brand-primary;
+        }
+    }
+}

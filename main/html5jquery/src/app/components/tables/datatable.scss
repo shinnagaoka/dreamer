@@ -1,0 +1,150 @@
+/**
+ * Tables - Datatables
+ */
+
+@import '../common/variables';
+@import '../common/mixins';
+
+.dataTables_wrapper {
+    clear: both;
+}
+
+// Search button
+.dataTables_filter {
+    text-align: center;
+    @media #{$min-tablet} {
+        float: right;
+    }
+    label > em {
+        color: inherit;
+    }
+    input {
+        border: 1px solid rgba(160,160,160,.25);
+        margin-left: 10px;
+        padding: 0.25rem .5rem;
+        background-color: transparent;
+        color: inherit;
+    }
+}
+
+.dataTables_length {
+    text-align: center;
+    @media #{$min-tablet} {
+        float: left;
+        margin-bottom: 2rem;
+    }
+    select {
+        border: 1px solid rgba(160,160,160,.25);
+        margin-right: 10px;
+        padding: 0.25rem .5rem;
+        background-color: transparent;
+        color: inherit;
+    }
+}
+
+.dt-buttons {
+    -webkit-box-pack: center!important;
+    -webkit-justify-content: center!important;
+    -ms-flex-pack: center!important;
+    justify-content: center!important;
+}
+
+// Info area
+.dataTables_info {
+    text-align: center;
+    @media #{$min-tablet} {
+        float: left;
+    }
+    padding-top: .75rem;
+}
+
+// Pagination
+.dataTables_wrapper .dataTables_paginate {
+    text-align: center;
+    @media #{$min-tablet} {
+        float: right;
+        text-align: right;
+    }
+    padding-top: 0.25rem
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    display: inline-block;
+    padding: 0.25rem .7rem;
+    margin-left: .1rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    color: $brand-primary;
+    border: none;
+    border-radius: 1px
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: #fff;
+    border: 1px solid $brand-primary;
+    background-color: $brand-primary
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+    cursor: default;
+    color: $brand-primary;
+    border: 1px solid transparent;
+    background: transparent;
+    box-shadow: none
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    color: #fff;
+    background-color: $brand-primary
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:active {
+    outline: none;
+    background-color: $brand-primary
+}
+
+.dataTables_wrapper .dataTables_paginate .ellipsis {
+    padding: 0 1em
+}
+
+// Button info popup
+div.dt-button-info {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  margin-top: -100px;
+  margin-left: -200px;
+  background-color: white;
+  border: 2px solid $gray;
+  box-shadow: 3px 3px 8px rgba( 0, 0, 0, 0.3);
+  border-radius: 3px;
+  text-align: center;
+  z-index: 2100;
+
+  h2 {
+    padding: 0.5em;
+    margin: 0;
+    font-weight: normal;
+    border-bottom: 1px solid #ddd;
+    background-color: #f3f3f3;
+    &:before {
+      content: "\f00c";
+      font-family: FontAwesome;
+      color: $brand-success;
+      margin-right: 8px;
+    }
+  }
+
+  > div {
+    padding: 1em;
+  }
+}
+
+// Key Tables
+table.dataTable th.focus,
+table.dataTable td.focus {
+  outline: 3px solid $brand-primary;
+  outline-offset: -1px;
+}

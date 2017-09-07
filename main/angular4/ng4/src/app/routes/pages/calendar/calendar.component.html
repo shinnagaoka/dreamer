@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="cardbox">
+        <div class="cardbox-heading">
+            <div class="d-flex flex-wrap justify-content-between">
+                <div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
+                            <em class="ion-arrow-left-b"></em>
+                        </button>
+                        <button type="button" class="btn btn-secondary" mwlCalendarToday [(viewDate)]="viewDate">
+                            Today
+                        </button>
+                        <button type="button" class="btn btn-secondary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
+                            <em class="ion-arrow-right-b"></em>
+                        </button>
+                    </div>
+                </div>
+                <div class="text-center align-self-center">
+                    <h6 class="text-uppercase mb-0">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h6>
+                </div>
+                <div class="hidden-md-down text-right">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary" (click)="view = 'month'" [class.active]="view === 'month'">
+                            Month
+                        </button>
+                        <button type="button" class="btn btn-secondary" (click)="view = 'week'" [class.active]="view === 'week'">
+                            Week
+                        </button>
+                        <button type="button" class="btn btn-secondary" (click)="view = 'day'" [class.active]="view === 'day'">
+                            Day
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cardbox-body">
+            <div [ngSwitch]="view">
+                <mwl-calendar-month-view *ngSwitchCase="'month'" [viewDate]="viewDate" [events]="events" [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
+                </mwl-calendar-month-view>
+                <mwl-calendar-week-view *ngSwitchCase="'week'" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
+                </mwl-calendar-week-view>
+                <mwl-calendar-day-view *ngSwitchCase="'day'" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
+                </mwl-calendar-day-view>
+            </div>
+        </div>
+    </div>
+</div>

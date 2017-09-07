@@ -1,0 +1,25 @@
+/**
+ * Spinners (Loader.CSS)
+ */
+
+@import '../common/variables';
+@import '../common/mixins';
+
+
+.loader-primary { @include loader-color($brand-primary); }
+// .loader-info    { @include loader-color($brand-info); }
+// .loader-danger  { @include loader-color($brand-danger); }
+// .loader-success { @include loader-color($brand-success); }
+// .loader-warning { @include loader-color($brand-warning); }
+
+// Using other colors
+// .loader-deep-purple { @include loader-color($mdc-deep-purple-500); }
+
+.loader-demo {
+    padding: 20px 0;
+    height: 120px;
+    text-align: center;
+    > .loader-inner {
+        display: inline-block;
+    }
+}

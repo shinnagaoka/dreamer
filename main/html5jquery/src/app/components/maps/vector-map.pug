@@ -1,0 +1,26 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Vector Maps'
+block content
+    .container-fluid
+        .cardbox
+            .cardbox-heading
+                .float-right
+                    span.mr-3.text-muted All points example
+                    label.switch.switch-primary
+                        input(type='checkbox')
+                        span
+                .cardbox-title World Markers
+            .cardbox-body
+                #vector-map-world.vector-map(style="height:480px")
+
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Usa Makers
+            .cardbox-body
+                #vector-map-usa.vector-map(style="height:480px")
+block vendor_js
+    // jVector Maps
+    script(src='vendor/ika.jvectormap/jquery-jvectormap-1.2.2.min.js')
+    script(src='vendor/ika.jvectormap/jquery-jvectormap-us-mill-en.js')
+    script(src='vendor/ika.jvectormap/jquery-jvectormap-world-mill-en.js')

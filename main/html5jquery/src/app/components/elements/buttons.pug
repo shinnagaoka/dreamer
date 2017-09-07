@@ -1,0 +1,308 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Buttons'
+block content
+
+    mixin dropdown_button(type)
+        // START button group
+        .dropdown.btn-group.mb-4
+            button.btn.dropdown-toggle(type='button', class='btn-'+type, data-toggle="dropdown")
+                = type
+                span.caret
+            .dropdown-menu(role='menu')
+                a.dropdown-item(href='#') Action
+                a.dropdown-item(href='#') Another action
+                a.dropdown-item(href='#') Something else here
+                .dropdown-divider
+                a.dropdown-item(href='#') Separated link
+        // END button group
+
+    mixin dropdown_split(type)
+        // START button group
+        .btn-group.dropdown
+            button.btn(type='button', class='btn-'+type) Action
+            button.btn.dropdown-toggle(type='button', class='btn-'+type, data-toggle="dropdown")
+                span.caret
+                span.sr-only= type
+            .dropdown-menu(role='menu')
+                a.dropdown-item(href='#') Action
+                a.dropdown-item(href='#') Another action
+                a.dropdown-item(href='#') Something else here
+                .dropdown-divider
+                a.dropdown-item(href='#') Separated link
+        // END button group
+
+    .container.container-lg
+
+        // START card
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Button colors
+                small Standard Bootstrap buttons and color variants
+            .cardbox-body
+                .text-center
+                    button.mb-4.btn.btn-secondary(type='button') Secondary
+                    button.mb-4.btn.btn-primary(type='button') Primary
+                    button.mb-4.btn.btn-success(type='button') Success
+                    button.mb-4.btn.btn-info(type='button') Info
+                    button.mb-4.btn.btn-warning(type='button') Warning
+                    button.mb-4.btn.btn-danger(type='button') Danger
+                    br
+                    br
+                    a(href="#").btn.btn-link Button Link
+                    button(type='button').btn.btn-secondary.mr-3 button tag
+                    a(href="#").btn.btn-secondary anchor tag
+        // END card
+        // START card
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Gradient Button colors
+                small
+                    |Add class 
+                    code .btn-gradient
+                    | to standard Bootstrap buttons
+            .cardbox-body
+                .text-center
+                    button.mb-4.btn.btn-lg.btn-gradient.wd-sm.btn-secondary(type='button') Secondary
+                    button.mb-4.btn.btn-lg.btn-gradient.wd-sm.btn-primary(type='button') Primary
+                    button.mb-4.btn.btn-lg.btn-gradient.wd-sm.btn-success(type='button') Success
+                    button.mb-4.btn.btn-lg.btn-gradient.wd-sm.btn-info(type='button') Info
+                    button.mb-4.btn.btn-lg.btn-gradient.wd-sm.btn-warning(type='button') Warning
+                    button.mb-4.btn.btn-lg.btn-gradient.wd-sm.btn-danger(type='button') Danger
+        // END card
+        // START card
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Button Flat
+                small
+                    |Add class 
+                    code .btn-flat
+                    | to standard Bootstrap buttons
+            .cardbox-body
+                .text-center
+                    button.btn.btn-flat.btn-secondary(type='button') Secondary
+                    button.btn.btn-flat.btn-primary(type='button') Primary
+                    button.btn.btn-flat.btn-success(type='button') Success
+                    button.btn.btn-flat.btn-info(type='button') Info
+                    button.btn.btn-flat.btn-warning(type='button') Warning
+                    button.btn.btn-flat.btn-danger(type='button') Danger
+        // END card
+        // START card
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Button Outline
+                small
+                    |Add class 
+                    code .btn-outline-secondary
+                    code .btn-outline-primary
+                    code .btn-outline-success
+                    code .btn-outline-info
+                    code .btn-outline-warning
+                    code .btn-outline-danger
+                    | to standard Bootstrap buttons
+            .cardbox-body
+                .text-center
+                    button.btn.btn-outline-secondary(type='button') Secondary
+                    button.btn.btn-outline-primary(type='button') Primary
+                    button.btn.btn-outline-success(type='button') Success
+                    button.btn.btn-outline-info(type='button') Info
+                    button.btn.btn-outline-warning(type='button') Warning
+                    button.btn.btn-outline-danger(type='button') Danger
+        // END card
+        // START card
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Button Circle
+                small
+                    |Add class 
+                    code .btn-circle
+                    | to standard Bootstrap buttons
+            .cardbox-body
+                .text-center
+                    button.btn.btn-circle.btn-secondary(type='button') D
+                    button.btn.btn-circle.btn-primary(type='button') P
+                    button.btn.btn-circle.btn-success(type='button') S
+                    button.btn.btn-circle.btn-info(type='button') I
+                    button.btn.btn-circle.btn-warning(type='button') W
+                    button.btn.btn-circle.btn-danger(type='button') D
+        // END card
+        // START card
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Button Labeled
+                small Special buttons supporting icons labels
+            .cardbox-body
+                .text-center
+                    // Success button with label
+                    button.btn.btn-labeled.btn-success(type='button')
+                        span.btn-label
+                            i.ion-checkmark-round
+                        | Success
+                    // Danger button with label
+                    button.btn.btn-labeled.btn-danger(type='button')
+                        span.btn-label
+                            i.ion-close-round
+                        | Danger
+                    // Info button with label
+                    button.btn.btn-labeled.btn-info(type='button')
+                        span.btn-label
+                            i.ion-alert
+                        | Info
+                    // Warning button with label
+                    button.btn.btn-labeled.btn-warning(type='button')
+                        span.btn-label
+                            i.ion-nuclear
+                        | Warning
+                    br
+                    br
+                    // Standard button with label
+                    button.btn.btn-labeled.btn-secondary(type='button')
+                        span.btn-label
+                            i.ion-arrow-left-c
+                        | Left
+                    // Standard button with label on the right side
+                    button.btn.btn-labeled.btn-secondary(type='button')
+                        | Right
+                        span.btn-label.btn-label-right
+                            i.ion-arrow-right-c
+        // END card
+        // START card
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Button sizing
+                small
+                    |Add class 
+                    code .btn-xl, .btn-lg, .btn-sm
+                    | to standard Bootstrap buttons
+            .cardbox-body
+                .row
+                    .col-lg-6
+                        p
+                            button.btn.btn-primary.btn-xl(type='button') X-Large button
+                            button.btn.btn-secondary.btn-xl(type='button') X-Large button
+                        p
+                            button.btn.btn-primary.btn-lg(type='button') Large button
+                            button.btn.btn-secondary.btn-lg(type='button') Large button
+                    .col-lg-6
+                        p
+                            button.btn.btn-primary(type='button') Normal button
+                            button.btn.btn-secondary(type='button') Normal button
+                        p
+                            button.btn.btn-primary.btn-sm(type='button') Small button
+                            button.btn.btn-secondary.btn-sm(type='button') Small button
+
+        // END card
+        // START card
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Button group
+                small Organize buttons in groups
+            .cardbox-body
+                .text-center.mb-4
+                    .btn-group
+                        button.btn.btn-secondary(type='button') Left
+                        button.btn.btn-secondary(type='button') Middle
+                        button.btn.btn-secondary(type='button') Right
+                .text-center
+                    .btn-group
+                        button.btn.btn-secondary(type='button') 1
+                        button.btn.btn-secondary(type='button') 2
+                        button.btn.btn-secondary(type='button') 3
+                        button.btn.btn-secondary(type='button') 4
+                    .btn-group
+                        button.btn.btn-secondary(type='button') 5
+                        button.btn.btn-secondary(type='button') 6
+                        button.btn.btn-secondary(type='button') 7
+                    .btn-group
+                        button.btn.btn-secondary(type='button') 8
+        // END card
+        // START card
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Button Pills
+                small
+                    |Add class 
+                    code .btn-pill-left
+                    | or
+                    code .btn-pill-right
+                    | to standard Bootstrap buttons
+            .cardbox-body
+                .text-center
+                    p Pill left
+                    p
+                        button.btn.btn-pill-left.btn-secondary(type='button') Secondary
+                        button.btn.btn-pill-left.btn-primary(type='button') Primary
+                        button.btn.btn-pill-left.btn-success(type='button') Success
+                        button.btn.btn-pill-left.btn-info(type='button') Info
+                        button.btn.btn-pill-left.btn-warning(type='button') Warning
+                        button.btn.btn-pill-left.btn-danger(type='button') Danger
+                .text-center
+                    p Pill right
+                    p
+                        button.btn.btn-pill-right.btn-secondary(type='button') Secondary
+                        button.btn.btn-pill-right.btn-primary(type='button') Primary
+                        button.btn.btn-pill-right.btn-success(type='button') Success
+                        button.btn.btn-pill-right.btn-info(type='button') Info
+                        button.btn.btn-pill-right.btn-warning(type='button') Warning
+                        button.btn.btn-pill-right.btn-danger(type='button') Danger
+        // END card
+        // START card
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Button Oval
+                small
+                    |Add class 
+                    code .btn-oval
+                    | to standard Bootstrap buttons
+            .cardbox-body
+                .text-center
+                    button.btn.btn-oval.btn-secondary(type='button') Secondary
+                    button.btn.btn-oval.btn-primary(type='button') Primary
+                    button.btn.btn-oval.btn-success(type='button') Success
+                    button.btn.btn-oval.btn-info(type='button') Info
+                    button.btn.btn-oval.btn-warning(type='button') Warning
+                    button.btn.btn-oval.btn-danger(type='button') Danger
+        // END card
+        // START card
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Button Square
+                small
+                    |Add class 
+                    code .btn-square
+                    | to standard Bootstrap buttons
+            .cardbox-body
+                .text-center
+                    button.btn.btn-square.btn-secondary(type='button') Secondary
+                    button.btn.btn-square.btn-primary(type='button') Primary
+                    button.btn.btn-square.btn-success(type='button') Success
+                    button.btn.btn-square.btn-info(type='button') Info
+                    button.btn.btn-square.btn-warning(type='button') Warning
+                    button.btn.btn-square.btn-danger(type='button') Danger
+        // END card
+        // START card
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Button dropdown
+            .cardbox-body
+                .text-center
+                    +dropdown_button('primary')
+                    +dropdown_button('secondary')
+                    +dropdown_button('success')
+                    +dropdown_button('info')
+                    +dropdown_button('warning')
+                    +dropdown_button('danger')
+        // END card
+        // START card
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Split button dropdown
+            .cardbox-body
+                .text-center
+                    +dropdown_split('primary')
+                    +dropdown_split('secondary')
+                    +dropdown_split('success')
+                    +dropdown_split('info')
+                    +dropdown_split('warning')
+                    +dropdown_split('danger')
+        // END card

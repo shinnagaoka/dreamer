@@ -1,0 +1,213 @@
+<div class="container-fluid">
+    <h5 class="mt-0">Drag & drop hierarchical list with mouse and touch compatibility (jQuery plugin)</h5>
+    <p class="mb-4">Based on <a href="https://github.com/dbushell/Nestable">jQuery Nestable</a></p>
+    <div class="row">
+        <div class="col-xl-6 col-xs-12">
+            <div class="dd" id="nestable">
+                <ol class="dd-list list-unstyled">
+                    <li class="dd-item" data-id="1">
+                        <div class="cardbox b0 dd-handle">
+                            <div class="cardbox-body">
+                                <div class="d-flex">
+                                    <div class="mr-4"><img class="thumb48 rounded-circle" src="assets/img/user/01.jpg" alt="List user"></div>
+                                    <div>
+                                        <div class="lead"><a href="javascript:">Eric Graves</a></div>
+                                        <div class="text-muted text-ellipsis">Ut ac nisi id mauris</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dd-item" data-id="2">
+                        <div class="cardbox b0 dd-handle">
+                            <div class="cardbox-body">
+                                <div class="d-flex">
+                                    <div class="mr-4"><img class="thumb48 rounded-circle" src="assets/img/user/02.jpg" alt="List user"></div>
+                                    <div>
+                                        <div class="lead"><a href="javascript:">Eric Graves</a></div>
+                                        <div class="text-muted text-ellipsis">Ut ac nisi id mauris</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ol class="dd-list list-unstyled">
+                            <li class="dd-item" data-id="3">
+                                <div class="cardbox b0 dd-handle">
+                                    <div class="cardbox-body">
+                                        <div class="d-flex">
+                                            <div class="mr-4"><img class="thumb48 rounded-circle" src="assets/img/user/03.jpg" alt="List user"></div>
+                                            <div>
+                                                <div class="lead"><a href="javascript:">Eric Graves</a></div>
+                                                <div class="text-muted text-ellipsis">Ut ac nisi id mauris</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dd-item" data-id="4">
+                                <div class="cardbox b0 dd-handle">
+                                    <div class="cardbox-body">
+                                        <div class="d-flex">
+                                            <div class="mr-4"><img class="thumb48 rounded-circle" src="assets/img/user/04.jpg" alt="List user"></div>
+                                            <div>
+                                                <div class="lead"><a href="javascript:">Eric Graves</a></div>
+                                                <div class="text-muted text-ellipsis">Ut ac nisi id mauris</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dd-item" data-id="5">
+                                <div class="cardbox b0 dd-handle">
+                                    <div class="cardbox-body">
+                                        <div class="d-flex">
+                                            <div class="mr-4"><img class="thumb48 rounded-circle" src="assets/img/user/05.jpg" alt="List user"></div>
+                                            <div>
+                                                <div class="lead"><a href="javascript:">Eric Graves</a></div>
+                                                <div class="text-muted text-ellipsis">Ut ac nisi id mauris</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ol class="dd-list list-unstyled">
+                                    <li class="dd-item" data-id="6">
+                                        <div class="cardbox b0 dd-handle">
+                                            <div class="cardbox-body">
+                                                <div class="d-flex">
+                                                    <div class="mr-4"><img class="thumb48 rounded-circle" src="assets/img/user/06.jpg" alt="List user"></div>
+                                                    <div>
+                                                        <div class="lead"><a href="javascript:">Eric Graves</a></div>
+                                                        <div class="text-muted text-ellipsis">Ut ac nisi id mauris</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li class="dd-item" data-id="11">
+                        <div class="cardbox b0 dd-handle">
+                            <div class="cardbox-body">
+                                <div class="d-flex">
+                                    <div class="mr-4"><img class="thumb48 rounded-circle" src="assets/img/user/07.jpg" alt="List user"></div>
+                                    <div>
+                                        <div class="lead"><a href="javascript:">Eric Graves</a></div>
+                                        <div class="text-muted text-ellipsis">Ut ac nisi id mauris</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <p>Output</p>
+            <div class="card">
+                <div class="card-block">
+                    <div>{{output1}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-xs-12">
+            <div class="dd" id="nestable2">
+                <ol class="dd-list list-unstyled">
+                    <li class="dd-item" data-id="1">
+                        <div class="cardbox b0 dd-handle">
+                            <div class="cardbox-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="mr-4"><em class="ion-folder icon-3x text-info"></em></div>
+                                    <div>
+                                        <div class="text-bold">Pictures</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dd-item" data-id="2">
+                        <div class="cardbox b0 dd-handle">
+                            <div class="cardbox-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="mr-4"><em class="ion-folder icon-3x text-info"></em></div>
+                                    <div>
+                                        <div class="text-bold">Documents</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ol class="dd-list list-unstyled">
+                            <li class="dd-item" data-id="3">
+                                <div class="cardbox b0 dd-handle">
+                                    <div class="cardbox-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="mr-4"><em class="ion-folder icon-3x text-info"></em></div>
+                                            <div>
+                                                <div class="text-bold">Projects</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dd-item" data-id="4">
+                                <div class="cardbox b0 dd-handle">
+                                    <div class="cardbox-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="mr-4"><em class="ion-folder icon-3x text-info"></em></div>
+                                            <div>
+                                                <div class="text-bold">Clients</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dd-item" data-id="5">
+                                <div class="cardbox b0 dd-handle">
+                                    <div class="cardbox-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="mr-4"><em class="ion-folder icon-3x text-info"></em></div>
+                                            <div>
+                                                <div class="text-bold">Invoices</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ol class="dd-list list-unstyled">
+                                    <li class="dd-item" data-id="6">
+                                        <div class="cardbox b0 dd-handle">
+                                            <div class="cardbox-body">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="mr-4"><em class="ion-folder icon-3x text-info"></em></div>
+                                                    <div>
+                                                        <div class="text-bold">Last year</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li class="dd-item" data-id="11">
+                        <div class="cardbox b0 dd-handle">
+                            <div class="cardbox-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="mr-4"><em class="ion-folder icon-3x text-info"></em></div>
+                                    <div>
+                                        <div class="text-bold">Movies</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <p>Output</p>
+            <div class="card">
+                <div class="card-block">
+                    <div>{{output2}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

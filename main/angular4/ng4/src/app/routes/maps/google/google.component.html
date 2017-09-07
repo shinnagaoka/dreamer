@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="cardbox">
+                <div class="cardbox-heading">Basic Map</div>
+                <div class="cardbox-body">
+                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [scrollwheel]="scrollwheel" [style.height]="'300px'" class="center-block">
+                        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                    </agm-map>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="cardbox">
+                <div class="cardbox-heading">Markers</div>
+                <div class="cardbox-body">
+                    <agm-map #agmMap [latitude]="lat" [longitude]="lng" [zoom]="zoom" [scrollwheel]="scrollwheel" [style.height]="'300px'" class="center-block">
+                        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                        <agm-marker [latitude]="lat2" [longitude]="lng2"></agm-marker>
+                    </agm-map>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cardbox">
+        <div class="cardbox-heading">Panorama</div>
+        <div class="cardbox-body">
+            <div id="panorama" class="gmap" [style.height]="'240px'"></div>
+        </div>
+    </div>
+</div>

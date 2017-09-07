@@ -1,0 +1,26 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Google Maps'
+block content
+    .container-fluid
+        .row
+            .col-lg-6
+                .cardbox
+                    .cardbox-heading Basic
+                    .cardbox-body
+                        #map.gmap
+            .col-lg-6
+                .cardbox
+                    .cardbox-heading Markers
+                    .cardbox-body
+                        #map-markers.gmap
+        .cardbox
+            .cardbox-heading Panorama
+            .cardbox-body
+                #panorama.gmap
+
+block vendor_js
+    // Google Maps API
+    script(type='text/javascript', src='//maps.google.com/maps/api/js?key=AIzaSyBNs42Rt_CyxAqdbIBK0a5Ut83QiauESPA')
+    // Google Maps
+    script(src='vendor/gmaps/gmaps.js')

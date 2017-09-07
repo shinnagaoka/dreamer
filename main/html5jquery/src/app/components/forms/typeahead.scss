@@ -1,0 +1,39 @@
+/**
+ * Typeahead.js
+ */
+
+@import '../common/variables';
+@import '../common/mixins';
+
+// Dropdown styles
+.twitter-typeahead {
+    width: 100%;
+    .tt-menu {
+        width: 100%;
+        background-color: #fff;
+        border: 1px solid rgba(160,160,160,.5);
+    }
+    .tt-suggestion {
+        padding: .4rem 1rem;
+        &:hover {
+            background-color: rgba(160,160,160,.12);
+        }
+    }
+}
+
+// Full size inputs
+.twitter-typeahead {
+    display: block !important;
+}
+
+// Examples
+#multiple-datasets .league-name {
+    margin: 0;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(160,160,160,.25);
+}
+
+#scrollable-dropdown-menu .tt-menu {
+    max-height: 150px;
+    overflow-y: auto;
+}

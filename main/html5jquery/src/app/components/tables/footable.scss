@@ -1,0 +1,31 @@
+/**
+ * FooTable
+ */
+
+@import '../common/variables';
+@import '../common/mixins';
+
+.footable-filtering {
+    > th {
+        border: 0;
+    }
+    form {
+        float: right;
+    }
+    .input-group-btn {
+        flex-direction: row;
+        .btn-default, .btn-secondary {
+            background: #fff;
+        }
+    }
+    .open > .dropdown-menu {
+        display: block;
+        color: inherit;
+        > li {
+            padding: .6rem 1.2rem;
+            &:hover {
+                background-color: rgba(160,160,160,.25);
+            }
+        }
+    }
+}

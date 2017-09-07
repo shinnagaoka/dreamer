@@ -1,0 +1,61 @@
+<div class="container-full">
+    <div class="row fh bg-white">
+        <div class="col-md-5 col-xl-3 fh hidden-sm-down hidden-xs-down pr-0">
+            <div class="v-scroll-wrapper">
+                <div class="p-4">
+                    <h5 class="text-center">Locations</h5>
+                    <div class="text-center text-muted"><small>Click on each item to focus a marker in the map</small></div>
+                </div>
+                <div id="markers-list">
+                    <div class="card card-inverse b0" (click)="moveTo(myMarkers[0].coords)">
+                        <img class="card-img" src="assets/img/map/p1.jpg" alt="Card image">
+                        <div class="card-img-overlay card-img-overlay-bottom bg-fade">
+                            <h5 class="mb-0 card-title">1456, street address</h5>
+                            <small class="card-text">Canada</small>
+                        </div>
+                    </div>
+                    <div class="card card-inverse b0" (click)="moveTo(myMarkers[1].coords)">
+                        <img class="card-img" src="assets/img/map/p2.jpg" alt="Card image">
+                        <div class="card-img-overlay card-img-overlay-bottom bg-fade">
+                            <h5 class="mb-0 card-title">1456, street address</h5>
+                            <small class="card-text">New York</small>
+                        </div>
+                    </div>
+                    <div class="card card-inverse b0" (click)="moveTo(myMarkers[2].coords)">
+                        <img class="card-img" src="assets/img/map/p3.jpg" alt="Card image">
+                        <div class="card-img-overlay card-img-overlay-bottom bg-fade">
+                            <h5 class="mb-0 card-title">1456, street address</h5>
+                            <small class="card-text">Toronto</small>
+                        </div>
+                    </div>
+                    <div class="card card-inverse b0" (click)="moveTo(myMarkers[3].coords)">
+                        <img class="card-img" src="assets/img/map/p4.jpg" alt="Card image">
+                        <div class="card-img-overlay card-img-overlay-bottom bg-fade">
+                            <h5 class="mb-0 card-title">1456, street address</h5>
+                            <small class="card-text">San Francisco, CA</small>
+                        </div>
+                    </div>
+                    <div class="card card-inverse b0" (click)="moveTo(myMarkers[4].coords)">
+                        <img class="card-img" src="assets/img/map/p5.jpg" alt="Card image">
+                        <div class="card-img-overlay card-img-overlay-bottom bg-fade">
+                            <h5 class="mb-0 card-title">1456, street address</h5>
+                            <small class="card-text">Utah</small>
+                        </div>
+                    </div>
+                    <div class="card card-inverse b0" (click)="moveTo(myMarkers[0].coords)">
+                        <img class="card-img" src="assets/img/map/p1.jpg" alt="Card image">
+                        <div class="card-img-overlay card-img-overlay-bottom bg-fade">
+                            <h5 class="mb-0 card-title">1456, street address</h5>
+                            <small class="card-text">Canada</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7 col-xl-9 fh pl-0">
+            <agm-map [latitude]="currLatitude" [longitude]="currLongitude" [zoom]="zoom" [scrollwheel]="scrollwheel" [usePanning]="true" class="center-block fh">
+                <agm-marker *ngFor="let marker of myMarkers" [latitude]="marker.coords.latitude" [longitude]="marker.coords.longitude"></agm-marker>
+            </agm-map>
+        </div>
+    </div>
+</div>

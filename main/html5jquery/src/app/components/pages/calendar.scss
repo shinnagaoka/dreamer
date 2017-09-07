@@ -1,0 +1,80 @@
+/**
+ * Calendar
+ */
+
+@import '../common/variables';
+@import '../common/mixins';
+
+.calendar-app {
+
+    .fc-button {
+        background-image: none;
+        background-color: rgba(160,160,160,.25);
+        color: inherit;
+        box-shadow: 0 0 0 #000;
+        border-radius: 2px;
+        font-size: .9rem;
+        padding: .75rem 1rem;
+        height: 3rem;
+        line-height: 1.7rem;
+        border: 1px solid rgba(160,160,160,.25);
+        text-shadow: none;
+        + .fc-button {
+            margin-left: 4px;
+        }
+        &.fc-state-active {
+            background-color: $brand-primary;
+            color: #fff;
+        }
+        @media #{$max-mobile} {
+            padding: .25rem .5rem;
+            height: 2rem;
+            font-size: .7rem;
+        }
+    }
+
+    .fc-toolbar .fc-center {
+        margin-top: 1rem;
+        @media #{$min-mobile} {
+            margin-top: .5rem;
+        }
+    }
+
+    .fc-event, .fc-event-dot {
+        color: $text-color;
+        background-color: rgba($brand-primary, .3);
+        border: 0;
+        border-left: 2px solid $brand-primary;
+        padding: 4px;
+        border-radius: 1px;
+    }
+
+    .fc-unthemed td.fc-today {
+        background-color: transparent;
+        .fc-day-number {
+            position: relative;
+            background-color: $brand-info;
+            top: 1px; right: 1px;
+            color: #fff;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 500px;
+            margin-bottom: 6px;
+        }
+    }
+
+    .fc-unthemed th,
+    .fc-unthemed td,
+    .fc-unthemed thead,
+    .fc-unthemed tbody,
+    .fc-unthemed .fc-divider,
+    .fc-unthemed .fc-row,
+    .fc-unthemed .fc-content,
+    .fc-unthemed .fc-popover,
+    .fc-unthemed .fc-list-view,
+    .fc-unthemed .fc-list-heading td {
+        border-color: rgba(160,160,160,.25)
+    }
+}

@@ -1,0 +1,68 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Flot Charts'
+block content
+    .container-fluid
+        // START row
+        .row
+            .col-xl-6.col-xs-12
+                .cardbox
+                    .cardbox-body
+                        #bar-flotchart.flot-chart.flot-chart-lg
+                    .cardbox-footer: strong Single Bars
+            .col-xl-6.col-xs-12
+                .cardbox
+                    .cardbox-body
+                            #barstacked-flotchart.flot-chart.flot-chart-lg
+                    .cardbox-footer: strong Stacked Bars
+        // END row
+        // START row
+        .row
+            .col-xl-6.col-xs-12
+                .cardbox
+                    .cardbox-body
+                        #area-flotchart.flot-chart.flot-chart-lg
+                    .cardbox-footer: strong Area Chart
+            .col-xl-6.col-xs-12
+                .cardbox
+                    .cardbox-body
+                        #spline-flotchart.flot-chart.flot-chart-lg
+                    .cardbox-footer: strong Spline Chart
+        // END row
+        // START row
+        .row
+            .col-xl-6.col-xs-12
+                .cardbox
+                    .cardbox-body
+                            #realtime-flotchart.flot-chart.flot-chart-lg
+                    .cardbox-footer: strong Real Time
+            .col-xl-6.col-xs-12
+                .cardbox
+                    .cardbox-body
+                            #line-flotchart.flot-chart.flot-chart-lg
+                    .cardbox-footer: strong Line
+        // END row
+        // START row
+        .row
+            .col-xl-6.col-xs-12
+                .cardbox
+                    .cardbox-body
+                            #pie-flotchart.flot-chart.flot-chart-lg
+                    .cardbox-footer: strong Pie
+            .col-xl-6.col-xs-12
+                .cardbox
+                    .cardbox-body
+                            #donut-flotchart.flot-chart.flot-chart-lg
+                    .cardbox-footer: strong Donut
+
+        // END row
+block vendor_js
+    // Flot charts
+    script(src='vendor/flot/jquery.flot.js')
+    script(src='vendor/flot/jquery.flot.categories.js')
+    script(src='vendor/flot-spline/js/jquery.flot.spline.js')
+    script(src='vendor/flot.tooltip/js/jquery.flot.tooltip.js')
+    script(src='vendor/flot/jquery.flot.resize.js')
+    script(src='vendor/flot/jquery.flot.pie.js')
+    script(src='vendor/flot/jquery.flot.time.js')
+    script(src='vendor/sidebysideimproved/jquery.flot.orderBars.js')

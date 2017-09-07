@@ -1,0 +1,100 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Toaster'
+block content
+    .container.container-md
+        .clearfix.mb-4
+            .float-right
+                button#clear-toaster.btn.btn-danger(type="button") Clear all
+        .row
+            .col-sm-3
+                .card.mb-4
+                    .card-header Top Right Info
+                    .card-block.text-center
+                        button#top-right-info.btn.btn-info(type="button") Click
+            .col-sm-3
+                .card.mb-4
+                    .card-header Top Left Info
+                    .card-block.text-center
+                        button#top-left-info.btn.btn-info(type="button") Click
+            .col-sm-3
+                .card.mb-4
+                    .card-header Bottom Right Info
+                    .card-block.text-center
+                        button#bottom-right-info.btn.btn-info(type="button") Click
+            .col-sm-3
+                .card.mb-4
+                    .card-header Bottom Left Info
+                    .card-block.text-center
+                        button#bottom-left-info.btn.btn-info(type="button") Click
+        .row
+            .col-sm-3
+                .card.mb-4
+                    .card-header Top Right Success
+                    .card-block.text-center
+                        button#top-right-success.btn.btn-success(type="button") Click
+            .col-sm-3
+                .card.mb-4
+                    .card-header Top Left Success
+                    .card-block.text-center
+                        button#top-left-success.btn.btn-success(type="button") Click
+            .col-sm-3
+                .card.mb-4
+                    .card-header Bottom Right Success
+                    .card-block.text-center
+                        button#bottom-right-success.btn.btn-success(type="button") Click
+            .col-sm-3
+                .card.mb-4
+                    .card-header Bottom Left Success
+                    .card-block.text-center
+                        button#bottom-left-success.btn.btn-success(type="button") Click
+        .row
+            .col-sm-3
+                .card.mb-4
+                    .card-header Top Right Warning
+                    .card-block.text-center
+                        button#top-right-warning.btn.btn-warning(type="button") Click
+            .col-sm-3
+                .card.mb-4
+                    .card-header Top Left Warning
+                    .card-block.text-center
+                        button#top-left-warning.btn.btn-warning(type="button") Click
+            .col-sm-3
+                .card.mb-4
+                    .card-header Bottom Right Warning
+                    .card-block.text-center
+                        button#bottom-right-warning.btn.btn-warning(type="button") Click
+            .col-sm-3
+                .card.mb-4
+                    .card-header Bottom Left Warning
+                    .card-block.text-center
+                        button#bottom-left-warning.btn.btn-warning(type="button") Click
+        .row
+            .col-sm-3
+                .card.mb-4
+                    .card-header Top Right Error
+                    .card-block.text-center
+                        button#top-right-error.btn.btn-danger(type="button") Click
+            .col-sm-3
+                .card.mb-4
+                    .card-header Top Left Error
+                    .card-block.text-center
+                        button#top-left-error.btn.btn-danger(type="button") Click
+            .col-sm-3
+                .card.mb-4
+                    .card-header Bottom Right Error
+                    .card-block.text-center
+                        button#bottom-right-error.btn.btn-danger(type="button") Click
+            .col-sm-3
+                .card.mb-4
+                    .card-header Bottom Left Error
+                    .card-block.text-center
+                        button#bottom-left-error.btn.btn-danger(type="button") Click
+        small.text-muted If Toastr shows all toasts in the same position, click on 'Clear all' button and wait a few seconds for the container to be removed.
+
+block vendor_css
+    // TOASTR
+    link(rel='stylesheet', href='vendor/toastr/toastr.min.css')
+block vendor_js
+    // TOASTR
+    script(src='vendor/toastr/toastr.min.js')

@@ -1,0 +1,293 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Standard Inputs'
+block content
+    .container-fluid
+
+        h5.mt-0 Forms
+        p.mb-4 Bootstrap provides several form control styles, layout options, and custom components for creating a wide variety of forms.
+
+        .cardbox
+            .cardbox-body
+                form(method='get', action="/")
+                    fieldset
+                        .form-group.row
+                            label.col-lg-2.col-form-label With help
+                            .col-lg-10
+                                input.form-control(type='text')
+                                span.form-text.text-muted A block of help text that breaks onto a new line and may extend beyond one line.
+                    fieldset
+                        .form-group.row
+                            label.col-lg-2.col-form-label(for='input-id-1') Label focus
+                            .col-lg-10
+                                input#input-id-1.form-control(type='text')
+                    fieldset
+                        .form-group.row
+                            label.col-lg-2.col-form-label Password
+                            .col-lg-10
+                                input.form-control(type='password', name='password')
+                    fieldset
+                        .form-group.row
+                            label.col-lg-2.col-form-label Placeholder
+                            .col-lg-10
+                                input.form-control(type='text', placeholder='placeholder')
+                    fieldset
+                        .form-group.row
+                            label.col-lg-2.col-form-label Disabled
+                            .col-lg-10
+                                input.form-control(type='text', placeholder='Disabled input here...', disabled='')
+                    fieldset
+                        .form-group.row
+                            label.col-lg-2.col-form-label Static control
+                            .col-lg-10
+                                p.form-control-static email@example.com
+                    fieldset
+                        .form-group.row
+                            label.col-lg-2.col-form-label Checkboxes and radios
+                            .col-lg-10
+                                .form-check
+                                    label.form-check-label
+                                        input.form-check-input(type='checkbox', value='')
+                                        | Option one is this and that—be sure to include why it's great
+                                .form-check
+                                    label.form-check-label
+                                        input.form-check-input#optionsRadios1(type='radio', name='optionsRadios', value='option1', checked='')
+                                        | Option one is this and that—be sure to include why it's great
+                                .form-check
+                                    label.form-check-label
+                                        input.form-check-input#optionsRadios2(type='radio', name='optionsRadios', value='option2')
+                                        | Option two can be something else and selecting it will deselect option one
+                    fieldset
+                        .form-group.row
+                            label.col-lg-2.col-form-label Inline checkboxes
+                            .col-lg-10
+                                .form-check.form-check-inline
+                                    label.form-check-label
+                                        input.form-check-input#inlineCheckbox1(type='checkbox', value='option1')
+                                        |  a
+                                .form-check.form-check-inline
+                                    label.form-check-label
+                                        input.form-check-input#inlineCheckbox2(type='checkbox', value='option2')
+                                        |  b
+                                .form-check.form-check-inline
+                                    label.form-check-label
+                                        input.form-check-input#inlineCheckbox3(type='checkbox', value='option3')
+                                        |  c
+                    fieldset.last-child
+                        .form-group.row
+                            label.col-lg-2.col-form-label Select
+                            .col-lg-10
+                                select.form-control(name='account')
+                                    option Option 1
+                                    option Option 2
+                                    option Option 3
+                                    option Option 4
+                                br
+                                .row
+                                    .col-lg-4
+                                        select.form-control(multiple='')
+                                            option Option 1
+                                            option Option 2
+                                            option Option 3
+                                            option Option 4
+                    fieldset
+                        .form-group.row.has-success
+                            label.col-lg-2.col-form-label Input with success
+                            .col-lg-10
+                                input#inputSuccess1.form-control.form-control-success(type='text')
+                                .form-control-feedback Success! You&apos;ve done it.
+                                small.form-text.text-muted Example help text that remains unchanged.
+                    fieldset
+                        .form-group.row.has-warning
+                            label.col-lg-2.col-form-label Input with warning
+                            .col-lg-10
+                                input#inputWarning1.form-control.form-control-warning(type='text')
+                                .form-control-feedback Shucks, check the formatting of that and try again.
+                                small.form-text.text-muted Example help text that remains unchanged.
+                    fieldset
+                        .form-group.row.has-danger
+                            label.col-lg-2.col-form-label Input with error (danger)
+                            .col-lg-10
+                                input#inputDanger1.form-control.form-control-danger(type='text')
+                                .form-control-feedback Sorry, that username&apos;s taken. Try another?
+                                small.form-text.text-muted Example help text that remains unchanged.
+                    fieldset
+                        .form-group.row
+                            label.col-lg-2.col-form-label Custom controls
+                            .col-lg-10
+                                p Checkboxes
+                                p: label.custom-control.custom-checkbox
+                                    input.custom-control-input(type='checkbox')
+                                    span.custom-control-indicator
+                                    span.custom-control-description Check this custom checkbox
+                                p: label.custom-control.custom-checkbox
+                                    input.custom-control-input(type='checkbox', checked='checked')
+                                    span.custom-control-indicator
+                                    span.custom-control-description Custom checkbox checked
+                                p.mt-3 Radios
+                                p: label.custom-control.custom-radio
+                                    input#radio1.custom-control-input(name='radio', type='radio')
+                                    span.custom-control-indicator
+                                    span.custom-control-description Toggle this custom radio
+                                p: label.custom-control.custom-radio
+                                    input#radio21.custom-control-input(name='radio', type='radio')
+                                    span.custom-control-indicator
+                                    span.custom-control-description Or toggle this other custom radio
+                                p: label.custom-control.custom-radio
+                                    input#radio22.custom-control-input(name='radio', type='radio', checked='checked')
+                                    span.custom-control-indicator
+                                    span.custom-control-description Another custom radio checked
+                                p.mt-3 Select
+                                select.custom-select
+                                    option(selected='') Open this select menu
+                                    option(value='1') One
+                                    option(value='2') Two
+                                    option(value='3') Three
+                                p.mt-3 File
+                                label.custom-file
+                                    input#file.custom-file-input(type='file')
+                                    span.custom-file-control
+
+                    fieldset
+                        .form-group.row
+                            label.col-lg-2.col-form-label Control sizing
+                            .col-lg-10
+                                input.form-control.form-control-lg(type='text', placeholder='.form-control-lg')
+                                br
+                                input.form-control(type='text', placeholder='Default input')
+                                br
+                                input.form-control.form-control-sm(type='text', placeholder='.form-control-sm')
+                    fieldset
+                        .form-group.row
+                            label.col-lg-2.col-form-label Column sizing
+                            .col-lg-10
+                                .row
+                                    .col-lg-2
+                                        input.form-control(type='text', placeholder='.col-lg-2')
+                                    .col-lg-3
+                                        input.form-control(type='text', placeholder='.col-lg-3')
+                                    .col-lg-4
+                                        input.form-control(type='text', placeholder='.col-lg-4')
+                    fieldset
+                        .form-group.row
+                            label.col-lg-2.col-form-label Input groups
+                            .col-lg-10
+                                .input-group
+                                    span.input-group-addon @
+                                    input.form-control(type='text', placeholder='Username')
+                                br
+                                .input-group
+                                    input.form-control(type='text')
+                                    span.input-group-addon .00
+                                br
+                                .input-group
+                                    span.input-group-addon $
+                                    input.form-control(type='text')
+                                    span.input-group-addon .00
+                                br
+                                .input-group
+                                    span.input-group-addon
+                                        input(type='checkbox')
+                                    input.form-control(type='text')
+                                br
+                                .input-group
+                                    span.input-group-addon
+                                        input(type='radio')
+                                    input.form-control(type='text')
+                    fieldset
+                        .form-group.row
+                            label.col-lg-2.col-form-label Button addons
+                            .col-lg-10
+                                .input-group
+                                    span.input-group-btn
+                                        button.btn.btn-secondary(type='button') Go!
+                                    input.form-control(type='text')
+                                br
+                                .input-group
+                                    input.form-control(type='text')
+                                    span.input-group-btn
+                                        button.btn.btn-success(type='button') Go!
+                                br
+                                .input-group
+                                    span.input-group-btn
+                                        button.btn.btn-primary(type='button'): em.ion-person
+                                    input.form-control(type='text' placeholder='...')
+                                    span.input-group-btn
+                                        button.btn.btn-primary(type='button'): em.ion-person-stalker
+
+                    fieldset
+                        .form-group.row
+                            label.col-lg-2.col-form-label Multiple addons
+                            .col-lg-10
+                                .row
+                                    .col-lg-6
+                                        .input-group
+                                            span.input-group-addon
+                                                input(type='checkbox' aria-label='Checkbox for following text input')
+                                            span.input-group-addon $
+                                            input.form-control(type='text' aria-label='Text input with checkbox')
+                                    .col-lg-6
+                                        .input-group
+                                            span.input-group-addon $
+                                            span.input-group-addon 0.00
+                                            input.form-control(type='text' aria-label='Text input with radio button')
+
+
+                    fieldset
+                        .form-group.row
+                            label.col-lg-2.col-form-label With dropdowns
+                            .col-lg-10
+                                .input-group
+                                    .input-group-btn
+                                        button.btn.btn-secondary(type='button', data-toggle="dropdown")
+                                            | Action
+                                            span.caret
+                                        .dropdown-menu
+                                            a.dropdown-item(href='#') Action
+                                            a.dropdown-item(href='#') Another action
+                                            a.dropdown-item(href='#') Something else here
+                                            .dropdown-divider
+                                            a.dropdown-item(href='#') Separated link
+                                    input.form-control(type='text')
+                                br
+                                .input-group
+                                    input.form-control(type='text')
+                                    .input-group-btn
+                                        button.btn.btn-secondary(type='button', data-toggle="dropdown")
+                                            | Action
+                                            span.caret
+                                        .dropdown-menu.dropdown-menu-right
+                                            a.dropdown-item(href='#') Action
+                                            a.dropdown-item(href='#') Another action
+                                            a.dropdown-item(href='#') Something else here
+                                            .dropdown-divider
+                                            a.dropdown-item(href='#') Separated link
+                    fieldset
+                        .form-group.row
+                            label.col-lg-2.col-form-label Segmented
+                            .col-lg-10
+                                .input-group
+                                    .input-group-btn
+                                        button.btn.btn-secondary(type='button', tabindex='-1') Action
+                                        button.btn.btn-secondary.dropdown-toggle.dropdown-toggle-split(type='button', data-toggle="dropdown")
+                                            span.caret
+                                        .dropdown-menu
+                                            a.dropdown-item(href='#') Action
+                                            a.dropdown-item(href='#') Another action
+                                            a.dropdown-item(href='#') Something else here
+                                            .dropdown-divider
+                                            a.dropdown-item(href='#') Separated link
+                                    input.form-control(type='text')
+                                br
+                                .input-group
+                                    input.form-control(type='text')
+                                    .input-group-btn
+                                        button.btn.btn-secondary(type='button', tabindex='-1') Action
+                                        button.btn.btn-secondary.dropdown-toggle.dropdown-toggle-split(type='button', data-toggle="dropdown")
+                                            span.caret
+                                        .dropdown-menu
+                                            a.dropdown-item(href='#') Action
+                                            a.dropdown-item(href='#') Another action
+                                            a.dropdown-item(href='#') Something else here
+                                            .dropdown-divider
+                                            a.dropdown-item(href='#') Separated link

@@ -1,0 +1,476 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'Forms Advanced'
+block content
+    .container-fluid
+
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Switch
+                small Pure CSS3 based switch component
+            .cardbox-body
+                .row
+                    .col-md-4
+                        .row.mb-3
+                            .col-sm-8
+                                label.switch
+                                    input(type='checkbox', checked="checked")
+                                    span
+                                | Switch
+                        .row.mb-3
+                            .col-sm-8
+                                label.switch.switch-warn
+                                    input(type='checkbox', checked="checked")
+                                    span
+                                | Switch warn
+                        .row.mb-3
+                            .col-sm-8
+                                label.switch.switch-warn
+                                    input(type='checkbox', disabled)
+                                    span
+                                | Switch disabled
+                        .row.mb-3
+                            .col-sm-8
+                                label.switch.switch-warn
+                                    input(type='checkbox', checked="checked", disabled)
+                                    span
+                                | Switch disabled active
+                    .col-md-4
+                        .row.mb-3
+                            .col-sm-8
+                                label.switch.switch-primary
+                                    input(type='checkbox', checked="checked")
+                                    span
+                                | Switch primary
+                        .row.mb-3
+                            .col-sm-8
+                                label.switch.switch-purple
+                                    input(type='checkbox', checked="checked")
+                                    span
+                                | Switch purple
+                        .row.mb-3
+                            .col-sm-8
+                                label.switch.switch-info
+                                    input(type='checkbox', checked="checked")
+                                    span
+                                | Switch info
+                        .row.mb-3
+                            .col-sm-8
+                                label.switch.switch-success
+                                    input(type='checkbox', checked="checked")
+                                    span
+                                | Switch success
+                        .row.mb-3
+                            .col-sm-8
+                                label.switch.switch-warning
+                                    input(type='checkbox', checked="checked")
+                                    span
+                                | Switch warning
+                        .row.mb-3
+                            .col-sm-8
+                                label.switch.switch-danger
+                                    input(type='checkbox', checked="checked")
+                                    span
+                                | Switch danger
+                    .col-md-4
+                        .row.mb-3
+                            .col-sm-8
+                                label.switch.switch-warn.switch-primary
+                                    input(type='checkbox', checked="checked")
+                                    span
+                                | Switch warn primary
+                        .row.mb-3
+                            .col-sm-8
+                                label.switch.switch-warn.switch-purple
+                                    input(type='checkbox', checked="checked")
+                                    span
+                                | Switch warn purple
+                        .row.mb-3
+                            .col-sm-8
+                                label.switch.switch-warn.switch-info
+                                    input(type='checkbox', checked="checked")
+                                    span
+                                | Switch warn info
+                        .row.mb-3
+                            .col-sm-8
+                                label.switch.switch-warn.switch-success
+                                    input(type='checkbox', checked="checked")
+                                    span
+                                | Switch warn success
+                        .row.mb-3
+                            .col-sm-8
+                                label.switch.switch-warn.switch-warning
+                                    input(type='checkbox', checked="checked")
+                                    span
+                                | Switch warn warning
+                        .row.mb-3
+                            .col-sm-8
+                                label.switch.switch-warn.switch-danger
+                                    input(type='checkbox', checked="checked")
+                                    span
+                                | Switch warn danger
+
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Select2
+                small jQuery based replacement for select boxes
+            .cardbox-body
+                .form-group
+                    p Basics
+                        br
+                        small Single select boxes
+                    select#select2-1.form-control
+                        option(value='AL') Alabama
+                        option(value='AR') Arkansas
+                        option(value='IL') Illinois
+                        option(value='IA') Iowa
+                        option(value='KS') Kansas
+                        option(value='KY') Kentucky
+                        option(value='LA') Louisiana
+                        option(value='MN') Minnesota
+                        option(value='MS') Mississippi
+                        option(value='MO') Missouri
+                        option(value='OK') Oklahoma
+                        option(value='SD') South Dakota
+                        option(value='TX') Texas
+                        option(value='TN') Tennessee
+                        option(value='WI') Wisconsin
+                .form-group
+                    p Multiple
+                        br
+                        small Select2 also supports multi-value select boxes. The select below is declared with the multiple attribute.
+                    select#select2-2.form-control(multiple='multiple')
+                        optgroup(label='Alaskan/Hawaiian Time Zone')
+                            option(value='AK') Alaska
+                            option(value='HI') Hawaii
+                        optgroup(label='Pacific Time Zone')
+                            option(value='CA') California
+                            option(value='NV') Nevada
+                            option(value='OR') Oregon
+                            option(value='WA') Washington
+                        optgroup(label='Mountain Time Zone')
+                            option(value='AZ') Arizona
+                            option(value='CO') Colorado
+                            option(value='ID') Idaho
+                            option(value='MT') Montana
+                            option(value='NE') Nebraska
+                            option(value='NM') New Mexico
+                            option(value='ND') North Dakota
+                            option(value='UT') Utah
+                            option(value='WY') Wyoming
+                        optgroup(label='Central Time Zone')
+                            option(value='AL') Alabama
+                            option(value='AR') Arkansas
+                            option(value='IL') Illinois
+                            option(value='IA') Iowa
+                            option(value='KS') Kansas
+                            option(value='KY') Kentucky
+                            option(value='LA') Louisiana
+                            option(value='MN') Minnesota
+                            option(value='MS') Mississippi
+                            option(value='MO') Missouri
+                            option(value='OK') Oklahoma
+                            option(value='SD') South Dakota
+                            option(value='TX') Texas
+                            option(value='TN') Tennessee
+                            option(value='WI') Wisconsin
+                        optgroup(label='Eastern Time Zone')
+                            option(value='CT') Connecticut
+                            option(value='DE') Delaware
+                            option(value='FL') Florida
+                            option(value='GA') Georgia
+                            option(value='IN') Indiana
+                            option(value='ME') Maine
+                            option(value='MD') Maryland
+                            option(value='MA') Massachusetts
+                            option(value='MI') Michigan
+                            option(value='NH') New Hampshire
+                            option(value='NJ') New Jersey
+                            option(value='NY') New York
+                            option(value='NC') North Carolina
+                            option(value='OH') Ohio
+                            option(value='PA') Pennsylvania
+                            option(value='RI') Rhode Island
+                            option(value='SC') South Carolina
+                            option(value='VT') Vermont
+                            option(value='VA') Virginia
+                            option(value='WV') West Virginia
+                .form-group
+                    p Placeholders
+                        br
+                        small A placeholder value can be defined and will be displayed until a selection is made. Select2 uses the placeholder attribute on multiple select boxes, which requires IE 10+. You can support it in older versions with the Placeholders.js polyfill.
+                    select#select2-3.form-control
+                        optgroup(label='Alaskan/Hawaiian Time Zone')
+                            option(value='AK') Alaska
+                            option(value='HI') Hawaii
+                        optgroup(label='Pacific Time Zone')
+                            option(value='CA') California
+                            option(value='NV') Nevada
+                            option(value='OR') Oregon
+                            option(value='WA') Washington
+                        optgroup(label='Mountain Time Zone')
+                            option(value='AZ') Arizona
+                            option(value='CO') Colorado
+                            option(value='ID') Idaho
+                            option(value='MT') Montana
+                            option(value='NE') Nebraska
+                            option(value='NM') New Mexico
+                            option(value='ND') North Dakota
+                            option(value='UT') Utah
+                            option(value='WY') Wyoming
+                .form-group
+                    p Loading array data
+                        br
+                        small Select2 provides a way to load the data from a local array.
+                    select#select2-4.form-control
+
+        .cardbox
+            .cardbox-heading
+                .cardbox-title MultiSelect
+                small A user-friendlier drop-in replacement for the standard &lt;select&gt; with 'multiple' attribute activated.
+            .cardbox-body.h-scroll
+                .row.flex-wrap
+                    .col-xl-6.mb-4
+                        p.lead Pre-selected options
+                        select#multiselect1(multiple='')
+                            option(value='elem_1' selected='') elem 1
+                            option(value='elem_2' selected='' disabled='') elem 2
+                            option(value='elem_3') elem 3
+                            option(value='elem_4') elem 4
+                            option(value='elem_5') elem 5
+                            option(value='elem_6') elem 6
+                            option(value='elem_7') elem 7
+                            option(value='elem_8') elem 8
+                            option(value='elem_9') elem 9
+                            option(value='elem_10') elem 10
+                            option(value='elem_11') elem 11
+                            option(value='elem_12') elem 12
+                            option(value='elem_13') elem 13
+                            option(value='elem_14') elem 14
+                            option(value='elem_15') elem 15
+                            option(value='elem_16') elem 16
+                            option(value='elem_17') elem 17
+                            option(value='elem_18') elem 18
+                            option(value='elem_19') elem 19
+                            option(value='elem_20') elem 20
+                    .col-xl-6.mb-4
+                        p.lead Optgroup
+                        select#optgroup(multiple='multiple')
+                            optgroup(label='Friends')
+                                option(value='1') Yoda
+                                option(value='2' selected='') Obiwan
+                            optgroup(label='Enemies')
+                                option(value='3') Palpatine
+                                option(value='4' disabled='') Darth Vader
+                .row.flex-wrap
+                    .col-xl-6.mb-4
+                        p.lead Public methods
+                        .mb-4
+                            select#public-methods(multiple='multiple')
+                                option(value='elem_1') elem 1
+                                option(value='elem_2' disabled='') elem 2
+                                option(value='elem_3') elem 3
+                                option(value='elem_4') elem 4
+                                option(value='elem_5') elem 5
+                                option(value='elem_6') elem 6
+                                option(value='elem_7') elem 7
+                                option(value='elem_8') elem 8
+                                option(value='elem_9') elem 9
+                                option(value='elem_10') elem 10
+                                option(value='elem_11') elem 11
+                                option(value='elem_12') elem 12
+                                option(value='elem_13') elem 13
+                                option(value='elem_14') elem 14
+                                option(value='elem_15') elem 15
+                                option(value='elem_16') elem 16
+                                option(value='elem_17') elem 17
+                                option(value='elem_18') elem 18
+                                option(value='elem_19') elem 19
+                                option(value='elem_20') elem 20
+                        button.mr-2.btn.btn-secondary#select-all Select All
+                        button.mr-2.btn.btn-secondary#deselect-all Deselect All
+                        button.mr-2.btn.btn-secondary#select-100 Select 10 Items
+                        button.btn.btn-secondary#deselect-100 Deselect 10 Items
+                    .col-xl-6.mb-4
+                        p.lead Custom Header and Footer
+                        select#ms-custom(multiple='')
+                            option(value='elem_1' selected='') elem 1
+                            option(value='elem_2' selected='' disabled='') elem 2
+                            option(value='elem_3') elem 3
+                            option(value='elem_4') elem 4
+                            option(value='elem_5') elem 5
+                            option(value='elem_6') elem 6
+                            option(value='elem_7') elem 7
+                            option(value='elem_8') elem 8
+                            option(value='elem_9') elem 9
+                            option(value='elem_10') elem 10
+                            option(value='elem_11') elem 11
+                            option(value='elem_12') elem 12
+                            option(value='elem_13') elem 13
+                            option(value='elem_14') elem 14
+                            option(value='elem_15') elem 15
+                            option(value='elem_16') elem 16
+                            option(value='elem_17') elem 17
+                            option(value='elem_18') elem 18
+                            option(value='elem_19') elem 19
+                            option(value='elem_20') elem 20
+
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Range Sliders
+                small noUiSlider is a free and lightweight JavaScript range slider with full touch support
+            .cardbox-body
+                p Single
+                .ui-slider.mb-4(data-start='40')
+                p Range
+                .ui-slider-range.mb-4
+                p.clearfix
+                    span.float-left Live values
+                    span.float-right
+                        strong#ui-slider-value-lower.text-muted
+                        span.mx -
+                        strong#ui-slider-value-upper.text-muted
+                .ui-slider-values.mb-4
+                p.my-4 Slider Success
+                .ui-slider-range.ui-slider-success
+                p.my-4 Slider Info
+                .ui-slider-range.ui-slider-info
+                p.my-4 Slider Warning
+                .ui-slider-range.ui-slider-warning
+                p.my-4 Slider Danger
+                .ui-slider-range.ui-slider-danger
+
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Calendar
+                small A datepicker for twitter bootstrap
+            .cardbox-body
+                .row.text-center
+                    .col-xl-4
+                        #example-datepicker-1.ui-datepicker.datepicker-standalone.dp-theme-success.mb-4(data-date="6/25/2017")
+                    .col-xl-4
+                        #example-datepicker-2.ui-datepicker.datepicker-standalone.dp-theme-primary.mb-4(data-date="6/25/2017")
+                    .col-xl-4
+                        #example-datepicker-3.ui-datepicker.datepicker-standalone.dp-theme-warning.mb-4(data-date="6/25/2017")
+
+        .row
+            .col-sm-6
+                .cardbox
+                    .cardbox-heading Calendar Popup
+                    .cardbox-body
+                        p Focus on input
+                        #example-datepicker-container-4.rel-wrapper.ui-datepicker.ui-datepicker-popup.dp-theme-info
+                            input.form-control#example-datepicker-4(type="text", data-date="6/25/2017", placeholder="Select a date..")
+            .col-sm-6
+                .cardbox
+                    .cardbox-heading Calendar Range
+                    .cardbox-body
+                        #example-datepicker-container-5.rel-wrapper.ui-datepicker.ui-datepicker-popup.dp-theme-danger
+                            #example-datepicker-5.input-daterange
+                                .form-group.row.m-0
+                                    .col-6
+                                        p Range Start
+                                        input.form-control(type='text', name='start', value='02/16/2017')
+                                    .col-6
+                                        p Range Stop
+                                        input.form-control(type='text', name='end', value='02/22/2017')
+
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Time picker
+                small A clock-style timepicker for Bootstrap
+            .cardbox-body
+                .row
+                    .col-xl-6
+                        p Default placement
+                        .clockpicker.input-group.mb-4(data-autoclose='true')
+                            span.input-group-addon
+                                span.ion-clock
+                            input.form-control(type='text', value='09:30')
+                    .col-xl-6
+                        p Placement Left
+                        .clockpicker.input-group(data-autoclose='true', data-placement="left")
+                            span.input-group-addon
+                                span.ion-clock
+                            input.form-control(type='text', value='09:30')
+                .row
+                    .col-xl-6
+                        p Placement Right
+                        .clockpicker.input-group(data-autoclose='true', data-placement="right")
+                            span.input-group-addon
+                                span.ion-clock
+                            input.form-control(type='text', value='09:30')
+                    .col-xl-6
+                        p Placement top
+                        .clockpicker.input-group.mb-4(data-autoclose='true', data-placement="top")
+                            span.input-group-addon
+                                span.ion-clock
+                            input.form-control(type='text', value='09:30')
+
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Color pickers
+                small Simple and customizable colorpicker component for Twitter Bootstrap
+            .cardbox-body
+                .row
+                    .col-sm-6
+                        p Picker 2x
+                        input.form-control#cp-demo-basic(type='text', value='#5367ce')
+                    .col-sm-6
+                        p Hex format
+                        input#cp-demo-hex.form-control(type='text', data-format='hex', value='#5367ce')
+                .row.mt-4
+                    .col-sm-6
+                        p Component
+                        #cp-demo-component.input-group
+                            input.form-control.p-2(type='text', value='#5367ce')
+                            span.input-group-addon.bg-transparent.b0
+                                i
+                    .col-sm-6
+                        p Bootstrap colors
+                        input#cp-demo-bootstrap.form-control(type='text', data-format='hex', value='success')
+
+        .cardbox
+            .cardbox-heading
+                .cardbox-title Note editors
+                small Native textarea and background-images based text editor
+            .cardbox-body
+                .row
+                    .col-md-6
+                        p Default
+                        .card
+                            .card-block
+                                .note-area
+                                    textarea.form-control(rows="10") In elementum magna sed sapien gravida scelerisque.
+                    .col-md-6
+                        p With margin
+                        .card
+                            .card-block
+                                .note-area.note-area-margin
+                                    textarea.form-control(rows="10") Curabitur tellus mauris, fringilla sed tempus eget, convallis id orci.
+block vendor_css
+    // Datepicker
+    link(rel='stylesheet', href='vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css')
+    // Select2
+    link(rel='stylesheet', href='vendor/select2/dist/css/select2.css')
+    // Clockpicker
+    link(rel='stylesheet', href='vendor/clockpicker/dist/bootstrap-clockpicker.css')
+    // Range Slider
+    link(rel='stylesheet', href='vendor/nouislider/distribute/nouislider.min.css')
+    // ColorPicker
+    link(rel='stylesheet', href='vendor/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css')
+    // Multiselect
+    link(rel='stylesheet', href='vendor/multiselect/css/multi-select.css')
+block vendor_js
+    // Datepicker
+    script(src='vendor/bootstrap-datepicker/js/bootstrap-datepicker.js')
+    // Select2
+    script(src='vendor/select2/dist/js/select2.js')
+    // Clockpicker
+    script(src='vendor/clockpicker/dist/bootstrap-clockpicker.js')
+    // Range Slider
+    script(src='vendor/nouislider/distribute/nouislider.js')
+    // ColorPicker
+    script(src='vendor/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js')
+    // Multiselect
+    script(src='vendor/multiselect/js/jquery.multi-select.js')

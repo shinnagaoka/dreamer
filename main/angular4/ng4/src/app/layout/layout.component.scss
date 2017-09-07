@@ -1,0 +1,38 @@
+/**
+ * Main Layout
+ */
+
+@import '../shared/styles/common/variables';
+@import '../shared/styles/common/mixins';
+
+// Admin Layout
+// -----------------------------------
+
+.layout-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+// Main Content
+// -----------------------------------
+
+.main-container {
+    position: relative;
+    height: calc(100% - #{$header-hg});
+    // background-color: $main-content-bg;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    @media #{$min-desktop} {
+        margin-left: $sidebar-wd;
+    }
+
+    .section-container {
+        min-height: calc(100% - #{$footer-hg});
+    }
+}
+
+.content-heading {
+    padding: 1.2rem;
+    box-shadow: 0 1px 0 rgba(20, 20, 20, 0.075);
+}

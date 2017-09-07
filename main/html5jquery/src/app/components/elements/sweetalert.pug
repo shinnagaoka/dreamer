@@ -1,0 +1,36 @@
+extends ../core/core.layout.pug
+block pagetitle
+    - pageTitle = 'SweetAlert'
+block content
+    .container-md
+        .list-group.mb-3
+            .list-group-item.justify-content-between.flex-nowrap
+                p A basic message
+                p
+                    a#swal-demo1.btn.btn-primary(href='#') Try me!
+        .list-group.mb-3
+            .list-group-item.justify-content-between.flex-nowrap
+                p A title with a text under
+                p
+                    a#swal-demo2.btn.btn-primary(href='#') Try me!
+        .list-group.mb-3
+            .list-group-item.justify-content-between.flex-nowrap
+                p A success message!
+                p
+                    a#swal-demo3.btn.btn-primary(href='#') Try me!
+        .list-group.mb-3
+            .list-group-item.justify-content-between.flex-nowrap
+                p A warning message, with a function attached to the &quot;Confirm&quot;-button
+                p
+                    a#swal-demo4.btn.btn-primary(href='#') Try me!
+        .list-group.mb-3
+            .list-group-item.justify-content-between.flex-nowrap
+                p ... and by passing a parameter, you can execute something else for &quot;Cancel&quot;.
+                p
+                    a#swal-demo5.btn.btn-primary(href='#') Try me!
+block vendor_css
+    // Sweet Alert
+    link(rel='stylesheet', href='vendor/sweetalert/dist/sweetalert.css')
+block vendor_js
+    // Sweet Alert
+    script(src='vendor/sweetalert/dist/sweetalert-dev.js')

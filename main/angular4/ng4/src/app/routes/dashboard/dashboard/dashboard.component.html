@@ -1,0 +1,249 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-9">
+            <div class="welcome">
+                <div class="float-right mt-1 mr-1 hidden-sm-down">
+                    <a class="text-muted" href="#">
+                        <em class="ion-grid icon-lg"></em>
+                    </a>
+                </div>
+                <h1>Hello, Jane</h1>
+                <p>Welcome back to your Bootstrap 4 admin template.</p>
+            </div>
+            <div class="my-4">
+                <button class="btn btn-oval btn-primary btn-gradient mr-2">14 Messages</button>
+                <button class="btn btn-secondary btn-oval" type="button"><em class="ion-forward text-success mr-2 icon-lg"></em><span>View requests</span></button>
+            </div>
+            <div class="h-scroll">
+                <div class="row">
+                    <div class="col-8 col-md-4">
+                        <div class="cardbox">
+                            <div class="cardbox-body">
+                                <div class="clearfix mb-2">
+                                    <div class="float-right"><small><em class="ml-2 ion-arrow-up-b"></em></small></div>
+                                    <div class="float-left"><small>Running tasks</small></div>
+                                </div>
+                                <div class="h3" data-counter="275">0</div>
+                                <div class="text-center mt-3">
+                                    <div sparkline [values]="sparkValue1" [options]="sparkOpts1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-8 col-md-4">
+                        <div class="cardbox">
+                            <div class="cardbox-body">
+                                <div class="clearfix mb-2">
+                                    <div class="float-right"><small><em class="ml-2 ion-arrow-down-b"></em></small></div>
+                                    <div class="float-left"><small>Commits</small></div>
+                                </div>
+                                <div class="h3" data-counter="8345">0</div>
+                                <div class="text-center mt-3">
+                                    <div sparkline [values]="sparkValue2" [options]="sparkOpts2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-8 col-md-4">
+                        <div class="cardbox">
+                            <div class="cardbox-body">
+                                <div class="clearfix mb-2">
+                                    <div class="float-right"><small><em class="ml-2 ion-arrow-up-b"></em></small></div>
+                                    <div class="float-left"><small>Pull requests</small></div>
+                                </div>
+                                <div class="h3" data-counter="559">0</div>
+                                <div class="text-center mt-3">
+                                    <div sparkline [values]="sparkValue3" [options]="sparkOpts3"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cardbox">
+                <div class="cardbox-heading clearfix">
+                    <div class="float-md-left"><strong>Overview of sales progress</strong>
+                        <br><small>Relevance per month of the current year</small></div>
+                    <div class="mb-2 hidden-sm-up"></div>
+                    <div class="float-md-right">
+                        <select class="custom-select form-control form-control-sm">
+                            <option value="1" selected="">Last Period</option>
+                            <option value="2">Last Month</option>
+                            <option value="4">Last Year</option>
+                            <option value="4">01.01.2017 - 06.06.2017</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="margin: 0 -8px;">
+                    <div flot [dataset]="splineData" [options]="splineOptions" height="275" class="flot-chart flot-chart-lg flot-legend-left"></div>
+                </div>
+                <div class="cardbox-body">
+                    <div class="h-scroll">
+                        <div class="row text-center">
+                            <div class="col-sm-4"><small>Visitors</small>
+                                <h5 class="mt-1 mb-3"><strong>550</strong></h5>
+                                <div class="progress progress-xs mb-0 wd-xs m-auto">
+                                    <div class="progress-bar bg-success" style="width: 45%;"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4"><small>Clicks</small>
+                                <h5 class="mt-1 mb-3"><strong>230</strong></h5>
+                                <div class="progress progress-xs mb-0 wd-xs m-auto">
+                                    <div class="progress-bar bg-warning" style="width: 25%;"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4"><small>Income</small>
+                                <h5 class="mt-1 mb-3"><strong>$2,154.5</strong></h5>
+                                <div class="progress progress-xs mb-0 wd-xs m-auto">
+                                    <div class="progress-bar bg-info" style="width: 75%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cardbox cardbox-map">
+                <agm-map #agmMap [latitude]="map.lat" [longitude]="map.lng" [zoom]="map.zoom" [scrollwheel]="map.scrollwheel" [style.height]="'240px'" [styles]="MapStyles" [disableDefaultUI]="map.disableDefaultUI" [streetViewControl]="false" class="gmap gmap-md">
+                    <agm-marker [latitude]="map.lat" [longitude]="map.lng" [title]="'You'" [iconUrl]="'assets/img/marker.png'"></agm-marker>
+                </agm-map>
+                <div class="cardbox-footer">
+                    <div class="d-flex align-items-center">
+                        <div class="mr-3"><img class="thumb48 rounded-circle img-thumbnail" src="assets/img/user/02.jpg" alt="user"></div>
+                        <div><strong class="mr-1">Lois Miller</strong><small>is near to you.</small>
+                            <br><span>5 km from your location.</span></div>
+                        <div class="ml-auto">
+                            <button class="btn btn-sm btn-success" type="button">Start travel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cardbox">
+                <!-- START table-responsive-->
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Assignments</th>
+                                <th class="text-center">Lead</th>
+                                <th class="text-center">Evolution</th>
+                                <th class="text-center">No. Tasks</th>
+                                <th class="text-right">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p class="m-0">Hendrerit.
+                                        <br><small class="text-thin">Sed porta fermentum felis in molestie.</small></p>
+                                </td>
+                                <td class="va-middle text-center"><img class="wd-xxs2 rounded-circle shadow-z2" src="assets/img/user/02.jpg" alt="Team lead" data-toggle="tooltip" data-title="Marion Woods"></td>
+                                <td class="text-right va-middle text-center"><em class="ion-arrow-graph-up-right text-success"></em></td>
+                                <td class="va-middle text-center">25/50</td>
+                                <td class="va-middle text-right">
+                                    <div class="badge badge-info">in progress</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="m-0">Vestibulum mauris
+                                        <br><small class="text-thin">Sed porta fermentum felis in molestie.</small></p>
+                                </td>
+                                <td class="va-middle text-center"><img class="wd-xxs2 rounded-circle shadow-z2" src="assets/img/user/03.jpg" alt="Team lead" data-toggle="tooltip" data-title="Camila Martinez"></td>
+                                <td class="text-right va-middle text-center"><em class="ion-arrow-graph-down-right text-warning"></em></td>
+                                <td class="va-middle text-center">7/50</td>
+                                <td class="va-middle text-right">
+                                    <div class="badge badge-success">completed</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="m-0">Common Pictures
+                                        <br><small class="text-thin">Sed porta fermentum felis in molestie.</small></p>
+                                </td>
+                                <td class="va-middle text-center"><img class="wd-xxs2 rounded-circle shadow-z2" src="assets/img/user/04.jpg" alt="Team lead" data-toggle="tooltip" data-title="Carrie Romero"></td>
+                                <td class="text-right va-middle text-center"><em class="ion-arrow-graph-up-right text-success"></em></td>
+                                <td class="va-middle text-center">65/100</td>
+                                <td class="va-middle text-right">
+                                    <div class="badge badge-info">in progress</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="m-0">Workaround
+                                        <br><small class="text-thin">Sed porta fermentum felis in molestie.</small></p>
+                                </td>
+                                <td class="va-middle text-center"><img class="wd-xxs2 rounded-circle shadow-z2" src="assets/img/user/05.jpg" alt="Team lead" data-toggle="tooltip" data-title="Gregory Payne"></td>
+                                <td class="text-right va-middle text-center"><em class="ion-arrow-graph-down-right text-warning"></em></td>
+                                <td class="va-middle text-center">29/50</td>
+                                <td class="va-middle text-right">
+                                    <div class="badge badge-danger">canceled</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="m-0">Workaround
+                                        <br><small class="text-thin">Sed porta fermentum felis in molestie.</small></p>
+                                </td>
+                                <td class="va-middle text-center"><img class="wd-xxs2 rounded-circle shadow-z2" src="assets/img/user/07.jpg" alt="Team lead" data-toggle="tooltip" data-title="Gregory Payne"></td>
+                                <td class="text-right va-middle text-center"><em class="ion-arrow-graph-down-right text-warning"></em></td>
+                                <td class="va-middle text-center">29/50</td>
+                                <td class="va-middle text-right">
+                                    <div class="badge badge-info">in progress</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- END table-responsive-->
+            </div>
+        </div>
+        <div class="col-xl-3">
+            <div class="cardbox">
+                <div class="cardbox-heading">
+                    <div>Monthly performance</div>
+                </div>
+                <div class="cardbox-body py-0">
+                    <div flot [dataset]="donutData" [options]="donutOptions" height="275" class="flot-chart flot-chart-lg"></div>
+                </div>
+                <div class="cardbox-body">
+                    <div class="text-center"><span class="mr-3">2017 vs. 2016</span>
+                        <br><small>Aliquam commodo mauris non lectus porttitor dignissim.</small>
+                    </div>
+                </div>
+                <div class="cardbox-body">
+                    <div flot [dataset]="barChartData" [options]="barChartOptions" height="180" class="flot-chart flot-chart-md"></div>
+                </div>
+            </div>
+            <div class="cardbox cardbox-flat">
+                <div class="cardbox-heading">
+                    <div class="float-right"><em class="ion-alert-circled icon-lg text-muted"></em></div>
+                    <div>System usage</div>
+                </div>
+                <div class="cardbox-body">
+                    <div class="text-center">
+                        <input knob [data]="knobLoaderData1" [options]="knobLoaderOptions1"/>
+                    </div>
+                    <small><span class="float-right" id="ram-value">{{progress1}}</span>RAM</small>
+                    <div class="progress progress-xs mb-4">
+                        <div class="progress-bar bg-success" [style.width]="progress1"></div>
+                    </div>
+                    <small><span class="float-right" id="io-value">{{progress2}}</span>I/O</small>
+                    <div class="progress progress-xs mb-3">
+                        <div class="progress-bar bg-info" [style.width]="progress2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="cardbox">
+                <div class="cardbox-heading">
+                    <div class="float-right">
+                        <p class="m-0 text-muted"><em class="ml-2 ion-arrow-up-b"></em></p>
+                    </div>
+                    <div>PR/Commits per version</div><small>Curabitur diam mi, ultricies eget porttitor at, suscipit nec metus.</small>
+                </div>
+                <div class="cardbox-body">
+                <div flot [dataset]="stackedChartData" [options]="stackedChartOptions" height="190" class="flot-chart mb-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

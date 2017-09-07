@@ -1,0 +1,58 @@
+<div bsModal #msgViewModal="bs-modal" class="modal fade modal-right modal-auto-size">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="media m-0 py">
+                    <div class="d-flex mr-3">
+                        <a href="javascript:"><img class="rounded-circle thumb64" src="assets/img/user/04.jpg" alt="User"></a>
+                    </div>
+                    <div class="media-body align-self-center">
+                        <div class="h5">Patrick Brooks</div><span class="text-muted">patrick.brooks@mail.com</span>
+                    </div>
+                </div>
+                <div class="align-items-end">
+                    <div class="clickable" (click)="msgViewModal.hide()"><sup><em class="ion-close-round text-muted icon-2x"></em></sup></div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <!-- START dropdown-->
+                <div dropdown class="pull-right dropdown">
+                    <button type="button" dropdownToggle class="btn btn-default btn-flat btn-flat-icon"><em class="ion-android-more-vertical"></em></button>
+                    <ul role="menu" *dropdownMenu class="dropdown-menu md-dropdown-menu dropdown-menu-right">
+                        <li><a class="dropdown-item" href="javascript:"><em class="ion-star icon-fw"></em>Favorite</a></li>
+                        <li><a class="dropdown-item" href="javascript:"><em class="ion-ios-box icon-fw"></em>Archive</a></li>
+                        <li><a class="dropdown-item" href="javascript:" (click)="msgViewModal.hide()"><em class="ion-trash-a icon-fw"></em>Discard</a></li>
+                    </ul>
+                </div>
+                <!-- END dropdown-->
+                <p class="text-muted">26 aug 2015 10:30 am</p>
+                <h4 class="mt">Nam vel tristique dolor.</h4>
+                <div class="reader-block">
+                    <p>Praesent vel nisi nibh. Vestibulum purus ipsum, rutrum varius aliquam id, rhoncus eget neque. Curabitur sodales nisl eu enim suscipit eu faucibus dui mattis.</p>
+                    <p>Aenean risus nulla, aliquam sed aliquam vitae, ultricies non elit. Suspendisse nunc massa, euismod eu egestas quis, molestie sit amet mauris. Mauris eu lacus massa, vel condimentum lectus. Quisque quam justo, cursus sit amet pretium vel, viverra vel leo. Nullam lobortis consectetur hendrerit. Aenean rhoncus, est vel vestibulum tristique, ante lectus elementum augue, eu dictum turpis dui ut ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Pellentesque ac ligula varius nisl laoreet pretium quis quis tellus. Praesent et mauris lacus, non volutpat augue.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="d-flex flex-column fw">
+                    <div class="p-2">Reply</div>
+                    <div class="p-2">
+                        <div class="media m-0 py">
+                            <div class="d-flex mr-3">
+                                <a href="javascript:"><img class="rounded-circle thumb32" src="assets/img/user/01.jpg" alt="User"></a>
+                            </div>
+                            <div class="media-body">
+                                <form action="">
+                                    <div class="form-group">
+                                        <textarea class="form-control" rows="3" aria-multiline="true" tabindex="0" aria-invalid="false" placeholder="Write here..."></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <button class="btn btn-success" type="button" (click)="msgViewModal.hide()">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
