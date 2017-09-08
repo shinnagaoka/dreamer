@@ -1,3 +1,19 @@
+<?php
+session_start();
+require('dbconnect.php');
+if (isset($_COOKIE['email']) && $_COOKIE['email'] != '') {
+      $_POST['email'] = $_COOKIE['email'];
+      $_POST['password'] = $_COOKIE['password'];
+    }
+    if (empty($_POST)) {
+      if (empty($_COOKIE['email']) && empty($_COOKIE['password'])) {
+        echo "<h1>NOOOOOO</h1>";
+        header('Location: signin.php');
+        exit();
+      }
+    }
+require('../require/read_users_session.php');
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -125,7 +141,7 @@
     <div class="sidebar-toolbar-background"></div>
     <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="Profile"></a>
       <div class="mt-3">
-        <div class="lead"><?php echo $read_users['username']; ?></div>
+        <div class="lead"><?php echo $read_users['user_name']; ?></div>
         <div class="text-thin">北海道</div>
       </div>
     </div>
@@ -135,7 +151,7 @@
       <li>
         <div class="sidebar-nav-heading">マイページ</div>
       </li>
-      <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
+      <li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
       <!-- <li><a href="widgets.html"><span class="float-right nav-label"><span class="badge-rounded badge-primary">!</span></span><span class="nav-icon"><em class="ion-ios-box-outline"></em></span><span>達成された夢</span></a></li> -->
 <!-- <li>
 <div class="sidebar-nav-heading">COMPONENTS</div>
@@ -146,7 +162,7 @@
     <li><a href="bootstrapui.html"><span class="float-right nav-label"></span><span>No.2</span></a></li>
   </ul>
 </li>
-<li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>編集</span></a></li>
+<li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>編集</span></a></li>
 
 <li>
   <div class="sidebar-nav-heading">閲覧</div>
