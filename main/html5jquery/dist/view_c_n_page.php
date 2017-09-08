@@ -82,7 +82,7 @@ require('../require/read_users_session.php');
 			<li>
 				<div class="sidebar-nav-heading">マイページ</div>
 			</li>
-			<li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon">
+			<li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon">
 				<em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a>
 			</li>
 			<li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>達成された夢</span></a>
@@ -91,7 +91,7 @@ require('../require/read_users_session.php');
 					<li><a href="bootstrapui.html"><span class="float-right nav-label"></span><span>No.2</span></a></li>
 				</ul>
 			</li>
-			<li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>編集</span></a>
+			<li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>編集</span></a>
 			</li>
 			<li>
 				<div class="sidebar-nav-heading">閲覧</div>
