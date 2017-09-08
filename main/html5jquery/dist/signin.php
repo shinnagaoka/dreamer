@@ -24,10 +24,10 @@ if (!empty($_POST)) {
 
       if ($record != false) {
         $_SESSION['login_users']['user_id'] = $record['user_id'];
-
+        setcookie('login_user_id',$_SESSION['login_users']['user_id'],time()+ 60*60);//*24*14
         if (isset($_POST['auto_login']) && $_POST['auto_login'] == 'checked') {
-setcookie('email',$_POST['email'],time()+ 60*60);//*24*14
-setcookie('password',$_POST['password'],time()+ 60*60);//*24*14
+        setcookie('email',$_POST['email'],time()+ 60*60);//*24*14
+        setcookie('password',$_POST['password'],time()+ 60*60);//*24*14
 }
 header('Location: dashboard.php');
 exit();
@@ -50,7 +50,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 
   if ($record != false) {
     $_SESSION['login_users']['user_id'] = $record['user_id'];
-
+    setcookie('login_user_id',$_SESSION['login_users']['user_id'],time()+ 60*60);//*24*14
     if (isset($_POST['auto_login']) && $_POST['auto_login'] == 'checked') {
 setcookie('email',$_POST['email'],time()+ 60*60);//*24*14
 setcookie('password',$_POST['password'],time()+ 60*60);//*24*14

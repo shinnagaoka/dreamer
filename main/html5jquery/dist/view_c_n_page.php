@@ -136,13 +136,15 @@ require('../require/read_users_session.php');
 		require('../require/read_dream.php');
 		$user_id = $read_dream['user_id'];
 		require('../require/read_users.php');
+		require('../require/read_cheers_amount.php');
 		//$read_dream[]で中身出せる ?>
 				<div class="col-8 col-md-4"  style="margin-top: 20px;">
 					<div class="card">
 						<img class="card-img-top img-fluid" src="img/<?php echo $read_dream['dream_image_path']; ?>" alt="Card image cap" style="height: 100px; width: 100%;">
 						<div class="card-block">
 							<h2 class="card-title"><?php echo $read_dream['dream_contents']; ?></h2>
-								<?php echo $read_dream['created']; ?><br><br>
+								<?php echo $read_dream['created']; ?><br>
+								<?php echo $read_cheers_amount['cnt']; ?><br>
 								<div>
 									<span class="card-text">
 										<img style="width: 30px; height: 30px;" class="rounded-circle" src="img/user/<?php echo $read_users['profile_image_path']; ?>">
