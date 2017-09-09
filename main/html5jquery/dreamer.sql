@@ -84,13 +84,6 @@ CREATE TABLE IF NOT EXISTS `dr_chats` (
 -- テーブルのデータのダンプ `users`
 --
 
-INSERT INTO `dr_users` (`user_id`, `user_name`, `email`, `password`, `profile_image_path`, `created`, `modified`) VALUES
-(1, 'masaki', 'test@gmail.com', '12345', '02.jpg', '2016-01-01 00:00:00', '');
-INSERT INTO `dr_users` (`user_id`, `user_name`, `email`, `password`, `profile_image_path`, `created`, `modified`) VALUES
-(2, 'tarou', 'test@gmail.com', '12345', '03.jpg', '2016-01-01 00:00:00', '');
-INSERT INTO `dr_users` (`user_id`, `user_name`, `email`, `password`, `profile_image_path`, `created`, `modified`) VALUES
-(3, 'jirou', 'test@gmail.com', '12345', '04.jpg', '2016-01-01 00:00:00', '');
-
 INSERT INTO `dr_dreams` (`dream_id`, `user_id`, `dream_contents`, `dream_image_path`, `category`, `d_schedule`, `achieve_1`, `achieve_2`, `achieve_3`, `created`, `modified`) VALUES
 (1, 1, 'Make a girlfriend.', '1.jpg', 1, '2018-01-01 00:00:00', '', '', '', '2016-01-01 00:00:00','');
 INSERT INTO `dr_dreams` (`dream_id`, `user_id`, `dream_contents`, `dream_image_path`, `category`, `d_schedule`, `achieve_1`, `achieve_2`, `achieve_3`, `created`, `modified`) VALUES
