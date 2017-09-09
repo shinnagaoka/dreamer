@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+    <!--
+    window.onload = initialize;
+    function initialize() {
+        document.getElementById( 'stopwatchStartAndStop' ).onclick=stopwatch;
+        document.getElementById( 'stopwatchClear' ).onclick=stopwatchClear;
+    }
+
+    var $enable = false, $stopwatchTime, $startTime, $stopwatchTimeAdd = 0;
+    function stopwatch() {
+        $enable = !$enable;
+        if( $enable ){
+            stopwatchStart();
+        }else{
+            stopwatchStop();
+        }
+    }
+    function stopwatchStart() {
+        document.getElementById( 'stopwatchStartAndStop' ).innerHTML= 'ストップ';
+        if( $startTime === undefined ){
+            var $startDate = new Date();
+            $startTime = $startDate.getTime();
+        }
+        var $nowDate = new Date();
+        $stopwatchTime = $nowDate.getTime() - $startTime + $stopwatchTimeAdd;
+        $stopwatchSecond = Math.floor( $stopwatchTime / 1000 ) % 60;
+        $stopwatchMinute = Math.floor( $stopwatchTime / 1000 / 60 ) % 60;
+        $stopwatchHour = Math.floor( Math.floor( $stopwatchTime / 1000 / 60 ) / 60 );
+
+        if( $stopwatchSecond < 10 ){
+            $stopwatchSecond = '0' + $stopwatchSecond;
+        }
+        if( $stopwatchMinute < 10 ){
+            $stopwatchMinute = '0' + $stopwatchMinute;
+        }
+        if( $stopwatchHour < 10 ){
+            $stopwatchHour = '0' + $stopwatchHour;
+        }
+        document.getElementById( 'stopwatchHour' ).innerHTML= $stopwatchHour;
+        document.getElementById( 'stopwatchMinute' ).innerHTML= $stopwatchMinute;
+        document.getElementById( 'stopwatchSecond' ).innerHTML= $stopwatchSecond;
+        $stopwatch = setTimeout( "stopwatchStart()", 1 );
+    }
+    function stopwatchStop() {
+        document.getElementById( 'stopwatchStartAndStop' ).innerHTML= 'スタート';
+        clearTimeout( $stopwatch );
+        $startTime = undefined;
+        $stopwatchTimeAdd = $stopwatchTime;
+    }
+    function stopwatchClear() {
+        $startTime = undefined;
+        $stopwatchTimeAdd = 0;
+        document.getElementById( 'stopwatchHour' ).innerHTML= '00';
+        document.getElementById( 'stopwatchMinute' ).innerHTML= '00';
+        document.getElementById( 'stopwatchSecond' ).innerHTML= '00';
+    }
+    // -->
+    </script>
+    <style type="text/css">
+    div#stopwatchWrapper {
+        text-align: center;
+    }
+    div#stopwatch {
+        font-weight: bold;
+        font-size: 30px;
+        text-align: center;
+        width: 396px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        border: 2px #000000 solid;
+        border-radius: 6px;
+    }
+    #stopwatchControl {
+        text-align: center;
+        width: 400px;
+    }
+    #stopwatchControl button {
+        font-size: 30px;
+        width: 6em;
+    }
+    </style>
+</head>
+<body>
+<div id="stopwatchWrapper">
+    <div id="stopwatch">
+        <span id="stopwatchHour">00</span>
+        <span>:</span>
+        <span id="stopwatchMinute">00</span>
+        <span>:</span>
+        <span id="stopwatchSecond">00</span>
+
+    </div>
+    <div id="stopwatchControl">
+        <button id="stopwatchStartAndStop">スタート</button>
+        <button id="stopwatchClear">クリア</button>
+    </div>
+</div>
+
+</body>
+</html>
