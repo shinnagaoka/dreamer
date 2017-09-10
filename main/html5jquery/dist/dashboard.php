@@ -1,18 +1,18 @@
 <?php
 session_start();
 require('dbconnect.php');
+if (empty($_COOKIE['email']) || empty($_COOKIE['password'])) {
+  echo "<h1>NOOOOOO</h1>";
+  header('Location: signin.php');
+  exit();
+}
 if (isset($_COOKIE['email']) && $_COOKIE['email'] != '') {
-      $_POST['email'] = $_COOKIE['email'];
-      $_POST['password'] = $_COOKIE['password'];
-    }
-    if (empty($_POST)) {
-      if (empty($_COOKIE['email']) && empty($_COOKIE['password'])) {
-        echo "<h1>NOOOOOO</h1>";
-        header('Location: signin.php');
-        exit();
-      }
-    }
 require('../require/read_users_session.php');
+}else{
+  echo "<h1>NOOOOOO</h1>";
+  header('Location: signin.php');
+  exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -153,7 +153,7 @@ require('../require/read_users_session.php');
           <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
             <div class="dropdown-menu dropdown-menu-right dropdown-scale">
               <h6 class="dropdown-header">ユーザーメニュー</h6><a class="dropdown-item" href="#"><!-- <span class="float-right badge badge-primary">4</span> --><em class="ion-ios-email-outline icon-lg text-primary"></em>マイページ</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>編集</a>
-              <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="user.login.html"><em class="ion-log-out icon-lg text-primary"></em>ログアウト</a>
+              <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="logout.php"><em class="ion-log-out icon-lg text-primary"></em>ログアウト</a>
             </div>
           </li>
         </ul>
@@ -253,27 +253,27 @@ require('../require/read_users_session.php');
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-xs-12 col-rol-3">
+            <div class="col-lg-3 col-xs-12 col-rol-3">
               <div class="cardbox">
                 <div class="cardbox-body">
                   <div class="clearfix mb-3">
-                    <div style="margin-bottom: 10px; border: 100px;">
-                    <form name="myForm">
-                      <div id="stopwatch">
-                        <div class="" style="font-size: 50px; height: 70px;">
-                          <span id="stopwatchHour">00</span>
-                          <span>:</span>
-                          <span id="stopwatchMinute">00</span>
-                          <span>:</span>
-                          <span id="stopwatchSecond">00</span>
-                          <input style="height:70px;" class="btn btn-info" type="button" value="Start" name="myFormButton" onclick="myCheck()">
+                    <div class="text-center" style=" margin-bottom: 10px; border: 100px;">
+                      <form name="myForm">
+                        <div id="stopwatch">
+                          <div style="font-size: 40px; height: 55px;">
+                            <span id="stopwatchHour">00</span>
+                            <span>:</span>
+                            <span id="stopwatchMinute">00</span>
+                            <span>:</span>
+                            <span id="stopwatchSecond">00</span>
+                          </div>
+                          <input style="height:55px;" class="btn btn-info" type="button" value="Start" name="myFormButton" onclick="myCheck()">
                         </div>
-                      </div>
-                      <br>
-                      <input type="text" name="myFormTime">
-                      <input class="btn btn-primary" type="submit" name="insert_time" value="Submit">
-                    </form>
-             <!-- <input type="submit" value="確認画面へ" class="btn btn-info"> -->
+                        <br>
+                        <input type="text" name="myFormTime">
+                        <input class="btn btn-primary" type="submit" name="insert_time" value="Submit">
+                      </form>
+                      <!-- <input type="submit" value="確認画面へ" class="btn btn-info"> -->
                     </div>
                   </div>
                 </div>
