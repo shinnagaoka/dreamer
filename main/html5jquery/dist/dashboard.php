@@ -253,43 +253,41 @@ elseif (!isset($_COOKIE['email']) && $_COOKIE['email']== '') {
                       <span style="float:right">〆2019年2月13日</span>
                     </div>
                   </div>
+                  <div style="margin:10px">
+                    <button class="col-xs-2 btn btn-info" type="button">チャット</button>
+                    <a href="#" class="btn btn-xs btn-info">
+                    <span class="glyphicon glyphicon-thumbs-up"></span>応援</a>178
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-xs-12 col-rol-3">
+            <div class="col-lg-4 col-xs-12 col-rol-3">
               <div class="cardbox">
                 <div class="cardbox-body">
                   <div class="clearfix mb-3">
                     <div class="text-center" style=" margin-bottom: 10px; border: 100px;">
                       <form name="myForm">
-                        <div id="stopwatch">
-                          <div style="font-size: 40px; height: 55px;">
-                            <span id="stopwatchHour">00</span>
-                            <span>:</span>
-                            <span id="stopwatchMinute">00</span>
-                            <span>:</span>
-                            <span id="stopwatchSecond">00</span>
-                          </div>
-                          <input style="height:55px;" class="btn btn-info" type="button" value="Start" name="myFormButton" onclick="myCheck()">
+                        <div class="mx-auto" id="stopwatch" style="width: 250px;">
+                            <span style="font-size: 40px;" id="stopwatchHour">00</span>
+                            <span style="font-size: 40px;">:</span>
+                            <span style="font-size: 40px;" id="stopwatchMinute">00</span>
+                            <span style="font-size: 40px;">:</span>
+                            <span style="font-size: 40px;" id="stopwatchSecond">00</span>
+                            <input style="height:55px; width: 62px; margin-bottom: 19px;" class="btn btn-info" type="button" value="Start" name="myFormButton" onclick="myCheck()">
                         </div>
-                        <br>
-                        <input type="text" name="myFormTime">
-                        <input class="btn btn-primary" type="submit" name="insert_time" value="Submit">
+                        <div class="mx-auto"  style="width: 250px;">
+                          <span>
+                            <input style="height: 56px; width: 170px;" type="text" name="myFormTime" placeholder="00:00:00">
+                            <input style="height: 56px; width: 62px;" class="btn btn-info" type="submit" name="insert_time" value="登録">
+                          </span>
+                        </div>
                       </form>
-                      <!-- <input type="submit" value="確認画面へ" class="btn btn-info"> -->
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div style="margin:10px">
-            <button class="col-xs-2 btn btn-info" type="button">チャット</button>
-            <a href="#" class="btn btn-xs btn-info">
-            <span class="glyphicon glyphicon-thumbs-up"></span>応援</a>178
-          </div>
-
           <!-- グラフ -->
           <div class="row">
             <div class="col-lg-12">
