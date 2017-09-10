@@ -184,7 +184,7 @@ elseif (!isset($_COOKIE['email']) && $_COOKIE['email']== '') {
             <li>
               <div class="sidebar-nav-heading">マイページ</div>
             </li>
-              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
+              <li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
                     <!-- <li><a href="widgets.html"><span class="float-right nav-label"><span class="badge-rounded badge-primary">!</span></span><span class="nav-icon"><em class="ion-ios-box-outline"></em></span><span>達成された夢</span></a></li> -->
                     <!-- <li>
                       <div class="sidebar-nav-heading">COMPONENTS</div>
@@ -200,7 +200,7 @@ elseif (!isset($_COOKIE['email']) && $_COOKIE['email']== '') {
             <li>
               <div class="sidebar-nav-heading">閲覧</div>
             </li>
-              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-list-outline"></em></span><span>カテゴリー別</span></a>
+              <li><a href="view_c_page.php"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-list-outline"></em></span><span>カテゴリー別</span></a>
                 <ul class="sidebar-subnav" id="tables">
                   <li><a href="view_c_page.php #1"><span class="float-right nav-label"></span><span>職業</span></a></li>
                   <li><a href="view_c_page.php #2"><span class="float-right nav-label"></span><span>人間関係</span></a></li>
@@ -211,8 +211,8 @@ elseif (!isset($_COOKIE['email']) && $_COOKIE['email']== '') {
                 </ul>
               </li>
 
-              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>応援している夢</span></a></li>
-              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>履歴</span></a></li>
+              <li><a href="view_c_n_page.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>応援している夢</span></a></li>
+              <li><a href="view_h_page.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>履歴</span></a></li>
           </ul>
         </nav>
       </div>
