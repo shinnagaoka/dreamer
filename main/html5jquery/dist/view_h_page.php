@@ -1,19 +1,16 @@
 <?php
 session_start();
 require('../dbconnect.php');
-require('dbconnect.php');
-if (isset($_COOKIE['email']) && $_COOKIE['email'] != '') {
-      $_POST['email'] = $_COOKIE['email'];
-      $_POST['password'] = $_COOKIE['password'];
-    }
-    if (empty($_POST)) {
-      if (empty($_COOKIE['email']) && empty($_COOKIE['password'])) {
-      	echo "<h1>NOOOOOO</h1>";
-      	header('Location: signin.php');
-      	exit();
-      }
-    }
-require('../require/read_users_session.php');
+//$_SESSIONが存在し、なおかつログインできればそのまま進める
+if (isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['user_id'] !='') {
+    require('../require/read_users_session.php');
+    //login!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+//$_SESSIONがなければsignin.phpに戻す
+elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['user_id']=='') {
+    header('Location: signin.php');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">

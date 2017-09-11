@@ -1,18 +1,16 @@
 <?php
 session_start();
-require('dbconnect.php');
-if (isset($_COOKIE['email']) && $_COOKIE['email'] != '') {
-      $_POST['email'] = $_COOKIE['email'];
-      $_POST['password'] = $_COOKIE['password'];
-    }
-    if (empty($_POST)) {
-      if (empty($_COOKIE['email']) && empty($_COOKIE['password'])) {
-        echo "<h1>NOOOOOO</h1>";
-        header('Location: signin.php');
-        exit();
-      }
-    }
-require('../require/read_users_session.php');
+require('../dbconnect.php');
+//$_SESSIONが存在し、なおかつログインできればそのまま進める
+if (isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['user_id'] !='') {
+    require('../require/read_users_session.php');
+    //login!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+//$_SESSIONがなければsignin.phpに戻す
+elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['user_id']=='') {
+    header('Location: signin.php');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -153,7 +151,7 @@ require('../require/read_users_session.php');
           <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
             <div class="dropdown-menu dropdown-menu-right dropdown-scale">
               <h6 class="dropdown-header">ユーザーメニュー</h6><a class="dropdown-item" href="#"><!-- <span class="float-right badge badge-primary">4</span> --><em class="ion-ios-email-outline icon-lg text-primary"></em>マイページ</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>編集</a>
-              <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="user.login.html"><em class="ion-log-out icon-lg text-primary"></em>ログアウト</a>
+              <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="logout.php"><em class="ion-log-out icon-lg text-primary"></em>ログアウト</a>
             </div>
           </li>
         </ul>
@@ -181,7 +179,7 @@ require('../require/read_users_session.php');
             <li>
               <div class="sidebar-nav-heading">マイページ</div>
             </li>
-              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
+              <li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
                     <!-- <li><a href="widgets.html"><span class="float-right nav-label"><span class="badge-rounded badge-primary">!</span></span><span class="nav-icon"><em class="ion-ios-box-outline"></em></span><span>達成された夢</span></a></li> -->
                     <!-- <li>
                       <div class="sidebar-nav-heading">COMPONENTS</div>
@@ -197,7 +195,7 @@ require('../require/read_users_session.php');
             <li>
               <div class="sidebar-nav-heading">閲覧</div>
             </li>
-              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-list-outline"></em></span><span>カテゴリー別</span></a>
+              <li><a href="view_c_page.php"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-list-outline"></em></span><span>カテゴリー別</span></a>
                 <ul class="sidebar-subnav" id="tables">
                   <li><a href="view_c_page.php #1"><span class="float-right nav-label"></span><span>職業</span></a></li>
                   <li><a href="view_c_page.php #2"><span class="float-right nav-label"></span><span>人間関係</span></a></li>
@@ -208,8 +206,8 @@ require('../require/read_users_session.php');
                 </ul>
               </li>
 
-              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>応援している夢</span></a></li>
-              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>履歴</span></a></li>
+              <li><a href="view_c_n_page.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>応援している夢</span></a></li>
+              <li><a href="view_h_page.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>履歴</span></a></li>
           </ul>
         </nav>
       </div>
@@ -250,6 +248,11 @@ require('../require/read_users_session.php');
                       <span style="float:right">〆2019年2月13日</span>
                     </div>
                   </div>
+                  <div style="margin:10px">
+                    <button class="col-xs-2 btn btn-info" type="button">チャット</button>
+                    <a href="#" class="btn btn-xs btn-info">
+                    <span class="glyphicon glyphicon-thumbs-up"></span>応援</a>178
+                  </div>
                 </div>
               </div>
             </div>
@@ -257,36 +260,29 @@ require('../require/read_users_session.php');
               <div class="cardbox">
                 <div class="cardbox-body">
                   <div class="clearfix mb-3">
-                    <div style="margin-bottom: 10px; border: 100px;">
-                    <form name="myForm">
-                      <div id="stopwatch">
-                        <div class="" style="font-size: 50px; height: 70px;">
-                          <span id="stopwatchHour">00</span>
-                          <span>:</span>
-                          <span id="stopwatchMinute">00</span>
-                          <span>:</span>
-                          <span id="stopwatchSecond">00</span>
-                          <input style="height:70px;" class="btn btn-info" type="button" value="Start" name="myFormButton" onclick="myCheck()">
+                    <div class="text-center" style=" margin-bottom: 10px; border: 100px;">
+                      <form name="myForm">
+                        <div class="mx-auto" id="stopwatch" style="width: 250px;">
+                            <span style="font-size: 40px;" id="stopwatchHour">00</span>
+                            <span style="font-size: 40px;">:</span>
+                            <span style="font-size: 40px;" id="stopwatchMinute">00</span>
+                            <span style="font-size: 40px;">:</span>
+                            <span style="font-size: 40px;" id="stopwatchSecond">00</span>
+                            <input style="height:55px; width: 62px; margin-bottom: 19px;" class="btn btn-info" type="button" value="Start" name="myFormButton" onclick="myCheck()">
                         </div>
-                      </div>
-                      <br>
-                      <input type="text" name="myFormTime">
-                      <input class="btn btn-primary" type="submit" name="insert_time" value="Submit">
-                    </form>
-             <!-- <input type="submit" value="確認画面へ" class="btn btn-info"> -->
+                        <div class="mx-auto"  style="width: 250px;">
+                          <span>
+                            <input style="height: 56px; width: 170px;" type="text" name="myFormTime" placeholder="00:00:00">
+                            <input style="height: 56px; width: 62px;" class="btn btn-info" type="submit" name="insert_time" value="登録">
+                          </span>
+                        </div>
+                      </form>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div style="margin:10px">
-            <button class="col-xs-2 btn btn-info" type="button">チャット</button>
-            <a href="#" class="btn btn-xs btn-info">
-            <span class="glyphicon glyphicon-thumbs-up"></span>応援</a>178
-          </div>
-
           <!-- グラフ -->
           <div class="row">
             <div class="col-lg-12">
