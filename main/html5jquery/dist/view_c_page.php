@@ -1,29 +1,15 @@
 <?php
 session_start();
 require('../dbconnect.php');
-if (isset($_COOKIE['email']) && $_COOKIE['email'] != '') {
-      $_POST['email'] = $_COOKIE['email'];
-      $_POST['password'] = $_COOKIE['password'];
-    }
-    if (empty($_POST)) {
-      if (empty($_COOKIE['email']) && empty($_COOKIE['password'])) {
-      	echo "<h1>NOOOOOO</h1>";
-      	header('Location: signin.php');
-      	exit();
-      }
-    }
-require('../require/read_users_session.php');
-if (!empty($_SESSION['user_id'])) {
-// if (!empty($_POST['cheer_btn'])) {
-// 	$user_id=$_SESSION['user_id'];
-// 	$dream_id=$_POST['cheer_btn'];
-// 	require('../require/read_cheers.php');
-// }
-//require('partial/read_dream.php');
-//$_SESSION['user_id']に格納されているユーザーに関係する夢をすべてまとめて$read_dream配列にまとめて出力されて返ってきます。取り出すときはforeach関数で一つずつ取り出しましょう。
-//require('partial/read_step.php');
-//$_SESSION['dream_id']に格納されている夢に関係するステップをすべてまとめて$read_step配列にまとめて出力されて返ってきます。取り出すときはforeach関数で一つずつ取り出しましょう。
-//require('partial/read_eva.php');
+//$_SESSIONが存在し、なおかつログインできればそのまま進める
+if (isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['user_id'] !='') {
+    require('../require/read_users_session.php');
+    //login!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+//$_SESSIONがなければsignin.phpに戻す
+elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['user_id']=='') {
+    header('Location: signin.php');
+    exit();
 }
 $category = array('職業','人間関係','健康','勉強','お金','その他');
 ?>
