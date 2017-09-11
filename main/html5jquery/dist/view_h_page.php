@@ -1,19 +1,21 @@
 <?php
 session_start();
-require('../dbconnect.php');
 require('dbconnect.php');
-if (isset($_COOKIE['email']) && $_COOKIE['email'] != '') {
-      $_POST['email'] = $_COOKIE['email'];
-      $_POST['password'] = $_COOKIE['password'];
-    }
-    if (empty($_POST)) {
-      if (empty($_COOKIE['email']) && empty($_COOKIE['password'])) {
-      	echo "<h1>NOOOOOO</h1>";
-      	header('Location: signin.php');
-      	exit();
-      }
-    }
-require('../require/read_users_session.php');
+//$_SESSIONが存在し、なおかつログインできればそのまま進める
+if (isset($_SESSION['login_user']['email']) && isset($_SESSION['login_user']['password'])) {
+    require('../require/read_users_session.php');
+    //login!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+//$_SESSIONがなければsignin.phpに戻す
+elseif (!isset($_SESSION['login_user']['email']) && $_SESSION['login_user']['email']=='') {
+    header('Location: signin.php');
+    exit();
+}
+//クッキーが存在すればsignin.phpに戻して$_SESSIONを作らせる。
+elseif (!isset($_COOKIE['email']) && $_COOKIE['email']== '') {
+  header('Location: signin.php');
+  exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -143,7 +145,8 @@ require('../require/read_users_session.php');
 						<img class="card-img-top img-fluid" src="img/<?php echo $read_dream['dream_image_path']; ?>" alt="Card image cap" style="height: 100px; width: 100%;">
 						<div class="card-block">
 							<h2 class="card-title"><?php echo $read_dream['dream_contents']; ?></h2>
-								<?php echo $read_dream['created']; ?><br><br>
+								<?php echo $read_dream['created']; ?><br>
+								応援された数：<?php echo $read_cheers_amount['cnt']; ?><br>
 								<div>
 									<span class="card-text">
 										<img style="width: 30px; height: 30px;" class="rounded-circle" src="img/user/<?php echo $read_users['profile_image_path']; ?>">
