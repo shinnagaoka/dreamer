@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('dbconnect.php');
+require('../dbconnect.php');
 if (isset($_COOKIE['email']) && $_COOKIE['email'] != '' && isset($_COOKIE['password']) && $_COOKIE['password'] != '' ) {
   $_POST['email'] = $_COOKIE['email'];
   $_POST['password'] = $_COOKIE['password'];
@@ -18,8 +18,7 @@ if (!empty($_POST)) {
     $stmt->execute($data);
     $record =$stmt->fetch(PDO::FETCH_ASSOC);
     if ($record != false) {
-      $_SESSION['login_user']['email'] = $record['email'];
-      $_SESSION['login_user']['password'] = $record['password'];
+      $_SESSION['login_user']['user_id'] = $record['user_id'];
       if (isset($_POST['auto_login'])&& $_POST['auto_login']=='checked') {
         setcookie('login_user_id',$_SESSION['login_users']['user_id'],time()+ 60*60);//*24*14
         setcookie('email',$_POST['email'],time()+ 60*60);//*24*14

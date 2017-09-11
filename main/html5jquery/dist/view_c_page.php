@@ -1,20 +1,15 @@
 <?php
 session_start();
-require('dbconnect.php');
+require('../dbconnect.php');
 //$_SESSIONが存在し、なおかつログインできればそのまま進める
-if (isset($_SESSION['login_user']['email']) && isset($_SESSION['login_user']['password'])) {
+if (isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['user_id'] !='') {
     require('../require/read_users_session.php');
     //login!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 //$_SESSIONがなければsignin.phpに戻す
-elseif (!isset($_SESSION['login_user']['email']) && $_SESSION['login_user']['email']=='') {
+elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['user_id']=='') {
     header('Location: signin.php');
     exit();
-}
-//クッキーが存在すればsignin.phpに戻して$_SESSIONを作らせる。
-elseif (!isset($_COOKIE['email']) && $_COOKIE['email']== '') {
-  header('Location: signin.php');
-  exit();
 }
 $category = array('職業','人間関係','健康','勉強','お金','その他');
 ?>
