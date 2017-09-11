@@ -219,7 +219,8 @@ $category = array('職業','人間関係','健康','勉強','お金','その他'
 										<img class="card-img-top img-fluid" src="img/<?php echo $dream['dream_image_path']; ?>" alt="Card image cap" style="height: 100%; width: 100%;">
 										<div class="card-block">
 											<h2 class="card-title"><?php echo $dream['dream_contents']; ?></h2>
-								<?php echo $dream['created']; ?><br><br>
+											<?php echo $dream['created']; ?><br>
+											応援された数：<?php echo $read_cheers_amount['cnt']; ?><br>
 											<div>
 												<span class="card-text">
 														<img style="width: 30px; height: 30px;" class="rounded-circle" src="img/user/<?php echo $read_users['profile_image_path']; ?>">

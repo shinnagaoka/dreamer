@@ -142,7 +142,7 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
 						<div class="card-block">
 							<h2 class="card-title"><?php echo $read_dream['dream_contents']; ?></h2>
 								<?php echo $read_dream['created']; ?><br>
-								<?php echo $read_cheers_amount['cnt']; ?><br>
+								応援された数：<?php echo $read_cheers_amount['cnt']; ?><br>
 								<div>
 									<span class="card-text">
 										<img style="width: 30px; height: 30px;" class="rounded-circle" src="img/user/<?php echo $read_users['profile_image_path']; ?>">
