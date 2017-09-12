@@ -127,14 +127,14 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
 		<div class="container">
 			<div class="row">
 		<?php
-		$user_id = $_SESSION['user_id'];
+		$user_id = $_SESSION['login_user']['user_id'];
 		require('../require/read_cheers.php');
 		foreach ($read_cheers as $cheered) {
 		$rd=$cheered['dream_id'];
 		require('../require/read_dream.php');
+		require('../require/read_cheers_amount.php');
 		$user_id = $read_dream['user_id'];
 		require('../require/read_users.php');
-		require('../require/read_cheers_amount.php');
 		//$read_dream[]で中身出せる ?>
 				<div class="col-8 col-md-4"  style="margin-top: 20px;">
 					<div class="card">

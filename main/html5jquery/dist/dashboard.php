@@ -442,7 +442,7 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
                   <a class="btn btn-primary" id="swal-demo3" href="#">Finish!</a>
                 </p>
               </div>
-              <a href="#" class="btn btn-block btn-lg bg-gradient-warning">達成</a>
+              <a href="achieve_page.php" class="btn btn-block btn-lg bg-gradient-warning">達成</a>
             </div>
           </div>
         </div>

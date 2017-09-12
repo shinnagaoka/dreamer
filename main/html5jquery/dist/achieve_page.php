@@ -1,23 +1,31 @@
 <?php
 session_start();
-require('dbconnect.php');
+require('../dbconnect.php');
 //$_SESSIONが存在し、なおかつログインできればそのまま進める
-if (isset($_SESSION['login_user']['email']) && isset($_SESSION['login_user']['password'])) {
+if (isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['user_id'] !='') {
     require('../require/read_users_session.php');
     //login!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 //$_SESSIONがなければsignin.phpに戻す
-elseif (!isset($_SESSION['login_user']['email']) && $_SESSION['login_user']['email']=='') {
+elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['user_id']=='') {
     header('Location: signin.php');
     exit();
 }
-//クッキーが存在すればsignin.phpに戻して$_SESSIONを作らせる。
-elseif (!isset($_COOKIE['email']) && $_COOKIE['email']== '') {
-  header('Location: signin.php');
-  exit();
-}
 $rd=$read_users['now_dream_id'];
 require('../require/read_dream.php');
+$user_id = $read_dream['user_id'];
+require('../require/read_cheers_amount.php');
+
+if (!empty($_POST)) {
+  var_dump($_POST);
+  var_dump($rd);
+  $dream_id = $rd;
+  $achieve_1 = $_POST['a_hard'];
+  $achieve_2 = $_POST['a_study'];
+  $achieve_3 = $_POST['a_comment'];
+  require('../require/make_achieve_comment.php');
+  header('Location: dashboard.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -166,7 +174,7 @@ require('../require/read_dream.php');
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-8 col-xs-12 col-rol-3">
+            <div class="col-lg-12 col-xs-12 col-rol-3">
               <div class="cardbox" style="margin:0">
                 <div class="cardbox-body">
                   <div class="clearfix mb-3">
@@ -181,85 +189,55 @@ require('../require/read_dream.php');
                     </div>
                   </div>
                   <div style="margin:10px">
-                    <button class="col-xs-2 btn btn-info" type="button">チャット</button>
                     <a href="#" class="btn btn-xs btn-info">
-                    <span class="glyphicon glyphicon-thumbs-up"></span>応援</a>178
+                    <span class="glyphicon glyphicon-thumbs-up"></span>
+                    応援された数：<?php echo $read_cheers_amount['cnt']; ?></a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <br>
           <div class="row">
-            <div class="col-7 col-xs-12" style="margin: 0 auto;">
-              <div class="cardbox">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>ステップ1
-                        <span  style="float: right">
-                          あと
-                          <FONT color="#ff0000" size="6">
-                            <SCRIPT LANGUAGE="JavaScript">
-                              <!--// 以下のように年、月、日の順に書きます
-                             apDay(2017,12,18);//-->
-                           </SCRIPT>
-                          </FONT>
-                           日!!
-                        </span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="col-xs-2">
-                          <h3>留学する</h3>
-                        </div><br>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <p style="text-align: right; margin-right: 15px; padding-bottom: 10px">
-                  <span>〆2017年12月18日</span>
-                  <a class="btn btn-primary" id="swal-demo3" href="#">Finish!</a>
-                </p>
+            <div class="col-lg-12 col-xs-12 col-rol-3">
+              <div class="cardbox" style="margin:0">
+                <div class="cardbox-body">
+                  <div class="clearfix mb-3">
+                  <h4>感想</h4>感想を記入して、Dreamerたちと努力をシェアしよう！
+                  <form method="POST" action="">
+                    <div class="row">
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 class="btn-lg bg-primary text-center">困難だったこと</h5>
+                      </div>
+                      <div class="col-lg-9 col-xs-12">
+                        <textarea name="a_hard" style="width: 100%; height: 40px;" placeholder="例）　資金調達にとても時間がかかった。"></textarea>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 class="btn-lg bg-primary text-center">学んだこと</h5>
+                      </div>
+                      <div class="col-lg-9 col-xs-12">
+                        <textarea name="a_study" style="width: 100%; height: 40px;" placeholder="例）　人とのつながりが大切であること！"></textarea>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 class="btn-lg bg-primary text-center">Dreamerたちへのコメント</h5>
+                      </div>
+                      <div class="col-lg-9 col-xs-12">
+                        <textarea name="a_comment" style="width: 100%; height: 40px;" placeholder="例）　つながりを作るためにイベントに参加しよう！"></textarea>
+                      </div>
+                    </div>
+                    <input type="submit" class="btn btn-block btn-lg bg-gradient-warning" value="達成"></input>
+                  </form>
+                  </div>
+                </div>
               </div>
-
-
-              <div class="cardbox">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>ステップ2
-                        <span style="float: right">
-                            あと
-                            <FONT color="#ff0000" size="6">
-                              <SCRIPT LANGUAGE="JavaScript">
-                                <!--// 以下のように年、月、日の順に書きます
-                                apDay(2018,3,18);//-->
-                              </SCRIPT>
-                            </FONT>
-                              日!!
-                        </span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="col-xs-2">
-                           <h3>シリコンバレーで働く</h3>
-                        </div><br>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <p style="text-align: right; margin-right: 15px; padding-bottom: 10px">
-                  <span>〆2018年3月18日</span>
-                  <a class="btn btn-primary" id="swal-demo3" href="#">Finish!</a>
-                </p>
-              </div>
-              <a href="#" class="btn btn-block btn-lg bg-gradient-warning">達成</a>
+            </div>
+          </div>
             </div>
           </div>
         </div>

@@ -212,6 +212,8 @@ $category = array('職業','人間関係','健康','勉強','お金','その他'
 							<?php
 							require('../require/read_all_dream.php');
 							foreach ($read_dream as $dream) {
+								$rd = $dream['dream_id'];
+								require('../require/read_cheers_amount.php');
 								$user_id=$dream['user_id'];
 								require('../require/read_users.php');?>
 								<div class="col-8 col-md-4"  style="margin-top: 20px;">
