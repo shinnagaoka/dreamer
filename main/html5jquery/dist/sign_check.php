@@ -25,7 +25,7 @@
 		$stmt = $dbh->prepare($sql);
 		$stmt->execute($data);
 
-		header('Location: signin.php');
+		header('Location: register.php'); //松尾変更signin.php→register.php
 		exit();
 	}
 	?>
