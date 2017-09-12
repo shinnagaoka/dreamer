@@ -2,16 +2,16 @@
 session_start();
 require('dbconnect.php');
 if (isset($_COOKIE['email']) && $_COOKIE['email'] != '') {
-      $_POST['email'] = $_COOKIE['email'];
-      $_POST['password'] = $_COOKIE['password'];
-    }
-    if (empty($_POST)) {
-      if (empty($_COOKIE['email']) && empty($_COOKIE['password'])) {
-        echo "<h1>NOOOOOO</h1>";
-        header('Location: signin.php');
-        exit();
-      }
-    }
+  $_POST['email'] = $_COOKIE['email'];
+  $_POST['password'] = $_COOKIE['password'];
+}
+if (empty($_POST)) {
+  if (empty($_COOKIE['email']) && empty($_COOKIE['password'])) {
+    echo "<h1>NOOOOOO</h1>";
+    header('Location: signin.php');
+    exit();
+  }
+}
 require('../require/read_users_session.php');
 ?>
 <!DOCTYPE html>
@@ -33,6 +33,9 @@ require('../require/read_users_session.php');
   <link rel="stylesheet" href="vendor/material-colors/dist/colors.css">
   <!-- Application styles-->
   <link rel="stylesheet" href="css/app.css">
+
+  <!-- ポップアップチャット -->
+  <link rel="stylesheet" href="/.css/popup.css">
 
   <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
 
@@ -64,13 +67,13 @@ require('../require/read_users_session.php');
     document.myForm.myFormButton.value = "Stop!";
     myInterval=setInterval("myDisp()",1);
     }else{  // Stopボタンを押した
-    myDisp();
-    myButton = 0;
-    document.myForm.myFormButton.value = "Start";
-    clearInterval( myInterval );
+      myDisp();
+      myButton = 0;
+      document.myForm.myFormButton.value = "Start";
+      clearInterval( myInterval );
     }
-    }
-    function myDisp(){
+  }
+  function myDisp(){
     myStop=new Date();  // 経過時間を退避
     myTime = myStop.getTime() - myStart.getTime();  // 通算ミリ秒計算
     myH = Math.floor(myTime/(60*60*1000));  // '時間'取得
@@ -79,22 +82,56 @@ require('../require/read_users_session.php');
     myTime = myTime-(myM*60*1000);
     myS = Math.floor(myTime/1000);  // '秒'取得
     myMS = myTime%1000; // 'ミリ秒'取得
-            if( myH < 10 ){
-                myH = '0' + myH;
-            }
-            if( myM < 10 ){
-                myM = '0' + myM;
-            }
-            if( myS < 10 ){
-                myS = '0' + myS;
-            }
+    if( myH < 10 ){
+      myH = '0' + myH;
+    }
+    if( myM < 10 ){
+      myM = '0' + myM;
+    }
+    if( myS < 10 ){
+      myS = '0' + myS;
+    }
     document.myForm.myFormTime.value = myH+":"+myM+":"+myS;
     document.getElementById( 'stopwatchHour' ).innerHTML= myH;
     document.getElementById( 'stopwatchMinute' ).innerHTML= myM;
     document.getElementById( 'stopwatchSecond' ).innerHTML= myS;
-    }
+  }
     // -->
+</SCRIPT>
+
+
+<!-- ポップアップ↓ -->
+<SCRIPT LANGUAGE="JavaScript">
+    (function($){
+      $(function(){
+        $(document)
+        .on('click', '.popup_btn', function(){
+          var $popup = $((this).attr('href'));
+
+            // ポップアップの幅と高さからmarginを計算する
+            var mT = ($popup.outerHeight() / 2) * (-1) + 'px';
+            var mL = ($popup.outerWidth() / 2) * (-1) + 'px';
+
+            // marginを設定して表示
+            $('.popup').hide();
+            $popup.css({
+              'margin-top': mT,
+              'margin-left': mL
+            }).show();
+            $('#overlay').show();
+
+            return false;
+          })
+        .on('click', '.close_btn, #overlay', function(){
+          $('.popup, #overlay').hide();
+          return false;
+        });
+      });
+    })(jQuery);
   </SCRIPT>
+
+
+
 
 </head>
 <body class="theme-default">
@@ -149,183 +186,205 @@ require('../require/read_users_session.php');
                   </div>
                 </div> -->
                 <!-- </div> -->
-          </li>
-          <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
-            <div class="dropdown-menu dropdown-menu-right dropdown-scale">
-              <h6 class="dropdown-header">ユーザーメニュー</h6><a class="dropdown-item" href="#"><!-- <span class="float-right badge badge-primary">4</span> --><em class="ion-ios-email-outline icon-lg text-primary"></em>マイページ</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>編集</a>
-              <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="user.login.html"><em class="ion-log-out icon-lg text-primary"></em>ログアウト</a>
-            </div>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <!-- sidebar-->
-    <aside class="sidebar-container">
-      <div class="brand-header">
-        <div class="float-left pt-4 text-muted sidebar-close"><em class="ion-arrow-left-c icon-lg"></em></div><a class="brand-header-logo" href="#">
-          <!-- Logo Imageimg(src="img/logo.png", alt="logo") -->
-          <span class="brand-header-logo-text">Dreamer</span></a>
-      </div>
-      <div class="sidebar-content">
-        <div class="sidebar-toolbar">
-          <div class="sidebar-toolbar-background"></div>
-          <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="Profile"></a>
-            <div class="mt-3">
-              <div class="lead"><?php echo $read_users['user_name']; ?></div>
-                <div class="text-thin">北海道</div>
-             </div>
+              </li>
+              <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-scale">
+                  <h6 class="dropdown-header">ユーザーメニュー</h6><a class="dropdown-item" href="#"><!-- <span class="float-right badge badge-primary">4</span> --><em class="ion-ios-email-outline icon-lg text-primary"></em>マイページ</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>編集</a>
+                  <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="user.login.html"><em class="ion-log-out icon-lg text-primary"></em>ログアウト</a>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <!-- sidebar-->
+        <aside class="sidebar-container">
+          <div class="brand-header">
+            <div class="float-left pt-4 text-muted sidebar-close"><em class="ion-arrow-left-c icon-lg"></em></div><a class="brand-header-logo" href="#">
+            <!-- Logo Imageimg(src="img/logo.png", alt="logo") -->
+            <span class="brand-header-logo-text">Dreamer</span></a>
           </div>
-        </div>
-        <nav class="sidebar-nav">
-          <ul>
-            <li>
-              <div class="sidebar-nav-heading">マイページ</div>
-            </li>
-              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
-                    <!-- <li><a href="widgets.html"><span class="float-right nav-label"><span class="badge-rounded badge-primary">!</span></span><span class="nav-icon"><em class="ion-ios-box-outline"></em></span><span>達成された夢</span></a></li> -->
+          <div class="sidebar-content">
+            <div class="sidebar-toolbar">
+              <div class="sidebar-toolbar-background"></div>
+              <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="Profile"></a>
+                <div class="mt-3">
+                  <div class="lead"><?php echo $read_users['user_name']; ?></div>
+                  <div class="text-thin">北海道</div>
+                </div>
+              </div>
+            </div>
+            <nav class="sidebar-nav">
+              <ul>
+                <li>
+                  <div class="sidebar-nav-heading">マイページ</div>
+                </li>
+                <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
+                <!-- <li><a href="widgets.html"><span class="float-right nav-label"><span class="badge-rounded badge-primary">!</span></span><span class="nav-icon"><em class="ion-ios-box-outline"></em></span><span>達成された夢</span></a></li> -->
                     <!-- <li>
                       <div class="sidebar-nav-heading">COMPONENTS</div>
                     </li> -->
-              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>達成された夢</span></a>
-                <ul class="sidebar-subnav" id="elements">
-                  <li><a href="buttons.html"><span class="float-right nav-label"></span><span>No.1</span></a></li>
-                  <li><a href="bootstrapui.html"><span class="float-right nav-label"></span><span>No.2</span></a></li>
-                </ul>
-              </li>
-              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>編集</span></a></li>
+                    <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>達成された夢</span></a>
+                      <ul class="sidebar-subnav" id="elements">
+                        <li><a href="buttons.html"><span class="float-right nav-label"></span><span>No.1</span></a></li>
+                        <li><a href="bootstrapui.html"><span class="float-right nav-label"></span><span>No.2</span></a></li>
+                      </ul>
+                    </li>
+                    <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>編集</span></a></li>
 
-            <li>
-              <div class="sidebar-nav-heading">閲覧</div>
-            </li>
-              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-list-outline"></em></span><span>カテゴリー別</span></a>
-                <ul class="sidebar-subnav" id="tables">
-                  <li><a href="view_c_page.php #1"><span class="float-right nav-label"></span><span>職業</span></a></li>
-                  <li><a href="view_c_page.php #2"><span class="float-right nav-label"></span><span>人間関係</span></a></li>
-                  <li><a href="view_c_page.php #3"><span class="float-right nav-label"></span><span>健康</span></a></li>
-                  <li><a href="view_c_page.php #4"><span class="float-right nav-label"></span><span>勉強</span></a></li>
-                  <li><a href="view_c_page.php #5"><span class="float-right nav-label"></span><span>お金</span></a></li>
-                  <li><a href="view_c_page.php #6"><span class="float-right nav-label"></span><span>その他</span></a></li>
-                </ul>
-              </li>
+                    <li>
+                      <div class="sidebar-nav-heading">閲覧</div>
+                    </li>
+                    <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-list-outline"></em></span><span>カテゴリー別</span></a>
+                      <ul class="sidebar-subnav" id="tables">
+                        <li><a href="view_c_page.php #1"><span class="float-right nav-label"></span><span>職業</span></a></li>
+                        <li><a href="view_c_page.php #2"><span class="float-right nav-label"></span><span>人間関係</span></a></li>
+                        <li><a href="view_c_page.php #3"><span class="float-right nav-label"></span><span>健康</span></a></li>
+                        <li><a href="view_c_page.php #4"><span class="float-right nav-label"></span><span>勉強</span></a></li>
+                        <li><a href="view_c_page.php #5"><span class="float-right nav-label"></span><span>お金</span></a></li>
+                        <li><a href="view_c_page.php #6"><span class="float-right nav-label"></span><span>その他</span></a></li>
+                      </ul>
+                    </li>
 
-              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>応援している夢</span></a></li>
-              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>履歴</span></a></li>
-          </ul>
-        </nav>
-      </div>
-    </aside>
-    <div class="sidebar-layout-obfuscator"></div>
-
-    <!-- Main section-->
-    <main class="main-container">
-      <!-- Page content-->
-      <section class="section-container">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-8 col-xs-12 col-rol-3" style="font-size: 20px;vertical-align:middle" >
-              宣言します！！私は...
-              <span style="float: right">
-                あと
-                <FONT color="#ff0000" size="6">
-                  <SCRIPT LANGUAGE="JavaScript">
-                    apDay(2019,2,13);
-                  </SCRIPT>
-                </FONT>
-                日!!
-              </span>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-8 col-xs-12 col-rol-3">
-              <div class="cardbox" style="margin:0">
-                <div class="cardbox-body">
-                  <div class="clearfix mb-3">
-                    <div class="text-center">
-                      <h1 style="margin-top: 20px">グローバルエンジニアになる!!</h1>
-                    </div>
-                  </div>
-                  <div class="">
-                    <div style="margin: 0">
-                      仕事 #エンジニア #英語
-                      <span style="float:right">〆2019年2月13日</span>
-                    </div>
-                  </div>
-                </div>
+                    <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>応援している夢</span></a></li>
+                    <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>履歴</span></a></li>
+                  </ul>
+                </nav>
               </div>
-            </div>
-            <div class="col-lg-4 col-xs-12 col-rol-3">
-              <div class="cardbox">
-                <div class="cardbox-body">
-                  <div class="clearfix mb-3">
-                    <div style="margin-bottom: 10px; border: 100px;">
-                    <form name="myForm">
-                      <div id="stopwatch">
-                        <div class="" style="font-size: 50px; height: 70px;">
-                          <span id="stopwatchHour">00</span>
-                          <span>:</span>
-                          <span id="stopwatchMinute">00</span>
-                          <span>:</span>
-                          <span id="stopwatchSecond">00</span>
-                          <input style="height:70px;" class="btn btn-info" type="button" value="Start" name="myFormButton" onclick="myCheck()">
+            </aside>
+            <div class="sidebar-layout-obfuscator"></div>
+
+            <!-- Main section-->
+            <main class="main-container">
+              <!-- Page content-->
+              <section class="section-container">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-lg-8 col-xs-12 col-rol-3" style="font-size: 20px;vertical-align:middle" >
+                      宣言します！！私は...
+                      <span style="float: right">
+                        あと
+                        <FONT color="#ff0000" size="6">
+                          <SCRIPT LANGUAGE="JavaScript">
+                            apDay(2019,2,13);
+                          </SCRIPT>
+                        </FONT>
+                        日!!
+                      </span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-8 col-xs-12 col-rol-3">
+                      <div class="cardbox" style="margin:0">
+                        <div class="cardbox-body">
+                          <div class="clearfix mb-3">
+                            <div class="text-center">
+                              <h1 style="margin-top: 20px">グローバルエンジニアになる!!</h1>
+                            </div>
+                          </div>
+                          <div class="">
+                            <div style="margin: 0">
+                              仕事 #エンジニア #英語
+                              <span style="float:right">〆2019年2月13日</span>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                      <br>
-                      <input type="text" name="myFormTime">
-                      <input class="btn btn-primary" type="submit" name="insert_time" value="Submit">
-                    </form>
-             <!-- <input type="submit" value="確認画面へ" class="btn btn-info"> -->
+                    </div>
+                    <div class="col-lg-4 col-xs-12 col-rol-3">
+                      <div class="cardbox">
+                        <div class="cardbox-body">
+                          <div class="clearfix mb-3">
+                            <div style="margin-bottom: 10px; border: 100px;">
+                              <form name="myForm">
+                                <div id="stopwatch">
+                                  <div class="" style="font-size: 50px; height: 70px;">
+                                    <span id="stopwatchHour">00</span>
+                                    <span>:</span>
+                                    <span id="stopwatchMinute">00</span>
+                                    <span>:</span>
+                                    <span id="stopwatchSecond">00</span>
+                                    <input style="height:70px;" class="btn btn-info" type="button" value="Start" name="myFormButton" onclick="myCheck()">
+                                  </div>
+                                </div>
+                                <br>
+                                <input type="text" name="myFormTime">
+                                <input class="btn btn-primary" type="submit" name="insert_time" value="Submit">
+                              </form>
+                              <!-- <input type="submit" value="確認画面へ" class="btn btn-info"> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div style="margin:10px">
-            <button class="col-xs-2 btn btn-info" type="button">チャット</button>
-            <a href="#" class="btn btn-xs btn-info">
-            <span class="glyphicon glyphicon-thumbs-up"></span>応援</a>178
-          </div>
 
-          <!-- グラフ -->
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="cardbox">
-                <div class="cardbox-body">
-                  <div class="container" style="width:100%">
-                    <canvas id="canvas"></canvas>
-                  </div>
-                  <script>
-                    window.onload = function() {
-                      ctx = document.getElementById("canvas").getContext("2d");
-                      window.myBar = new Chart(ctx, {
-                        type: 'bar',
-                        data: barChartData,
-                        options: complexChartOption
-                      });
-                    };
-                  </script>
 
-                  <script>
-                    var barChartData = {
-                      labels: ['9/1','9/2','9/3','9/4','9/5','9/6','9/7','9/8',
-                      '9/9','9/10','9/11','9/12','9/13','9/14',
-                      '9/15','9/16','9/17','9/18','9/19','9/20','9/21','9/22',
-                      '9/23','9/24','9/25','9/26','9/27','9/28','9/29','9/30'
-                      ],
-                      datasets: [
-                        {
-                          type: 'bar',
-                          label: 'Daily',
-                          data: ['4','2','6','8','1','0','4',
-                          '6','3','1','5','2','5','4',
-                          '0','3','7','3','6','4','9',
-                          '3','5','5','7','4','7','8','2','10'
-                          ],
-                          borderColor : "rgba(254,97,132,0.8)",
-                          pointBackgroundColor    : "rgba(254,97,132,0.8)",
-                          backgroundColor: "rgba(255,153,0,0.4)",
-                          fill: false,
+                  <div style="margin:10px">
+                    <!-- チャットポップアップ スタート-->
+                    <a href="#popup1" class="popup_btn">チャットボタン</a>
+                    <div id="popup1" class="popup">
+                      <div class="popup_inner">
+                        <h4>タイトル</h4>
+                        <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                        <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                        <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                        <div>
+                          <a href="#close_btn" class="close_btn">閉じる</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="overlay"></div>
+
+
+                    <button class="col-xs-2 btn btn-info" type="button">チャット</button>
+                    <a href="#" class="btn btn-xs btn-info">
+                      <!-- チャットポップアップ エンド-->
+
+                      <span class="glyphicon glyphicon-thumbs-up"></span>応援</a>178
+                    </div>
+
+
+
+                    <!-- グラフ -->
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="cardbox">
+                          <div class="cardbox-body">
+                            <div class="container" style="width:100%">
+                              <canvas id="canvas"></canvas>
+                            </div>
+                            <script>
+                              window.onload = function() {
+                                ctx = document.getElementById("canvas").getContext("2d");
+                                window.myBar = new Chart(ctx, {
+                                  type: 'bar',
+                                  data: barChartData,
+                                  options: complexChartOption
+                                });
+                              };
+                            </script>
+
+                            <script>
+                              var barChartData = {
+                                labels: ['9/1','9/2','9/3','9/4','9/5','9/6','9/7','9/8',
+                                '9/9','9/10','9/11','9/12','9/13','9/14',
+                                '9/15','9/16','9/17','9/18','9/19','9/20','9/21','9/22',
+                                '9/23','9/24','9/25','9/26','9/27','9/28','9/29','9/30'
+                                ],
+                                datasets: [
+                                {
+                                  type: 'bar',
+                                  label: 'Daily',
+                                  data: ['4','2','6','8','1','0','4',
+                                  '6','3','1','5','2','5','4',
+                                  '0','3','7','3','6','4','9',
+                                  '3','5','5','7','4','7','8','2','10'
+                                  ],
+                                  borderColor : "rgba(254,97,132,0.8)",
+                                  pointBackgroundColor    : "rgba(254,97,132,0.8)",
+                                  backgroundColor: "rgba(255,153,0,0.4)",
+                                  fill: false,
                               yAxisID: "y-axis-1",// 追加
                             },
                             {
@@ -342,8 +401,8 @@ require('../require/read_users_session.php');
                             },
                             ],
                           };
-                  </script>
-                  <script>
+                        </script>
+                        <script>
                           var complexChartOption = {
                             responsive: true,
                             scales: {
@@ -371,77 +430,77 @@ require('../require/read_users_session.php');
                               }],
                             }
                           };
-                  </script>
+                        </script>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-7 col-xs-12" style="margin: 0 auto;">
-              <div class="cardbox">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>ステップ1
-                        <span  style="float: right">
-                          あと
-                          <FONT color="#ff0000" size="6">
-                            <SCRIPT LANGUAGE="JavaScript">
+                <div class="row">
+                  <div class="col-7 col-xs-12" style="margin: 0 auto;">
+                    <div class="cardbox">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>ステップ1
+                              <span  style="float: right">
+                                あと
+                                <FONT color="#ff0000" size="6">
+                                  <SCRIPT LANGUAGE="JavaScript">
                               <!--// 以下のように年、月、日の順に書きます
                              apDay(2017,12,18);//-->
                            </SCRIPT>
-                          </FONT>
-                           日!!
-                        </span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="col-xs-2">
-                          <h3>留学する</h3>
-                        </div><br>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <p style="text-align: right; margin-right: 15px; padding-bottom: 10px">
-                  <span>〆2017年12月18日</span>
-                  <a class="btn btn-primary" id="swal-demo3" href="#">Finish!</a>
-                </p>
-              </div>
+                         </FONT>
+                         日!!
+                       </span>
+                     </th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                  <tr>
+                    <td>
+                      <div class="col-xs-2">
+                        <h3>留学する</h3>
+                      </div><br>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p style="text-align: right; margin-right: 15px; padding-bottom: 10px">
+                <span>〆2017年12月18日</span>
+                <a class="btn btn-primary" id="swal-demo3" href="#">Finish!</a>
+              </p>
+            </div>
 
 
-              <div class="cardbox">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>ステップ2
-                        <span style="float: right">
-                            あと
-                            <FONT color="#ff0000" size="6">
-                              <SCRIPT LANGUAGE="JavaScript">
+            <div class="cardbox">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>ステップ2
+                      <span style="float: right">
+                        あと
+                        <FONT color="#ff0000" size="6">
+                          <SCRIPT LANGUAGE="JavaScript">
                                 <!--// 以下のように年、月、日の順に書きます
                                 apDay(2018,3,18);//-->
                               </SCRIPT>
                             </FONT>
-                              日!!
-                        </span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="col-xs-2">
+                            日!!
+                          </span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="col-xs-2">
                            <h3>シリコンバレーで働く</h3>
-                        </div><br>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <p style="text-align: right; margin-right: 15px; padding-bottom: 10px">
+                         </div><br>
+                       </td>
+                     </tr>
+                   </tbody>
+                 </table>
+                 <p style="text-align: right; margin-right: 15px; padding-bottom: 10px">
                   <span>〆2018年3月18日</span>
                   <a class="btn btn-primary" id="swal-demo3" href="#">Finish!</a>
                 </p>
@@ -453,225 +512,225 @@ require('../require/read_users_session.php');
       </section>
     </main>
   </div>
-      <!-- End Search template-->
-      <!-- Settings template-->
-      <div class="modal-settings modal modal-right fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="mt-0 modal-title"><span>Settings</span></h4>
-              <div class="float-right clickable" data-dismiss="modal"><em class="ion-close-round text-soft"></em></div>
+  <!-- End Search template-->
+  <!-- Settings template-->
+  <div class="modal-settings modal modal-right fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="mt-0 modal-title"><span>Settings</span></h4>
+          <div class="float-right clickable" data-dismiss="modal"><em class="ion-close-round text-soft"></em></div>
+        </div>
+        <div class="modal-body">
+          <p>Dark sidebar</p>
+          <div class="d-flex flex-wrap mb-3">
+            <div class="setting-color">
+              <label class="preview-theme-default">
+                <input type="radio" checked name="setting-theme" value="theme-default"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
             </div>
-            <div class="modal-body">
-              <p>Dark sidebar</p>
-              <div class="d-flex flex-wrap mb-3">
-                <div class="setting-color">
-                  <label class="preview-theme-default">
-                    <input type="radio" checked name="setting-theme" value="theme-default"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-2">
-                    <input type="radio" name="setting-theme" value="theme-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-3">
-                    <input type="radio" name="setting-theme" value="theme-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-4">
-                    <input type="radio" name="setting-theme" value="theme-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-5">
-                    <input type="radio" name="setting-theme" value="theme-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-6">
-                    <input type="radio" name="setting-theme" value="theme-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-              </div>
-              <p>White sidebar</p>
-              <div class="d-flex flex-wrap mb-3">
-                <div class="setting-color">
-                  <label class="preview-theme-default">
-                    <input type="radio" name="setting-theme" value="theme-default-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-2">
-                    <input type="radio" name="setting-theme" value="theme-2-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-3">
-                    <input type="radio" name="setting-theme" value="theme-3-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-4">
-                    <input type="radio" name="setting-theme" value="theme-4-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-5">
-                    <input type="radio" name="setting-theme" value="theme-5-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-6">
-                    <input type="radio" name="setting-theme" value="theme-6-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-              </div>
-              <p>Sidebar Gradients</p>
-              <div class="d-flex flex-wrap mb-3">
-                <div class="setting-color">
-                  <label class="preview-theme-gradient-1">
-                    <input type="radio" name="setting-theme" value="theme-gradient-sidebar-1"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-gradient-2">
-                    <input type="radio" name="setting-theme" value="theme-gradient-sidebar-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-gradient-3">
-                    <input type="radio" name="setting-theme" value="theme-gradient-sidebar-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-gradient-4">
-                    <input type="radio" name="setting-theme" value="theme-gradient-sidebar-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-gradient-5">
-                    <input type="radio" name="setting-theme" value="theme-gradient-sidebar-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-gradient-6">
-                    <input type="radio" name="setting-theme" value="theme-gradient-sidebar-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-              </div>
-              <p>Header Gradients</p>
-              <div class="d-flex flex-wrap mb-3">
-                <div class="setting-color">
-                  <label class="preview-theme-gradient-1">
-                    <input type="radio" name="setting-theme" value="theme-gradient-header-1"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-gradient-2">
-                    <input type="radio" name="setting-theme" value="theme-gradient-header-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-gradient-3">
-                    <input type="radio" name="setting-theme" value="theme-gradient-header-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-gradient-4">
-                    <input type="radio" name="setting-theme" value="theme-gradient-header-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-gradient-5">
-                    <input type="radio" name="setting-theme" value="theme-gradient-header-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-                <div class="setting-color">
-                  <label class="preview-theme-gradient-6">
-                    <input type="radio" name="setting-theme" value="theme-gradient-header-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-              </div>
-              <p>Dark content</p>
-              <div class="d-flex flex-wrap mb-3">
-                <div class="setting-color">
-                  <label class="preview-theme-dark">
-                    <input type="radio" name="setting-theme" value="theme-dark"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
-                  </label>
-                </div>
-              </div>
-              <hr>
-              <p>
-                <label class="custom-control custom-checkbox">
-                  <input class="custom-control-input" id="sidebar-cover" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Sidebar Cover</span>
-                </label>
-              </p>
-              <p>
-                <label class="custom-control custom-checkbox">
-                  <input class="custom-control-input" id="sidebar-showtoolbar" type="checkbox" checked><span class="custom-control-indicator"></span><span class="custom-control-description">Sidebar profile</span>
-                </label>
-              </p>
-              <p>
-                <label class="custom-control custom-checkbox">
-                  <input class="custom-control-input" id="fixed-footer" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Fixed Footer</span>
-                </label>
-              </p>
-              <hr>
-              <button class="btn btn-secondary" type="button" data-toggle-fullscreen="">Toggle fullscreen</button>
-              <hr>
-              <p>Change language</p>
-              <!-- START Language list-->
-              <select class="language-select custom-select form-control">
-                <option value="en" selected="">English</option>
-                <option value="es">Spanish</option>
-                <option value="fr">French</option>
-              </select>
-              <!-- END Language list-->
-              <div class="mt-3" data-localize="translate.EXAMPLE">This is an example text using English as selected language.</div>
+            <div class="setting-color">
+              <label class="preview-theme-2">
+                <input type="radio" name="setting-theme" value="theme-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+            <div class="setting-color">
+              <label class="preview-theme-3">
+                <input type="radio" name="setting-theme" value="theme-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+            <div class="setting-color">
+              <label class="preview-theme-4">
+                <input type="radio" name="setting-theme" value="theme-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+            <div class="setting-color">
+              <label class="preview-theme-5">
+                <input type="radio" name="setting-theme" value="theme-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+            <div class="setting-color">
+              <label class="preview-theme-6">
+                <input type="radio" name="setting-theme" value="theme-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
             </div>
           </div>
+          <p>White sidebar</p>
+          <div class="d-flex flex-wrap mb-3">
+            <div class="setting-color">
+              <label class="preview-theme-default">
+                <input type="radio" name="setting-theme" value="theme-default-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+            <div class="setting-color">
+              <label class="preview-theme-2">
+                <input type="radio" name="setting-theme" value="theme-2-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+            <div class="setting-color">
+              <label class="preview-theme-3">
+                <input type="radio" name="setting-theme" value="theme-3-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+            <div class="setting-color">
+              <label class="preview-theme-4">
+                <input type="radio" name="setting-theme" value="theme-4-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+            <div class="setting-color">
+              <label class="preview-theme-5">
+                <input type="radio" name="setting-theme" value="theme-5-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+            <div class="setting-color">
+              <label class="preview-theme-6">
+                <input type="radio" name="setting-theme" value="theme-6-w"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+          </div>
+          <p>Sidebar Gradients</p>
+          <div class="d-flex flex-wrap mb-3">
+            <div class="setting-color">
+              <label class="preview-theme-gradient-1">
+                <input type="radio" name="setting-theme" value="theme-gradient-sidebar-1"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+            <div class="setting-color">
+              <label class="preview-theme-gradient-2">
+                <input type="radio" name="setting-theme" value="theme-gradient-sidebar-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+            <div class="setting-color">
+              <label class="preview-theme-gradient-3">
+                <input type="radio" name="setting-theme" value="theme-gradient-sidebar-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+            <div class="setting-color">
+              <label class="preview-theme-gradient-4">
+                <input type="radio" name="setting-theme" value="theme-gradient-sidebar-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+            <div class="setting-color">
+              <label class="preview-theme-gradient-5">
+                <input type="radio" name="setting-theme" value="theme-gradient-sidebar-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+            <div class="setting-color">
+              <label class="preview-theme-gradient-6">
+                <input type="radio" name="setting-theme" value="theme-gradient-sidebar-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+          </div>
+          <p>Header Gradients</p>
+          <div class="d-flex flex-wrap mb-3">
+            <div class="setting-color">
+              <label class="preview-theme-gradient-1">
+                <input type="radio" name="setting-theme" value="theme-gradient-header-1"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+            <div class="setting-color">
+              <label class="preview-theme-gradient-2">
+                <input type="radio" name="setting-theme" value="theme-gradient-header-2"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+            <div class="setting-color">
+              <label class="preview-theme-gradient-3">
+                <input type="radio" name="setting-theme" value="theme-gradient-header-3"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+            <div class="setting-color">
+              <label class="preview-theme-gradient-4">
+                <input type="radio" name="setting-theme" value="theme-gradient-header-4"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+            <div class="setting-color">
+              <label class="preview-theme-gradient-5">
+                <input type="radio" name="setting-theme" value="theme-gradient-header-5"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+            <div class="setting-color">
+              <label class="preview-theme-gradient-6">
+                <input type="radio" name="setting-theme" value="theme-gradient-header-6"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+          </div>
+          <p>Dark content</p>
+          <div class="d-flex flex-wrap mb-3">
+            <div class="setting-color">
+              <label class="preview-theme-dark">
+                <input type="radio" name="setting-theme" value="theme-dark"><span class="ion-checkmark-round"></span><span class="square24 b"></span>
+              </label>
+            </div>
+          </div>
+          <hr>
+          <p>
+            <label class="custom-control custom-checkbox">
+              <input class="custom-control-input" id="sidebar-cover" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Sidebar Cover</span>
+            </label>
+          </p>
+          <p>
+            <label class="custom-control custom-checkbox">
+              <input class="custom-control-input" id="sidebar-showtoolbar" type="checkbox" checked><span class="custom-control-indicator"></span><span class="custom-control-description">Sidebar profile</span>
+            </label>
+          </p>
+          <p>
+            <label class="custom-control custom-checkbox">
+              <input class="custom-control-input" id="fixed-footer" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Fixed Footer</span>
+            </label>
+          </p>
+          <hr>
+          <button class="btn btn-secondary" type="button" data-toggle-fullscreen="">Toggle fullscreen</button>
+          <hr>
+          <p>Change language</p>
+          <!-- START Language list-->
+          <select class="language-select custom-select form-control">
+            <option value="en" selected="">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+          </select>
+          <!-- END Language list-->
+          <div class="mt-3" data-localize="translate.EXAMPLE">This is an example text using English as selected language.</div>
         </div>
       </div>
-      <!-- End Settings template-->
-      <!-- Modernizr-->
-      <script src="vendor/modernizr/modernizr.custom.js"></script>
-      <!-- PaceJS-->
-      <script src="vendor/pace/pace.min.js"></script>
-      <!-- jQuery-->
-      <script src="vendor/jquery/dist/jquery.js"></script>
-      <!-- Bootstrap-->
-      <script src="vendor/tether/dist/js/tether.min.js"></script>
-      <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
-      <!-- Material Colors-->
-      <script src="vendor/material-colors/dist/colors.js"></script>
-      <!-- Screenfull-->
-      <script src="vendor/screenfull/dist/screenfull.js"></script>
-      <!-- jQuery Localize-->
-      <script src="vendor/jquery-localize-i18n/dist/jquery.localize.js"></script>
-      <!-- Google Maps API-->
-      <!-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBNs42Rt_CyxAqdbIBK0a5Ut83QiauESPA"></script> -->
-      <!-- Google Maps-->
-      <script src="vendor/gmaps/gmaps.js"></script>
-      <!-- Flot charts-->
-      <script src="vendor/flot/jquery.flot.js"></script>
-      <script src="vendor/flot/jquery.flot.categories.js"></script>
-      <script src="vendor/flot-spline/js/jquery.flot.spline.js"></script>
-      <script src="vendor/flot.tooltip/js/jquery.flot.tooltip.js"></script>
-      <script src="vendor/flot/jquery.flot.resize.js"></script>
-      <script src="vendor/flot/jquery.flot.pie.js"></script>
-      <script src="vendor/flot/jquery.flot.time.js"></script>
-      <script src="vendor/sidebysideimproved/jquery.flot.orderBars.js"></script>
-      <!-- Sparkline-->
-      <script src="vendor/sparkline/index.js"></script>
-      <!-- jQuery Knob charts-->
-      <script src="vendor/jquery-knob/js/jquery.knob.js"></script>
-      <!-- Peity charts-->
-      <script src="vendor/peity/jquery.peity.min.js"></script>
+    </div>
+  </div>
+  <!-- End Settings template-->
+  <!-- Modernizr-->
+  <script src="vendor/modernizr/modernizr.custom.js"></script>
+  <!-- PaceJS-->
+  <script src="vendor/pace/pace.min.js"></script>
+  <!-- jQuery-->
+  <script src="vendor/jquery/dist/jquery.js"></script>
+  <!-- Bootstrap-->
+  <script src="vendor/tether/dist/js/tether.min.js"></script>
+  <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+  <!-- Material Colors-->
+  <script src="vendor/material-colors/dist/colors.js"></script>
+  <!-- Screenfull-->
+  <script src="vendor/screenfull/dist/screenfull.js"></script>
+  <!-- jQuery Localize-->
+  <script src="vendor/jquery-localize-i18n/dist/jquery.localize.js"></script>
+  <!-- Google Maps API-->
+  <!-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBNs42Rt_CyxAqdbIBK0a5Ut83QiauESPA"></script> -->
+  <!-- Google Maps-->
+  <script src="vendor/gmaps/gmaps.js"></script>
+  <!-- Flot charts-->
+  <script src="vendor/flot/jquery.flot.js"></script>
+  <script src="vendor/flot/jquery.flot.categories.js"></script>
+  <script src="vendor/flot-spline/js/jquery.flot.spline.js"></script>
+  <script src="vendor/flot.tooltip/js/jquery.flot.tooltip.js"></script>
+  <script src="vendor/flot/jquery.flot.resize.js"></script>
+  <script src="vendor/flot/jquery.flot.pie.js"></script>
+  <script src="vendor/flot/jquery.flot.time.js"></script>
+  <script src="vendor/sidebysideimproved/jquery.flot.orderBars.js"></script>
+  <!-- Sparkline-->
+  <script src="vendor/sparkline/index.js"></script>
+  <!-- jQuery Knob charts-->
+  <script src="vendor/jquery-knob/js/jquery.knob.js"></script>
+  <!-- Peity charts-->
+  <script src="vendor/peity/jquery.peity.min.js"></script>
 
-      <!-- App script-->
-      <script src="js/app.js"></script>
-    </body>
-  </html>
+  <!-- App script-->
+  <script src="js/app.js"></script>
+</body>
+</html>

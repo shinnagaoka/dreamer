@@ -2,9 +2,10 @@
 session_start();
 require('dbconnect.php');
 
+
 if (isset($_COOKIE['email']) && $_COOKIE['email'] != '' && isset($_COOKIE['password']) && $_COOKIE['password'] != '' ) {
-// $_POST['email'] = $_COOKIE['email'];
-// $_POST['password'] = $_COOKIE['password'];
+$_POST['email'] = $_COOKIE['email'];
+$_POST['password'] = $_COOKIE['password'];
   $_POST['auto_login'] = 'checked';
   var_dump($_COOKIE);
 }

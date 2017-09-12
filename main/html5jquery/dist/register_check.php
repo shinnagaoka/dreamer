@@ -6,38 +6,36 @@ if(!isset($_SESSION['dream_info'])){
 	header('Location: register.php');
 	exit();
 }
+$_SESSION['login_user']['email'] = 'masaki@gmail.com';
+require('../require/read_user_email_password.php');
 	if (!empty($_POST)) {
 	$dream_contents = $_SESSION['dream_info']['dream_contents'];
 	$category = $_SESSION['dream_info']['category'];
 	$tag = $_SESSION['dream_info']['tag'] ;
-	$year_achieve = $_SESSION['dream_info']['year_achieve'];
-	$month_achieve = $_SESSION['dream_info']['month_achieve'] ;
-	$day_achieve =  $_SESSION['dream_info']['day_achieve'];
+	$d_schedule = $_SESSION['dream_info']['d_schedule'];
 	$step_contents = $_SESSION['dream_info']['step_contents'];
-	$year_step = $_SESSION['dream_info']['year_step'];
-	$month_step = $_SESSION['dream_info']['month_step'];
-	$day_step = $_SESSION['dream_info']['day_step'];
+	$s_schedule = $_SESSION['dream_info']['s_schedule'];
     $way = $_SESSION['dream_info']['way']; //AかB？
     $daily_goal_contents = $_SESSION['dream_info']['daily_goal_contents'];
     $daily_time = $_SESSION['dream_info']['daily_time'];
     $dream_image_path = $_SESSION['dream_info']['dream_image_path'];
 
-
-   	//3件一気にまとめたい↓
-    $d_schedule = $year_achieve .'-' . $month_achieve . '-' .$day_achieve;
-    $s_schedule = $year_step.'-' . $month_step . '-' .$day_steps;
-
 	//sql文作成(9/7から) → インサート処理
-	//インサート処理（dr_dreamsテーブル） user_idを取得したいけど出来てない。
-   $sql = 'INSERT INTO `dr_dreams`SET `dream_contents`=?, `dream_image_path`=?, `category`=?, `d_schedule`=?,`created`=NOW()';
-    $data = array($dream_contents,$dream_image_path,$category,$d_schedule);
+	//インサート処理（dr_dreamsテーブル） user_idを取得。（require）
+   $sql = 'INSERT INTO `dr_dreams`SET `user_id`=?,`dream_contents`=?, `dream_image_path`=?, `category`=?, `d_schedule`=?,`created`=NOW()';
+    $data = array($read_users['user_id'],$dream_contents,$dream_image_path,$category,$d_schedule);
     $stmt = $dbh->prepare($sql);
     $stmt->execute($data);
 
-    //インサート処理(dr_tagsテーブル) dream_idを取得したいけどできてない。
-    //データ取得できず。
-    $sql = 'INSERT INTO `dr_tags` SET `tag_contents`=?, `created`=NOW()';
-    $data = array($tag);
+	$sql ='SELECT * FROM `dr_dreams` WHERE`user_id`=?AND`dream_image_path`=?';
+	$data = array($read_users['user_id'],$dream_image_path);
+	$stmt = $dbh->prepare($sql);
+	$stmt->execute($data);
+	$read_dream = $stmt->fetch(PDO::FETCH_ASSOC);
+	var_dump($read_dream);
+    //インサート処理(dr_tagsテーブル) dream_idを取得。(require)
+    $sql = 'INSERT INTO `dr_tags` SET `dream_id`=?,`tag_contents`=?, `created`=NOW()';
+    $data = array($read_dream['dream_id'],$tag);
     $stmt = $dbh->prepare($sql);
     $stmt->execute($data);
 
@@ -56,17 +54,12 @@ if(!isset($_SESSION['dream_info'])){
 
 
 
-
-
-
-    header('Location: dashboard.html');
+    header('Location: dashboard.php');
     exit();
+
 
 }
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -81,7 +74,7 @@ if(!isset($_SESSION['dream_info'])){
 
 
 					<div class="container-fluid">
-						<h1 style="color: #01579b;">夢登録確認仮２</h1>
+						<h1 style="color: #01579b;">夢登録確認</h1>
 					</div><br>
 
 					<div class="container-fluid">
@@ -99,9 +92,8 @@ if(!isset($_SESSION['dream_info'])){
 					<div class="container-fluid">
 						<h4 style="color: #42a5f5;">④夢達成 期限</h4>
 					</div>
-					<?php echo $_SESSION['dream_info']['year_achieve'];?>年
-					<?php echo $_SESSION['dream_info']['month_achieve'];?>月
-					<?php echo $_SESSION['dream_info']['day_achieve'];?>日<br><br><br>
+					<?php echo $_SESSION['dream_info']['d_schedule'];?>
+					<br><br><br>
 					<div class="container-fluid">
 						<h4 style="color: #42a5f5;">⑤小ステップ</h4>
 					</div>
@@ -109,9 +101,8 @@ if(!isset($_SESSION['dream_info'])){
 					<div class="container-fluid">
 						<h4 style="color: #42a5f5;">⑤小ステップ 期限</h4>
 					</div>
-					<?php echo $_SESSION['dream_info']['year_step'];?>年
-					<?php echo $_SESSION['dream_info']['month_step'];?>月
-					<?php echo $_SESSION['dream_info']['day_step'];?>日<br><br><br>
+					<?php echo $_SESSION['dream_info']['s_schedule'];?>
+					<br><br><br>
 					<div class="container-fluid">
 						<h4 style="color: #42a5f5;">⑥自己評価方法</h4>
 					</div>
@@ -140,13 +131,5 @@ if(!isset($_SESSION['dream_info'])){
 			</div>
 		</div>
 	</div>
-
-	<!-- dream_imageフォルダ作成 -->
-
-
-
 </body>
 </html>
-
-
-

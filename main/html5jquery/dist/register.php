@@ -8,13 +8,9 @@ require('dbconnect.php');
 $dream_contents='';
 $category='';
 $tag='';
-$year_achieve='';
-$month_achieve='';
-$day_achieve='';
+$d_schedule='';
 $step_contents='';
-$year_step='';
-$month_step='';
-$day_step='';
+$s_schedule='';
 $way='';
 $daily_goal_contents='';
 $daily_time='';
@@ -32,13 +28,9 @@ if (!empty($_POST)) {
   $dream_contents=$_POST['dream_contents'];
   $category=$_POST['category'];
   $tag=$_POST['tag'];
-  $year_achieve=$_POST['year_achieve'];
-  $month_achieve=$_POST['month_achieve'];
-  $day_achieve=$_POST['day_achieve'];
+  $d_schedule=$_POST['d_schedule'];
   $step_contents=$_POST['step_contents'];
-  $year_step=$_POST['year_step'];
-  $month_step=$_POST['month_step'];
-  $day_step=$_POST['day_step'];
+  $s_schedule=$_POST['s_schedule'];
   $way=$_POST['way'];
   $daily_goal_contents=$_POST['daily_goal_contents'];
   $daily_time=$_POST['daily_time'];
@@ -57,28 +49,16 @@ if (!empty($_POST)) {
   //   elseif (mb_strlen($tag)>11) {
   //   $errors['tag'] = 'length';
   // }
-    if ($year_achieve =='') {
-      $errors['year_achieve'] = 'blank';
-    }
-    if ($month_achieve =='') {
-      $errors['month_achieve'] = 'blank';
-    }
-    if ($day_achieve =='') {
-      $errors['day_achieve'] = 'blank';
+    if ($d_schedule =='') {
+      $errors['d_schedule'] = 'blank';
     }
     if ($step_contents =='') {
       $errors['step_contents'] = 'blank';}
   //   elseif (mb_strlen($step_contents)>21) {
   //   $errors['step_contents'] = 'length';
   // }
-      if ($year_step =='') {
-        $errors['year_step'] = 'blank';
-      }
-      if ($month_step =='') {
-        $errors['month_step'] = 'blank';
-      }
-      if ($day_step =='') {
-        $errors['day_step'] = 'blank';
+      if ($s_schedule =='') {
+        $errors['s_schedule'] = 'blank';
       }
       if ($way =='') {
        $errors['way'] = 'blank';
@@ -112,19 +92,14 @@ if (!empty($_POST)) {
       $_SESSION['dream_info']['dream_contents'] = $dream_contents;
       $_SESSION['dream_info']['category'] = $category;
       $_SESSION['dream_info']['tag'] = $tag;
-      $_SESSION['dream_info']['year_achieve'] = $year_achieve;
-      $_SESSION['dream_info']['month_achieve'] = $month_achieve;
-      $_SESSION['dream_info']['day_achieve'] = $day_achieve;
+      $_SESSION['dream_info']['d_schedule'] = $d_schedule;
       $_SESSION['dream_info']['step_contents'] = $step_contents;
-      $_SESSION['dream_info']['year_step'] = $year_step;
-      $_SESSION['dream_info']['month_step'] = $month_step;
-      $_SESSION['dream_info']['day_step'] = $day_step;
+      $_SESSION['dream_info']['s_schedule'] = $s_schedule;
       $_SESSION['dream_info']['way'] = $way;
       $_SESSION['dream_info']['daily_goal_contents'] = $daily_goal_contents;
       $_SESSION['dream_info']['daily_time'] = $daily_time;
       $_SESSION['dream_info']['dream_image_path'] = $upload_image_name;
-      header('Location: register_check_kari2.php');
-    //上でひとまず借り２に送ります。戻した。
+      header('Location: register_check.php');
     exit(); //POST送信破棄。
   }
 }
@@ -267,14 +242,14 @@ if (!empty($_POST)) {
                 // その TR 行を TBODY へと付加します
                 mybody.appendChild(mycurrent_row);
              // 削除ボタンを有効にする
-              document.hogehoge.delrow.disabled=false;
+             document.hogehoge.delrow.disabled=false;
         // テーブルの数（行の数）がmaxrows以上の場合は
         // 追加ボタンを無効にする
         if(i>=maxrows){
-            document.hogehoge.addrow.disabled=true;
+          document.hogehoge.addrow.disabled=true;
         }
-    }
-    var hige =    function() {
+      }
+      var hige =    function() {
         var mytable=document.getElementById("histTablebody");
         var removeTable=document.getElementById("histrow"+i);
         mytable.removeChild(removeTable);
@@ -282,14 +257,14 @@ if (!empty($_POST)) {
         // テーブルの数（行の数）が0の場合は
         // 削除ボタンを無効にする
         if(i==1){
-            document.hogehoge.delrow.disabled=true;
+          document.hogehoge.delrow.disabled=true;
         }
         // 追加ボタンを有効にする
         document.hogehoge.addrow.disabled=false;
-    }
-    var result =    function() {
+      }
+      var result =    function() {
         alert('あなたの履歴は'+i+'件です。');
-    }
+      }
 //-->
 </script>
 
@@ -308,8 +283,6 @@ if (!empty($_POST)) {
             <div style="margin-right : 300px">
               <div style="margin-bottom : 300px">
                 <div style="margin-left : 300px">
-
-
                   <div class="container-fluid">
                     <h1 style="color: #01579b;">夢登録</h1>
                   </div><br>
@@ -364,92 +337,7 @@ if (!empty($_POST)) {
                   <h4 style="color: #42a5f5;">④達成期限を設定してください。</h4>
                 </div>
                 <div class="container-fluid">
-                  <select name="year_achieve" value="<?php echo $year_achieve; ?>">
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                    <option value="2019">2019</option>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                    <option value="2026">2026</option>
-                    <option value="2027">2027</option>
-                    <option value="2028">2028</option>
-                    <option value="2029">2029</option>
-                    <option value="2030">2030</option>
-                    <option value="2031">2031</option>
-                    <option value="2032">2032</option>
-                    <option value="2033">2033</option>
-                    <option value="2034">2034</option>
-                    <option value="2035">2035</option>
-                    <option value="2036">2036</option>
-                    <option value="2037">2037</option>
-                    <option value="2038">2038</option>
-                    <option value="2039">2039</option>
-                    <option value="2040">2040</option>
-                    <option value="2041">2041</option>
-                    <option value="2042">2042</option>
-                    <option value="2043">2043</option>
-                    <option value="2044">2044</option>
-                    <option value="2045">2045</option>
-                    <option value="2046">2046</option>
-                    <option value="2047">2047</option>
-                    <option value="2048">2048</option>
-                    <option value="2049">2049</option>
-                    <option value="2050">2050</option>
-                  </select>
-                  年
-                  <select name="month_achieve" value="<?php echo $month_achieve; ?>">
-                    <option value="01">01</option>
-                    <option value="02">02</option>
-                    <option value="03">03</option>
-                    <option value="04">04</option>
-                    <option value="05">05</option>
-                    <option value="06">06</option>
-                    <option value="07">07</option>
-                    <option value="08">08</option>
-                    <option value="09">09</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                  </select>
-                  月
-                  <select name="day_achieve" value="<?php echo $day_achieve; ?>">
-                    <option value="01">01</option>
-                    <option value="02">02</option>
-                    <option value="03">03</option>
-                    <option value="04">04</option>
-                    <option value="05">05</option>
-                    <option value="06">06</option>
-                    <option value="07">07</option>
-                    <option value="08">08</option>
-                    <option value="09">09</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                    <option value="21">21</option>
-                    <option value="22">22</option>
-                    <option value="23">23</option>
-                    <option value="24">24</option>
-                    <option value="25">25</option>
-                    <option value="26">26</option>
-                    <option value="27">27</option>
-                    <option value="28">28</option>
-                    <option value="29">29</option>
-                    <option value="30">30</option>
-                    <option value="31">31</option>
-                  </select>
-                  日
+                  <input type="date" name="d_schedule">
                 </div>
                 <br>
                 <br>
@@ -473,92 +361,7 @@ if (!empty($_POST)) {
                         </td>
                         <td bgcolor="#b3e5fc">期限</td>
                         <td>
-                          <select type="text"  name="year_step" id="ymd" value="<?php $year_step; ?>">
-                            <option value="2017">2017</option>
-                            <option value="2018">2018</option>
-                            <option value="2019">2019</option>
-                            <option value="2020">2020</option>
-                            <option value="2021">2021</option>
-                            <option value="2022">2022</option>
-                            <option value="2023">2023</option>
-                            <option value="2024">2024</option>
-                            <option value="2025">2025</option>
-                            <option value="2026">2026</option>
-                            <option value="2027">2027</option>
-                            <option value="2028">2028</option>
-                            <option value="2029">2029</option>
-                            <option value="2030">2030</option>
-                            <option value="2031">2031</option>
-                            <option value="2032">2032</option>
-                            <option value="2033">2033</option>
-                            <option value="2034">2034</option>
-                            <option value="2035">2035</option>
-                            <option value="2036">2036</option>
-                            <option value="2037">2037</option>
-                            <option value="2038">2038</option>
-                            <option value="2039">2039</option>
-                            <option value="2040">2040</option>
-                            <option value="2041">2041</option>
-                            <option value="2042">2042</option>
-                            <option value="2043">2043</option>
-                            <option value="2044">2044</option>
-                            <option value="2045">2045</option>
-                            <option value="2046">2046</option>
-                            <option value="2047">2047</option>
-                            <option value="2048">2048</option>
-                            <option value="2049">2049</option>
-                            <option value="2050">2050</option>
-                          </select>
-                          年
-                          <select type="text" name="month_step" id="ymd" value="<?php $month_step; ?>">
-                            <option value="01">01</option>
-                            <option value="02">02</option>
-                            <option value="03">03</option>
-                            <option value="04">04</option>
-                            <option value="05">05</option>
-                            <option value="06">06</option>
-                            <option value="07">07</option>
-                            <option value="08">08</option>
-                            <option value="09">09</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                          </select>
-                          月
-                          <select name="day_step" name="dayr_step" id="ymd" value="<?php $day_step; ?>">
-                            <option value="01">01</option>
-                            <option value="02">02</option>
-                            <option value="03">03</option>
-                            <option value="04">04</option>
-                            <option value="05">05</option>
-                            <option value="06">06</option>
-                            <option value="07">07</option>
-                            <option value="08">08</option>
-                            <option value="09">09</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                            <option value="13">13</option>
-                            <option value="14">14</option>
-                            <option value="15">15</option>
-                            <option value="16">16</option>
-                            <option value="17">17</option>
-                            <option value="18">18</option>
-                            <option value="19">19</option>
-                            <option value="20">20</option>
-                            <option value="21">21</option>
-                            <option value="22">22</option>
-                            <option value="23">23</option>
-                            <option value="24">24</option>
-                            <option value="25">25</option>
-                            <option value="26">26</option>
-                            <option value="27">27</option>
-                            <option value="28">28</option>
-                            <option value="29">29</option>
-                            <option value="30">30</option>
-                            <option value="31">31</option>
-                          </select>
-                          日
+                          <input type="date" name="s_schedule">
                         </td>
                       </tr>
                     </tbody>
