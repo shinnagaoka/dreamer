@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Bootstrap Admin Template">
     <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
-    <title>Dasha - Bootstrap Admin Template</title>
+    <title>chat</title>
     <!-- Vendor styles-->
     <!-- Animate.CSS-->
     <link rel="stylesheet" href="vendor/animate.css/animate.css">
@@ -20,38 +20,34 @@
   </head>
   <body class="theme-default">
     <div class="layout-container">
-      <!-- top navbar-->
-      <header class="header-container">
-        <nav>
-          <ul class="hidden-lg-up">
-            <li><a class="sidebar-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
-          </ul>
-          <ul class="hidden-xs-down">
-            <li><a class="covermode-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
-          </ul>
-          <h2 class="header-title">Bootstrap</h2>
-          <ul class="float-right">
-            <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/01.jpg" alt="header-user-image"><sup class="badge bg-danger">3</sup></a>
-              <div class="dropdown-menu dropdown-menu-right dropdown-scale">
-                <h6 class="dropdown-header">User menu</h6><a class="dropdown-item" href="#"><span class="float-right badge badge-primary">4</span><em class="ion-ios-email-outline icon-lg text-primary"></em>Messages</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>Settings</a>
-                <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="user.login.html"><em class="ion-log-out icon-lg text-primary"></em>Logoff</a>
-              </div>
-            </li>
-            <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><em class="ion-ios-keypad"></em></a>
-              <div class="dropdown-menu dropdown-menu-right dropdown-scale dropdown-card">
-                <div class="p-3">
+<!-- top navbar-->
+    <header class="header-container">
+      <nav>
+        <ul class="hidden-lg-up">
+          <li><a class="sidebar-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
+        </ul>
+        <ul class="hidden-xs-down">
+          <li><a class="covermode-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
+        </ul>
+        <h2 class="header-title"></h2>
+        <ul class="float-right">
+          <li><a id="header-search" href="#"><em class="ion-ios-search-strong"></em></a></li>
+          <li><a id="header-settings" href="#"><em class="ion-more"></em></a></li>
+          <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><em class="ion-ios-keypad"></em></a>
+            <!-- <div class="dropdown-menu dropdown-menu-right dropdown-scale dropdown-card"> -->
+                <!-- <div class="p-3">
                   <div class="d-flex mb-3">
                     <div class="wd-xs mr-3">
                       <div class="card bg-gradient-primary border-0">
                         <div class="card-block text-white text-center">
-                          <div class="mb-1"><em class="ion-stats-bars icon-2x"></em></div><small class="text-bold">Stats</small>
+                          <div class="mb-1"><em class="ion-stats-bars icon-2x"></em></div><small class="text-bold">カテゴリー</small>
                         </div>
                       </div>
                     </div>
                     <div class="wd-xs">
                       <div class="card bg-gradient-info border-0">
                         <div class="card-block text-white text-center">
-                          <div class="mb-1"><em class="ion-map icon-2x"></em></div><small class="text-bold">Places</small>
+                          <div class="mb-1"><em class="ion-map icon-2x"></em></div><small class="text-bold">応援している夢</small>
                         </div>
                       </div>
                     </div>
@@ -60,7 +56,7 @@
                     <div class="wd-xs mr-3">
                       <div class="card bg-gradient-warning border-0">
                         <div class="card-block text-white text-center">
-                          <div class="mb-1"><em class="ion-clock icon-2x"></em></div><small class="text-bold">Events</small>
+                          <div class="mb-1"><em class="ion-clock icon-2x"></em></div><small class="text-bold">履歴</small>
                         </div>
                       </div>
                     </div>
@@ -72,132 +68,74 @@
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                </div> -->
+                <!-- </div> -->
+          </li>
+          <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-scale">
+              <h6 class="dropdown-header">ユーザーメニュー</h6><a class="dropdown-item" href="#"><!-- <span class="float-right badge badge-primary">4</span> --><em class="ion-ios-email-outline icon-lg text-primary"></em>マイページ</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>編集</a>
+              <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="logout.php"><em class="ion-log-out icon-lg text-primary"></em>ログアウト</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- sidebar-->
+    <aside class="sidebar-container">
+      <div class="brand-header">
+        <div class="float-left pt-4 text-muted sidebar-close"><em class="ion-arrow-left-c icon-lg"></em></div><a class="brand-header-logo" href="#">
+          <!-- Logo Imageimg(src="img/logo.png", alt="logo") -->
+          <span class="brand-header-logo-text">Dreamer</span></a>
+      </div>
+      <div class="sidebar-content">
+        <div class="sidebar-toolbar">
+          <div class="sidebar-toolbar-background"></div>
+          <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="Profile"></a>
+            <div class="mt-3">
+              <div class="lead"><?php echo $read_users['user_name']; ?></div>
+                <div class="text-thin">北海道</div>
+             </div>
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          <ul>
+            <li>
+              <div class="sidebar-nav-heading">マイページ</div>
             </li>
-            <li><a id="header-search" href="#"><em class="ion-ios-search-strong"></em></a></li>
-            <li><a id="header-settings" href="#"><em class="ion-more"></em></a></li>
+              <li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
+                    <!-- <li><a href="widgets.html"><span class="float-right nav-label"><span class="badge-rounded badge-primary">!</span></span><span class="nav-icon"><em class="ion-ios-box-outline"></em></span><span>達成された夢</span></a></li> -->
+                    <!-- <li>
+                      <div class="sidebar-nav-heading">COMPONENTS</div>
+                    </li> -->
+              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>達成された夢</span></a>
+                <ul class="sidebar-subnav" id="elements">
+                  <li><a href="buttons.html"><span class="float-right nav-label"></span><span>No.1</span></a></li>
+                  <li><a href="bootstrapui.html"><span class="float-right nav-label"></span><span>No.2</span></a></li>
+                </ul>
+              </li>
+              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>編集</span></a></li>
+
+            <li>
+              <div class="sidebar-nav-heading">閲覧</div>
+            </li>
+              <li><a href="view_c_page.php"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-list-outline"></em></span><span>カテゴリー別</span></a>
+                <ul class="sidebar-subnav" id="tables">
+                  <li><a href="view_c_page.php #1"><span class="float-right nav-label"></span><span>職業</span></a></li>
+                  <li><a href="view_c_page.php #2"><span class="float-right nav-label"></span><span>人間関係</span></a></li>
+                  <li><a href="view_c_page.php #3"><span class="float-right nav-label"></span><span>健康</span></a></li>
+                  <li><a href="view_c_page.php #4"><span class="float-right nav-label"></span><span>勉強</span></a></li>
+                  <li><a href="view_c_page.php #5"><span class="float-right nav-label"></span><span>お金</span></a></li>
+                  <li><a href="view_c_page.php #6"><span class="float-right nav-label"></span><span>その他</span></a></li>
+                </ul>
+              </li>
+
+              <li><a href="view_c_n_page.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>応援している夢</span></a></li>
+              <li><a href="view_h_page.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>履歴</span></a></li>
           </ul>
         </nav>
-      </header>
-      <!-- sidebar-->
-      <aside class="sidebar-container">
-        <div class="brand-header">
-          <div class="float-left pt-4 text-muted sidebar-close"><em class="ion-arrow-left-c icon-lg"></em></div><a class="brand-header-logo" href="#">
-            <!-- Logo Imageimg(src="img/logo.png", alt="logo")
-            --><span class="brand-header-logo-text">Dasha</span></a>
-        </div>
-        <div class="sidebar-content">
-          <div class="sidebar-toolbar">
-            <div class="sidebar-toolbar-background"></div>
-            <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/01.jpg" alt="Profile"></a>
-              <div class="mt-3">
-                <div class="lead">Jane Doe</div>
-                <div class="text-thin">California, CA</div>
-              </div>
-            </div>
-          </div>
-          <nav class="sidebar-nav">
-            <ul>
-              <li>
-                <div class="sidebar-nav-heading">MENU</div>
-              </li>
-              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>Dashboard</span></a></li>
-              <li><a href="widgets.html"><span class="float-right nav-label"><span class="badge-rounded badge-primary">!</span></span><span class="nav-icon"><em class="ion-ios-box-outline"></em></span><span>Widgets</span></a></li>
-              <li>
-                <div class="sidebar-nav-heading">COMPONENTS</div>
-              </li>
-              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>Elements</span></a>
-                <ul class="sidebar-subnav" id="elements">
-                  <li><a href="buttons.html"><span class="float-right nav-label"></span><span>Buttons</span></a></li>
-                  <li><a href="bootstrapui.html"><span class="float-right nav-label"></span><span>Bootstrap</span></a></li>
-                  <li><a href="modals.html"><span class="float-right nav-label"></span><span>Modals</span></a></li>
-                  <li><a href="toaster.html"><span class="float-right nav-label"></span><span>Toaster</span></a></li>
-                  <li><a href="sweetalert.html"><span class="float-right nav-label"></span><span>Sweet Alert</span></a></li>
-                  <li><a href="spinners.html"><span class="float-right nav-label"></span><span>Spinners</span></a></li>
-                  <li><a href="nestable.html"><span class="float-right nav-label"></span><span>Nestable</span></a></li>
-                  <li><a href="grid.html"><span class="float-right nav-label"></span><span>Grid</span></a></li>
-                  <li><a href="grid-masonry.html"><span class="float-right nav-label"></span><span>Grid Masonry</span></a></li>
-                  <li><a href="typography.html"><span class="float-right nav-label"></span><span>Typography</span></a></li>
-                  <li><a href="icons.html"><span class="float-right nav-label"></span><span>Icons</span></a></li>
-                  <li><a href="utilities.html"><span class="float-right nav-label"></span><span>Utilities</span></a></li>
-                  <li><a href="colors.html"><span class="float-right nav-label"></span><span>Colors</span></a></li>
-                </ul>
-              </li>
-              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>Forms</span></a>
-                <ul class="sidebar-subnav">
-                  <li><a href="forms.standard.html"><span class="float-right nav-label"></span><span>Standard</span></a></li>
-                  <li><a href="forms.advanced.html"><span class="float-right nav-label"></span><span>Advanced</span></a></li>
-                  <li><a href="validation.html"><span class="float-right nav-label"></span><span>Validation</span></a></li>
-                  <li><a href="dropzone.html"><span class="float-right nav-label"></span><span>Dropzone</span></a></li>
-                  <li><a href="summernote.html"><span class="float-right nav-label"></span><span>Summernote</span></a></li>
-                  <li><a href="wizard.html"><span class="float-right nav-label"></span><span>Wizard Steps</span></a></li>
-                  <li><a href="typeahead.html"><span class="float-right nav-label"></span><span>Typeahead</span></a></li>
-                  <li><a href="xeditable.html"><span class="float-right nav-label"></span><span>xEditable</span></a></li>
-                </ul>
-              </li>
-              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-list-outline"></em></span><span>Tables</span></a>
-                <ul class="sidebar-subnav" id="tables">
-                  <li><a href="tables.classic.html"><span class="float-right nav-label"></span><span>Classic</span></a></li>
-                  <li><a href="tables.responsive.html"><span class="float-right nav-label"></span><span>Responsive</span></a></li>
-                  <li><a href="datatable.html"><span class="float-right nav-label"></span><span>Datatable</span></a></li>
-                  <li><a href="footable.html"><span class="float-right nav-label"></span><span>FooTable</span></a></li>
-                  <li><a href="bootgrid.html"><span class="float-right nav-label"></span><span>Bootgrid</span></a></li>
-                </ul>
-              </li>
-              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-pulse"></em></span><span>Charts</span></a>
-                <ul class="sidebar-subnav">
-                  <li><a href="flot.html"><span class="float-right nav-label"></span><span>Flot</span></a></li>
-                  <li><a href="peity.html"><span class="float-right nav-label"></span><span>Peity</span></a></li>
-                  <li><a href="rickshaw.html"><span class="float-right nav-label"></span><span>Rickshaw</span></a></li>
-                  <li><a href="radial.html"><span class="float-right nav-label"></span><span>Radial</span></a></li>
-                </ul>
-              </li>
-              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-location-outline"></em></span><span>Maps</span></a>
-                <ul class="sidebar-subnav" id="maps">
-                  <li><a href="google-map.html"><span class="float-right nav-label"></span><span>Google Maps</span></a></li>
-                  <li><a href="datamaps.html"><span class="float-right nav-label"></span><span>Datamaps</span></a></li>
-                  <li><a href="vector-map.html"><span class="float-right nav-label"></span><span>Vector Maps</span></a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="sidebar-nav-heading">MORE</div>
-              </li>
-              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-person-outline"></em></span><span>User</span></a>
-                <ul class="sidebar-subnav" id="user">
-                  <li><a href="signin.html"><span class="float-right nav-label"></span><span>Signin</span></a></li>
-                  <li><a href="signup.html"><span class="float-right nav-label"></span><span>Signup</span></a></li>
-                  <li><a href="recover.html"><span class="float-right nav-label"></span><span>Recover</span></a></li>
-                  <li><a href="lock.html"><span class="float-right nav-label"></span><span>Lock</span></a></li>
-                </ul>
-              </li>
-              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-keypad-outline"></em></span><span>Pages</span></a>
-                <ul class="sidebar-subnav" id="pages">
-                  <li><a href="forum.html"><span class="float-right nav-label"></span><span>Forum</span></a></li>
-                  <li><a href="calendar.html"><span class="float-right nav-label"></span><span>Calendar</span></a></li>
-                  <li><a href="timeline.html"><span class="float-right nav-label"></span><span>Timeline</span></a></li>
-                  <li><a href="invoice.html"><span class="float-right nav-label"></span><span>Invoice</span></a></li>
-                  <li><a href="fullmap.html"><span class="float-right nav-label"></span><span>Fullmap</span></a></li>
-                  <li><a href="pricing.html"><span class="float-right nav-label"></span><span>Pricing</span></a></li>
-                  <li><a href="people.html"><span class="float-right nav-label"></span><span>People</span></a></li>
-                  <li><a href="contact.html"><span class="float-right nav-label"></span><span>Contact</span></a></li>
-                  <li><a href="wall.html"><span class="float-right nav-label"></span><span>Wall</span></a></li>
-                  <li><a href="mailbox.html"><span class="float-right nav-label"></span><span>Mailbox</span></a></li>
-                  <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span>Errors</span></a>
-                    <ul class="sidebar-subnav" id="errors">
-                      <li><a href="error404.html"><span class="float-right nav-label"></span><span>404</span></a></li>
-                      <li><a href="error403.html"><span class="float-right nav-label"></span><span>403</span></a></li>
-                      <li><a href="error500.html"><span class="float-right nav-label"></span><span>500</span></a></li>
-                      <li><a href="error503.html"><span class="float-right nav-label"></span><span>503</span></a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </aside>
-      <div class="sidebar-layout-obfuscator"></div>
+      </div>
+    </aside>
+    <div class="sidebar-layout-obfuscator"></div>
       <!-- Main section-->
       <main class="main-container">
         <!-- Page content-->
@@ -205,55 +143,13 @@
           <div class="container container-md">
             <div class="cardbox mb-3">
               <div class="cardbox-heading">
-                <div class="cardbox-title">Modals</div>
+                <div class="cardbox-title">Chat</div>
               </div>
               <div class="cardbox-body">
-                <div class="modal d-block" style="position: relative; z-index: 0;">
-                  <div class="modal-dialog shadow-z5">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
-                      </div>
-                      <div class="modal-body">
-                        <p>Modal body text goes here.</p>
-                      </div>
-                      <div class="modal-footer">
-                        <button class="btn btn-primary" type="button">Save changes</button>
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <button class="mr-2 mb-2 btn btn-info" type="button" data-toggle="modal" data-target=".demo-modal-form">Open Chat</button>
               </div>
             </div>
-            <div class="cardbox mb-3">
-              <div class="cardbox-heading">
-                <div class="cardbox-title">Live demo</div>
-              </div>
-              <div class="cardbox-body">
-                <div class="d-flex flex-column flex-sm-row">
-                  <button class="mr-2 mb-2 btn btn-primary" type="button" data-toggle="modal" data-target=".demo-modal-std">Default modal</button>
-                  <button class="mr-2 mb-2 btn btn-primary" type="button" data-toggle="modal" data-target=".demo-modal-lg">Large modal</button>
-                  <button class="mr-2 mb-2 btn btn-primary" type="button" data-toggle="modal" data-target=".demo-modal-sm">Small modal</button>
-                  <button class="mr-2 mb-2 btn btn-info" type="button" data-toggle="modal" data-target=".demo-modal-form">Form modal</button>
-                  <button class="mr-2 mb-2 btn btn-danger" type="button" data-toggle="modal" data-target=".demo-modal-alert">Alert modal</button>
-                </div>
-              </div>
-            </div>
-            <div class="cardbox mb-3">
-              <div class="cardbox-heading">
-                <div class="cardbox-title">Modal Positions</div><small>Modals can be located to different location by attaching any of the classes <code>.modal-top</code><code>.modal-bottom</code><code>.modal-left</code><code>.modal-right</code>to the root element<br><span>This modals can have any content and can be used as secondary sidebars.</span></small>
-              </div>
-              <div class="cardbox-body">
-                <div class="d-flex flex-column flex-sm-row">
-                  <button class="mr-2 mb-2 btn btn-success" type="button" data-toggle="modal" data-target=".demo-modal-top"><strong>Top modal</strong></button>
-                  <button class="mr-2 mb-2 btn btn-success" type="button" data-toggle="modal" data-target=".demo-modal-bottom"><strong>Bottom modal</strong></button>
-                  <button class="mr-2 mb-2 btn btn-success" type="button" data-toggle="modal" data-target=".demo-modal-left"><strong>Left modal</strong></button>
-                  <button class="mr-2 mb-2 btn btn-success" type="button" data-toggle="modal" data-target=".demo-modal-right"><strong>Right modal</strong></button>
-                </div>
-              </div>
-            </div>
+          </div>
           </div>
         </section>
         <!-- Page footer-->

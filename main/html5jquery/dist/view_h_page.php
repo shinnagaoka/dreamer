@@ -131,6 +131,7 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
 		require('../require/read_histories.php');
 		foreach ($read_history as $history) {
 		$rd=$history['dream_id'];
+		require('../require/read_cheers_amount.php');
 		require('../require/read_dream.php');
 		$user_id = $read_dream['user_id'];
 		require('../require/read_users.php');
@@ -145,8 +146,8 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
 								<div>
 									<span class="card-text">
 										<img style="width: 30px; height: 30px;" class="rounded-circle" src="img/user/<?php echo $read_users['profile_image_path']; ?>">
-										<?php  echo $read_users['user_name'];?>
-								<?php echo $history['created']; ?>
+										<?php  echo $read_users['user_name'];?><br>
+										閲覧日:<?php echo $history['created']; ?>
 									</span>
 								</div>
 						</div>

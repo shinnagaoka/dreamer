@@ -11,6 +11,18 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
     header('Location: signin.php');
     exit();
 }
+$rd = $read_users['now_dream_id'];
+require('../require/read_dream.php');
+require('../require/read_cheers_amount.php');
+if (isset($_POST['message']) && $_POST['message']!='') {
+  $dream_id = $read_dream['dream_id'];
+  $message = $_POST['message'];
+  require('../require/make_chat.php');
+
+  var_dump($_POST['message']);
+  header('Location: dashboard.php');
+  exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -111,42 +123,6 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
           <li><a id="header-search" href="#"><em class="ion-ios-search-strong"></em></a></li>
           <li><a id="header-settings" href="#"><em class="ion-more"></em></a></li>
           <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><em class="ion-ios-keypad"></em></a>
-            <!-- <div class="dropdown-menu dropdown-menu-right dropdown-scale dropdown-card"> -->
-                <!-- <div class="p-3">
-                  <div class="d-flex mb-3">
-                    <div class="wd-xs mr-3">
-                      <div class="card bg-gradient-primary border-0">
-                        <div class="card-block text-white text-center">
-                          <div class="mb-1"><em class="ion-stats-bars icon-2x"></em></div><small class="text-bold">カテゴリー</small>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="wd-xs">
-                      <div class="card bg-gradient-info border-0">
-                        <div class="card-block text-white text-center">
-                          <div class="mb-1"><em class="ion-map icon-2x"></em></div><small class="text-bold">応援している夢</small>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="d-flex">
-                    <div class="wd-xs mr-3">
-                      <div class="card bg-gradient-warning border-0">
-                        <div class="card-block text-white text-center">
-                          <div class="mb-1"><em class="ion-clock icon-2x"></em></div><small class="text-bold">履歴</small>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="wd-xs">
-                      <div class="card bg-gradient-danger border-0">
-                        <div class="card-block text-white text-center">
-                          <div class="mb-1"><em class="ion-plane icon-2x"></em></div><small class="text-bold">Flights</small>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
-                <!-- </div> -->
           </li>
           <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
             <div class="dropdown-menu dropdown-menu-right dropdown-scale">
@@ -180,10 +156,6 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
               <div class="sidebar-nav-heading">マイページ</div>
             </li>
               <li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
-                    <!-- <li><a href="widgets.html"><span class="float-right nav-label"><span class="badge-rounded badge-primary">!</span></span><span class="nav-icon"><em class="ion-ios-box-outline"></em></span><span>達成された夢</span></a></li> -->
-                    <!-- <li>
-                      <div class="sidebar-nav-heading">COMPONENTS</div>
-                    </li> -->
               <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>達成された夢</span></a>
                 <ul class="sidebar-subnav" id="elements">
                   <li><a href="buttons.html"><span class="float-right nav-label"></span><span>No.1</span></a></li>
@@ -239,7 +211,7 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
                 <div class="cardbox-body">
                   <div class="clearfix mb-3">
                     <div class="text-center">
-                      <h1 style="margin-top: 20px">グローバルエンジニアになる!!</h1>
+                      <h1 style="margin-top: 20px"><?php echo $read_dream['dream_contents']; ?></h1>
                     </div>
                   </div>
                   <div class="">
@@ -249,9 +221,58 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
                     </div>
                   </div>
                   <div style="margin:10px">
-                    <button class="col-xs-2 btn btn-info" type="button">チャット</button>
+                    <button class="col-xs-2 btn btn-info" type="button" data-toggle="modal" data-target=".demo-modal-form">メッセージ</button>
+                    <!-- Chat 機能記述開始 jsによって表示されません -->
+                        <!-- Form Modal-->
+                          <div class="modal fade demo-modal-form">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="mt-0 modal-title">メッセージ</h5>
+                                  <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+                                </div>
+                                <div class="modal-body">
+                                  <form method="POST" action="">
+                                    <div class="form-group">
+                                      <label class="control-label" for="message-content">Message content
+                                      </label>
+                                        <textarea name="message" class="form-control" id="message-content"></textarea>
+                                        <input class="form-control btn btn-info" type="submit" value="送信">
+                                    </div>
+                                  </form>
+
+            <div>
+            <?php
+            $rd=$read_users['now_dream_id'];
+            require('../require/read_chats.php');
+            foreach ($read_chats as $chat) {
+              $user_id = $chat['user_id'];
+              require('../require/read_users.php');
+            ?>
+            <div class="cardbox">
+              <div style="padding: 10px;">
+            <span style="margin-right: 30px;">
+              <a href="#">
+                <img class="rounded-circle thumb48" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="User">
+              <span><?php echo $read_users['user_name']; ?></span>
+              </a><small><em class="ion-earth text-muted mr-2"></em><span><?php echo $chat['created']?></span></small>
+            </span>
+            <div style="margin: 10px;">
+            <span><?php echo $chat['chats_contents'];?></span></div>
+            </div>
+          </div>
+            <?php } ?>
+                                  </div>
+                                  <div class="modal-footer">
+                                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                                </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    <!-- Chat 機能記述終了 jsによって表示されません -->
                     <a href="#" class="btn btn-xs btn-info">
-                    <span class="glyphicon glyphicon-thumbs-up"></span>応援</a>178
+                    <span class="glyphicon glyphicon-thumbs-up"></span>応援</a><?php echo $read_cheers_amount['cnt']; ?>
                   </div>
                 </div>
               </div>
@@ -407,8 +428,6 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
                   <a class="btn btn-primary" id="swal-demo3" href="#">Finish!</a>
                 </p>
               </div>
-
-
               <div class="cardbox">
                 <table class="table">
                   <thead>
