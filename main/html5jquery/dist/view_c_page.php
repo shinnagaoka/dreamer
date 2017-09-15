@@ -194,6 +194,7 @@ $category = array('職業','人間関係','健康','勉強','お金','その他'
 						</div>
 					</div>
 				</div>
+<!-- Main Function Part Start  ============================================ -->
 				<br><br>
 				<?php $c_N=0; foreach ($category as $c_name) { $c_N++;
 					$_SESSION['dream_category']=$c_N;?><br>
@@ -213,11 +214,13 @@ $category = array('職業','人間関係','健康','勉強','お金','その他'
 							require('../require/read_all_dream.php');
 							foreach ($read_dream as $dream) {
 								$rd = $dream['dream_id'];
+								$this_dream_id = $rd;
 								require('../require/read_cheers_amount.php');
 								$user_id=$dream['user_id'];
 								require('../require/read_users.php');?>
 								<div class="col-8 col-md-4"  style="margin-top: 20px;">
 									<div class="card">
+										<a href="other_mypage.php?dream=<?php echo $this_dream_id;?>">
 										<img class="card-img-top img-fluid" src="img/<?php echo $dream['dream_image_path']; ?>" alt="Card image cap" style="height: 100%; width: 100%;">
 										<div class="card-block">
 											<h2 class="card-title"><?php echo $dream['dream_contents']; ?></h2>
@@ -230,6 +233,7 @@ $category = array('職業','人間関係','健康','勉強','お金','その他'
 												</span>
 											</div>
 										</div>
+									</a>
 									</div>
 								</div>
 						<?php } ?>
@@ -240,6 +244,7 @@ $category = array('職業','人間関係','健康','勉強','お金','その他'
 				</div>
 			</main>
 		</div>
+<!-- Main Function Part End  ============================================ -->
 		<!-- Search template-->
 		<div class="modal modal-top fade modal-search" tabindex="-1" role="dialog">
 			<div class="modal-dialog">
