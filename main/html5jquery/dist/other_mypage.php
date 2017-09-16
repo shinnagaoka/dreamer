@@ -13,14 +13,33 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
 }
 $rd = $_GET['dream'];
 require('../require/read_dream.php');
+$user_id = $read_dream['user_id'];
+require('../require/read_users.php');
+$this_dream_id = $read_users['now_dream_id'];
 require('../require/read_cheers_amount.php');
+if ($_GET['dream']==$read_login_users['now_dream_id']) {
+  header('Location: dashboard.php');
+  exit();
+}
 if (isset($_POST['message']) && $_POST['message']!='') {
   $dream_id = $read_dream['dream_id'];
   $message = $_POST['message'];
   require('../require/make_chat.php');
-
-  var_dump($_POST['message']);
-  header('Location: dashboard.php');
+  header('Location: other_mypage.php?dream='.$dream_id);
+  exit();
+}
+if (isset($_POST['cheer']) && $_POST['cheer']=='true') {
+  $user_id = $_SESSION['login_user']['user_id'];
+  $dream_id = $_GET['dream'];
+  require('../require/make_cheers.php');
+  header('Location: other_mypage.php?dream='.$dream_id);
+  exit();
+}
+if (isset($_POST['cheer']) && $_POST['cheer']=='false') {
+  $dream_id = $_GET['dream'];
+  var_dump($dream_id);
+  require('../require/delete_cheers.php');
+  header('Location: other_mypage.php?dream='.$dream_id);
   exit();
 }
 ?>
@@ -124,9 +143,9 @@ if (isset($_POST['message']) && $_POST['message']!='') {
           <li><a id="header-settings" href="#"><em class="ion-more"></em></a></li>
           <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><em class="ion-ios-keypad"></em></a>
           </li>
-          <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
+          <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/<?php echo $read_login_users['profile_image_path']; ?>" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
             <div class="dropdown-menu dropdown-menu-right dropdown-scale">
-              <h6 class="dropdown-header">ユーザーメニュー</h6><a class="dropdown-item" href="#"><!-- <span class="float-right badge badge-primary">4</span> --><em class="ion-ios-email-outline icon-lg text-primary"></em>マイページ</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>編集</a>
+              <h6 class="dropdown-header">ユーザーメニュー</h6><a class="dropdown-item" href="dashboard.php"><!-- <span class="float-right badge badge-primary">4</span> --><em class="ion-ios-email-outline icon-lg text-primary"></em>マイページ</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>編集</a>
               <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="logout.php"><em class="ion-log-out icon-lg text-primary"></em>ログアウト</a>
             </div>
           </li>
@@ -146,7 +165,7 @@ if (isset($_POST['message']) && $_POST['message']!='') {
           <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="Profile"></a>
             <div class="mt-3">
               <div class="lead"><?php echo $read_users['user_name']; ?></div>
-                <div class="text-thin">北海道</div>
+                <div class="text-thin"></div>
              </div>
           </div>
         </div>
@@ -155,20 +174,19 @@ if (isset($_POST['message']) && $_POST['message']!='') {
             <li>
               <div class="sidebar-nav-heading">マイページ</div>
             </li>
-              <li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
+              <li><a href="other_mypage.php?dream=<?php echo $this_dream_id;?>"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
               <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>達成された夢</span></a>
                 <ul class="sidebar-subnav" id="elements">
                   <li><a href="buttons.html"><span class="float-right nav-label"></span><span>No.1</span></a></li>
                   <li><a href="bootstrapui.html"><span class="float-right nav-label"></span><span>No.2</span></a></li>
                 </ul>
               </li>
-              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>編集</span></a></li>
-
             <li>
               <div class="sidebar-nav-heading">閲覧</div>
             </li>
               <li><a href="view_c_page.php"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-list-outline"></em></span><span>カテゴリー別</span></a>
                 <ul class="sidebar-subnav" id="tables">
+                  <li><a href="view_c_page.php"><span class="float-right nav-label"></span><span>カテゴリー別</span></a></li>
                   <li><a href="view_c_page.php #1"><span class="float-right nav-label"></span><span>職業</span></a></li>
                   <li><a href="view_c_page.php #2"><span class="float-right nav-label"></span><span>人間関係</span></a></li>
                   <li><a href="view_c_page.php #3"><span class="float-right nav-label"></span><span>健康</span></a></li>
@@ -221,7 +239,20 @@ if (isset($_POST['message']) && $_POST['message']!='') {
                     </div>
                   </div>
                   <div style="margin:10px">
+                    <form method="POST" action="">
                     <button class="col-xs-2 btn btn-info" type="button" data-toggle="modal" data-target=".demo-modal-form">メッセージ</button>
+                      <?php
+                      $rd = $_GET['dream'];
+                      require('../require/read_cheers_check.php');
+                      if ($read_cheers_check['cnt']==0) { ?>
+                        <input type="hidden" name="cheer" value="true">
+                        <input type="submit" class="btn btn-xs btn-info" value="応援">
+                      <?php }else{ ?>
+                        <input type="hidden" name="cheer" value="false">
+                        <input type="submit" class="btn btn-xs btn-primary" value="応援取り消し">
+                      <?php } ?>応援数:
+                    <?php echo $read_cheers_amount['cnt']; ?>
+                    </form>
 <!-- Chat 機能記述開始 jsによって表示されません -->
                         <!-- Form Modal-->
                           <div class="modal fade demo-modal-form">
@@ -236,11 +267,10 @@ if (isset($_POST['message']) && $_POST['message']!='') {
                                     <div class="form-group">
                                       <label class="control-label" for="message-content">Message content
                                       </label>
-                                        <textarea name="message" class="form-control" id="message-content"></textarea>
-                                        <input class="form-control btn btn-info" type="submit" value="送信">
+                                      <textarea name="message" class="form-control" id="message-content"></textarea>
+                                      <input class="form-control btn btn-info" type="submit" value="送信">
                                     </div>
                                   </form>
-
             <div>
             <?php
             $rd = $_GET['dream'];
@@ -271,34 +301,6 @@ if (isset($_POST['message']) && $_POST['message']!='') {
                             </div>
                           </div>
 <!-- Chat 機能記述終了 jsによって表示されません -->
-                    <a href="#" class="btn btn-xs btn-info">
-                    <span class="glyphicon glyphicon-thumbs-up"></span>応援</a><?php echo $read_cheers_amount['cnt']; ?>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-xs-12 col-rol-3">
-              <div class="cardbox">
-                <div class="cardbox-body">
-                  <div class="clearfix mb-3">
-                    <div class="text-center" style=" margin-bottom: 10px; border: 100px;">
-                      <form name="myForm">
-                        <div class="mx-auto" id="stopwatch" style="width: 250px;">
-                            <span style="font-size: 40px;" id="stopwatchHour">00</span>
-                            <span style="font-size: 40px;">:</span>
-                            <span style="font-size: 40px;" id="stopwatchMinute">00</span>
-                            <span style="font-size: 40px;">:</span>
-                            <span style="font-size: 40px;" id="stopwatchSecond">00</span>
-                            <input style="height:55px; width: 62px; margin-bottom: 19px;" class="btn btn-info" type="button" value="Start" name="myFormButton" onclick="myCheck()">
-                        </div>
-                        <div class="mx-auto"  style="width: 250px;">
-                          <span>
-                            <input style="height: 56px; width: 170px;" type="text" name="myFormTime" placeholder="00:00:00">
-                            <input style="height: 56px; width: 62px;" class="btn btn-info" type="submit" name="insert_time" value="登録">
-                          </span>
-                        </div>
-                      </form>
-                    </div>
                   </div>
                 </div>
               </div>

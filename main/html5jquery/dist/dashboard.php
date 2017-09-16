@@ -11,7 +11,7 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
     header('Location: signin.php');
     exit();
 }
-$rd = $read_users['now_dream_id'];
+$rd = $read_login_users['now_dream_id'];
 require('../require/read_dream.php');
 require('../require/read_cheers_amount.php');
 if (isset($_POST['message']) && $_POST['message']!='') {
@@ -124,7 +124,7 @@ if (isset($_POST['message']) && $_POST['message']!='') {
           <li><a id="header-settings" href="#"><em class="ion-more"></em></a></li>
           <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><em class="ion-ios-keypad"></em></a>
           </li>
-          <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
+          <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/<?php echo $read_login_users['profile_image_path']; ?>" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
             <div class="dropdown-menu dropdown-menu-right dropdown-scale">
               <h6 class="dropdown-header">ユーザーメニュー</h6><a class="dropdown-item" href="#"><!-- <span class="float-right badge badge-primary">4</span> --><em class="ion-ios-email-outline icon-lg text-primary"></em>マイページ</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>編集</a>
               <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="logout.php"><em class="ion-log-out icon-lg text-primary"></em>ログアウト</a>
@@ -143,9 +143,9 @@ if (isset($_POST['message']) && $_POST['message']!='') {
       <div class="sidebar-content">
         <div class="sidebar-toolbar">
           <div class="sidebar-toolbar-background"></div>
-          <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="Profile"></a>
+          <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_login_users['profile_image_path']; ?>" alt="Profile"></a>
             <div class="mt-3">
-              <div class="lead"><?php echo $read_users['user_name']; ?></div>
+              <div class="lead"><?php echo $read_login_users['user_name']; ?></div>
                 <div class="text-thin">北海道</div>
              </div>
           </div>
@@ -240,10 +240,9 @@ if (isset($_POST['message']) && $_POST['message']!='') {
                                         <input class="form-control btn btn-info" type="submit" value="送信">
                                     </div>
                                   </form>
-
             <div>
             <?php
-            $rd=$read_users['now_dream_id'];
+            $rd=$read_login_users['now_dream_id'];
             require('../require/read_chats.php');
             foreach ($read_chats as $chat) {
               $user_id = $chat['user_id'];
