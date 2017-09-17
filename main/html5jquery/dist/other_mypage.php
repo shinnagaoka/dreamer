@@ -210,7 +210,10 @@ if (isset($_POST['cheer']) && $_POST['cheer']=='false') {
       <section class="section-container">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-lg-8 col-xs-12 col-rol-3" style="font-size: 20px;vertical-align:middle" >
+            <div class="col-lg-12 col-xs-12 col-rol-3" style="font-size: 20px;vertical-align:middle" >
+            <?php if ($read_dream['dream_id']!=$read_users['now_dream_id']) { ?>
+              <h1 class="alert alert-warning">これは達成された夢です。</h1><br>
+            <?php } ?>
               宣言します！！私は...
               <span style="float: right">
                 あと
@@ -224,7 +227,7 @@ if (isset($_POST['cheer']) && $_POST['cheer']=='false') {
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-8 col-xs-12 col-rol-3">
+            <div class="col-lg-12 col-xs-12 col-rol-3">
               <div class="cardbox" style="margin:0">
                 <div class="cardbox-body">
                   <div class="clearfix mb-3">
@@ -306,6 +309,7 @@ if (isset($_POST['cheer']) && $_POST['cheer']=='false') {
               </div>
             </div>
           </div>
+          <br>
           <!-- グラフ -->
           <div class="row">
             <div class="col-lg-12">

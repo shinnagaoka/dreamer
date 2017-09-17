@@ -11,20 +11,14 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
     header('Location: signin.php');
     exit();
 }
-$rd=$read_users['now_dream_id'];
-require('../require/read_dream.php');
-$user_id = $read_dream['user_id'];
-require('../require/read_cheers_amount.php');
+if (isset($_POST['message']) && $_POST['message']!='') {
+  $dream_id = $read_dream['dream_id'];
+  $message = $_POST['message'];
+  require('../require/make_chat.php');
 
-if (!empty($_POST)) {
-  var_dump($_POST);
-  var_dump($rd);
-  $dream_id = $rd;
-  $achieve_1 = $_POST['a_hard'];
-  $achieve_2 = $_POST['a_study'];
-  $achieve_3 = $_POST['a_comment'];
-  require('../require/make_achieve_comment.php');
+  var_dump($_POST['message']);
   header('Location: dashboard.php');
+  exit();
 }
 ?>
 <!DOCTYPE html>
@@ -67,6 +61,45 @@ if (!empty($_POST)) {
       // 指定日から何日たったかを表示するには、"n"を"-n"にする
       document.write(n);
     }
+    //-->
+    <!--
+    myButton = 0; // [Start]/[Stop]のフラグ
+    function myCheck(){
+    if (myButton==0){ // Startボタンを押した
+    myStart=new Date(); // スタート時間を退避
+    myButton = 1;
+    document.myForm.myFormButton.value = "Stop!";
+    myInterval=setInterval("myDisp()",1);
+    }else{  // Stopボタンを押した
+    myDisp();
+    myButton = 0;
+    document.myForm.myFormButton.value = "Start";
+    clearInterval( myInterval );
+    }
+    }
+    function myDisp(){
+    myStop=new Date();  // 経過時間を退避
+    myTime = myStop.getTime() - myStart.getTime();  // 通算ミリ秒計算
+    myH = Math.floor(myTime/(60*60*1000));  // '時間'取得
+    myTime = myTime-(myH*60*60*1000);
+    myM = Math.floor(myTime/(60*1000)); // '分'取得
+    myTime = myTime-(myM*60*1000);
+    myS = Math.floor(myTime/1000);  // '秒'取得
+    myMS = myTime%1000; // 'ミリ秒'取得
+            if( myH < 10 ){
+                myH = '0' + myH;
+            }
+            if( myM < 10 ){
+                myM = '0' + myM;
+            }
+            if( myS < 10 ){
+                myS = '0' + myS;
+            }
+    document.myForm.myFormTime.value = myH+":"+myM+":"+myS;
+    document.getElementById( 'stopwatchHour' ).innerHTML= myH;
+    document.getElementById( 'stopwatchMinute' ).innerHTML= myM;
+    document.getElementById( 'stopwatchSecond' ).innerHTML= myS;
+    }
     // -->
   </SCRIPT>
 
@@ -88,7 +121,7 @@ if (!empty($_POST)) {
           <li><a id="header-settings" href="#"><em class="ion-more"></em></a></li>
           <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><em class="ion-ios-keypad"></em></a>
           </li>
-          <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
+          <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/<?php echo $read_login_users['profile_image_path']; ?>" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
             <div class="dropdown-menu dropdown-menu-right dropdown-scale">
               <h6 class="dropdown-header">ユーザーメニュー</h6><a class="dropdown-item" href="#"><!-- <span class="float-right badge badge-primary">4</span> --><em class="ion-ios-email-outline icon-lg text-primary"></em>マイページ</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>編集</a>
               <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="logout.php"><em class="ion-log-out icon-lg text-primary"></em>ログアウト</a>
@@ -107,9 +140,9 @@ if (!empty($_POST)) {
       <div class="sidebar-content">
         <div class="sidebar-toolbar">
           <div class="sidebar-toolbar-background"></div>
-          <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="Profile"></a>
+          <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_login_users['profile_image_path']; ?>" alt="Profile"></a>
             <div class="mt-3">
-              <div class="lead"><?php echo $read_users['user_name']; ?></div>
+              <div class="lead"><?php echo $read_login_users['user_name']; ?></div>
                 <div class="text-thin">北海道</div>
              </div>
           </div>
@@ -122,8 +155,7 @@ if (!empty($_POST)) {
               <li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
               <li><a href="achived_dream.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>達成された夢</span></a></li>
               <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>編集</span></a></li>
-              </li>
-              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>編集</span></a></li>
+
             <li>
               <div class="sidebar-nav-heading">閲覧</div>
             </li>
@@ -152,92 +184,41 @@ if (!empty($_POST)) {
       <section class="section-container">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-lg-8 col-xs-12 col-rol-3" style="font-size: 20px;vertical-align:middle" >
-              宣言します！！私は...
-              <span style="float: right">
-                あと
-                <FONT color="#ff0000" size="6">
-                  <SCRIPT LANGUAGE="JavaScript">
-                    apDay(2019,2,13);
-                  </SCRIPT>
-                </FONT>
-                日!!
-              </span>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-12 col-xs-12 col-rol-3">
-              <div class="cardbox" style="margin:0">
-                <div class="cardbox-body">
-                  <div class="clearfix mb-3">
-                    <div class="text-center">
-                      <h1 style="margin-top: 20px"><?php echo $read_dream['dream_contents']; ?></h1>
-                    </div>
-                  </div>
-                  <div class="">
-                    <div style="margin: 0">
-                      仕事 #エンジニア #英語
-                      <span style="float:right">〆2019年2月13日</span>
-                    </div>
-                  </div>
-                  <div style="margin:10px">
-                    <a href="#" class="btn btn-xs btn-info">
-                    <span class="glyphicon glyphicon-thumbs-up"></span>
-                    応援された数：<?php echo $read_cheers_amount['cnt']; ?></a>
-                  </div>
-                </div>
-              </div>
+            <div class="col-lg-12 col-xs-12 col-rol-12 text-center">
+              <h1>達成された夢一覧</h1>
             </div>
           </div>
           <br>
-          <div class="row">
-            <div class="col-lg-12 col-xs-12 col-rol-3">
-              <div class="cardbox" style="margin:0">
-                <div class="cardbox-body">
-                  <div class="clearfix mb-3">
-                  <h4>感想</h4>感想を記入して、Dreamerたちと努力をシェアしよう！
-                  <form method="POST" action="">
-                    <div class="row">
-                      <div class="col-lg-3 col-xs-12">
-                        <h5 class="btn-lg bg-primary text-center">困難だったこと</h5>
-                      </div>
-                      <div class="col-lg-9 col-xs-12">
-                        <textarea name="a_hard" style="width: 100%; height: 40px;" placeholder="例）　資金調達にとても時間がかかった。"></textarea>
-                      </div>
+            <div class="row">
+          <?php
+          $user_id=$read_login_users['user_id'];
+          require('../require/read_dream_by_user.php');
+          foreach ($read_dream as $dream) {
+            $rd = $dream['dream_id'];
+            require('../require/read_cheers_amount.php');
+            if ($read_login_users['now_dream_id']==$dream['dream_id']) {
+              //飛ばす
+              $cnt=count($read_dream);
+              if ($cnt==1) {
+                echo "まだ夢を達成していません。";
+              }
+            }
+            else{ ?>
+                <div class="col-lg-4 col-md-4"  style="margin-top: 20px;">
+                  <div class="card">
+                    <a href="other_mypage.php?dream=<?php echo $dream['dream_id'];?>">
+                    <img class="card-img-top img-fluid" src="img/<?php echo $dream['dream_image_path']; ?>" alt="Card image cap" style="height: 100%; width: 100%;">
+                    <div class="card-block">
+                      <h2 class="card-title"><?php echo $dream['dream_contents']; ?></h2>
+                      <?php echo $dream['created']; ?><br>
+                      応援された数：<?php echo $read_cheers_amount['cnt']; ?><br>
                     </div>
-                    <br>
-                    <div class="row">
-                      <div class="col-lg-3 col-xs-12">
-                        <h5 class="btn-lg bg-primary text-center">学んだこと</h5>
-                      </div>
-                      <div class="col-lg-9 col-xs-12">
-                        <textarea name="a_study" style="width: 100%; height: 40px;" placeholder="例）　人とのつながりが大切であること！"></textarea>
-                      </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                      <div class="col-lg-3 col-xs-12">
-                        <h5 class="btn-lg bg-primary text-center">Dreamerたちへのコメント</h5>
-                      </div>
-                      <div class="col-lg-9 col-xs-12">
-                        <textarea name="a_comment" style="width: 100%; height: 40px;" placeholder="例）　つながりを作るためにイベントに参加しよう！"></textarea>
-                      </div>
-                    </div>
-                    <input type="submit" class="btn btn-block btn-lg bg-gradient-warning" value="達成"></input>
-                  </form>
+                  </a>
                   </div>
                 </div>
+           <?php } } ?>
               </div>
-            </div>
-          </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
-      <!-- End Search template-->
-      <!-- Settings template-->
+            <!-- Settings template-->
       <div class="modal-settings modal modal-right fade" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
