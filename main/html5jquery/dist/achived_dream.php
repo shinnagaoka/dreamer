@@ -161,6 +161,7 @@ if (isset($_POST['message']) && $_POST['message']!='') {
             </li>
               <li><a href="view_c_page.php"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-list-outline"></em></span><span>カテゴリー別</span></a>
                 <ul class="sidebar-subnav" id="tables">
+                  <li><a href="view_c_page.php"><span class="float-right nav-label"></span><span>カテゴリー別</span></a></li>
                   <li><a href="view_c_page.php #1"><span class="float-right nav-label"></span><span>職業</span></a></li>
                   <li><a href="view_c_page.php #2"><span class="float-right nav-label"></span><span>人間関係</span></a></li>
                   <li><a href="view_c_page.php #3"><span class="float-right nav-label"></span><span>健康</span></a></li>

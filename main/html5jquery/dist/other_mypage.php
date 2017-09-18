@@ -17,6 +17,7 @@ $user_id = $read_dream['user_id'];
 require('../require/read_users.php');
 $this_dream_id = $read_users['now_dream_id'];
 require('../require/read_cheers_amount.php');
+require('../require/make_history.php');
 if ($_GET['dream']==$read_login_users['now_dream_id']) {
   header('Location: dashboard.php');
   exit();
@@ -174,13 +175,10 @@ if (isset($_POST['cheer']) && $_POST['cheer']=='false') {
             <li>
               <div class="sidebar-nav-heading">マイページ</div>
             </li>
-              <li><a href="other_mypage.php?dream=<?php echo $this_dream_id;?>"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
-              <li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>達成された夢</span></a>
-                <ul class="sidebar-subnav" id="elements">
-                  <li><a href="buttons.html"><span class="float-right nav-label"></span><span>No.1</span></a></li>
-                  <li><a href="bootstrapui.html"><span class="float-right nav-label"></span><span>No.2</span></a></li>
-                </ul>
-              </li>
+              <li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
+              <li><a href="achived_dream.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>達成された夢</span></a></li>
+              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>編集</span></a></li>
+
             <li>
               <div class="sidebar-nav-heading">閲覧</div>
             </li>
