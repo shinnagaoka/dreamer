@@ -15,7 +15,6 @@ $rd = $_GET['dream'];
 require('../require/read_dream.php');
 $user_id = $read_dream['user_id'];
 require('../require/read_users.php');
-$this_dream_id = $read_users['now_dream_id'];
 require('../require/read_cheers_amount.php');
 require('../require/make_history.php');
 if ($_GET['dream']==$read_login_users['now_dream_id']) {

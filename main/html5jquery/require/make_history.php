@@ -1,12 +1,11 @@
 <?php
-require('../dbconnect.php');
-	$user_id=1;
-	$dream_id=1;
-	$this_dream_id = $dream_id;
+// require('../dbconnect.php');
+// 	$user_id=1;
+// 	$dream_id=1;
 	$make='';
 	date_default_timezone_set('Asia/Manila');
 	$sql ='SELECT * FROM `dr_histories` WHERE `user_id`=?AND`dream_id`=? ORDER BY `created` DESC';
-	$data = array($user_id,$dream_id);
+	$data = array($_SESSION['login_user']['user_id'],$rd);
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute($data);
 	$history = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -45,7 +44,7 @@ require('../dbconnect.php');
 	// }
 	if ($make=='make') {
 		$sql ='INSERT INTO `dr_histories` SET `user_id`=?, `dream_id`=?, `created`=NOW()';
-		$data = array($user_id,$this_dream_id);
+		$data = array($_SESSION['login_user']['user_id'],$rd);
 		$stmt = $dbh->prepare($sql);
 		$stmt->execute($data);
 	}
