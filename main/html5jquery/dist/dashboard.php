@@ -26,6 +26,7 @@ if (isset($_POST['message']) && $_POST['message']!='') {
 if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
   $sum_time = $_POST['myFormTime'];
   require('../require/make_evas.php');
+  header('Location: dashboard.php');
 }
 ?>
 <!DOCTYPE html>
@@ -87,7 +88,7 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
     function myDisp(){
       myStop=new Date();  // 経過時間を退避
       year = myStop.getFullYear();
-      month = myStop.getMonth();
+      month = myStop.getMonth()+1;
       date = myStop.getDate();
       myTime = myStop.getTime() - myStart.getTime();  // 通算ミリ秒計算
       myH = Math.floor(myTime/(60*60*1000));  // '時間'取得
@@ -680,13 +681,13 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
 
 
 
-          echo '<pre>';
-          var_dump($month);
-          echo '<pre>';
+          // echo '<pre>';
+          // var_dump($month);
+          // echo '<pre>';
 
-          echo '<pre>';
-          var_dump($day);
-          echo '<pre>';
+          // echo '<pre>';
+          // var_dump($day);
+          // echo '<pre>';
       ?>
 
       <script>
