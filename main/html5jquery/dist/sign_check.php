@@ -24,8 +24,13 @@
 		$data = array($user_name,$email,sha1($password),$profile_image_path);
 		$stmt = $dbh->prepare($sql);
 		$stmt->execute($data);
-
-		header('Location: signin.php');
+		$sql ='SELECT * FROM `dr_users` WHERE `email`=?';
+		$data = array($email);
+		$stmt = $dbh->prepare($sql);
+		$stmt->execute($data);
+		$read_users = $stmt->fetch(PDO::FETCH_ASSOC);
+		$_SESSION['login_user']['user_id']=$read_users['user_id'];
+		header('Location: register.php');
 		exit();
 	}
 	?>

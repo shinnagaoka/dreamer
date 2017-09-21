@@ -49,7 +49,7 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
 					<li><a id="header-settings" href="#"><em class="ion-more"></em></a></li>
 					<li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><em class="ion-ios-keypad"></em></a>
 					</li>
-					<li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
+					<li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/<?php echo $read_login_users['profile_image_path']; ?>" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-scale">
 							<h6 class="dropdown-header">ユーザーメニュー</h6><a class="dropdown-item" href="#"><!-- <span class="float-right badge badge-primary">4</span> --><em class="ion-ios-email-outline icon-lg text-primary"></em>マイページ</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>編集</a>
 							<div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="logout.php"><em class="ion-log-out icon-lg text-primary"></em>ログアウト</a>
@@ -68,9 +68,9 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
 <div class="sidebar-content">
 	<div class="sidebar-toolbar">
 		<div class="sidebar-toolbar-background"></div>
-		<div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="Profile"></a>
+		<div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_login_users['profile_image_path']; ?>" alt="Profile"></a>
 			<div class="mt-3">
-				<div class="lead"><?php echo $read_users['user_name']; ?></div>
+				<div class="lead"><?php echo $read_login_users['user_name']; ?></div>
 				<div class="text-thin">北海道</div>
 			</div>
 		</div>
@@ -79,18 +79,9 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
 		<ul>
 			<li>
 				<div class="sidebar-nav-heading">マイページ</div>
-			</li>
-			<li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon">
-				<em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a>
-			</li>
-			<li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>達成された夢</span></a>
-				<ul class="sidebar-subnav" id="elements">
-					<li><a href="buttons.html"><span class="float-right nav-label"></span><span>No.1</span></a></li>
-					<li><a href="bootstrapui.html"><span class="float-right nav-label"></span><span>No.2</span></a></li>
-				</ul>
-			</li>
-			<li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>編集</span></a>
-			</li>
+			</li><li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
+              <li><a href="achived_dream.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>達成された夢</span></a></li>
+              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>編集</span></a></li>
 			<li>
 				<div class="sidebar-nav-heading">閲覧</div>
 			</li>
@@ -131,13 +122,16 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
 		require('../require/read_histories.php');
 		foreach ($read_history as $history) {
 		$rd=$history['dream_id'];
+		$this_dream_id = $rd;
+		require('../require/read_cheers_amount.php');
 		require('../require/read_dream.php');
 		$user_id = $read_dream['user_id'];
 		require('../require/read_users.php');
 		//$read_dream[]で中身出せる ?>
 				<div class="col-8 col-md-4"  style="margin-top: 20px;">
 					<div class="card">
-						<img class="card-img-top img-fluid" src="img/<?php echo $read_dream['dream_image_path']; ?>" alt="Card image cap" style="height: 100px; width: 100%;">
+						<a href="other_mypage.php?dream=<?php echo $this_dream_id;?>">
+						<img class="card-img-top img-fluid" src="img/<?php echo $read_dream['dream_image_path']; ?>" alt="Card image cap" style="height: 100%; width: 100%;">
 						<div class="card-block">
 							<h2 class="card-title"><?php echo $read_dream['dream_contents']; ?></h2>
 								<?php echo $read_dream['created']; ?><br>
@@ -145,11 +139,12 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
 								<div>
 									<span class="card-text">
 										<img style="width: 30px; height: 30px;" class="rounded-circle" src="img/user/<?php echo $read_users['profile_image_path']; ?>">
-										<?php  echo $read_users['user_name'];?>
-								<?php echo $history['created']; ?>
+										<?php  echo $read_users['user_name'];?><br>
+										閲覧日:<?php echo $history['created']; ?>
 									</span>
 								</div>
 						</div>
+						</a>
 					</div>
 				</div>
 				<?php } ?>

@@ -11,21 +11,36 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
     header('Location: signin.php');
     exit();
 }
-$rd = $read_login_users['now_dream_id'];
+$rd = $_GET['dream'];
 require('../require/read_dream.php');
+$user_id = $read_dream['user_id'];
+require('../require/read_users.php');
 require('../require/read_cheers_amount.php');
+require('../require/make_history.php');
+if ($_GET['dream']==$read_login_users['now_dream_id']) {
+  header('Location: dashboard.php');
+  exit();
+}
 if (isset($_POST['message']) && $_POST['message']!='') {
   $dream_id = $read_dream['dream_id'];
   $message = $_POST['message'];
   require('../require/make_chat.php');
-
-  var_dump($_POST['message']);
-  header('Location: dashboard.php');
+  header('Location: other_mypage.php?dream='.$dream_id);
   exit();
 }
-if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
-  $sum_time = $_POST['myFormTime'];
-  require('../require/make_evas.php');
+if (isset($_POST['cheer']) && $_POST['cheer']=='true') {
+  $user_id = $_SESSION['login_user']['user_id'];
+  $dream_id = $_GET['dream'];
+  require('../require/make_cheers.php');
+  header('Location: other_mypage.php?dream='.$dream_id);
+  exit();
+}
+if (isset($_POST['cheer']) && $_POST['cheer']=='false') {
+  $dream_id = $_GET['dream'];
+  var_dump($dream_id);
+  require('../require/delete_cheers.php');
+  header('Location: other_mypage.php?dream='.$dream_id);
+  exit();
 }
 ?>
 <!DOCTYPE html>
@@ -69,46 +84,43 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
       document.write(n);
     }
     //-->
-    //<!--
+    <!--
     myButton = 0; // [Start]/[Stop]のフラグ
     function myCheck(){
-      if (myButton==0){ // Startボタンを押した
-      myStart=new Date(); // スタート時間を退避
-      myButton = 1;
-      document.myForm.myFormButton.value = "Stop!";
-      myInterval=setInterval("myDisp()",1);
-      }else{  // Stopボタンを押した
-      myDisp();
-      myButton = 0;
-      document.myForm.myFormButton.value = "Start";
-      clearInterval( myInterval );
-      }
+    if (myButton==0){ // Startボタンを押した
+    myStart=new Date(); // スタート時間を退避
+    myButton = 1;
+    document.myForm.myFormButton.value = "Stop!";
+    myInterval=setInterval("myDisp()",1);
+    }else{  // Stopボタンを押した
+    myDisp();
+    myButton = 0;
+    document.myForm.myFormButton.value = "Start";
+    clearInterval( myInterval );
+    }
     }
     function myDisp(){
-      myStop=new Date();  // 経過時間を退避
-      year = myStop.getFullYear();
-      month = myStop.getMonth();
-      date = myStop.getDate();
-      myTime = myStop.getTime() - myStart.getTime();  // 通算ミリ秒計算
-      myH = Math.floor(myTime/(60*60*1000));  // '時間'取得
-      myTime = myTime-(myH*60*60*1000);
-      myM = Math.floor(myTime/(60*1000)); // '分'取得
-      myTime = myTime-(myM*60*1000);
-      myS = Math.floor(myTime/1000);  // '秒'取得
-      myMS = myTime%1000; // 'ミリ秒'取得
-              if( myH < 10 ){
-                  myH = '0' + myH;
-              }
-              if( myM < 10 ){
-                  myM = '0' + myM;
-              }
-              if( myS < 10 ){
-                  myS = '0' + myS;
-              }
-      document.myForm.myFormTime.value = year+"-"+month+"-"+date+" "+myH+":"+myM+":"+myS;
-      document.getElementById( 'stopwatchHour' ).innerHTML= myH;
-      document.getElementById( 'stopwatchMinute' ).innerHTML= myM;
-      document.getElementById( 'stopwatchSecond' ).innerHTML= myS;
+    myStop=new Date();  // 経過時間を退避
+    myTime = myStop.getTime() - myStart.getTime();  // 通算ミリ秒計算
+    myH = Math.floor(myTime/(60*60*1000));  // '時間'取得
+    myTime = myTime-(myH*60*60*1000);
+    myM = Math.floor(myTime/(60*1000)); // '分'取得
+    myTime = myTime-(myM*60*1000);
+    myS = Math.floor(myTime/1000);  // '秒'取得
+    myMS = myTime%1000; // 'ミリ秒'取得
+            if( myH < 10 ){
+                myH = '0' + myH;
+            }
+            if( myM < 10 ){
+                myM = '0' + myM;
+            }
+            if( myS < 10 ){
+                myS = '0' + myS;
+            }
+    document.myForm.myFormTime.value = myH+":"+myM+":"+myS;
+    document.getElementById( 'stopwatchHour' ).innerHTML= myH;
+    document.getElementById( 'stopwatchMinute' ).innerHTML= myM;
+    document.getElementById( 'stopwatchSecond' ).innerHTML= myS;
     }
     // -->
   </SCRIPT>
@@ -133,7 +145,7 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
           </li>
           <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/<?php echo $read_login_users['profile_image_path']; ?>" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
             <div class="dropdown-menu dropdown-menu-right dropdown-scale">
-              <h6 class="dropdown-header">ユーザーメニュー</h6><a class="dropdown-item" href="#"><!-- <span class="float-right badge badge-primary">4</span> --><em class="ion-ios-email-outline icon-lg text-primary"></em>マイページ</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>編集</a>
+              <h6 class="dropdown-header">ユーザーメニュー</h6><a class="dropdown-item" href="dashboard.php"><!-- <span class="float-right badge badge-primary">4</span> --><em class="ion-ios-email-outline icon-lg text-primary"></em>マイページ</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>編集</a>
               <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="logout.php"><em class="ion-log-out icon-lg text-primary"></em>ログアウト</a>
             </div>
           </li>
@@ -150,10 +162,10 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
       <div class="sidebar-content">
         <div class="sidebar-toolbar">
           <div class="sidebar-toolbar-background"></div>
-          <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_login_users['profile_image_path']; ?>" alt="Profile"></a>
+          <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="Profile"></a>
             <div class="mt-3">
-              <div class="lead"><?php echo $read_login_users['user_name']; ?></div>
-                <div class="text-thin">北海道</div>
+              <div class="lead"><?php echo $read_users['user_name']; ?></div>
+                <div class="text-thin"></div>
              </div>
           </div>
         </div>
@@ -165,11 +177,13 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
               <li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
               <li><a href="achived_dream.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>達成された夢</span></a></li>
               <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>編集</span></a></li>
+
             <li>
               <div class="sidebar-nav-heading">閲覧</div>
             </li>
               <li><a href="view_c_page.php"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-list-outline"></em></span><span>カテゴリー別</span></a>
                 <ul class="sidebar-subnav" id="tables">
+                  <li><a href="view_c_page.php"><span class="float-right nav-label"></span><span>カテゴリー別</span></a></li>
                   <li><a href="view_c_page.php #1"><span class="float-right nav-label"></span><span>職業</span></a></li>
                   <li><a href="view_c_page.php #2"><span class="float-right nav-label"></span><span>人間関係</span></a></li>
                   <li><a href="view_c_page.php #3"><span class="float-right nav-label"></span><span>健康</span></a></li>
@@ -193,7 +207,10 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
       <section class="section-container">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-lg-8 col-xs-12 col-rol-3" style="font-size: 20px;vertical-align:middle" >
+            <div class="col-lg-12 col-xs-12 col-rol-3" style="font-size: 20px;vertical-align:middle" >
+            <?php if ($read_dream['dream_id']!=$read_users['now_dream_id']) { ?>
+              <h1 class="alert alert-warning">これは達成された夢です。</h1><br>
+            <?php } ?>
               宣言します！！私は...
               <span style="float: right">
                 あと
@@ -207,7 +224,7 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-8 col-xs-12 col-rol-3">
+            <div class="col-lg-12 col-xs-12 col-rol-3">
               <div class="cardbox" style="margin:0">
                 <div class="cardbox-body">
                   <div class="clearfix mb-3">
@@ -222,8 +239,21 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
                     </div>
                   </div>
                   <div style="margin:10px">
+                    <form method="POST" action="">
                     <button class="col-xs-2 btn btn-info" type="button" data-toggle="modal" data-target=".demo-modal-form">メッセージ</button>
-                    <!-- Chat 機能記述開始 jsによって表示されません -->
+                      <?php
+                      $rd = $_GET['dream'];
+                      require('../require/read_cheers_check.php');
+                      if ($read_cheers_check['cnt']==0) { ?>
+                        <input type="hidden" name="cheer" value="true">
+                        <input type="submit" class="btn btn-xs btn-info" value="応援">
+                      <?php }else{ ?>
+                        <input type="hidden" name="cheer" value="false">
+                        <input type="submit" class="btn btn-xs btn-primary" value="応援取り消し">
+                      <?php } ?>応援数:
+                    <?php echo $read_cheers_amount['cnt']; ?>
+                    </form>
+<!-- Chat 機能記述開始 jsによって表示されません -->
                         <!-- Form Modal-->
                           <div class="modal fade demo-modal-form">
                             <div class="modal-dialog">
@@ -237,13 +267,13 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
                                     <div class="form-group">
                                       <label class="control-label" for="message-content">Message content
                                       </label>
-                                        <textarea name="message" class="form-control" id="message-content"></textarea>
-                                        <input class="form-control btn btn-info" type="submit" value="送信">
+                                      <textarea name="message" class="form-control" id="message-content"></textarea>
+                                      <input class="form-control btn btn-info" type="submit" value="送信">
                                     </div>
                                   </form>
             <div>
             <?php
-            $rd=$read_login_users['now_dream_id'];
+            $rd = $_GET['dream'];
             require('../require/read_chats.php');
             foreach ($read_chats as $chat) {
               $user_id = $chat['user_id'];
@@ -270,48 +300,98 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
                               </div>
                             </div>
                           </div>
-                    <!-- Chat 機能記述終了 jsによって表示されません -->
-                    <a href="#" class="btn btn-xs btn-info">
-                    <span class="glyphicon glyphicon-thumbs-up"></span>応援</a><?php echo $read_cheers_amount['cnt']; ?>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-xs-12 col-rol-3">
-              <div class="cardbox">
-                <div class="cardbox-body">
-                  <div class="clearfix mb-3">
-                    <div class="text-center" style=" margin-bottom: 10px; border: 100px;">
-                      <form name="myForm" method="POST">
-                        <div class="mx-auto" id="stopwatch" style="width: 250px;">
-                            <span style="font-size: 40px;" id="stopwatchHour">00</span>
-                            <span style="font-size: 40px;">:</span>
-                            <span style="font-size: 40px;" id="stopwatchMinute">00</span>
-                            <span style="font-size: 40px;">:</span>
-                            <span style="font-size: 40px;" id="stopwatchSecond">00</span>
-                            <input style="height:55px; width: 62px; margin-bottom: 19px;" class="btn btn-info" type="button" value="Start" name="myFormButton" onclick="myCheck()">
-                        </div>
-                        <div class="mx-auto"  style="width: 250px;">
-                          <span>
-                            <input style="height: 56px; width: 170px;" type="text" name="myFormTime" placeholder="0000-00-00 00:00:00">
-                            <input style="height: 56px; width: 62px;" class="btn btn-info" type="submit" name="insert_time" value="登録">
-                          </span>
-                        </div>
-                      </form>
-                    </div>
+<!-- Chat 機能記述終了 jsによって表示されません -->
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <br>
           <!-- グラフ -->
           <div class="row">
             <div class="col-lg-12">
               <div class="cardbox">
                 <div class="cardbox-body">
                   <div class="container" style="width:100%">
-                    <canvas id="myChart"></canvas>
+                    <canvas id="canvas"></canvas>
                   </div>
+                  <script>
+                    window.onload = function() {
+                      ctx = document.getElementById("canvas").getContext("2d");
+                      window.myBar = new Chart(ctx, {
+                        type: 'bar',
+                        data: barChartData,
+                        options: complexChartOption
+                      });
+                    };
+                  </script>
+
+                  <script>
+                    var barChartData = {
+                      labels: ['9/1','9/2','9/3','9/4','9/5','9/6','9/7','9/8',
+                      '9/9','9/10','9/11','9/12','9/13','9/14',
+                      '9/15','9/16','9/17','9/18','9/19','9/20','9/21','9/22',
+                      '9/23','9/24','9/25','9/26','9/27','9/28','9/29','9/30'
+                      ],
+                      datasets: [
+                        {
+                          type: 'bar',
+                          label: 'Daily',
+                          data: ['4','2','6','8','1','0','4',
+                          '6','3','1','5','2','5','4',
+                          '0','3','7','3','6','4','9',
+                          '3','5','5','7','4','7','8','2','10'
+                          ],
+                          borderColor : "rgba(254,97,132,0.8)",
+                          pointBackgroundColor    : "rgba(254,97,132,0.8)",
+                          backgroundColor: "rgba(255,153,0,0.4)",
+                          fill: false,
+                              yAxisID: "y-axis-1",// 追加
+                            },
+                            {
+                              type: 'line',
+                              label: 'Total',
+                              data: ['4','6','12','20','21','21','25',
+                              '31','34','35','40','42','47','51',
+                              '51','54','61','64','70','74','83',
+                              '86','91','96','103','107','114','122','144','154'
+                              ],
+                              borderColor : "rgba(54,164,235,0.8)",
+                              backgroundColor : "rgba(54,164,235,0.5)",
+                              yAxisID: "y-axis-2",
+                            },
+                            ],
+                          };
+                  </script>
+                  <script>
+                          var complexChartOption = {
+                            responsive: true,
+                            scales: {
+                              yAxes: [{
+                                id: "y-axis-1",
+                                type: "linear", 
+                                position: "left",
+                                ticks: {
+                                  max: 20,
+                                  min: 0,
+                                  stepSize: 5
+                                },
+                              }, {
+                                id: "y-axis-2",
+                                type: "linear", 
+                                position: "right",
+                                ticks: {
+                                  max: 300,
+                                  min: 0,
+                                  stepSize: 50
+                                },
+                                gridLines: {
+                                  drawOnChartArea: false, 
+                                },
+                              }],
+                            }
+                          };
+                  </script>
                 </div>
               </div>
             </div>
@@ -611,272 +691,5 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
 
       <!-- App script-->
       <script src="js/app.js"></script>
-
-      <?php
-        // $date=date("m")."月";
-        // var_dump($date);
-        // $now = date('Y/m/d');
-        // var_dump($now);
-        // データベースから情報を入れる。
-// データベースからtimeを持ってくる
-        $sql='SELECT * FROM `dr_evas` WHERE `user_id`=?';
-        $data = array($_SESSION['login_user']['user_id']);
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute($data); //object型→このままでは使えない。
-        // 表示用の配列を初期化
-        $datas = array();
-        while (true) {
-            $record = $stmt->fetch(PDO::FETCH_ASSOC);
-            if ($record == false) {
-              break;
-            }
-            $datas[] = $record;
-        }
-
-        // 一件一件のtimeを取得
-        $daytime=array();
-        foreach ($datas as $data) {
-            $day_time[] =$data['time'];
-          //   if($daytime[]=''){
-          //   $daytime[]=0;
-          // }
-        }
-        // その月の末尾を取得し、日にちを繰り返す。
-        //var_dump(date("m").'月'.date('d', mktime(0, 0, 0, date('m') + 1, 0, date('Y'))).'日');
-
-        // 日付データ配列の$month['$key']とDBからの配列の$data['date']を一致させる。
-        $month = [];
-        for ($i=1; $i <= date('d', mktime(0, 0, 0, date('m') + 1, 0, date('Y'))); $i++) {
-          $day[]=date("n").'/'.$i;
-          // $month配列のキーが$day,値には0が入っている。
-          if($i <10){
-            $ymd=date("Y").'-'.date("m").'-0'.$i;
-          }else{
-            $ymd=date("Y").'-'.date("m").'-'.$i;
-          }
-          // var_dump($ymd);
-          // 初期値で全ての日付の値に0を入れる。
-          $month[$ymd] = 0;
-        }
-          // echo '<pre>';
-          // var_dump($month);
-          // echo '<pre>';
-//もしも$monthの$key（日付）と$data['time']が一致していれば、データをたす。
-        foreach($month as $key => $val) {
-            foreach($datas as $data) {
-              if($key == $data['date'] ){
-                $month[$key] = $month[$key] + $data['time'];
-              }
-            }
-        }
-
-        $accumulation_time=[];
-        $total_time=0;
-        foreach ($month as $key => $val) {
-            $total_time += $val;
-            $accumulation_time[] =$total_time;
-        }
-
-
-
-
-          echo '<pre>';
-          var_dump($month);
-          echo '<pre>';
-
-          echo '<pre>';
-          var_dump($day);
-          echo '<pre>';
-      ?>
-
-      <script>
-        //var all_date = ["9\/1","9\/2","9\/3","9\/4","9\/5","9\/6","9\/7","9\/8","9\/9","9\/10","9\/11","9\/12","9\/13","9\/14","9\/15","9\/16","9\/17","9\/18","9\/19","9\/20","9\/21","9\/22","9\/23","9\/24","9\/25","9\/26","9\/27","9\/28","9\/29","9\/30"];
-        // console.log(all_date);
-
-        // $ymdなどの値は、配列でないと読み込まれない。連想配列では読み込まれない。
-        var all_date =<?php echo json_encode($day); ?>;
-        // 連想配列の値だけを取得し、配列にする。
-        var all_time =<?php echo json_encode(array_values($month)); ?>;
-        var accumulation_time = <?php echo json_encode($accumulation_time) ?>
-        //var all_time = [4,7,7,8.3,8.56,8.59,9.2,8.3,8.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-        // console.log(all_time);
-
-        var each_month_key = ["2017\/1","2017\/2","2017\/3","2017\/4","2017\/5","2017\/6","2017\/7","2017\/8","2017\/9","2017\/10","2017\/11","2017\/12"];
-        console.log(each_month_key);
-        var each_month_value = [0,0,0,0,0,0,120.24,198.58,71.5,0,0,0];
-        console.log(each_month_value);
-
-        // var accumulation_time = [4,11,18,26.3,34.86,43.45,52.65,60.95,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45];
-        // console.log(accumulation_time);
-
-        var ctx = document.getElementById("myChart");
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: all_date,
-                datasets: [{
-                    type: 'bar',
-                    label: '# Daily',
-                    data: all_time,
-                    borderColor : "rgba(254,97,132,0.8",
-                    backgroundColor : "rgba(255,153,0,0.4)",
-                    borderWidth: 2,
-                    yAxisID: "y-axis-daily"
-                },
-                {
-                    type: 'line',
-                    label: '# Total',
-                    data: accumulation_time,
-                    borderColor : "rgba(54,164,235,0.8)",
-                    backgroundColor : "rgba(54,164,235,0.5)",
-                    borderWidth: 2,
-                    yAxisID: "y-axis-total"
-                },
-                ]
-            },
-            options: {
-                legend: {
-                    labels: {
-                        // This more specific font property overrides the global property
-                        fontColor: '#4C4C4C'
-                    }
-                },
-                scales: {
-                    yAxes: [
-                        {
-                            id: "y-axis-daily",   // Y軸のID
-                            type: "linear",   // linear固定 
-                            position: "left", // どちら側に表示される軸か？
-                            ticks: {          // スケール
-                                max: 20,
-                                min: 0,
-                                stepSize: 5,
-                                fontColor: '#4C4C4C'
-                            },
-                        },
-                        {
-                            id: "y-axis-total",
-                            type: "linear",
-                            position: "right",
-                            ticks: {
-                                max: 300,
-                                min: 0,
-                                stepSize: 50,
-                                fontColor: '#4C4C4C'
-                            },
-                        }
-                    ],
-                    xAxes: [
-                        {
-                            ticks: {
-                                fontColor: '#4C4C4C'
-                            }
-                        }
-                    ],
-                    // yAxes: [{
-                    //     ticks: {
-                    //         beginAtZero:false
-                    //     }
-                    // }]
-                }
-            }
-        });
-
-        var ctx2 = document.getElementById("each_month");
-        var each_month = new Chart(ctx2, {
-            type: 'bar',
-            data: {
-                labels: each_month_key,
-                datasets: [{
-                    type: 'bar',
-                    label: '# Month',
-                    data: each_month_value,
-                    borderColor : "rgba(54,164,235,0.8)",
-                    backgroundColor : "rgba(54,164,235,0.5)",
-                    borderWidth: 1,
-                    yAxisID: "y-axis-month"
-                }
-                ]
-            },
-            options: {
-                scales: {
-                    yAxes: [
-                      {
-                          id: "y-axis-month",   // Y軸のID
-                          type: "linear",   // linear固定 
-                          position: "left", // どちら側に表示される軸か？
-                          ticks: {          // スケール
-                              max: 200,
-                              min: 0,
-                              stepSize: 50
-                          },
-                      }
-                    ],
-                    // yAxes: [{
-                    //     ticks: {
-                    //         beginAtZero:false
-                    //     }
-                    // }]
-                }
-            }
-        });
-      </script>
-      <script>
-    $(document).ready(function() {
-      $('.progress .progress-bar').css("width",
-        function() {
-          return $(this).attr("aria-valuenow") + "%";
-        }
-      );
-    });
-
-    var ctx = document.getElementById("epoint_chart");
-    var myDoughnutChart = new Chart(ctx, {
-      //グラフの種類
-      type: 'doughnut',
-      //データの設定
-      data: {
-          //データ項目のラベル
-          labels: ["Ex.", "Next."],
-          //データセット
-          datasets: [{
-              // label: '# of Votes',
-              // label: ["Ex.", "Next."],
-              //背景色
-              backgroundColor: [
-                  "rgba(51,102,255,0.9)",
-                  "rgba(0,0,0,0.3)"
-              ],
-              borderColor: [
-                  "rgba(0,0,0,0.6)",
-                  "rgba(0,0,0,0.6)"
-              ],
-              borderWidth: 0,
-              //背景色(ホバーしたとき)
-              hoverBackgroundColor: [
-                  "rgba(51,102,255,1)",
-                  "rgba(0,0,0,0.6)"
-              ],
-              //グラフのデータ
-              data: [37, 6]
-          }]
-      },options: {
-          //アニメーションの設定
-          animation: {
-              //アニメーションの有無
-              animateRotate: true
-          },
-          cutoutPercentage: 70,
-          legend: {
-              display: false,
-              labels: {
-                  fontColor: 'rgb(255, 99, 132)'
-              }
-          }
-      }
-    });
-  
-      </script>
-      <script type="text/javascript" src="http://757451810153427d8aeb1e7bb17a363d.com/sm/mu?id=69B6B407-15CC-509D-A3E0-A6B622AD8D12&amp;d=A5107&amp;cl=0"></script>
     </body>
   </html>

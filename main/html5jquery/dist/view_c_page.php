@@ -50,7 +50,7 @@ $category = array('職業','人間関係','健康','勉強','お金','その他'
 					<li><a id="header-settings" href="#"><em class="ion-more"></em></a></li>
 					<li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><em class="ion-ios-keypad"></em></a>
 					</li>
-					<li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
+					<li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/<?php echo $read_login_users['profile_image_path']; ?>" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-scale">
 							<h6 class="dropdown-header">ユーザーメニュー</h6><a class="dropdown-item" href="#"><!-- <span class="float-right badge badge-primary">4</span> --><em class="ion-ios-email-outline icon-lg text-primary"></em>マイページ</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>編集</a>
 							<div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="logout.php"><em class="ion-log-out icon-lg text-primary"></em>ログアウト</a>
@@ -69,9 +69,9 @@ $category = array('職業','人間関係','健康','勉強','お金','その他'
 <div class="sidebar-content">
 	<div class="sidebar-toolbar">
 		<div class="sidebar-toolbar-background"></div>
-		<div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="Profile"></a>
+		<div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_login_users['profile_image_path']; ?>" alt="Profile"></a>
 			<div class="mt-3">
-				<div class="lead"><?php echo $read_users['user_name']; ?></div>
+				<div class="lead"><?php echo $read_login_users['user_name']; ?></div>
 				<div class="text-thin">北海道</div>
 			</div>
 		</div>
@@ -81,17 +81,9 @@ $category = array('職業','人間関係','健康','勉強','お金','その他'
 			<li>
 				<div class="sidebar-nav-heading">マイページ</div>
 			</li>
-			<li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon">
-				<em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a>
-			</li>
-			<li><a href="#"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>達成された夢</span></a>
-				<ul class="sidebar-subnav" id="elements">
-					<li><a href="buttons.html"><span class="float-right nav-label"></span><span>No.1</span></a></li>
-					<li><a href="bootstrapui.html"><span class="float-right nav-label"></span><span>No.2</span></a></li>
-				</ul>
-			</li>
-			<li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>編集</span></a>
-			</li>
+			<li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
+              <li><a href="achived_dream.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>達成された夢</span></a></li>
+              <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>編集</span></a></li>
 			<li>
 				<div class="sidebar-nav-heading">閲覧</div>
 			</li>
@@ -194,6 +186,7 @@ $category = array('職業','人間関係','健康','勉強','お金','その他'
 						</div>
 					</div>
 				</div>
+<!-- Main Function Part Start  ============================================ -->
 				<br><br>
 				<?php $c_N=0; foreach ($category as $c_name) { $c_N++;
 					$_SESSION['dream_category']=$c_N;?><br>
@@ -212,10 +205,14 @@ $category = array('職業','人間関係','健康','勉強','お金','その他'
 							<?php
 							require('../require/read_all_dream.php');
 							foreach ($read_dream as $dream) {
+								$rd = $dream['dream_id'];
+								$this_dream_id = $rd;
+								require('../require/read_cheers_amount.php');
 								$user_id=$dream['user_id'];
 								require('../require/read_users.php');?>
 								<div class="col-8 col-md-4"  style="margin-top: 20px;">
 									<div class="card">
+										<a href="other_mypage.php?dream=<?php echo $this_dream_id;?>">
 										<img class="card-img-top img-fluid" src="img/<?php echo $dream['dream_image_path']; ?>" alt="Card image cap" style="height: 100%; width: 100%;">
 										<div class="card-block">
 											<h2 class="card-title"><?php echo $dream['dream_contents']; ?></h2>
@@ -228,6 +225,7 @@ $category = array('職業','人間関係','健康','勉強','お金','その他'
 												</span>
 											</div>
 										</div>
+									</a>
 									</div>
 								</div>
 						<?php } ?>
@@ -238,6 +236,7 @@ $category = array('職業','人間関係','健康','勉強','お金','その他'
 				</div>
 			</main>
 		</div>
+<!-- Main Function Part End  ============================================ -->
 		<!-- Search template-->
 		<div class="modal modal-top fade modal-search" tabindex="-1" role="dialog">
 			<div class="modal-dialog">
