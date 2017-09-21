@@ -23,6 +23,10 @@ if (isset($_POST['message']) && $_POST['message']!='') {
   header('Location: dashboard.php');
   exit();
 }
+if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
+  $sum_time = $_POST['myFormTime'];
+  require('../require/make_evas.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -65,43 +69,46 @@ if (isset($_POST['message']) && $_POST['message']!='') {
       document.write(n);
     }
     //-->
-    <!--
+    //<!--
     myButton = 0; // [Start]/[Stop]のフラグ
     function myCheck(){
-    if (myButton==0){ // Startボタンを押した
-    myStart=new Date(); // スタート時間を退避
-    myButton = 1;
-    document.myForm.myFormButton.value = "Stop!";
-    myInterval=setInterval("myDisp()",1);
-    }else{  // Stopボタンを押した
-    myDisp();
-    myButton = 0;
-    document.myForm.myFormButton.value = "Start";
-    clearInterval( myInterval );
-    }
+      if (myButton==0){ // Startボタンを押した
+      myStart=new Date(); // スタート時間を退避
+      myButton = 1;
+      document.myForm.myFormButton.value = "Stop!";
+      myInterval=setInterval("myDisp()",1);
+      }else{  // Stopボタンを押した
+      myDisp();
+      myButton = 0;
+      document.myForm.myFormButton.value = "Start";
+      clearInterval( myInterval );
+      }
     }
     function myDisp(){
-    myStop=new Date();  // 経過時間を退避
-    myTime = myStop.getTime() - myStart.getTime();  // 通算ミリ秒計算
-    myH = Math.floor(myTime/(60*60*1000));  // '時間'取得
-    myTime = myTime-(myH*60*60*1000);
-    myM = Math.floor(myTime/(60*1000)); // '分'取得
-    myTime = myTime-(myM*60*1000);
-    myS = Math.floor(myTime/1000);  // '秒'取得
-    myMS = myTime%1000; // 'ミリ秒'取得
-            if( myH < 10 ){
-                myH = '0' + myH;
-            }
-            if( myM < 10 ){
-                myM = '0' + myM;
-            }
-            if( myS < 10 ){
-                myS = '0' + myS;
-            }
-    document.myForm.myFormTime.value = myH+":"+myM+":"+myS;
-    document.getElementById( 'stopwatchHour' ).innerHTML= myH;
-    document.getElementById( 'stopwatchMinute' ).innerHTML= myM;
-    document.getElementById( 'stopwatchSecond' ).innerHTML= myS;
+      myStop=new Date();  // 経過時間を退避
+      year = myStop.getFullYear();
+      month = myStop.getMonth();
+      date = myStop.getDate();
+      myTime = myStop.getTime() - myStart.getTime();  // 通算ミリ秒計算
+      myH = Math.floor(myTime/(60*60*1000));  // '時間'取得
+      myTime = myTime-(myH*60*60*1000);
+      myM = Math.floor(myTime/(60*1000)); // '分'取得
+      myTime = myTime-(myM*60*1000);
+      myS = Math.floor(myTime/1000);  // '秒'取得
+      myMS = myTime%1000; // 'ミリ秒'取得
+              if( myH < 10 ){
+                  myH = '0' + myH;
+              }
+              if( myM < 10 ){
+                  myM = '0' + myM;
+              }
+              if( myS < 10 ){
+                  myS = '0' + myS;
+              }
+      document.myForm.myFormTime.value = year+"-"+month+"-"+date+" "+myH+":"+myM+":"+myS;
+      document.getElementById( 'stopwatchHour' ).innerHTML= myH;
+      document.getElementById( 'stopwatchMinute' ).innerHTML= myM;
+      document.getElementById( 'stopwatchSecond' ).innerHTML= myS;
     }
     // -->
   </SCRIPT>
@@ -275,7 +282,7 @@ if (isset($_POST['message']) && $_POST['message']!='') {
                 <div class="cardbox-body">
                   <div class="clearfix mb-3">
                     <div class="text-center" style=" margin-bottom: 10px; border: 100px;">
-                      <form name="myForm">
+                      <form name="myForm" method="POST">
                         <div class="mx-auto" id="stopwatch" style="width: 250px;">
                             <span style="font-size: 40px;" id="stopwatchHour">00</span>
                             <span style="font-size: 40px;">:</span>
@@ -286,7 +293,7 @@ if (isset($_POST['message']) && $_POST['message']!='') {
                         </div>
                         <div class="mx-auto"  style="width: 250px;">
                           <span>
-                            <input style="height: 56px; width: 170px;" type="text" name="myFormTime" placeholder="00:00:00">
+                            <input style="height: 56px; width: 170px;" type="text" name="myFormTime" placeholder="0000-00-00 00:00:00">
                             <input style="height: 56px; width: 62px;" class="btn btn-info" type="submit" name="insert_time" value="登録">
                           </span>
                         </div>
