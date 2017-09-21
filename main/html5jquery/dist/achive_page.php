@@ -1,16 +1,23 @@
 <?php
 session_start();
-require('../dbconnect.php');
+require('dbconnect.php');
 //$_SESSIONが存在し、なおかつログインできればそのまま進める
-if (isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['user_id'] !='') {
+if (isset($_SESSION['login_user']['email']) && isset($_SESSION['login_user']['password'])) {
     require('../require/read_users_session.php');
     //login!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 //$_SESSIONがなければsignin.phpに戻す
-elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['user_id']=='') {
+elseif (!isset($_SESSION['login_user']['email']) && $_SESSION['login_user']['email']=='') {
     header('Location: signin.php');
     exit();
 }
+//クッキーが存在すればsignin.phpに戻して$_SESSIONを作らせる。
+elseif (!isset($_COOKIE['email']) && $_COOKIE['email']== '') {
+  header('Location: signin.php');
+  exit();
+}
+$rd=$read_users['now_dream_id'];
+require('../require/read_dream.php');
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -51,45 +58,6 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
       n = Math.floor((apday.getTime()-today.getTime())/dayms) + 1;
       // 指定日から何日たったかを表示するには、"n"を"-n"にする
       document.write(n);
-    }
-    //-->
-    <!--
-    myButton = 0; // [Start]/[Stop]のフラグ
-    function myCheck(){
-    if (myButton==0){ // Startボタンを押した
-    myStart=new Date(); // スタート時間を退避
-    myButton = 1;
-    document.myForm.myFormButton.value = "Stop!";
-    myInterval=setInterval("myDisp()",1);
-    }else{  // Stopボタンを押した
-    myDisp();
-    myButton = 0;
-    document.myForm.myFormButton.value = "Start";
-    clearInterval( myInterval );
-    }
-    }
-    function myDisp(){
-    myStop=new Date();  // 経過時間を退避
-    myTime = myStop.getTime() - myStart.getTime();  // 通算ミリ秒計算
-    myH = Math.floor(myTime/(60*60*1000));  // '時間'取得
-    myTime = myTime-(myH*60*60*1000);
-    myM = Math.floor(myTime/(60*1000)); // '分'取得
-    myTime = myTime-(myM*60*1000);
-    myS = Math.floor(myTime/1000);  // '秒'取得
-    myMS = myTime%1000; // 'ミリ秒'取得
-            if( myH < 10 ){
-                myH = '0' + myH;
-            }
-            if( myM < 10 ){
-                myM = '0' + myM;
-            }
-            if( myS < 10 ){
-                myS = '0' + myS;
-            }
-    document.myForm.myFormTime.value = myH+":"+myM+":"+myS;
-    document.getElementById( 'stopwatchHour' ).innerHTML= myH;
-    document.getElementById( 'stopwatchMinute' ).innerHTML= myM;
-    document.getElementById( 'stopwatchSecond' ).innerHTML= myS;
     }
     // -->
   </SCRIPT>
@@ -203,7 +171,7 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
                 <div class="cardbox-body">
                   <div class="clearfix mb-3">
                     <div class="text-center">
-                      <h1 style="margin-top: 20px">グローバルエンジニアになる!!</h1>
+                      <h1 style="margin-top: 20px"><?php echo $read_dream['dream_contents']; ?></h1>
                     </div>
                   </div>
                   <div class="">
@@ -216,44 +184,6 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
                     <button class="col-xs-2 btn btn-info" type="button">チャット</button>
                     <a href="#" class="btn btn-xs btn-info">
                     <span class="glyphicon glyphicon-thumbs-up"></span>応援</a>178
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-xs-12 col-rol-3">
-              <div class="cardbox">
-                <div class="cardbox-body">
-                  <div class="clearfix mb-3">
-                    <div class="text-center" style=" margin-bottom: 10px; border: 100px;">
-                      <form name="myForm">
-                        <div class="mx-auto" id="stopwatch" style="width: 250px;">
-                            <span style="font-size: 40px;" id="stopwatchHour">00</span>
-                            <span style="font-size: 40px;">:</span>
-                            <span style="font-size: 40px;" id="stopwatchMinute">00</span>
-                            <span style="font-size: 40px;">:</span>
-                            <span style="font-size: 40px;" id="stopwatchSecond">00</span>
-                            <input style="height:55px; width: 62px; margin-bottom: 19px;" class="btn btn-info" type="button" value="Start" name="myFormButton" onclick="myCheck()">
-                        </div>
-                        <div class="mx-auto"  style="width: 250px;">
-                          <span>
-                            <input style="height: 56px; width: 170px;" type="text" name="myFormTime" placeholder="00:00:00">
-                            <input style="height: 56px; width: 62px;" class="btn btn-info" type="submit" name="insert_time" value="登録">
-                          </span>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- グラフ -->
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="cardbox">
-                <div class="cardbox-body">
-                  <div class="container" style="width:100%">
-                    <canvas id="myChart"></canvas>
                   </div>
                 </div>
               </div>
@@ -556,272 +486,5 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
 
       <!-- App script-->
       <script src="js/app.js"></script>
-
-      <?php
-        // $date=date("m")."月";
-        // var_dump($date);
-        // $now = date('Y/m/d');
-        // var_dump($now);
-        // データベースから情報を入れる。
-// データベースからtimeを持ってくる
-        $sql='SELECT * FROM `dr_evas` WHERE `user_id`=?';
-        $data = array($_SESSION['login_user']['user_id']);
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute($data); //object型→このままでは使えない。
-        // 表示用の配列を初期化
-        $datas = array();
-        while (true) {
-            $record = $stmt->fetch(PDO::FETCH_ASSOC);
-            if ($record == false) {
-              break;
-            }
-            $datas[] = $record;
-        }
-
-        // 一件一件のtimeを取得
-        $daytime=array();
-        foreach ($datas as $data) {
-            $day_time[] =$data['time'];
-          //   if($daytime[]=''){
-          //   $daytime[]=0;
-          // }
-        }
-        // その月の末尾を取得し、日にちを繰り返す。
-        //var_dump(date("m").'月'.date('d', mktime(0, 0, 0, date('m') + 1, 0, date('Y'))).'日');
-
-        // 日付データ配列の$month['$key']とDBからの配列の$data['date']を一致させる。
-        $month = [];
-        for ($i=1; $i <= date('d', mktime(0, 0, 0, date('m') + 1, 0, date('Y'))); $i++) {
-          $day[]=date("n").'/'.$i;
-          // $month配列のキーが$day,値には0が入っている。
-          if($i <10){
-            $ymd=date("Y").'-'.date("m").'-0'.$i;
-          }else{
-            $ymd=date("Y").'-'.date("m").'-'.$i;
-          }
-          // var_dump($ymd);
-          // 初期値で全ての日付の値に0を入れる。
-          $month[$ymd] = 0;
-        }
-          // echo '<pre>';
-          // var_dump($month);
-          // echo '<pre>';
-//もしも$monthの$key（日付）と$data['time']が一致していれば、データをたす。
-        foreach($month as $key => $val) {
-            foreach($datas as $data) {
-              if($key == $data['date'] ){
-                $month[$key] = $month[$key] + $data['time'];
-              }
-            }
-        }
-
-        $accumulation_time=[];
-        $total_time=0;
-        foreach ($month as $key => $val) {
-            $total_time += $val;
-            $accumulation_time[] =$total_time;
-        }
-
-
-
-
-          echo '<pre>';
-          var_dump($month);
-          echo '<pre>';
-
-          echo '<pre>';
-          var_dump($day);
-          echo '<pre>';
-      ?>
-
-      <script>
-        //var all_date = ["9\/1","9\/2","9\/3","9\/4","9\/5","9\/6","9\/7","9\/8","9\/9","9\/10","9\/11","9\/12","9\/13","9\/14","9\/15","9\/16","9\/17","9\/18","9\/19","9\/20","9\/21","9\/22","9\/23","9\/24","9\/25","9\/26","9\/27","9\/28","9\/29","9\/30"];
-        // console.log(all_date);
-
-        // $ymdなどの値は、配列でないと読み込まれない。連想配列では読み込まれない。
-        var all_date =<?php echo json_encode($day); ?>;
-        // 連想配列の値だけを取得し、配列にする。
-        var all_time =<?php echo json_encode(array_values($month)); ?>;
-        var accumulation_time = <?php echo json_encode($accumulation_time) ?>
-        //var all_time = [4,7,7,8.3,8.56,8.59,9.2,8.3,8.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-        // console.log(all_time);
-
-        var each_month_key = ["2017\/1","2017\/2","2017\/3","2017\/4","2017\/5","2017\/6","2017\/7","2017\/8","2017\/9","2017\/10","2017\/11","2017\/12"];
-        console.log(each_month_key);
-        var each_month_value = [0,0,0,0,0,0,120.24,198.58,71.5,0,0,0];
-        console.log(each_month_value);
-
-        // var accumulation_time = [4,11,18,26.3,34.86,43.45,52.65,60.95,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45,69.45];
-        // console.log(accumulation_time);
-
-        var ctx = document.getElementById("myChart");
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: all_date,
-                datasets: [{
-                    type: 'bar',
-                    label: '# Daily',
-                    data: all_time,
-                    borderColor : "rgba(254,97,132,0.8",
-                    backgroundColor : "rgba(255,153,0,0.4)",
-                    borderWidth: 2,
-                    yAxisID: "y-axis-daily"
-                },
-                {
-                    type: 'line',
-                    label: '# Total',
-                    data: accumulation_time,
-                    borderColor : "rgba(54,164,235,0.8)",
-                    backgroundColor : "rgba(54,164,235,0.5)",
-                    borderWidth: 2,
-                    yAxisID: "y-axis-total"
-                },
-                ]
-            },
-            options: {
-                legend: {
-                    labels: {
-                        // This more specific font property overrides the global property
-                        fontColor: '#4C4C4C'
-                    }
-                },
-                scales: {
-                    yAxes: [
-                        {
-                            id: "y-axis-daily",   // Y軸のID
-                            type: "linear",   // linear固定 
-                            position: "left", // どちら側に表示される軸か？
-                            ticks: {          // スケール
-                                max: 20,
-                                min: 0,
-                                stepSize: 5,
-                                fontColor: '#4C4C4C'
-                            },
-                        },
-                        {
-                            id: "y-axis-total",
-                            type: "linear",
-                            position: "right",
-                            ticks: {
-                                max: 300,
-                                min: 0,
-                                stepSize: 50,
-                                fontColor: '#4C4C4C'
-                            },
-                        }
-                    ],
-                    xAxes: [
-                        {
-                            ticks: {
-                                fontColor: '#4C4C4C'
-                            }
-                        }
-                    ],
-                    // yAxes: [{
-                    //     ticks: {
-                    //         beginAtZero:false
-                    //     }
-                    // }]
-                }
-            }
-        });
-
-        var ctx2 = document.getElementById("each_month");
-        var each_month = new Chart(ctx2, {
-            type: 'bar',
-            data: {
-                labels: each_month_key,
-                datasets: [{
-                    type: 'bar',
-                    label: '# Month',
-                    data: each_month_value,
-                    borderColor : "rgba(54,164,235,0.8)",
-                    backgroundColor : "rgba(54,164,235,0.5)",
-                    borderWidth: 1,
-                    yAxisID: "y-axis-month"
-                }
-                ]
-            },
-            options: {
-                scales: {
-                    yAxes: [
-                      {
-                          id: "y-axis-month",   // Y軸のID
-                          type: "linear",   // linear固定 
-                          position: "left", // どちら側に表示される軸か？
-                          ticks: {          // スケール
-                              max: 200,
-                              min: 0,
-                              stepSize: 50
-                          },
-                      }
-                    ],
-                    // yAxes: [{
-                    //     ticks: {
-                    //         beginAtZero:false
-                    //     }
-                    // }]
-                }
-            }
-        });
-      </script>
-      <script>
-    $(document).ready(function() {
-      $('.progress .progress-bar').css("width",
-        function() {
-          return $(this).attr("aria-valuenow") + "%";
-        }
-      );
-    });
-
-    var ctx = document.getElementById("epoint_chart");
-    var myDoughnutChart = new Chart(ctx, {
-      //グラフの種類
-      type: 'doughnut',
-      //データの設定
-      data: {
-          //データ項目のラベル
-          labels: ["Ex.", "Next."],
-          //データセット
-          datasets: [{
-              // label: '# of Votes',
-              // label: ["Ex.", "Next."],
-              //背景色
-              backgroundColor: [
-                  "rgba(51,102,255,0.9)",
-                  "rgba(0,0,0,0.3)"
-              ],
-              borderColor: [
-                  "rgba(0,0,0,0.6)",
-                  "rgba(0,0,0,0.6)"
-              ],
-              borderWidth: 0,
-              //背景色(ホバーしたとき)
-              hoverBackgroundColor: [
-                  "rgba(51,102,255,1)",
-                  "rgba(0,0,0,0.6)"
-              ],
-              //グラフのデータ
-              data: [37, 6]
-          }]
-      },options: {
-          //アニメーションの設定
-          animation: {
-              //アニメーションの有無
-              animateRotate: true
-          },
-          cutoutPercentage: 70,
-          legend: {
-              display: false,
-              labels: {
-                  fontColor: 'rgb(255, 99, 132)'
-              }
-          }
-      }
-    });
-  
-      </script>
-      <script type="text/javascript" src="http://757451810153427d8aeb1e7bb17a363d.com/sm/mu?id=69B6B407-15CC-509D-A3E0-A6B622AD8D12&amp;d=A5107&amp;cl=0"></script>
     </body>
   </html>
