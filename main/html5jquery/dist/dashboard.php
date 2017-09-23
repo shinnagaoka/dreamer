@@ -1,32 +1,34 @@
 <?php
-session_start();
-require('../dbconnect.php');
-//$_SESSIONが存在し、なおかつログインできればそのまま進める
-if (isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['user_id'] !='') {
-    require('../require/read_users_session.php');
-    //login!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-}
-//$_SESSIONがなければsignin.phpに戻す
-elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['user_id']=='') {
-    header('Location: signin.php');
-    exit();
-}
-$rd = $read_login_users['now_dream_id'];
-require('../require/read_dream.php');
-require('../require/read_cheers_amount.php');
-if (isset($_POST['message']) && $_POST['message']!='') {
-  $dream_id = $read_dream['dream_id'];
-  $message = $_POST['message'];
-  require('../require/make_chat.php');
+    session_start();
+    require('../dbconnect.php');
+    //$_SESSIONが存在し、なおかつログインできればそのまま進める
+    if (isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['user_id'] !='') {
+        require('../require/read_users_session.php');
+        //login!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    }
+    //$_SESSIONがなければsignin.phpに戻す
+    elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['user_id']=='') {
+        header('Location: signin.php');
+        exit();
+    }
+    $rd = $read_login_users['now_dream_id'];
+    require('../require/read_dream.php');
+    require('../require/read_cheers_amount.php');
+    if (isset($_POST['message']) && $_POST['message']!='') {
+      $dream_id = $read_dream['dream_id'];
+      $message = $_POST['message'];
+      require('../require/make_chat.php');
 
-  var_dump($_POST['message']);
-  header('Location: dashboard.php');
-  exit();
-}
-if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
-  $sum_time = $_POST['myFormTime'];
-  require('../require/make_evas.php');
-}
+      var_dump($_POST['message']);
+      header('Location: dashboard.php');
+      exit();
+    }
+    if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
+      $sum_time = $_POST['myFormTime'];
+      require('../require/make_evas.php');
+    }
+  $search_word='';
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -119,12 +121,12 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
     <!-- top navbar-->
     <header class="header-container">
       <nav>
-        <ul class="hidden-lg-up">
+            <!--         <ul class="hidden-lg-up">
           <li><a class="sidebar-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
         </ul>
         <ul class="hidden-xs-down">
           <li><a class="covermode-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
-        </ul>
+        </ul> -->
         <h2 class="header-title"></h2>
         <ul class="float-right">
           <li><a id="header-search" href="#"><em class="ion-ios-search-strong"></em></a></li>
@@ -391,6 +393,26 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
       </section>
     </main>
   </div>
+      <!-- 検索機能 Search template-->
+    <div class="modal modal-top fade modal-search" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="modal-search-form">
+              <form method="GET" action="view_r_page.php">
+                <div class="input-group">
+                  <div class="input-group-btn">
+                    <button class="btn btn-flat" type="button" data-dismiss="modal"><em class="ion-arrow-left-c icon-lg text-muted"></em></button>
+                  </div>
+                  <input class="form-control header-input-search" type="text" placeholder="Search.." name="search_word" value="<?php echo $search_word?>">
+                  <input type="submit" value="検索">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
       <!-- End Search template-->
       <!-- Settings template-->
       <div class="modal-settings modal modal-right fade" tabindex="-1" role="dialog">
@@ -677,16 +699,6 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
             $accumulation_time[] =$total_time;
         }
 
-
-
-
-          echo '<pre>';
-          var_dump($month);
-          echo '<pre>';
-
-          echo '<pre>';
-          var_dump($day);
-          echo '<pre>';
       ?>
 
       <script>
