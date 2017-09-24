@@ -20,8 +20,6 @@ if(isset($_GET['search_word']) && !empty($_GET['search_word'])){
     $stmt = $dbh->prepare($sql);
     $stmt->execute($data);
 }
-$search_word='';
-
 
 ?>
 <!DOCTYPE html>
