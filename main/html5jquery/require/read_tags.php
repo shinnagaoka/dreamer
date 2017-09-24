@@ -1,14 +1,14 @@
 <?php
-	$sql ='SELECT * FROM `dr_steps` WHERE `dream_id`=? ORDER BY `step_id` ASC';
-	$data = array($rd);
+	$sql ='SELECT * FROM `dr_tags` WHERE `dream_id`=?';
+	$data = array($dream_id);
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute($data);
-	$read_step = array();
+	$read_tags = array();
 	while (true) {
 		$record = $stmt->fetch(PDO::FETCH_ASSOC);
 		if ($record==false) {
 			break;
 		}
-		$read_step[] = $record;
+		$read_tags[] = $record;
 	}
 ?>

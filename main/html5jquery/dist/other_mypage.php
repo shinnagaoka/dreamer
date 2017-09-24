@@ -62,6 +62,7 @@ if (isset($_POST['cheer']) && $_POST['cheer']=='false') {
   <link rel="stylesheet" href="vendor/material-colors/dist/colors.css">
   <!-- Application styles-->
   <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" type="text/css" href="css/trim.css">
 
   <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
 
@@ -162,10 +163,9 @@ if (isset($_POST['cheer']) && $_POST['cheer']=='false') {
       <div class="sidebar-content">
         <div class="sidebar-toolbar">
           <div class="sidebar-toolbar-background"></div>
-          <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_users['profile_image_path']; ?>" alt="Profile"></a>
+          <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_login_users['profile_image_path']; ?>" alt="Profile"></a>
             <div class="mt-3">
-              <div class="lead"><?php echo $read_users['user_name']; ?></div>
-                <div class="text-thin"></div>
+              <div class="lead"><?php echo $read_login_users['user_name']; ?></div>
              </div>
           </div>
         </div>
@@ -175,9 +175,8 @@ if (isset($_POST['cheer']) && $_POST['cheer']=='false') {
               <div class="sidebar-nav-heading">マイページ</div>
             </li>
               <li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
-              <li><a href="achived_dream.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>達成された夢</span></a></li>
+              <li><a href="achieved_dream.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>達成した夢</span></a></li>
               <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>編集</span></a></li>
-
             <li>
               <div class="sidebar-nav-heading">閲覧</div>
             </li>
@@ -206,18 +205,39 @@ if (isset($_POST['cheer']) && $_POST['cheer']=='false') {
       <!-- Page content-->
       <section class="section-container">
         <div class="container-fluid">
-          <div class="row">
+          <div class="" style="width: 100%; height: 500px; background-image: url(img/<?php echo $read_dream['dream_image_path']; ?>); background-size: cover;">
+            <div class="row" style="padding-top: 250px;">
+              <div class="col-lg-12 col-xs-12 col-rol-3 text-center trim" >
+                <img class="trim rounded-circle" src="img/user/<?php echo $read_users['profile_image_path']; ?>" style="padding: 10px;">
+              </div>
+            </div>
+          </div>
+          <div class="text-center"  style="padding: 20px; padding-top: 40px; padding-bottom: 100px; background-color: #fff;">
+            <h1>
+              <?php echo $read_users['user_name']; ?>
+            </h1>
+            
+          </div>
+        </div>
+        <br>
+        <div class="row">
             <div class="col-lg-12 col-xs-12 col-rol-3" style="font-size: 20px;vertical-align:middle" >
-            <?php if ($read_dream['dream_id']!=$read_users['now_dream_id']) { ?>
-              <h1 class="alert alert-warning">これは達成された夢です。</h1><br>
-            <?php } ?>
               宣言します！！私は...
               <span style="float: right">
                 あと
                 <FONT color="#ff0000" size="6">
+                  <?php
+                  $s = $read_dream['d_schedule'];
+                  $s = explode(' ',$s);
+                  $s = explode('-',$s[0]);
+                  ?>
                   <SCRIPT LANGUAGE="JavaScript">
-                    apDay(2019,2,13);
-                  </SCRIPT>
+                    // 以下のように年、月、日の順に書きます
+                    var s_year = <?php echo $s[0]; ?>;
+                    var s_month = <?php echo $s[1]; ?>;
+                    var s_date = <?php echo $s[2]; ?>;
+                    apDay(s_year,s_month,s_date);
+                 </SCRIPT>
                 </FONT>
                 日!!
               </span>
@@ -234,7 +254,35 @@ if (isset($_POST['cheer']) && $_POST['cheer']=='false') {
                   </div>
                   <div class="">
                     <div style="margin: 0">
-                      仕事 #エンジニア #英語
+                      <?php
+                      $cat=$read_dream['category'];
+                      switch ($cat) {
+                        case 1:
+                          $cat = '職業';
+                          break;
+                        case 2:
+                          $cat = '人間関係';
+                          break;
+                        case 3:
+                          $cat = '健康';
+                          break;
+                        case 4:
+                          $cat = '勉強';
+                          break;
+                        case 5:
+                          $cat = 'お金';
+                          break;
+                        case 6:
+                          $cat = 'その他';
+                          break;
+                      }
+                      echo $cat;
+                      $dream_id = $read_login_users['now_dream_id'];
+                      require('../require/read_tags.php');
+                      foreach ($read_tags as $tag) {
+                        echo '#'.$tag;
+                      }
+                      ?>
                       <span style="float:right">〆2019年2月13日</span>
                     </div>
                   </div>
@@ -307,6 +355,44 @@ if (isset($_POST['cheer']) && $_POST['cheer']=='false') {
             </div>
           </div>
           <br>
+          <div class="row">
+            <div class="col-lg-12 col-xs-12 col-rol-3">
+              <div class="cardbox" style="margin:0">
+                <div class="cardbox-body">
+                  <div class="clearfix mb-3">
+                  <h4>感想</h4> 
+                  <form method="POST" action="">
+                    <div class="row">
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 class="btn-lg bg-primary text-center">困難だったこと</h5>
+                      </div>
+                      <div class="col-lg-9 col-xs-12">
+                        <div class="well" style="width: 100%; height: 40px;"><?php echo $read_dream['achieve_1']; ?></div>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 class="btn-lg bg-primary text-center">学んだこと</h5>
+                      </div>
+                      <div class="col-lg-9 col-xs-12">
+                        <div class="well" style="width: 100%; height: 40px;"><?php echo $read_dream['achieve_2']; ?></div>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-lg-3 col-xs-12">
+                        <h5 class="btn-lg bg-primary text-center">Dreamerたちへのコメント</h5>
+                      </div>
+                      <div class="col-lg-9 col-xs-12">
+                        <div class="well" style="width: 100%; height: 40px;"><?php echo $read_dream['achieve_3']; ?></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <!-- グラフ -->
           <div class="row">
             <div class="col-lg-12">

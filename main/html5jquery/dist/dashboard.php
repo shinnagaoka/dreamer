@@ -12,6 +12,7 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
     exit();
 }
 $rd = $read_login_users['now_dream_id'];
+require('../require/read_step.php');
 require('../require/read_dream.php');
 require('../require/read_cheers_amount.php');
 if (isset($_POST['message']) && $_POST['message']!='') {
@@ -25,8 +26,16 @@ if (isset($_POST['message']) && $_POST['message']!='') {
 }
 if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
   $sum_time = $_POST['myFormTime'];
+  $dream_id = $read_dream['dream_id'];
   require('../require/make_evas.php');
   header('Location: dashboard.php');
+  exit();
+}
+if (isset($_POST['step_finsh']) && $_POST['step_finsh']!=' ') {
+  $step_id = $_POST['step_finsh'];
+  require('../require/update_step.php');
+  header('Location: dashboard.php');
+  exit();
 }
 ?>
 <!DOCTYPE html>
@@ -54,7 +63,9 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script> -->
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"></script>
-
+  <script src="js/jquery-3.1.1.js"></script>
+  <script src="js/jquery-migrate-1.4.1.js"></script>
+  <style type="text/css">.finish_step_content{display: none;}</style>
 
   <SCRIPT LANGUAGE="JavaScript">
 
@@ -134,7 +145,7 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
           </li>
           <li class="dropdown"><a class="dropdown-toggle has-badge" href="#" data-toggle="dropdown"><img class="header-user-image" src="img/user/<?php echo $read_login_users['profile_image_path']; ?>" alt="header-user-image"><!-- <sup class="badge bg-danger">3</sup> --></a>
             <div class="dropdown-menu dropdown-menu-right dropdown-scale">
-              <h6 class="dropdown-header">ユーザーメニュー</h6><a class="dropdown-item" href="#"><!-- <span class="float-right badge badge-primary">4</span> --><em class="ion-ios-email-outline icon-lg text-primary"></em>マイページ</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>編集</a>
+              <h6 class="dropdown-header">ユーザーメニュー</h6><a class="dropdown-item" href="dashboard.php"><!-- <span class="float-right badge badge-primary">4</span> --><em class="ion-ios-email-outline icon-lg text-primary"></em>マイページ</a><a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>編集</a>
               <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="logout.php"><em class="ion-log-out icon-lg text-primary"></em>ログアウト</a>
             </div>
           </li>
@@ -154,7 +165,6 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
           <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_login_users['profile_image_path']; ?>" alt="Profile"></a>
             <div class="mt-3">
               <div class="lead"><?php echo $read_login_users['user_name']; ?></div>
-                <div class="text-thin">北海道</div>
              </div>
           </div>
         </div>
@@ -164,13 +174,15 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
               <div class="sidebar-nav-heading">マイページ</div>
             </li>
               <li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-speedometer-outline"></em></span><span>進行中の夢</span></a></li>
-              <li><a href="achived_dream.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>達成された夢</span></a></li>
+              <li><a href="achieved_dream.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-settings"></em></span><span>達成した夢</span></a></li>
               <li><a href="dashboard.html"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>編集</span></a></li>
+              <li><a href="signup_edit.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear-outline"></em></span><span>アカウント編集</span></a></li>
             <li>
               <div class="sidebar-nav-heading">閲覧</div>
             </li>
               <li><a href="view_c_page.php"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-list-outline"></em></span><span>カテゴリー別</span></a>
                 <ul class="sidebar-subnav" id="tables">
+                  <li><a href="view_c_page.php"><span class="float-right nav-label"></span><span>カテゴリー別</span></a></li>
                   <li><a href="view_c_page.php #1"><span class="float-right nav-label"></span><span>職業</span></a></li>
                   <li><a href="view_c_page.php #2"><span class="float-right nav-label"></span><span>人間関係</span></a></li>
                   <li><a href="view_c_page.php #3"><span class="float-right nav-label"></span><span>健康</span></a></li>
@@ -199,9 +211,18 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
               <span style="float: right">
                 あと
                 <FONT color="#ff0000" size="6">
+                  <?php
+                  $s = $read_dream['d_schedule'];
+                  $s = explode(' ',$s);
+                  $s = explode('-',$s[0]);
+                  ?>
                   <SCRIPT LANGUAGE="JavaScript">
-                    apDay(2019,2,13);
-                  </SCRIPT>
+                    // 以下のように年、月、日の順に書きます
+                    var s_year = <?php echo $s[0]; ?>;
+                    var s_month = <?php echo $s[1]; ?>;
+                    var s_date = <?php echo $s[2]; ?>;
+                    apDay(s_year,s_month,s_date);
+                 </SCRIPT>
                 </FONT>
                 日!!
               </span>
@@ -218,8 +239,38 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
                   </div>
                   <div class="">
                     <div style="margin: 0">
-                      仕事 #エンジニア #英語
-                      <span style="float:right">〆2019年2月13日</span>
+                      <?php
+                      $cat=$read_dream['category'];
+                      switch ($cat) {
+                        case 1:
+                          $cat = '職業';
+                          break;
+                        case 2:
+                          $cat = '人間関係';
+                          break;
+                        case 3:
+                          $cat = '健康';
+                          break;
+                        case 4:
+                          $cat = '勉強';
+                          break;
+                        case 5:
+                          $cat = 'お金';
+                          break;
+                        case 6:
+                          $cat = 'その他';
+                          break;
+                      }
+                      echo $cat;
+                      $dream_id = $read_login_users['now_dream_id'];
+                      require('../require/read_tags.php');
+                      foreach ($read_tags as $tag) {
+                        echo '#'.$tag;
+                      }
+                      $year = explode(' ',$read_dream['d_schedule']);
+                      $year = explode('-',$year[0]);
+                      ?>
+                      <span style="float:right">〆<?php echo $year[0].'年'.$year[1].'月'.$year[2].'日'; ?></span>
                     </div>
                   </div>
                   <div style="margin:10px">
@@ -283,6 +334,9 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
                 <div class="cardbox-body">
                   <div class="clearfix mb-3">
                     <div class="text-center" style=" margin-bottom: 10px; border: 100px;">
+                        <h5 class="alert alert-primary">
+                        <?php echo $read_step[0]['daily_goal_contents']; ?>
+                        </h5>
                       <form name="myForm" method="POST">
                         <div class="mx-auto" id="stopwatch" style="width: 250px;">
                             <span style="font-size: 40px;" id="stopwatchHour">00</span>
@@ -319,17 +373,68 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
           </div>
           <div class="row">
             <div class="col-7 col-xs-12" style="margin: 0 auto;">
+              <?php
+              $step_i=0;
+              foreach ($read_step as $step) {
+                $step_i ++;
+                if (!empty($step['achieve']) && $step['achieve'] != '') { ?>
+                <div id="finish_step<?php echo $step['step_id']; ?>" class="text-center alert alert-primary" style="cursor : pointer;" >
+                  <h3>ステップ<?php echo $step_i; ?>を達成済み！！</h3></div>
+                  <div id="finish_step_content<?php echo $step['step_id']; ?>" class="finish_step_content">
+                    <div class="cardbox">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>ステップ<?php echo $step_i; ?>
+                              <span  style="float: right">
+                                <FONT color="#ff0000" size="6">
+                                  <?php echo $step['modified']; ?>
+                                </FONT>
+                                に達成！！
+                              </span>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div class="col-xs-2">
+                                <h3><?php echo $step['step_contents']; ?></h3>
+                              </div><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    <p style="text-align: right; margin-right: 15px; padding-bottom: 10px">
+                      <span>〆<?php echo $step['s_schedule']; ?></span>
+                    </p>
+                    </div>
+                  </div>
+                  <SCRIPT>
+                  $(function(){
+                    $('#finish_step<?php echo $step['step_id']; ?>').click(function(){
+                      $('#finish_step_content<?php echo $step['step_id']; ?>').fadeToggle();
+                    });
+                  });
+                  </SCRIPT>
+                  <?php }else{
+                  $s = $step['s_schedule'];
+                  $s = explode('-',$s);
+              ?>
               <div class="cardbox">
                 <table class="table">
                   <thead>
                     <tr>
-                      <th>ステップ1
+                      <th>ステップ<?php echo $step['step_id']; ?>
                         <span  style="float: right">
                           あと
                           <FONT color="#ff0000" size="6">
                             <SCRIPT LANGUAGE="JavaScript">
-                              <!--// 以下のように年、月、日の順に書きます
-                             apDay(2017,12,18);//-->
+                              // 以下のように年、月、日の順に書きます
+                              var s_year = <?php echo $s[0]; ?>;
+                              var s_month = <?php echo $s[1]; ?>;
+                              var s_date = <?php echo $s[2]; ?>;
+                              apDay(s_year,s_month,s_date);
                            </SCRIPT>
                           </FONT>
                            日!!
@@ -341,50 +446,21 @@ if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
                     <tr>
                       <td>
                         <div class="col-xs-2">
-                          <h3>留学する</h3>
+                          <h3><?php echo $step['step_contents']; ?></h3>
                         </div><br>
                       </td>
                     </tr>
                   </tbody>
                 </table>
-                <p style="text-align: right; margin-right: 15px; padding-bottom: 10px">
-                  <span>〆2017年12月18日</span>
-                  <a class="btn btn-primary" id="swal-demo3" href="#">Finish!</a>
-                </p>
+                <form method="POST" action="">
+                  <p style="text-align: right; margin-right: 15px; padding-bottom: 10px">
+                    <span>〆<?php echo $step['s_schedule']; ?></span>
+                      <input type="hidden" name="step_finsh" value="<?php echo $step['step_id']?>">
+                      <input type="submit" class="btn btn-primary" value="Finish!">
+                  </p>
+                </form>
               </div>
-              <div class="cardbox">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>ステップ2
-                        <span style="float: right">
-                            あと
-                            <FONT color="#ff0000" size="6">
-                              <SCRIPT LANGUAGE="JavaScript">
-                                <!--// 以下のように年、月、日の順に書きます
-                                apDay(2018,3,18);//-->
-                              </SCRIPT>
-                            </FONT>
-                              日!!
-                        </span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="col-xs-2">
-                           <h3>シリコンバレーで働く</h3>
-                        </div><br>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <p style="text-align: right; margin-right: 15px; padding-bottom: 10px">
-                  <span>〆2018年3月18日</span>
-                  <a class="btn btn-primary" id="swal-demo3" href="#">Finish!</a>
-                </p>
-              </div>
+              <?php }} ?>
               <a href="achieve_page.php" class="btn btn-block btn-lg bg-gradient-warning">達成</a>
             </div>
           </div>

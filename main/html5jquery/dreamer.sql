@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `dr_steps` (
 
 CREATE TABLE IF NOT EXISTS `dr_evas` (
   `eva_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
+  `dream_id` int(11) NOT NULL,
   `time` time NOT NULL,
   `date` date NOT NULL,
   `created` datetime NOT NULL,
