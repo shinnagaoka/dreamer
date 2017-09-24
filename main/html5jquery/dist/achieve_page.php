@@ -11,7 +11,7 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
     header('Location: signin.php');
     exit();
 }
-$rd=$read_login_users['now_dream_id'];
+$rd=$read_users['now_dream_id'];
 require('../require/read_dream.php');
 $user_id = $read_dream['user_id'];
 require('../require/read_cheers_amount.php');
