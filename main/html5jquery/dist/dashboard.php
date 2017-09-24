@@ -35,29 +35,9 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Bootstrap Admin Template">
-  <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
   <title>Dasha - Bootstrap Admin Template</title>
-  <!-- Vendor styles-->
-  <!-- Animate.CSS-->
-  <link rel="stylesheet" href="vendor/animate.css/animate.css">
-  <!-- Bootstrap-->
-  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Ionicons-->
-  <link rel="stylesheet" href="vendor/ionicons/css/ionicons.css">
-  <!-- Material Colors-->
-  <link rel="stylesheet" href="vendor/material-colors/dist/colors.css">
-  <!-- Application styles-->
-  <link rel="stylesheet" href="css/app.css">
-
-  <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
-
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script> -->
-
+  <?php require('partial/head.php'); ?>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"></script>
-
 
   <SCRIPT LANGUAGE="JavaScript">
 
