@@ -26,18 +26,11 @@
     if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
       $sum_time = $_POST['myFormTime'];
       require('../require/make_evas.php');
+      header('Location: dashboard.php');
+      exit();
     }
   $search_word='';
 
-  var_dump($_POST['message']);
-  header('Location: dashboard.php');
-  exit();
-}
-if (isset($_POST['myFormTime']) && $_POST['myFormTime']!=' ') {
-  $sum_time = $_POST['myFormTime'];
-  require('../require/make_evas.php');
-  header('Location: dashboard.php');
-}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
