@@ -174,7 +174,7 @@ if (isset($_POST['cheer']) && $_POST['cheer']=='false') {
           <div class="sidebar-toolbar-background"></div>
           <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_login_users['profile_image_path']; ?>" alt="Profile"></a>
             <div class="mt-3">
-              <div class="lead"><?php echo $read_login_users['user_name']; ?></div>
+              <div class="lead" style="background-color: rgba( 105, 153, 174, 0.55 );"><?php echo $read_login_users['user_name']; ?></div>
              </div>
           </div>
         </div>
