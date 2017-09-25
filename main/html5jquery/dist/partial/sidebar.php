@@ -22,7 +22,7 @@
               <li><a href="achived_dream.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ribbon-a"></em></span><span>達成した夢</span></a></li>
               <li><a href="dashboard.html"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear"></em></span><span>編集</span></a>
               <ul class="sidebar-subnav" id="tables">
-                  <li><a href=""><span class="float-right nav-label"></span><span>アカウント編集</span></a></li>
+                  <li><a href="signup_edit.php"><span class="float-right nav-label"></span><span>アカウント編集</span></a></li>
                   <li><a href=""><span class="float-right nav-label"></span><span>夢編集</span></a></li>
                   <li><a href=""><span class="float-right nav-label"></span><span>ショートステップ編集</span></a></li>
               </ul>
@@ -30,6 +30,7 @@
             </li>
               <li><a href="view_c_page.php"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-paper"></em></span><span>カテゴリー別</span></a>
                 <ul class="sidebar-subnav" id="tables">
+                  <li><a href="view_c_page.php"><span class="float-right nav-label"></span><span>カテゴリー別</span></a></li>
                   <li><a href="view_c_page.php #1"><span class="float-right nav-label"></span><span>職業</span></a></li>
                   <li><a href="view_c_page.php #2"><span class="float-right nav-label"></span><span>人間関係</span></a></li>
                   <li><a href="view_c_page.php #3"><span class="float-right nav-label"></span><span>健康</span></a></li>
