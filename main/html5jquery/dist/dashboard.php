@@ -134,12 +134,12 @@ $search_word='';
     <!-- top navbar-->
     <header class="header-container">
       <nav >
-            <!--         <ul class="hidden-lg-up">
+                    <ul class="hidden-lg-up">
           <li><a class="sidebar-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
         </ul>
         <ul class="hidden-xs-down">
           <li><a class="covermode-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
-        </ul> -->
+        </ul>
         <h2 class="header-title"></h2>
         <ul class="float-right">
           <li><a id="header-search" href="#"><em class="ion-ios-search-strong"></em></a></li>
@@ -182,7 +182,7 @@ $search_word='';
               <div class="sidebar-nav-heading">マイページ</div>
             </li>
               <li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-timer"></em></span><span>進行中の夢</span></a></li>
-              <li><a href="achieved_dream.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ribbon-a"></em></span><span>達成した夢</span></a></li>
+              <li><a href="achieved_dream.php?user=<?php echo $read_login_users['user_id']; ?>"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ribbon-a"></em></span><span>達成した夢</span></a></li>
               <li><a href="dashboard.html"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear"></em></span><span>編集</span></a>
               <ul class="sidebar-subnav" id="tables">
                   <li><a href="signup_edit.php"><span class="float-right nav-label"></span><span>アカウント編集</span></a></li>
