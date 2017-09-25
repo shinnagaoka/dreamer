@@ -36,35 +36,36 @@ $search_word='';
 					<div class="welcome" ><h1 class="text-center">カテゴリー別 夢一覧</h1>
 						<br>
 					</div>
+					<div class="container">
 					<div class="row">
-						<div class="col-8 col-md-4"  >
-							<div class="cardbox bg-primary" style="height: 120px;">
+						<div class="col-4 col-md-4"  >
+							<div class="cardbox bg-primary" style="height: 150px;">
 								<a href="#1">
 									<h1 class="text-center" >
 										<br>
-										<strong><span class="text-white">職業</span>
+										<strong><span class="text-white"><p class="icon-lg ion-briefcase"></p>職業</span>
 										</strong>
 									</h1>
 								</a>
 							</div>
 						</div>
-						<div class="col-8 col-md-4"  >
-							<div class="cardbox bg-info" style="height: 120px;">
+						<div class="col-4 col-md-4"  >
+							<div class="cardbox bg-info" style="height: 150px;">
 								<a href="#2">
 									<h1 class="text-center" >
 										<br>
-										<strong><span class="text-white">人間関係</span>
+										<strong><span class="text-white"><p class="icon-lg ion-ios-people"></p>人間関係</span>
 										</strong>
 									</h1>
 								</a>
 							</div>
 						</div>
-						<div class="col-8 col-md-4"  >
-							<div class="cardbox bg-primary" style="height: 120px;">
+						<div class="col-4 col-md-4"  >
+							<div class="cardbox bg-primary" style="height: 150px;">
 								<a href="#3">
 									<h1 class="text-center" >
 										<br>
-										<strong><span class="text-white">健康</span>
+										<strong><span class="text-white"><p class="icon-lg ion-ios-medkit-outline"></p>健康</span>
 										</strong>
 									</h1>
 								</a>
@@ -72,34 +73,34 @@ $search_word='';
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-8 col-md-4"  >
-							<div class="cardbox bg-info" style="height: 120px;">
+						<div class="col-4 col-md-4"  >
+							<div class="cardbox bg-info" style="height: 150px;">
 								<a href="#4">
 									<h1 class="text-center" >
 										<br>
-										<strong><span class="text-white">勉強</span>
+										<strong><span class="text-white"><p class="icon-lg ion-edit"></p>勉強</span>
 										</strong>
 									</h1>
 								</a>
 							</div>
 						</div>
-						<div class="col-8 col-md-4"  >
-							<div class="cardbox bg-primary" style="height: 120px;">
+						<div class="col-4 col-md-4"  >
+							<div class="cardbox bg-primary" style="height: 150px;">
 								<a href="#5">
 									<h1 class="text-center" >
 										<br>
-										<strong><span class="text-white">お金</span>
+										<strong><span class="text-white"><p class="icon-lg ion-social-usd"></p>お金</span>
 										</strong>
 									</h1>
 								</a>
 							</div>
 						</div>
-						<div class="col-8 col-md-4"  >
-							<div class="cardbox bg-info" style="height: 120px;">
+						<div class="col-4 col-md-4"  >
+							<div class="cardbox bg-info" style="height: 150px;">
 								<a href="#6">
 									<h1 class="text-center" >
 										<br>
-										<strong><span class="text-white">その他</span>
+										<strong><span class="text-white"><p class="icon-lg ion-android-clipboard"></p>その他</span>
 										</strong>
 									</h1>
 								</a>
@@ -107,13 +108,14 @@ $search_word='';
 						</div>
 					</div>
 				</div>
+				</div>
 <!-- Main Function Part Start  ============================================ -->
 				<br><br>
 				<?php $c_N=0; foreach ($category as $c_name) { $c_N++;
 					$_SESSION['dream_category']=$c_N;?><br>
 					<div class="container" id="<?php echo $c_N; ?>">
 						<div class="row" style="margin-top: 50px;">
-							<div class="col-xl-12">
+							<div class="col-xl-12 col-12">
 								<div class="card  bg-info"><br>
 									<div class="text-center"><h2><?php echo $c_name; ?></h2></div>
 									<br>

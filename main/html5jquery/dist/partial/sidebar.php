@@ -19,7 +19,7 @@
               <div class="sidebar-nav-heading">マイページ</div>
             </li>
               <li><a href="dashboard.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-timer"></em></span><span>進行中の夢</span></a></li>
-              <li><a href="achived_dream.php"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ribbon-a"></em></span><span>達成した夢</span></a></li>
+              <li><a href="achieved_dream.php?user=<?php echo $read_login_users['user_id']; ?>"><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ribbon-a"></em></span><span>達成した夢</span></a></li>
               <li><a href="dashboard.html"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-gear"></em></span><span>編集</span></a>
               <ul class="sidebar-subnav" id="tables">
                   <li><a href="signup_edit.php"><span class="float-right nav-label"></span><span>アカウント編集</span></a></li>

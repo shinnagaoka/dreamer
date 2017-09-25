@@ -1,11 +1,11 @@
 <header class="header-container">
       <nav >
-            <!--         <ul class="hidden-lg-up">
+                    <ul class="hidden-lg-up">
           <li><a class="sidebar-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
         </ul>
         <ul class="hidden-xs-down">
           <li><a class="covermode-toggler menu-link menu-link-close" href="#"><span><em></em></span></a></li>
-        </ul> -->
+        </ul>
         <h2 class="header-title"></h2>
         <ul class="float-right">
           <li><a id="header-search" href="#"><em class="ion-ios-search-strong"></em></a></li>
