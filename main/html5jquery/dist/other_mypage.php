@@ -11,6 +11,7 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
     header('Location: signin.php');
     exit();
 }
+$check_achieved = '';
 $rd = $_GET['dream'];
 require('../require/read_dream.php');
 $user_id = $read_dream['user_id'];
@@ -20,6 +21,9 @@ require('../require/make_history.php');
 if ($_GET['dream']==$read_login_users['now_dream_id']) {
   header('Location: dashboard.php');
   exit();
+}
+if ($_GET['dream']!=$read_users['now_dream_id']) {
+  $check_achieved = 'achieved';
 }
 if (isset($_POST['message']) && $_POST['message']!='') {
   $dream_id = $read_dream['dream_id'];
@@ -115,27 +119,41 @@ $search_word='';
     <?php require('partial/header.php');?>
     <!-- sidebar-->
     <?php require('partial/sidebar.php');?>
-
     <!-- Main section-->
     <main class="main-container">
       <!-- Page content-->
       <section class="section-container">
         <div class="container-fluid">
-          <div class="" style="width: 100%; height: 500px; background-image: url(img/<?php echo $read_dream['dream_image_path']; ?>); background-size: cover;">
-            <div class="row" style="padding-top: 250px;">
-              <div class="col-lg-12 col-xs-12 col-rol-3 text-center trim" >
-                <img class="trim rounded-circle" src="img/user/<?php echo $read_users['profile_image_path']; ?>" style="padding: 10px;">
+          <div class="text-center" style="width: 100%; height: 300px; background-image: url(img/<?php echo $read_dream['dream_image_path']; ?>); background-size: cover;">
+            <div class="row" style="padding-top: 65px;">
+              <div class="col-lg-4 col-xs-12" >
+                <img class="text-center rounded-circle" src="img/user/<?php echo $read_users['profile_image_path']; ?>" style="width: 250px; height: 250px;">
               </div>
             </div>
           </div>
-          <div class="text-center"  style="padding: 20px; padding-top: 40px; padding-bottom: 100px; background-color: #fff;">
-            <h1>
-              <?php echo $read_users['user_name']; ?>
-            </h1>
-            
+          <div class="text-center"  style="padding-bottom: 15px; padding-top: 33px; background-color: #fff;">
+            <div class="row">
+              <div class="col-lg-4 col-xs-12">
+                <h1>
+                  <?php echo $read_users['user_name']; ?>
+                </h1>
+              </div>
+              <br><br><br>
+              <div class="col-lg-4 col-xs-12">
+                <a href="other_mypage.php?dream=<?php echo $read_users['now_dream_id']; ?>" class="btn-lg btn-primary">進行中の夢</a>
+                <a href="achieved_dream.php?user=<?php echo $read_users['user_id']; ?>" class="btn-lg btn-primary">達成した夢</a>
+              </div>
+            </div>
           </div>
         </div>
         <br>
+        <?php if ($check_achieved == 'achieved') { ?>
+        <div class="row">
+          <div class="col-lg-12 col-xs-12">
+            <h2 class="alert alert-warning">これは達成された夢です。</h2>
+          </div>
+        </div>
+        <?php } ?>
         <div class="row">
             <div class="col-lg-12 col-xs-12 col-rol-3" style="font-size: 20px;vertical-align:middle" >
               宣言します！！私は...
@@ -271,13 +289,13 @@ $search_word='';
             </div>
           </div>
           <br>
+        <?php if ($check_achieved == 'achieved') { ?>
           <div class="row">
             <div class="col-lg-12 col-xs-12 col-rol-3">
               <div class="cardbox" style="margin:0">
                 <div class="cardbox-body">
                   <div class="clearfix mb-3">
-                  <h4>感想</h4> 
-                  <form method="POST" action="">
+                  <h4>感想</h4>
                     <div class="row">
                       <div class="col-lg-3 col-xs-12">
                         <h5 class="btn-lg bg-primary text-center">困難だったこと</h5>
@@ -309,6 +327,7 @@ $search_word='';
               </div>
             </div>
           </div>
+        <?php } ?>
           <!-- グラフ -->
           <div class="row">
             <div class="col-lg-12">

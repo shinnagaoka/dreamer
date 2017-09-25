@@ -11,15 +11,6 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
     header('Location: signin.php');
     exit();
 }
-if (isset($_POST['message']) && $_POST['message']!='') {
-  $dream_id = $read_dream['dream_id'];
-  $message = $_POST['message'];
-  require('../require/make_chat.php');
-
-  var_dump($_POST['message']);
-  header('Location: dashboard.php');
-  exit();
-}
 $search_word='';
 ?>
 <!DOCTYPE html>
@@ -96,18 +87,21 @@ $search_word='';
     <!-- Main section-->
     <main class="main-container">
       <!-- Page content-->
+      <?php
+        $user_id=$_GET['user'];
+        require('../require/read_users.php');
+      ?>
       <section class="section-container">
         <div class="container-fluid">
           <div class="row">
             <div class="col-lg-12 col-xs-12 col-rol-12 text-center">
-              <h1>達成された夢一覧</h1>
+              <h1><?php echo $read_users['user_name']?>の達成した夢一覧</h1>
             </div>
           </div>
           <br>
             <div class="row">
           <?php
-          $user_id=$read_login_users['user_id'];
-          require('../require/read_dream_by_user.php');
+        require('../require/read_dream_by_user.php');
           foreach ($read_dream as $dream) {
             $rd = $dream['dream_id'];
             require('../require/read_cheers_amount.php');
