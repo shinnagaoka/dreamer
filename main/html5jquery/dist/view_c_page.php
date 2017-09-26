@@ -11,7 +11,7 @@ elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['u
     header('Location: signin.php');
     exit();
 }
-$category = array('職業','人間関係','健康','勉強','お金','その他');
+$category = array('仕事','人間関係','健康','勉強','お金','その他');
 $search_word='';
 ?>
 <!DOCTYPE html>
@@ -43,7 +43,7 @@ $search_word='';
 								<a href="#1">
 									<h1 class="text-center" >
 										<br>
-										<strong><span class="text-white"><p class="icon-lg ion-briefcase"></p>職業</span>
+										<strong><span class="text-white"><p class="icon-lg ion-briefcase"></p>仕事</span>
 										</strong>
 									</h1>
 								</a>
@@ -136,7 +136,7 @@ $search_word='';
 								<div class="col-8 col-md-4"  style="margin-top: 20px;">
 									<div class="card">
 										<a href="other_mypage.php?dream=<?php echo $this_dream_id;?>">
-										<img class="card-img-top img-fluid" src="img/<?php echo $dream['dream_image_path']; ?>" alt="Card image cap" style="height: 100%; width: 100%;">
+										<img class="card-img-top img-fluid" src="dream_image/<?php echo $dream['dream_image_path']; ?>" alt="Card image cap" style="height: 100%; width: 100%;">
 										<div class="card-block">
 											<h2 class="card-title"><?php echo $dream['dream_contents']; ?></h2>
 											<?php echo $dream['created']; ?><br>

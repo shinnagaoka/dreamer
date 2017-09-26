@@ -54,7 +54,9 @@ $search_word='';
   <title>Dasha - Bootstrap Admin Template</title>
   <?php require('partial/head.php'); ?>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"></script>
-
+  <script src="js/jquery-3.1.1.js"></script>
+  <script src="js/jquery-migrate-1.4.1.js"></script>
+  <style type="text/css">.finish_step_content{display: none;}</style>
   <link rel="stylesheet" type="text/css" href="css/trim.css">
 
   <SCRIPT LANGUAGE="JavaScript">
@@ -124,7 +126,7 @@ $search_word='';
       <!-- Page content-->
       <section class="section-container">
         <div class="container-fluid">
-          <div class="text-center" style="width: 100%; height: 300px; background-image: url(img/<?php echo $read_dream['dream_image_path']; ?>); background-size: cover;">
+          <div class="text-center" style="width: 100%; height: 300px; background-image: url(dream_image/<?php echo $read_dream['dream_image_path']; ?>); background-size: cover;">
             <div class="row" style="padding-top: 65px;">
               <div class="col-lg-4 col-xs-12" >
                 <img class="text-center rounded-circle" src="img/user/<?php echo $read_users['profile_image_path']; ?>" style="width: 250px; height: 250px;">
@@ -342,17 +344,70 @@ $search_word='';
           </div>
           <div class="row">
             <div class="col-7 col-xs-12" style="margin: 0 auto;">
+              <?php
+              $step_i=0;
+              $rd = $_GET['dream'];
+              require('../require/read_step.php');
+              foreach ($read_step as $step) {
+                $step_i ++;
+                if (!empty($step['achieve']) && $step['achieve'] != '') { ?>
+                <div id="finish_step<?php echo $step['step_id']; ?>" class="text-center alert alert-primary" style="cursor : pointer;" >
+                  <h3>ステップ<?php echo $step_i; ?>を達成済み！！</h3></div>
+                  <div id="finish_step_content<?php echo $step['step_id']; ?>" class="finish_step_content">
+                    <div class="cardbox">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>ステップ<?php echo $step_i; ?>
+                              <span  style="float: right">
+                                <FONT color="#ff0000" size="6">
+                                  <?php echo $step['modified']; ?>
+                                </FONT>
+                                に達成！！
+                              </span>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div class="col-xs-2">
+                                <h3><?php echo $step['step_contents']; ?></h3>
+                              </div><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    <p style="text-align: right; margin-right: 15px; padding-bottom: 10px">
+                      <span>〆<?php echo $step['s_schedule']; ?></span>
+                    </p>
+                    </div>
+                  </div>
+                  <SCRIPT>
+                  $(function(){
+                    $('#finish_step<?php echo $step['step_id']; ?>').click(function(){
+                      $('#finish_step_content<?php echo $step['step_id']; ?>').fadeToggle();
+                    });
+                  });
+                  </SCRIPT>
+                  <?php }else{
+                  $s = $step['s_schedule'];
+                  $s = explode('-',$s);
+              ?>
               <div class="cardbox">
                 <table class="table">
                   <thead>
                     <tr>
-                      <th>ステップ1
+                      <th>ステップ<?php echo $step['step_id']; ?>
                         <span  style="float: right">
                           あと
                           <FONT color="#ff0000" size="6">
                             <SCRIPT LANGUAGE="JavaScript">
-                              <!--// 以下のように年、月、日の順に書きます
-                             apDay(2017,12,18);//-->
+                              // 以下のように年、月、日の順に書きます
+                              var s_year = <?php echo $s[0]; ?>;
+                              var s_month = <?php echo $s[1]; ?>;
+                              var s_date = <?php echo $s[2]; ?>;
+                              apDay(s_year,s_month,s_date);
                            </SCRIPT>
                           </FONT>
                            日!!
@@ -364,50 +419,21 @@ $search_word='';
                     <tr>
                       <td>
                         <div class="col-xs-2">
-                          <h3>留学する</h3>
+                          <h3><?php echo $step['step_contents']; ?></h3>
                         </div><br>
                       </td>
                     </tr>
                   </tbody>
                 </table>
-                <p style="text-align: right; margin-right: 15px; padding-bottom: 10px">
-                  <span>〆2017年12月18日</span>
-                  <a class="btn btn-primary" id="swal-demo3" href="#">Finish!</a>
-                </p>
+                <form method="POST" action="">
+                  <p style="text-align: right; margin-right: 15px; padding-bottom: 10px">
+                    <span>〆<?php echo $step['s_schedule']; ?></span>
+                      <input type="hidden" name="step_finsh" value="<?php echo $step['step_id']?>">
+                      <input type="submit" class="btn btn-primary" value="Finish!">
+                  </p>
+                </form>
               </div>
-              <div class="cardbox">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>ステップ2
-                        <span style="float: right">
-                            あと
-                            <FONT color="#ff0000" size="6">
-                              <SCRIPT LANGUAGE="JavaScript">
-                                <!--// 以下のように年、月、日の順に書きます
-                                apDay(2018,3,18);//-->
-                              </SCRIPT>
-                            </FONT>
-                              日!!
-                        </span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="col-xs-2">
-                           <h3>シリコンバレーで働く</h3>
-                        </div><br>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <p style="text-align: right; margin-right: 15px; padding-bottom: 10px">
-                  <span>〆2018年3月18日</span>
-                  <a class="btn btn-primary" id="swal-demo3" href="#">Finish!</a>
-                </p>
-              </div>
+              <?php }} ?>
               <a href="achieve_page.php" class="btn btn-block btn-lg bg-gradient-warning">達成</a>
             </div>
           </div>
