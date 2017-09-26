@@ -85,16 +85,39 @@ if (!empty($_POST)) {
             </div>
             <div class="">
               <div style="margin: 0">
-                仕事 #エンジニア #英語
-                <span style="float:right">〆2019年2月13日</span>
+                <?php
+                $cat=$read_dream['category'];
+                switch ($cat) {
+                  case 1:
+                    $cat = '仕事';
+                    break;
+                  case 2:
+                    $cat = '人間関係';
+                    break;
+                  case 3:
+                    $cat = '健康';
+                    break;
+                  case 4:
+                    $cat = '勉強';
+                    break;
+                  case 5:
+                    $cat = 'お金';
+                    break;
+                  case 6:
+                    $cat = 'その他';
+                    break;
+                }
+                echo $cat;
+                $dream_id = $read_login_users['now_dream_id'];
+                require('../require/read_tags.php');
+                foreach ($read_tags as $tag) {
+                  echo '#'.$tag;
+                }
+                $year = explode(' ',$read_dream['d_schedule']);
+                $year = explode('-',$year[0]);
+                ?>
+                <span style="float:right">〆<?php echo $year[0].'年'.$year[1].'月'.$year[2].'日'; ?></span>
               </div>
-            </div>
-            <div style="margin:10px">
-              <a href="#" class="btn btn-xs btn-info">
-              <span class="glyphicon glyphicon-thumbs-up"></span>
-              応援された数：<?php echo $read_cheers_amount['cnt']; ?></a>
-            </div>
-          </div>
         </div>
       </div>
     </div>
