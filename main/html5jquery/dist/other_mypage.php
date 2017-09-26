@@ -372,7 +372,6 @@ $search_word='';
                 </table>
                 <p style="text-align: right; margin-right: 15px; padding-bottom: 10px">
                   <span>〆2017年12月18日</span>
-                  <a class="btn btn-primary" id="swal-demo3" href="#">Finish!</a>
                 </p>
               </div>
               <div class="cardbox">
@@ -405,10 +404,8 @@ $search_word='';
                 </table>
                 <p style="text-align: right; margin-right: 15px; padding-bottom: 10px">
                   <span>〆2018年3月18日</span>
-                  <a class="btn btn-primary" id="swal-demo3" href="#">Finish!</a>
                 </p>
               </div>
-              <a href="achieve_page.php" class="btn btn-block btn-lg bg-gradient-warning">達成</a>
             </div>
           </div>
         </div>
