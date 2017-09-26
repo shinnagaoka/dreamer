@@ -49,11 +49,7 @@ if(!empty($_POST)){
     $stmt-> execute($data);
   }
 
-    //dr_tagsの更新
-  $sql = 'UPDATE `dr_tags` SET `tag_contents`=?,`modified`= NOW() WHERE `dream_id`=?';
-  $data = array($_POST['tag'],$read_login_users['now_dream_id']);
-  $stmt = $dbh->prepare($sql);
-  $stmt-> execute($data);
+
 
  //dr_stepsの更新
   $sql = 'UPDATE `dr_steps` SET `daily_goal_contents`=?,`daily_time`=?,`modified`= NOW() WHERE `dream_id`=?';
@@ -77,7 +73,4 @@ if(!empty($_POST)){
 
 </body>
 </html>
-
-
-
 

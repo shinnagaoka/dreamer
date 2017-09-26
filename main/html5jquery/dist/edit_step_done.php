@@ -11,7 +11,7 @@ $_SESSION['login_user']['user_id'];
 require('../require/read_users_session.php');
 
 $sql ='SELECT * FROM `dr_steps` WHERE `dream_id`=?';
-$data = array($read_users['now_dream_id']);
+$data = array($read_login_users['now_dream_id']);
 $stmt = $dbh->prepare($sql);
 $stmt->execute($data);
 $read_step = array();
@@ -34,7 +34,7 @@ if(!empty($_POST)){
      //dr_stepsの更新
  for ($i=0; $i < $c ; $i++) {
   $sql = 'UPDATE `dr_steps` SET `step_contents`=?,`s_schedule`=?,`modified`= NOW() WHERE `dream_id`=? AND `step_id`=?';
-  $data = array($_POST['step_contents'][$i],$_POST['s_schedule'][$i],$read_users['now_dream_id'],$read_step[$i]['step_id']);
+  $data = array($_POST['step_contents'][$i],$_POST['s_schedule'][$i],$read_login_users['now_dream_id'],$read_step[$i]['step_id']);
   $stmt = $dbh->prepare($sql);
   $stmt->execute($data);
 }
@@ -48,7 +48,7 @@ if(!empty($_POST)){
   <title>edit_doneページ</title>
 </head>
 <body>
-  <h1 style="color: #42a5f5;">ステップを修正しました。</h1>
+  <h1 style="color: #42a5f5;">ショートステップを修正しました。</h1>
   <a href="dashboard.php">マイページへ</a>
 
 </body>
