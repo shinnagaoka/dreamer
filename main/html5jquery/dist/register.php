@@ -25,7 +25,7 @@ if (!empty($_POST)) {
 //変数作成
   $dream_contents=$_POST['dream_contents'];
   $category=$_POST['category'];
-  $tag=$_POST['tag'];
+  //$tag=$_POST['tag'];
   $d_schedule=$_POST['d_schedule'];
 
   $step_contents=$_POST['step_contents'];
@@ -42,8 +42,8 @@ if (!empty($_POST)) {
     if ($category =='') {
      $errors['category'] = 'blank';
    }
-   if ($tag =='') {
-    $errors['tag'] = 'blank';}
+   //if ($tag =='') {
+    //$errors['tag'] = 'blank';}
   //   elseif (mb_strlen($tag)>11) {
   //   $errors['tag'] = 'length';
   // }
@@ -66,7 +66,6 @@ if (!empty($_POST)) {
   // }
 
       $fileName = $_FILES['dream_image_path']['name'];
-      echo'選択ファイル名'.$fileName.'<br>';
       if(!empty($fileName)){
         $ext = substr($fileName,-3);
         $ext = strtolower($ext);
@@ -81,13 +80,12 @@ if (!empty($_POST)) {
 //全てにエラーがなかったら & dream_imageフォルダを作成。
     if (empty($errors)) {
       $upload_image_name = date('YmdHis').$fileName;
-      echo'夢画像名'.$upload_image_name.'<br>';
       move_uploaded_file($_FILES['dream_image_path']['tmp_name'],'dream_image/'.$upload_image_name);
 
 
       $_SESSION['dream_info']['dream_contents'] = $dream_contents;
       $_SESSION['dream_info']['category'] = $category;
-      $_SESSION['dream_info']['tag'] = $tag;
+      //$_SESSION['dream_info']['tag'] = $tag;
       $_SESSION['dream_info']['d_schedule'] = $d_schedule;
       $_SESSION['dream_info']['step_contents'] = $step_contents;
       $_SESSION['dream_info']['s_schedule'] = $s_schedule;
@@ -157,57 +155,38 @@ if (!empty($_POST)) {
                   <br>
                   <br>
 
-
-
                   <div class="container-fluid">
                     <h4 style="color: #42a5f5;">②カテゴリーを選択してください。</h4>
                   </div>
                   <div class="container-fluid">
-                    <input type="radio" name="category" value="1" checked>１・仕事<br>
-                    <input type="radio" name="category" value="2">２・人間関係<br>
-                    <input type="radio" name="category" value="3">３・健康<br>
-                    <input type="radio" name="category" value="4">４・勉強<br>
-                    <input type="radio" name="category" value="5">５・お金<br>
-                    <input type="radio" name="category" value="6">６・その他<br>
+                    <input type="radio" name="category" value="1"<?if ($category=="1"){echo "checked";} ?>>１・仕事<br>
+                    <input type="radio" name="category" value="2" <?if ($category=="2"){echo "checked";} ?>>２・人間関係<br>
+                    <input type="radio" name="category" value="3" <?if ($category=="3"){echo "checked";} ?>>３・健康<br>
+                    <input type="radio" name="category" value="4" <?if ($category=="4"){echo "checked";} ?>>４・勉強<br>
+                    <input type="radio" name="category" value="5" <?if ($category=="5"){echo "checked";} ?>>５・お金<br>
+                    <input type="radio" name="category" value="6" <?if ($category=="6"){echo "checked";} ?>>６・その他<br>
                   </div>
                   <br>
                   <br>
 
-
-
-                  <div class="container-fluid">
-                   <h4 style="color: #42a5f5;">③タグを入力してください。</h4>
-                 </div>
-                 <div class="container-fluid">
-                  <input class="form-control" type="text" name="tag" placeholder="(例) 起業" value="<?php echo $tag; ?>">
-                  <?php if(isset($errors['tag'])){?>
-                  <div class="alert alert-danger">タグが未入力です。</div>
-                  <?php  }?>
-                </div>
-                <br>
-                <br>
-
-
-
-
                 <div class="container-fluid">
-                  <h4 style="color: #42a5f5;">④達成期限を設定してください。</h4>
+                  <h4 style="color: #42a5f5;">③達成期限を設定してください。</h4>
                 </div>
                 <div class="container-fluid">
-                  <input type="date" name="d_schedule">
+                  <input type="date" name="d_schedule" value="<?php echo $d_schedule ;?>">
                 </div>
                 <br>
                 <br>
 
 
                 <div class="container-fluid">
-                  <h4 style="color: #42a5f5;">⑤目標達成の為の小ステップを作成しましょう。</h4>
+                  <h4 style="color: #42a5f5;">④目標達成の為のショートステップを作成しましょう。</h4>
                 </div>
                   <ul id="item_list">
                     <li class="item">
                       <input type="text" name="step_contents[0]" placeholder="(例)資格取得">
                       <?php if(isset($errors['step_contents'])){?>
-                      <div class="alert alert-danger">小ステップが未入力です。</div>
+                      <div class="alert alert-danger">ショートステップが未入力です。</div>
                       <?php  }?>
                       <input type="date" name="s_schedule[0]">
                     </li>
@@ -219,7 +198,7 @@ if (!empty($_POST)) {
                 <br>
 
                 <div class="container-fluid">
-                  <h4 style="color: #42a5f5;">⑥毎日の課題と時間を入力してください。</h4>
+                  <h4 style="color: #42a5f5;">⑤毎日の課題と時間を入力してください。</h4>
                 </div>
 
                 <div class="alt-table-responsive">
@@ -237,30 +216,30 @@ if (!empty($_POST)) {
                      </td>
                      <td>
                       <select name="daily_time">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                        <option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="23">23</option>
-                        <option value="24">24</option>
+                        <option value="1" <?if ($daily_time=="1"){echo "selected";} ?>>1</option>
+                        <option value="2" <?if ($daily_time=="2"){echo "selected";} ?>>2</option>
+                        <option value="3" <?if ($daily_time=="3"){echo "selected";} ?>>3</option>
+                        <option value="4" <?if ($daily_time=="1"){echo "selected";} ?>>4</option>
+                        <option value="5" <?if ($daily_time=="1"){echo "selected";} ?>>5</option>
+                        <option value="6" <?if ($daily_time=="1"){echo "selected";} ?>>6</option>
+                        <option value="7" <?if ($daily_time=="1"){echo "selected";} ?>>7</option>
+                        <option value="8" <?if ($daily_time=="1"){echo "selected";} ?>>8</option>
+                        <option value="9" <?if ($daily_time=="1"){echo "selected";} ?>>9</option>
+                        <option value="10" <?if ($daily_time=="1"){echo "selected";} ?>>10</option>
+                        <option value="11" <?if ($daily_time=="1"){echo "selected";} ?>>11</option>
+                        <option value="12" <?if ($daily_time=="1"){echo "selected";} ?>>12</option>
+                        <option value="13" <?if ($daily_time=="1"){echo "selected";} ?>>13</option>
+                        <option value="14" <?if ($daily_time=="1"){echo "selected";} ?>>14</option>
+                        <option value="15" <?if ($daily_time=="1"){echo "selected";} ?>>15</option>
+                        <option value="16" <?if ($daily_time=="1"){echo "selected";} ?>>16</option>
+                        <option value="17" <?if ($daily_time=="1"){echo "selected";} ?>>17</option>
+                        <option value="18" <?if ($daily_time=="1"){echo "selected";} ?>>18</option>
+                        <option value="19" <?if ($daily_time=="1"){echo "selected";} ?>>19</option>
+                        <option value="20" <?if ($daily_time=="1"){echo "selected";} ?>>20</option>
+                        <option value="21" <?if ($daily_time=="1"){echo "selected";} ?>>21</option>
+                        <option value="22" <?if ($daily_time=="1"){echo "selected";} ?>>22</option>
+                        <option value="23" <?if ($daily_time=="1"){echo "selected";} ?>>23</option>
+                        <option value="24" <?if ($daily_time=="1"){echo "selected";} ?>>24</option>
                       </select>
                       時間
                     </td>
@@ -273,7 +252,7 @@ if (!empty($_POST)) {
 
 
               <div class="container-fluid">
-                <h4 style="color: #42a5f5;">⑦夢のイメージ画像をアップしてください。</h4>
+                <h4 style="color: #42a5f5;">⑥夢のイメージ画像をアップしてください。</h4>
               </div>
               <input type="file" name="dream_image_path">
               <?php if (isset($errors['dream_image_path']) && $errors['dream_image_path'] == 'blank') { ?>
@@ -293,8 +272,9 @@ if (!empty($_POST)) {
               <br>
 
 
-              <div class="container-fluid">
-                <button class="btn btn-lg btn-gradient btn-oval btn-info btn-block" type="submit">夢登録チェックへ</button>
+              <div align="center">
+                <!-- <button class="btn btn-lg btn-gradient btn-oval btn-info btn-block" type="submit">夢登録チェックへ</button> -->
+                <button type="submit" class="btn btn-lg btn-gradient btn-oval btn-info btn-block">夢登録チェックへ</button>
               </div>
             </div>
           </div>

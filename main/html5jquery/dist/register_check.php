@@ -15,13 +15,13 @@ require('../require/read_users_session.php');
 	if (!empty($_POST)) {
 	$dream_contents = $_SESSION['dream_info']['dream_contents'];
 	$category = $_SESSION['dream_info']['category'];
-	$tag = $_SESSION['dream_info']['tag'] ;
+	//$tag = $_SESSION['dream_info']['tag'] ;
 	$d_schedule = $_SESSION['dream_info']['d_schedule'];
 
 	$_SESSION['dream_info']['step_contents'];
 	$_SESSION['dream_info']['s_schedule'];
 
-  	$daily_goal_contents = $_SESSION['dream_info']['daily_goal_contents']; 
+  	$daily_goal_contents = $_SESSION['dream_info']['daily_goal_contents'];
   	$daily_time = $_SESSION['dream_info']['daily_time'];
   	$dream_image_path = $_SESSION['dream_info']['dream_image_path'];
 
@@ -44,10 +44,10 @@ require('../require/read_users_session.php');
 	// var_dump($read_dream);
 
     //インサート処理(dr_tagsテーブル) dream_idを取得。(require)
-    $sql = 'INSERT INTO `dr_tags` SET `dream_id`=?,`tag_contents`=?, `created`=NOW()';
-    $data = array($read_login_dream['dream_id'],$tag);
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute($data);
+    // $sql = 'INSERT INTO `dr_tags` SET `dream_id`=?,`tag_contents`=?, `created`=NOW()';
+    // $data = array($read_login_dream['dream_id'],$tag);
+    // $stmt = $dbh->prepare($sql);
+    // $stmt->execute($data);
 
 
     //インサート処理(dr_stepsテーブル)
@@ -109,19 +109,19 @@ require('../require/read_users_session.php');
 						<h4 style="color: #42a5f5;">②カテゴリー</h4>
 					</div>
 					<?php echo $_SESSION['dream_info']['category'];?><br><br><br>
-					<div class="container-fluid">
+					<!-- <div class="container-fluid">
 						<h4 style="color: #42a5f5;">③タグ</h4>
 					</div>
-					<?php echo $_SESSION['dream_info']['tag'];?><br><br><br>
+					<?php //echo $_SESSION['dream_info']['tag'];?><br><br><br> -->
 					<div class="container-fluid">
-						<h4 style="color: #42a5f5;">④夢達成 期限</h4>
+						<h4 style="color: #42a5f5;">③夢達成 期限</h4>
 					</div>
 					<?php echo $_SESSION['dream_info']['d_schedule'];?>
 					<br><br><br>
 
 
 					<div class="container-fluid">
-						<h4 style="color: #42a5f5;">⑤小ステップ</h4>
+						<h4 style="color: #42a5f5;">④ショートステップ</h4>
 					</div>
 					<?php foreach ($_SESSION['dream_info']['step_contents'] as $step_contents) {
 						echo $step_contents."<br>\n";
@@ -132,7 +132,7 @@ require('../require/read_users_session.php');
 
 
 					<div class="container-fluid">
-						<h4 style="color: #42a5f5;">⑤小ステップ 期限</h4>
+						<h4 style="color: #42a5f5;">④ショートステップ 期限</h4>
 					</div>
 					<?php foreach ($_SESSION['dream_info']['s_schedule'] as $s_schedule) {
 						echo $s_schedule."<br>\n";
@@ -141,15 +141,15 @@ require('../require/read_users_session.php');
 
 
 					<div class="container-fluid">
-						<h4 style="color: #42a5f5;">⑥毎日の課題</h4>
+						<h4 style="color: #42a5f5;">⑤毎日の課題</h4>
 					</div>
 					<?php echo $_SESSION['dream_info']['daily_goal_contents'];?><br><br><br>
 					<div class="container-fluid">
-						<h4 style="color: #42a5f5;">⑥毎日の時間</h4>
+						<h4 style="color: #42a5f5;">⑤毎日の時間</h4>
 					</div>
 					<?php echo $_SESSION['dream_info']['daily_time'];?>時間<br><br><br>
 					<div class="container-fluid">
-						<h4 style="color: #42a5f5;">⑦夢のイメージ画像</h4>
+						<h4 style="color: #42a5f5;">⑥夢のイメージ画像</h4>
 					</div>
 					<?php echo $_SESSION['dream_info']['dream_image_path'];?><br><br>
 					<img src="dream_image/<?php echo $_SESSION['dream_info']['dream_image_path']; ?>" width="150"><br><br><br>
