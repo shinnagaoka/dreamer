@@ -17,14 +17,12 @@ $user_id = $read_dream['user_id'];
 require('../require/read_cheers_amount.php');
 
 if (!empty($_POST)) {
-  var_dump($_POST);
-  var_dump($rd);
   $dream_id = $rd;
   $achieve_1 = $_POST['a_hard'];
   $achieve_2 = $_POST['a_study'];
   $achieve_3 = $_POST['a_comment'];
-  // require('../require/make_achieve_comment.php');
-  // header('Location: dashboard.php');
+  require('../require/make_achieve_comment.php');
+  header('Location: register.php');
 }
 ?>
 <!DOCTYPE html>
