@@ -32,12 +32,12 @@ require('../require/read_users_session.php');
 	//sql文作成(9/7から) → インサート処理
 	//インサート処理（dr_dreamsテーブル） user_idを取得。（require）
    $sql = 'INSERT INTO `dr_dreams`SET `user_id`=?,`dream_contents`=?, `dream_image_path`=?, `category`=?, `d_schedule`=?,`created`=NOW()';
-    $data = array($read_users['user_id'],$dream_contents,$dream_image_path,$category,$d_schedule);
+    $data = array($read_login_users['user_id'],$dream_contents,$dream_image_path,$category,$d_schedule);
     $stmt = $dbh->prepare($sql);
     $stmt->execute($data);
 
 	$sql ='SELECT * FROM `dr_dreams` WHERE`user_id`=? AND`dream_image_path`=?';
-	$data = array($read_users['user_id'],$dream_image_path);
+	$data = array($read_login_users['user_id'],$dream_image_path);
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute($data);
 	$read_dream = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -45,7 +45,7 @@ require('../require/read_users_session.php');
 
     //インサート処理(dr_tagsテーブル) dream_idを取得。(require)
     $sql = 'INSERT INTO `dr_tags` SET `dream_id`=?,`tag_contents`=?, `created`=NOW()';
-    $data = array($read_dream['dream_id'],$tag);
+    $data = array($read_login_dream['dream_id'],$tag);
     $stmt = $dbh->prepare($sql);
     $stmt->execute($data);
 
@@ -63,7 +63,7 @@ require('../require/read_users_session.php');
 
     //インサート処理(dr_usersテーブル)
     $sql ='SELECT * FROM `dr_dreams` WHERE `user_id`=? ORDER BY `created` DESC';
-	$data = array($read_users['user_id']);
+	$data = array($read_login_users['user_id']);
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute($data);
 	$read_dream = $stmt->fetch(PDO::FETCH_ASSOC);
