@@ -1,6 +1,5 @@
     <?php
-    $rd = $read_login_users['now_dream_id'];
-    require('../require/read_dream.php');
+    require('../require/read_dream_for_side.php');
     ?>
     <aside class="sidebar-container">
       <div class="brand-header">
@@ -10,7 +9,7 @@
       </div>
       <div class="sidebar-content">
         <div class="sidebar-toolbar">
-          <div class="sidebar-toolbar-background"><img src="dream_image/<?php echo $read_dream['dream_image_path'];?>" style="height: 160px;width: 240px"></div>
+          <div class="sidebar-toolbar-background"><img src="dream_image/<?php echo $rdfs['dream_image_path'];?>" style="height: 160px;width: 240px"></div>
           <div class="sidebar-toolbar-content text-center"><a href="#"><img class="rounded-circle thumb64" src="img/user/<?php echo $read_login_users['profile_image_path']; ?>" alt="Profile"></a>
             <div class="mt-3">
               <div class="lead"><?php echo $read_login_users['user_name']; ?></div>
