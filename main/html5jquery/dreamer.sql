@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS `dr_users` (
   `password` varchar(255) NOT NULL,
   `profile_image_path` varchar(255) NOT NULL,
   `now_dream_id` int(11) NOT NULL,
+  `chats_notification` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

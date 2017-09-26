@@ -16,11 +16,14 @@ $rd = $read_login_users['now_dream_id'];
 require('../require/read_step.php');
 require('../require/read_dream.php');
 require('../require/read_cheers_amount.php');
+$reset = '';
+require('../require/read_chats_amount.php');
 if (isset($_POST['message']) && $_POST['message']!='') {
   $dream_id = $read_dream['dream_id'];
   $message = $_POST['message'];
   require('../require/make_chat.php');
-
+  $reset = 'reset';
+  require('../require/read_chats_amount.php');
   var_dump($_POST['message']);
   header('Location: dashboard.php');
   exit();
@@ -192,10 +195,15 @@ $search_word='';
                     </div>
                   </div>
                   <div style="margin:10px">
+                    <?php if (isset($notification) && $notification != ' ') { ?>
+                    <button class="col-xs-2 btn btn-danger" type="submit" data-toggle="modal" data-target=".demo-modal-form">新着メッセージ  <?php echo $notification; $reset = 'reset';?></button>
+                    <?php }else{ ?>
                     <button class="col-xs-2 btn btn-info" type="button" data-toggle="modal" data-target=".demo-modal-form">メッセージ</button>
+                    <?php } ?>
                     <!-- Chat 機能記述開始 jsによって表示されません -->
                         <!-- Form Modal-->
                           <div class="modal fade demo-modal-form">
+                        <?php require('../require/read_chats_amount.php'); ?>
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header">
