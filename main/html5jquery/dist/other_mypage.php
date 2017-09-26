@@ -123,6 +123,13 @@ $search_word='';
     <?php require('partial/sidebar.php');?>
     <!-- Main section-->
     <main class="main-container">
+      <?php
+      $rd = $_GET['dream'];
+      require('../require/read_dream.php');
+      $user_id = $read_dream['user_id'];
+      require('../require/read_users.php');
+      require('../require/read_cheers_amount.php');
+      ?>
       <!-- Page content-->
       <section class="section-container">
         <div class="container-fluid">
@@ -434,7 +441,6 @@ $search_word='';
                 </form>
               </div>
               <?php }} ?>
-              <a href="achieve_page.php" class="btn btn-block btn-lg bg-gradient-warning">達成</a>
             </div>
           </div>
         </div>
