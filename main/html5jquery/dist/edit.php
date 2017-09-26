@@ -1,6 +1,16 @@
 <?php
 session_start();
 require('../dbconnect.php');
+//$_SESSIONが存在し、なおかつログインできればそのまま進める
+if (isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['user_id'] !='') {
+    require('../require/read_users_session.php');
+    //login!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+}
+//$_SESSIONがなければsignin.phpに戻す
+elseif (!isset($_SESSION['login_user']['user_id']) && $_SESSION['login_user']['user_id']=='') {
+    header('Location: signin.php');
+    exit();
+}
 
 $_SESSION['login_user']['user_id'];
 require('../require/read_users_session.php');
@@ -16,7 +26,7 @@ $errors = array();
 //お客さんが前に入れていた情報取得したい ↓
   //dr_dreamsの内容
 $sql = 'SELECT * FROM `dr_dreams` WHERE `dream_id`=?';
-$data = array($read_users['now_dream_id']);
+$data = array($read_login_users['now_dream_id']);
 $stmt = $dbh->prepare($sql);
 $stmt->execute($data);
 $info=$stmt->fetch(PDO::FETCH_ASSOC);
@@ -27,7 +37,7 @@ $info=$stmt->fetch(PDO::FETCH_ASSOC);
 
   //dr_tagsの内容
 $sql = 'SELECT * FROM `dr_tags` WHERE `dream_id`=?';
-$data = array($read_users['now_dream_id']);
+$data = array($read_login_users['now_dream_id']);
 $stmt = $dbh->prepare($sql);
 $stmt->execute($data);
 $tag=$stmt->fetch(PDO::FETCH_ASSOC);
@@ -38,7 +48,7 @@ $tag=$stmt->fetch(PDO::FETCH_ASSOC);
 
 //dr_stepsの内容
 $sql='SELECT * FROM `dr_steps` WHERE `dream_id`=?';
-$data=array($read_users['now_dream_id']);
+$data=array($read_login_users['now_dream_id']);
 $stmt=$dbh->prepare($sql);
 $stmt->execute($data);
 $steps=array();
@@ -143,13 +153,13 @@ while (true) {
                 <h4 style="color: #42a5f5;">②カテゴリーを選択してください。</h4>
               </div>
               <div class="container-fluid">
-                <input type="radio" name="category" value="1"<?if ($info['category']=="1"){echo "checked";} ?>>
+                <input type="radio" name="category" value="1"<?if ($info['category']==1){echo "checked";} ?>>
                 １・仕事<br>
-                <input type="radio" name="category" value="2" <?if ($info['category']=="2"){echo "checked";} ?>>２・人間関係<br>
-                <input type="radio" name="category" value="3" <?if ($info['category']=="3"){echo "checked";} ?>>３・健康<br>
-                <input type="radio" name="category" value="4" <?if ($info['category']=="4"){echo "checked";} ?>>４・勉強<br>
-                <input type="radio" name="category" value="5" <?if ($info['category']=="5"){echo "checked";} ?>>５・お金<br>
-                <input type="radio" name="category" value="6" <?if ($info['category']=="6"){echo "checked";} ?>>６・その他<br>
+                <input type="radio" name="category" value="2" <?if ($info['category']==2){echo "checked";} ?>>２・人間関係<br>
+                <input type="radio" name="category" value="3" <?if ($info['category']==3){echo "checked";} ?>>３・健康<br>
+                <input type="radio" name="category" value="4" <?if ($info['category']==4){echo "checked";} ?>>４・勉強<br>
+                <input type="radio" name="category" value="5" <?if ($info['category']==5){echo "checked";} ?>>５・お金<br>
+                <input type="radio" name="category" value="6" <?if ($info['category']==6){echo "checked";} ?>>６・その他<br>
               </div>
               <br>
               <br>

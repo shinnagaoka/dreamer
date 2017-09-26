@@ -161,7 +161,7 @@ $search_word='';
                       $cat=$read_dream['category'];
                       switch ($cat) {
                         case 1:
-                          $cat = '職業';
+                          $cat = '仕事';
                           break;
                         case 2:
                           $cat = '人間関係';

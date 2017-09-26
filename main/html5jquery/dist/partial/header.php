@@ -16,8 +16,8 @@
             <div class="dropdown-menu dropdown-menu-right dropdown-scale">
               <h6 class="dropdown-header">ユーザーメニュー</h6><a class="dropdown-item" href="dashboard.php"><!-- <span class="float-right badge badge-primary">4</span> --><em class="ion-android-person icon-lg text-primary"></em>マイページ</a>
               <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="signup_edit.php"><em class="ion-ios-gear-outline icon-lg text-primary"></em>アカウント編集</a>
-              <a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>夢編集</a>
-              <a class="dropdown-item" href="#"><em class="ion-ios-gear-outline icon-lg text-primary"></em>ショートステップ編集</a>
+              <a class="dropdown-item" href="edit.php"><em class="ion-ios-gear-outline icon-lg text-primary"></em>夢編集</a>
+              <a class="dropdown-item" href="edit_step.php"><em class="ion-ios-gear-outline icon-lg text-primary"></em>ショートステップ編集</a>
               <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" href="logout.php"><em class="ion-log-out icon-lg text-primary"></em>ログアウト</a>
             </div>
           </li>

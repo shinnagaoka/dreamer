@@ -2,7 +2,8 @@
 session_start();
 require('../dbconnect.php');
 
-$_SESSION['login_user']['user_id'];
+$user_id = $_SESSION['login_user']['user_id'];
+require('../require/read_users.php');
 require('../require/read_users_session.php');
 
 $step_contents='';
