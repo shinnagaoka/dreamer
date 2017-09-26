@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `dr_chats` (
   `chat_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `dream_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `chat_contents` varchar(255) NOT NULL,
+  `chats_contents` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

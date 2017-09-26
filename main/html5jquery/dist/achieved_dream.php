@@ -116,7 +116,7 @@ $search_word='';
                 <div class="col-lg-4 col-md-4"  style="margin-top: 20px;">
                   <div class="card">
                     <a href="other_mypage.php?dream=<?php echo $dream['dream_id'];?>">
-                    <img class="card-img-top img-fluid" src="img/<?php echo $dream['dream_image_path']; ?>" alt="Card image cap" style="height: 100%; width: 100%;">
+                    <img class="card-img-top img-fluid" src="dream_image/<?php echo $dream['dream_image_path']; ?>" alt="Card image cap" style="height: 100%; width: 100%;">
                     <div class="card-block">
                       <h2 class="card-title"><?php echo $dream['dream_contents']; ?></h2>
                       <?php echo $dream['created']; ?><br>
