@@ -1,3 +1,7 @@
+    <?php
+    $rd = $read_login_users['now_dream_id'];
+    require('../require/read_dream.php');
+    ?>
     <aside class="sidebar-container">
       <div class="brand-header">
         <div class="float-left pt-4 text-muted sidebar-close"><em class="ion-arrow-left-c icon-lg"></em></div><a class="brand-header-logo" href="#">
