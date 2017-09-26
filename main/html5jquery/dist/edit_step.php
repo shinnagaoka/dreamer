@@ -13,7 +13,7 @@ $errors = array();
 
 //dr_stepsの内容
 $sql='SELECT * FROM `dr_steps` WHERE `dream_id`=?';
-$data=array($read_users['now_dream_id']);
+$data=array($read_login_users['now_dream_id']);
 $stmt=$dbh->prepare($sql);
 $stmt->execute($data);
 $steps=array();
@@ -56,7 +56,7 @@ while (true) {
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="description" content="Bootstrap Admin Template">
 	<meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
-	<title>小ステップ編集・削除</title>
+	<title>ショートステップ編集・削除</title>
 	<!-- Vendor styles-->
 	<!-- Animate.CSS-->
 	<link rel="stylesheet" href="vendor/animate.css/animate.css">
@@ -84,7 +84,7 @@ while (true) {
 							<div style="margin-left : 300px">
 
 								<div class="container-fluid">
-									<h1 style="color: #01579b;">小ステップ編集・削除</h1>
+									<h1 style="color: #01579b;">ショートステップ編集・削除</h1>
 								</div><br>
 								<div class="container-fluid">
 									<h2 style="color: #01579b;">● 前の情報 ●</h2>
@@ -92,7 +92,7 @@ while (true) {
 
 								<?php foreach($steps as $ste){?>
 								<div class="container-fluid">
-									<h5 style="color: #42a5f5">小ステップ</h5>
+									<h5 style="color: #42a5f5">ショートステップ</h5>
 									<?php foreach ((array)$ste['step_contents'] as $step_contents) {
 										echo $step_contents.'<br>';
 									} ?>
@@ -110,7 +110,7 @@ while (true) {
 								<form method="post" action="edit_step_done.php">
 
 									<div class="container-fluid">
-										<h4 style="color: #42a5f5;">小ステップの編集・削除ができます。</h4>
+										<h4 style="color: #42a5f5;">ショートステップの編集・削除ができます。</h4>
 									</div>
 
 									<ul id="item_list">
@@ -127,7 +127,9 @@ while (true) {
 											<?php } ?>
 										</ul>
 										<br><br><br><br>
-										<input type="submit" name="submit" value="編集終了">
+										<div align="center">
+										<button type="submit" class="btn btn-lg btn-gradient btn-oval btn-info btn-block">編集終了</button>
+										</div>
 									</form>
 								</div>
 							</div>

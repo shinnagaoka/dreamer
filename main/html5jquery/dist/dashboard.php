@@ -180,11 +180,11 @@ $search_word='';
                           break;
                       }
                       echo $cat;
-                      $dream_id = $read_login_users['now_dream_id'];
-                      require('../require/read_tags.php');
-                      foreach ($read_tags as $tag) {
-                        echo '#'.$tag;
-                      }
+                      // $dream_id = $read_login_users['now_dream_id'];
+                      // require('../require/read_tags.php');
+                      // foreach ($read_tags as $tag) {
+                      //   echo '#'.$tag;
+                      // }
                       $year = explode(' ',$read_dream['d_schedule']);
                       $year = explode('-',$year[0]);
                       ?>

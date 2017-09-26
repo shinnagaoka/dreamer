@@ -11,7 +11,7 @@ require('../require/read_users_session.php');
 
 //前の画像のまま。無変更。
 $sql = 'SELECT * FROM `dr_dreams` WHERE `dream_id`=?';
-$data = array($read_users['now_dream_id']);
+$data = array($read_login_users['now_dream_id']);
 $stmt = $dbh->prepare($sql);
 $stmt->execute($data);
 $info=$stmt->fetch(PDO::FETCH_ASSOC);
@@ -24,7 +24,7 @@ if(!empty($_POST)){
     //dr_dreamsの更新
   if ($_FILES['dream_image_path']['name']=='') {
     $sql = 'UPDATE `dr_dreams` SET `dream_contents`=?,`dream_image_path`=?,`category`=?,`d_schedule`=?,`modified`= NOW() WHERE `dream_id` = ?';
-    $data = array($_POST['dream_contents'],$info['dream_image_path'],$_POST['category'],$_POST['d_schedule'],$read_users['now_dream_id']);
+    $data = array($_POST['dream_contents'],$info['dream_image_path'],$_POST['category'],$_POST['d_schedule'],$read_login_users['now_dream_id']);
     $stmt = $dbh->prepare($sql);
     $stmt-> execute($data);
   }else {
@@ -44,20 +44,20 @@ if(!empty($_POST)){
 
 
     $sql = 'UPDATE `dr_dreams` SET `dream_contents`=?,`dream_image_path`=?,`category`=?,`d_schedule`=?,`modified`= NOW() WHERE `dream_id` = ?';
-    $data = array($_POST['dream_contents'],$upload_image_name, $_POST['category'],$_POST['d_schedule'],$read_users['now_dream_id']);
+    $data = array($_POST['dream_contents'],$upload_image_name, $_POST['category'],$_POST['d_schedule'],$read_login_users['now_dream_id']);
     $stmt = $dbh->prepare($sql);
     $stmt-> execute($data);
   }
 
     //dr_tagsの更新
-  $sql = 'UPDATE `dr_tags` SET `tag_contents`=?,`modified`= NOW() WHERE `dream_id`=?';
-  $data = array($_POST['tag'],$read_users['now_dream_id']);
-  $stmt = $dbh->prepare($sql);
-  $stmt-> execute($data);
+  // $sql = 'UPDATE `dr_tags` SET `tag_contents`=?,`modified`= NOW() WHERE `dream_id`=?';
+  // $data = array($_POST['tag'],$read_login_users['now_dream_id']);
+  // $stmt = $dbh->prepare($sql);
+  // $stmt-> execute($data);
 
  //dr_stepsの更新
   $sql = 'UPDATE `dr_steps` SET `daily_goal_contents`=?,`daily_time`=?,`modified`= NOW() WHERE `dream_id`=?';
-  $data = array($_POST['daily_goal_contents'],$_POST['daily_time'],$read_users['now_dream_id']);
+  $data = array($_POST['daily_goal_contents'],$_POST['daily_time'],$read_login_users['now_dream_id']);
   $stmt = $dbh->prepare($sql);
   $stmt-> execute($data);
 }

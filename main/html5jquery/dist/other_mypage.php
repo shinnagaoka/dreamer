@@ -211,11 +211,11 @@ $search_word='';
                           break;
                       }
                       echo $cat;
-                      $dream_id = $read_login_users['now_dream_id'];
-                      require('../require/read_tags.php');
-                      foreach ($read_tags as $tag) {
-                        echo '#'.$tag;
-                      }
+                      // $dream_id = $read_login_users['now_dream_id'];
+                      // require('../require/read_tags.php');
+                      // foreach ($read_tags as $tag) {
+                      //   echo '#'.$tag;
+                      // }
                       ?>
                       <span style="float:right">〆2019年2月13日</span>
                     </div>
