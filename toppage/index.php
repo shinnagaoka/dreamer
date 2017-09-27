@@ -106,8 +106,8 @@
           </div>
           <div class="container slider-content">
             <div class="row">
-              <p style="font-size:70px;"><b>私は〇〇になる！！</b></p>
-              <p style="font-size:50px;"><b>~堂々と夢を語ろう~</b></p>
+              <p style="font-size:70px; text-shadow: 2px 2px 1px #717477;"><b>私は〇〇になる！！</b></p>
+              <p style="font-size:40px; text-shadow: 2px 2px 1px #717477;"><b>~堂々と夢を語ろう~</b></p>
             </hr>
                         <!-- <div class="search-form wow pulse" data-wow-delay="0.8s">
                             <form action="" class=" form-inline">
