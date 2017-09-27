@@ -108,7 +108,30 @@ require('../require/read_users_session.php');
 					<div class="container-fluid">
 						<h4 style="color: #42a5f5;">②カテゴリー</h4>
 					</div>
-					<?php echo $_SESSION['dream_info']['category'];?><br><br><br>
+                      <?php
+                      $cat = $_SESSION['dream_info']['category'];
+                      switch ($cat) {
+                        case 1:
+                          $cat = '仕事';
+                          break;
+                        case 2:
+                          $cat = '人間関係';
+                          break;
+                        case 3:
+                          $cat = '健康';
+                          break;
+                        case 4:
+                          $cat = '勉強';
+                          break;
+                        case 5:
+                          $cat = 'お金';
+                          break;
+                        case 6:
+                          $cat = 'その他';
+                          break;
+                      }
+                      echo $cat;
+                      ?><br><br><br>
 					<!-- <div class="container-fluid">
 						<h4 style="color: #42a5f5;">③タグ</h4>
 					</div>

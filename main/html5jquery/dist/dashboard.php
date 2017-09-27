@@ -58,7 +58,6 @@ $search_word='';
   <SCRIPT LANGUAGE="JavaScript">
 
     // カウントダウン機能
-    <!--
     // 指定日までの残り日数を表示する
     function apDay(y,m,d) {
       today = new Date();
@@ -314,7 +313,9 @@ $search_word='';
                             <th>ステップ<?php echo $step_i; ?>
                               <span  style="float: right">
                                 <FONT color="#ff0000" size="6">
-                                  <?php echo $step['modified']; ?>
+                                  <?php
+                                  $step_f_date = explode(' ',$step['modified']);
+                                  echo $step_f_date[0]; ?>
                                 </FONT>
                                 に達成！！
                               </span>
