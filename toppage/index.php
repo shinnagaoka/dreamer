@@ -229,14 +229,14 @@
                             </div>
                           </div> -->
 
-                        </div>
+                       <!--  </div>
                       </div>
                     </div>
-                    <hr>
+                    <hr> -->
 
                     <div class="container" id="how_to_use">
                       <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
-                        <h4>使い方</h4>
+                        <h4>How to Use</h4>
                       </div>
                       <div class="container">
                         <ul class="timeline">
@@ -293,7 +293,7 @@
                        </div>
                     </div>
                       <div align="center">
-                        <input type="button" onclick="location.href='example.php'" value="例を見る" style="WIDTH:100px; HEIGHT:70px; background-color:#42a5f5; color:white; font-size:15pt;">                      </div>
+                        <input type="button" onclick="location.href='example.php'" value="例を見る" style="WIDTH:90px; HEIGHT:50px; background-color:#42a5f5; color:white; font-size:10pt;">                      </div>
                     <hr>
 
                     <div class="container" id="strong_point">
