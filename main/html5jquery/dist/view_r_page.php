@@ -19,6 +19,14 @@ if(isset($_GET['search_word']) && !empty($_GET['search_word'])){
     $data = array($word);
     $stmt = $dbh->prepare($sql);
     $stmt->execute($data);
+    $target =array();
+    while (true) {
+    	$record = $stmt->fetch(PDO::FETCH_ASSOC);
+    	if ($record==false) {
+    		break;
+    	}
+    	$target[] = $record;
+    }
 }
 
 ?>
@@ -51,20 +59,10 @@ if(isset($_GET['search_word']) && !empty($_GET['search_word'])){
 					<div class="container">
 						<div class="row">
 							<?php
-							    $target =array();
-									    while (true) {
-									    	$record = $stmt->fetch(PDO::FETCH_ASSOC);
-									    	if ($record==false) {
-									    		break;
-									    	}
-									    	$target[] = $record;
-									    }
-
-									$errors=array();
-									if(empty($target)){
-										  $errors['target'] = 'blank';
-										};
-
+								$errors=array();
+								if(empty($target)){
+									  $errors['target'] = 'blank';
+									};
 								// 夢ごとに必要なデータを取得する
 										foreach ($target as $dream) {
 												$dr_user_id = $dream['user_id'];

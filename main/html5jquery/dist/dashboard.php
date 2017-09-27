@@ -16,11 +16,14 @@ $rd = $read_login_users['now_dream_id'];
 require('../require/read_step.php');
 require('../require/read_dream.php');
 require('../require/read_cheers_amount.php');
+$reset = '';
+require('../require/read_chats_amount.php');
 if (isset($_POST['message']) && $_POST['message']!='') {
   $dream_id = $read_dream['dream_id'];
   $message = $_POST['message'];
   require('../require/make_chat.php');
-
+  $reset = 'reset';
+  require('../require/read_chats_amount.php');
   var_dump($_POST['message']);
   header('Location: dashboard.php');
   exit();
@@ -55,7 +58,6 @@ $search_word='';
   <SCRIPT LANGUAGE="JavaScript">
 
     // カウントダウン機能
-    <!--
     // 指定日までの残り日数を表示する
     function apDay(y,m,d) {
       today = new Date();
@@ -192,10 +194,15 @@ $search_word='';
                     </div>
                   </div>
                   <div style="margin:10px">
+                    <?php if (isset($notification) && $notification != ' ') { ?>
+                    <button class="col-xs-2 btn btn-danger" type="submit" data-toggle="modal" data-target=".demo-modal-form">新着メッセージ  <?php echo $notification; $reset = 'reset';?></button>
+                    <?php }else{ ?>
                     <button class="col-xs-2 btn btn-info" type="button" data-toggle="modal" data-target=".demo-modal-form">メッセージ</button>
+                    <?php } ?>
                     <!-- Chat 機能記述開始 jsによって表示されません -->
                         <!-- Form Modal-->
                           <div class="modal fade demo-modal-form">
+                        <?php require('../require/read_chats_amount.php'); ?>
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header">
@@ -306,7 +313,9 @@ $search_word='';
                             <th>ステップ<?php echo $step_i; ?>
                               <span  style="float: right">
                                 <FONT color="#ff0000" size="6">
-                                  <?php echo $step['modified']; ?>
+                                  <?php
+                                  $step_f_date = explode(' ',$step['modified']);
+                                  echo $step_f_date[0]; ?>
                                 </FONT>
                                 に達成！！
                               </span>
@@ -343,7 +352,7 @@ $search_word='';
                 <table class="table">
                   <thead>
                     <tr>
-                      <th>ステップ<?php echo $step['step_id']; ?>
+                      <th>ステップ<?php echo $step_i; ?>
                         <span  style="float: right">
                           あと
                           <FONT color="#ff0000" size="6">
@@ -388,7 +397,6 @@ $search_word='';
   </div>
       <!-- 検索機能 Search template-->
       <?php require('partial/search_template.php'); ?>
-    
       <!-- Settings template-->
       <?php require('partial/settings_template.php'); ?>
 

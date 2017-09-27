@@ -123,10 +123,17 @@ $search_word='';
     <?php require('partial/sidebar.php');?>
     <!-- Main section-->
     <main class="main-container">
+      <?php
+      $rd = $_GET['dream'];
+      require('../require/read_dream.php');
+      $user_id = $read_dream['user_id'];
+      require('../require/read_users.php');
+      require('../require/read_cheers_amount.php');
+      ?>
       <!-- Page content-->
       <section class="section-container">
         <div class="container-fluid">
-          <div class="text-center" style="width: 100%; height: 300px; background-image: url(dream_image/<?php echo $read_dream['dream_image_path']; ?>); background-size: cover;">
+          <div class="text-center" style="width: 100%; height: 300px; background-image: url(dream_image/<?php echo $read_dream['dream_image_path']; ?>); background-size: 100% 300px; background-repeat: no-repeat;">
             <div class="row" style="padding-top: 65px;">
               <div class="col-lg-4 col-xs-12" >
                 <img class="text-center rounded-circle" src="img/user/<?php echo $read_users['profile_image_path']; ?>" style="width: 250px; height: 250px;">
@@ -434,7 +441,6 @@ $search_word='';
                 </form>
               </div>
               <?php }} ?>
-              <a href="achieve_page.php" class="btn btn-block btn-lg bg-gradient-warning">達成</a>
             </div>
           </div>
         </div>
