@@ -397,7 +397,6 @@ $search_word='';
   </div>
       <!-- 検索機能 Search template-->
       <?php require('partial/search_template.php'); ?>
-    
       <!-- Settings template-->
       <?php require('partial/settings_template.php'); ?>
 
