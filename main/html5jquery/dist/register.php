@@ -125,6 +125,7 @@ if (!empty($_POST)) {
   <body class="theme-default" onload="document.step.delrow.disabled=true;">
     <form method="POST" action="" enctype="multipart/form-data">
       <!-- enctype="multipart/form-data"は画像 -->
+
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-xs-12">
