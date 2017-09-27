@@ -312,7 +312,9 @@ $search_word='';
                             <th>ステップ<?php echo $step_i; ?>
                               <span  style="float: right">
                                 <FONT color="#ff0000" size="6">
-                                  <?php echo $step['modified']; ?>
+                                  <?php
+                                  $step_f_date = explode(' ',$step['modified']);
+                                  echo $step_f_date[0]; ?>
                                 </FONT>
                                 に達成！！
                               </span>
@@ -394,7 +396,6 @@ $search_word='';
   </div>
       <!-- 検索機能 Search template-->
       <?php require('partial/search_template.php'); ?>
-    
       <!-- Settings template-->
       <?php require('partial/settings_template.php'); ?>
 

@@ -63,26 +63,21 @@ if(!empty($_POST)){
 ?>
 <!DOCTYPE html>
 <html lang="ja">
-<head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Bootstrap Admin Template">
-<meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
-<!-- Vendor styles-->
-<!-- Animate.CSS-->
-<link rel="stylesheet" href="vendor/animate.css/animate.css">
-<!-- Bootstrap-->
-<link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
-<!-- Ionicons-->
-<link rel="stylesheet" href="vendor/ionicons/css/ionicons.css">
-<!-- Material Colors-->
-<link rel="stylesheet" href="vendor/material-colors/dist/colors.css">
+<head>
+<meta charset="utf-8">
+<?php require('partial/head.php'); ?>
   <title>edit_doneページ</title> 
 </head>
 <body>
+<br><br><br>
+<div align="center">
   <h1 style="color: #42a5f5;">夢を修正しました。</h1>
-  <div align="center">
-  <input type="button" onclick="location.href='dashboard.php'" value="マイページへ" style="WIDTH:300px; HEIGHT:70px; background-color:#42a5f5; color:white; font-size:15pt;">
   </div>
+  <br><br><br>
+  <div align="center">
+  <input type="button" onclick="location.href='dashboard.php'" value="マイページへ" class="btn btn-lg btn-gradient btn-oval btn-info btn-block"  style="WIDTH:300px; HEIGHT:70px;>
+  </div>
+  <?php require('partial/script_links.php'); ?>
 </body>
 </html>
 
