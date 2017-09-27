@@ -178,7 +178,7 @@ if (!empty($_POST)) {
 
 
                     <div class="container-fluid">
-                      <h4 style="color: #42a5f5;">④目標達成の為のショートステップを作成しましょう。</h4>
+                      <h4 style="color: #42a5f5;">④目標達成の為のショートステップを作成してください。</h4>
                     </div>
 
                     <ul id="item_list">
