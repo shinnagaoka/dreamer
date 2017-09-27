@@ -29,8 +29,8 @@ if (!empty($_POST)) {
 
 	$c= count($_SESSION['dream_info']['step_contents']);
 
-//sql文作成(9/7から) → インサート処理
-//インサート処理（dr_dreamsテーブル） user_idを取得。（require）
+	//sql文作成(9/7から) → インサート処理
+	//インサート処理（dr_dreamsテーブル） user_idを取得。（require）
 	$sql = 'INSERT INTO `dr_dreams`SET `user_id`=?,`dream_contents`=?, `dream_image_path`=?, `category`=?, `d_schedule`=?,`created`=NOW()';
 	$data = array($read_login_users['user_id'],$dream_contents,$dream_image_path,$category,$d_schedule);
 	$stmt = $dbh->prepare($sql);
@@ -61,7 +61,8 @@ if (!empty($_POST)) {
 	}
 
 
-//インサート処理(dr_usersテーブル)
+
+    //インサート処理(dr_usersテーブル)
 	$sql ='SELECT * FROM `dr_dreams` WHERE `user_id`=? ORDER BY `created` DESC';
 	$data = array($read_login_users['user_id']);
 	$stmt = $dbh->prepare($sql);
@@ -87,7 +88,6 @@ if (!empty($_POST)) {
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-	<meta charset="utf-8">
 	<title>夢登録確認</title>
 	<?php require('partial/head.php'); ?>
 </head>
@@ -181,11 +181,11 @@ if (!empty($_POST)) {
 		</div><br>
 		<div class="row">
 			<div class="col-lg-12 col-xs-12">
-				<form method="POST" action="">
-					<input type="hidden" name="aaa" value="sss">
-					<input type="button" value="戻る" onclick="history.back()"><br>
-					<input type="submit" value="マイページへ" class="btn btn-info btn-lg">
-				</form>
+					<form method="POST" action="">
+						<input type="hidden" name="aaa" value="sss">
+						<input type="button" value="戻る" onclick="history.back()" class="btn btn-lg btn-gradient btn-oval btn-info btn-block"><br>
+						<button type="submit" class="btn btn-lg btn-gradient btn-oval btn-info btn-block">マイページへ</button>
+					</form>
 			</div>
 		</div>
 	</div>

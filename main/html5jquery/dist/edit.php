@@ -139,13 +139,13 @@ while (true) {
                   <h4 style="color: #42a5f5;">②カテゴリーを選択してください。</h4>
                 </div>
                 <div class="container-fluid">
-                  <input type="radio" name="category" value="1"<?if ($info['category']=="1"){echo "checked";} ?>>
-                  １・仕事<br>
-                  <input type="radio" name="category" value="2" <?if ($info['category']=="2"){echo "checked";} ?>>２・人間関係<br>
-                  <input type="radio" name="category" value="3" <?if ($info['category']=="3"){echo "checked";} ?>>３・健康<br>
-                  <input type="radio" name="category" value="4" <?if ($info['category']=="4"){echo "checked";} ?>>４・勉強<br>
-                  <input type="radio" name="category" value="5" <?if ($info['category']=="5"){echo "checked";} ?>>５・お金<br>
-                  <input type="radio" name="category" value="6" <?if ($info['category']=="6"){echo "checked";} ?>>６・その他<br>
+                  <input type="radio" name="category" value="1"<?if ($info['category']==1){echo "checked";} ?>>
+                １・仕事<br>
+                <input type="radio" name="category" value="2" <?if ($info['category']==2){echo "checked";} ?>>２・人間関係<br>
+                <input type="radio" name="category" value="3" <?if ($info['category']==3){echo "checked";} ?>>３・健康<br>
+                <input type="radio" name="category" value="4" <?if ($info['category']==4){echo "checked";} ?>>４・勉強<br>
+                <input type="radio" name="category" value="5" <?if ($info['category']==5){echo "checked";} ?>>５・お金<br>
+                <input type="radio" name="category" value="6" <?if ($info['category']==6){echo "checked";} ?>>６・その他<br>
                 </div>
                 <br>
                 <br>
@@ -163,14 +163,6 @@ while (true) {
               <div class="container-fluid">
 
                 <input type="date" name="d_schedule" value="<?php echo $info['d_schedule'];?>">
-
-                <input type="radio" name="category" value="1"<?if ($info['category']==1){echo "checked";} ?>>
-                １・仕事<br>
-                <input type="radio" name="category" value="2" <?if ($info['category']==2){echo "checked";} ?>>２・人間関係<br>
-                <input type="radio" name="category" value="3" <?if ($info['category']==3){echo "checked";} ?>>３・健康<br>
-                <input type="radio" name="category" value="4" <?if ($info['category']==4){echo "checked";} ?>>４・勉強<br>
-                <input type="radio" name="category" value="5" <?if ($info['category']==5){echo "checked";} ?>>５・お金<br>
-                <input type="radio" name="category" value="6" <?if ($info['category']==6){echo "checked";} ?>>６・その他<br>
 
               </div>
               <br>
