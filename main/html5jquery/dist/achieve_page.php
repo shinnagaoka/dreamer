@@ -78,13 +78,7 @@ if (!empty($_POST)) {
       <div class="col-lg-12 col-xs-12 col-rol-3">
         <div class="cardbox" style="margin:0">
           <div class="cardbox-body">
-            <div class="clearfix mb-3">
-              <div class="text-center">
-                <h1 style="margin-top: 20px"><?php echo $read_dream['dream_contents']; ?></h1>
-              </div>
-            </div>
-            <div class="">
-              <div style="margin: 0">
+            <div style="margin: 0">
                 <?php
                 $cat=$read_dream['category'];
                 switch ($cat) {
@@ -116,8 +110,16 @@ if (!empty($_POST)) {
                 $year = explode(' ',$read_dream['d_schedule']);
                 $year = explode('-',$year[0]);
                 ?>
-                <span style="float:right">〆<?php echo $year[0].'年'.$year[1].'月'.$year[2].'日'; ?></span>
               </div>
+            <div class="clearfix mb-3">
+              <div class="text-center">
+                <h1><?php echo $read_dream['dream_contents']; ?></h1>
+              </div>
+            </div>
+            <div style="padding-bottom: 10px">
+              <span style="float:right">〆<?php echo $year[0].'年'.$year[1].'月'.$year[2].'日'; ?></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

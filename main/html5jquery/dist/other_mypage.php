@@ -190,11 +190,6 @@ $search_word='';
             <div class="col-lg-12 col-xs-12 col-rol-3">
               <div class="cardbox" style="margin:0">
                 <div class="cardbox-body">
-                  <div class="clearfix mb-3">
-                    <div class="text-center">
-                      <h1 style="margin-top: 20px"><?php echo $read_dream['dream_contents']; ?></h1>
-                    </div>
-                  </div>
                   <div class="">
                     <div style="margin: 0">
                       <?php
@@ -226,7 +221,11 @@ $search_word='';
                       //   echo '#'.$tag;
                       // }
                       ?>
-                      <span style="float:right">〆2019年2月13日</span>
+                    </div>
+                  </div>
+                  <div class="clearfix mb-3">
+                    <div class="text-center">
+                      <h1 style="margin-top: 20px"><?php echo $read_dream['dream_contents']; ?></h1>
                     </div>
                   </div>
                   <div style="margin:10px">
@@ -292,6 +291,7 @@ $search_word='';
                             </div>
                           </div>
 <!-- Chat 機能記述終了 jsによって表示されません -->
+                    <span style="float:right">〆<?php echo $year[0].'年'.$year[1].'月'.$year[2].'日'; ?></span>
                   </div>
                 </div>
               </div>
