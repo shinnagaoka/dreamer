@@ -80,13 +80,13 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <div class="button navbar-right">
-              <a href="../main/html5jquery/dist/signin.php"><button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.8s">ログイン</button></a>
-              <a href="../main/html5jquery/dist/signup.php"><button class="navbar-btn nav-button wow fadeInRight" data-wow-delay="0.6s">登録</button></a>
+              <a href="../main/html5jquery/dist/signin.php"><button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.8s">Login</button></a>
+              <a href="../main/html5jquery/dist/signup.php"><button class="navbar-btn nav-button wow fadeInRight" data-wow-delay="0.6s">SignUp</button></a>
             </div>
             <ul class="main-nav nav navbar-nav navbar-right">
               <li class="wow fadeInDown" data-wow-delay="0s"><a href="#about_us">私たちのサービスとは？</a></li>
-              <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="#dreamers">ドリーマーズ</a></li>
-              <li class="wow fadeInDown" data-wow-delay="0.2s"><a href="#how_to_use">使い方</a></li>
+              <!-- <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="#dreamers">ドリーマーズ</a></li> -->
+              <li class="wow fadeInDown" data-wow-delay="0.2s"><a href="#how_to_use">How to Use</a></li>
               <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="#strong_point">夢を語る意味</a></li>
                 <!-- <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="#">Blog</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="#">Contact</a></li> -->
@@ -181,12 +181,12 @@
                        </div>
                        <hr>
 
-                       <div class="container" id="dreamers">
+                       <!-- <div class="container" id="dreamers">
                         <div class="row page-title text-center wow zoomInDown " data-wow-delay="1s">
                           <h4 class="padding-bottom: 50px">ドリーマーズ</h4>
 
                           <!-- Tab panes -->
-                          <div class="tab-content">
+                          <!-- <div class="tab-content">
                             <div role="tabpanel" class="tab-pane fade in active" id="job-seekers">
                               <ul class="list-inline job-seeker">
                                 <li>
@@ -227,10 +227,7 @@
                                 </li>
                               </ul>
                             </div>
-                            <div class="btn btn-info">
-                              <a href="example.php" style="color: black">例を見る</a>
-                            </div>
-                          </div>
+                          </div> -->
 
                         </div>
                       </div>
@@ -265,7 +262,7 @@
                                 <p>・達成された夢、進行中の夢を閲覧し、成功するためのHow toを学ぶ</p>
                               </div>
                             </div>
-                            <img src="img/register.png" width="450" height="300">
+                            <img src="img/others.png" width="450" height="300">
                           </li>
                           <li>
                             <div class="timeline-badge info">step3</div>
@@ -290,19 +287,21 @@
                                  ・夢を再登録orfinishを選択</p>
                                </div>
                              </div>
-                             <img src="img/achieve.png" width="450" height="300">
+                             <img src="img/achi.png" width="450" height="300">
                            </li>
                          </ul>
                        </div>
-                     </div>
-                     <hr>
+                    </div>
+                      <div align="center">
+                        <input type="button" onclick="location.href='example.php'" value="例を見る" style="WIDTH:100px; HEIGHT:70px; background-color:#42a5f5; color:white; font-size:15pt;">                      </div>
+                    <hr>
 
-                     <div class="container" id="strong_point">
+                    <div class="container" id="strong_point">
                       <div class="row page-title text-center  wow bounce"  data-wow-delay=".7s">
                         <h4>夢を語る意味</h4>
                         <h2><center>夢を他人に語る意味って??</center></h2>
                         <div class="client-face">
-                        <img src="img/talk2.jpg" width="370" height="220">
+                          <img src="img/talk2.jpg" width="370" height="220">
                         </div>
                         <div class="client-text text-center">
                           <p>多くの夢達成サービスは「自己管理」サービスのみ。<br>
@@ -321,7 +320,7 @@
                         <div class="row footer text-center"><br>
                           <h1><font color="white">今から夢を叶えてみませんか！？</font></h1><br><br>
                           <h4><font color="white">一歩、踏み出せば強くなれる</font></h4><br><br><br>
-                          <a href="../main/html5jquery/dist/signup.php" class="btn btn-default margin-top:50px btn-lg">スタートする</a>
+                          <a href="../main/html5jquery/dist/signup.php" class="btn btn-default margin-top:50px btn-lg">Let's start!</a>
                         </div>
                       </div>
                     </div>

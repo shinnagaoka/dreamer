@@ -67,7 +67,7 @@ while (true) {
 
                 <?php foreach($steps as $ste){?>
                 <div class="container-fluid">
-                  <h5 style="color: #b2ebf2">ショートステップ</h5>
+                  <h5 style="color: #42a5f5;">ショートステップ</h5>
                   <?php foreach ((array)$ste['step_contents'] as $step_contents) {
                     echo $step_contents.'<br>';
                   } ?>

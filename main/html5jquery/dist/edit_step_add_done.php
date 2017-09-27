@@ -39,6 +39,8 @@ if(!empty($_POST)){
 </head>
 <body>
 <h1 style="color: #42a5f5;">ショートステップの追加をしました。</h1>
-  <a href="dashboard.php">マイページへ</a>
+<div align="center">
+  <input type="button" onclick="location.href='dashboard.php'" value="マイページへ" style="WIDTH:300px; HEIGHT:70px; background-color:#42a5f5; color:white; font-size:15pt;">
+</div>
 </body>
 </html>
