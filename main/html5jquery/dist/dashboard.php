@@ -127,7 +127,6 @@ $search_word='';
         <div class="container-fluid">
           <div class="row">
             <div class="col-lg-8 col-xs-12 col-rol-3" style="font-size: 20px;vertical-align:middle" >
-              宣言します！！私は...
               <span style="float: right">
                 あと
                 <FONT color="#ff0000" size="6">
@@ -152,13 +151,8 @@ $search_word='';
             <div class="col-lg-8 col-xs-12 col-rol-3">
               <div class="cardbox" style="margin:0">
                 <div class="cardbox-body">
-                  <div class="clearfix mb-3">
-                    <div class="text-center">
-                      <h1 style="margin-top: 20px"><?php echo $read_dream['dream_contents']; ?></h1>
-                    </div>
-                  </div>
                   <div class="">
-                    <div style="margin: 0">
+                    <div style="margin-left: 10px">
                       <?php
                       $cat=$read_dream['category'];
                       switch ($cat) {
@@ -190,7 +184,11 @@ $search_word='';
                       $year = explode(' ',$read_dream['d_schedule']);
                       $year = explode('-',$year[0]);
                       ?>
-                      <span style="float:right">〆<?php echo $year[0].'年'.$year[1].'月'.$year[2].'日'; ?></span>
+                    </div>
+                  </div>
+                  <div class="clearfix mb-3">
+                    <div class="text-center">
+                      <h1 style="margin-top: 20px;margin-bottom: 20px"><?php echo $read_dream['dream_contents']; ?></h1>
                     </div>
                   </div>
                   <div style="margin:10px">
@@ -249,7 +247,8 @@ $search_word='';
                           </div>
                     <!-- Chat 機能記述終了 jsによって表示されません -->
                     <a href="#" class="btn btn-xs btn-info">
-                    <span class="glyphicon glyphicon-thumbs-up"></span>応援</a><?php echo $read_cheers_amount['cnt']; ?>
+                    <span class="glyphicon glyphicon-thumbs-up"></span>応援</a> <?php echo $read_cheers_amount['cnt']; ?>
+                    <span style="float:right">〆<?php echo $year[0].'年'.$year[1].'月'.$year[2].'日'; ?></span>
                   </div>
                 </div>
               </div>

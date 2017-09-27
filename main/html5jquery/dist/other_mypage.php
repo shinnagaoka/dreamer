@@ -62,7 +62,6 @@ $search_word='';
   <SCRIPT LANGUAGE="JavaScript">
 
     // カウントダウン機能
-    <!--
     // 指定日までの残り日数を表示する
     function apDay(y,m,d) {
       today = new Date();
@@ -73,7 +72,6 @@ $search_word='';
       document.write(n);
     }
     //-->
-    <!--
     myButton = 0; // [Start]/[Stop]のフラグ
     function myCheck(){
     if (myButton==0){ // Startボタンを押した
@@ -190,11 +188,6 @@ $search_word='';
             <div class="col-lg-12 col-xs-12 col-rol-3">
               <div class="cardbox" style="margin:0">
                 <div class="cardbox-body">
-                  <div class="clearfix mb-3">
-                    <div class="text-center">
-                      <h1 style="margin-top: 20px"><?php echo $read_dream['dream_contents']; ?></h1>
-                    </div>
-                  </div>
                   <div class="">
                     <div style="margin: 0">
                       <?php
@@ -226,7 +219,11 @@ $search_word='';
                       //   echo '#'.$tag;
                       // }
                       ?>
-                      <span style="float:right">〆2019年2月13日</span>
+                    </div>
+                  </div>
+                  <div class="clearfix mb-3">
+                    <div class="text-center">
+                      <h1 style="margin-top: 20px"><?php echo $read_dream['dream_contents']; ?></h1>
                     </div>
                   </div>
                   <div style="margin:10px">
@@ -242,7 +239,9 @@ $search_word='';
                         <input type="hidden" name="cheer" value="false">
                         <input type="submit" class="btn btn-xs btn-primary" value="応援取り消し">
                       <?php } ?>応援数:
-                    <?php echo $read_cheers_amount['cnt']; ?>
+                    <?php echo $read_cheers_amount['cnt'];
+                          $year = explode(' ',$read_dream['d_schedule']);
+                          $year = explode('-',$year[0]); ?>
                     </form>
 <!-- Chat 機能記述開始 jsによって表示されません -->
                         <!-- Form Modal-->
@@ -292,6 +291,7 @@ $search_word='';
                             </div>
                           </div>
 <!-- Chat 機能記述終了 jsによって表示されません -->
+                    <span style="float:right">〆<?php echo $year[0].'年'.$year[1].'月'.$year[2].'日'; ?></span>
                   </div>
                 </div>
               </div>
