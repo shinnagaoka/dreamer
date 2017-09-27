@@ -62,7 +62,6 @@ $search_word='';
   <SCRIPT LANGUAGE="JavaScript">
 
     // カウントダウン機能
-    <!--
     // 指定日までの残り日数を表示する
     function apDay(y,m,d) {
       today = new Date();
@@ -73,7 +72,6 @@ $search_word='';
       document.write(n);
     }
     //-->
-    <!--
     myButton = 0; // [Start]/[Stop]のフラグ
     function myCheck(){
     if (myButton==0){ // Startボタンを押した
@@ -241,7 +239,9 @@ $search_word='';
                         <input type="hidden" name="cheer" value="false">
                         <input type="submit" class="btn btn-xs btn-primary" value="応援取り消し">
                       <?php } ?>応援数:
-                    <?php echo $read_cheers_amount['cnt']; ?>
+                    <?php echo $read_cheers_amount['cnt'];
+                          $year = explode(' ',$read_dream['d_schedule']);
+                          $year = explode('-',$year[0]); ?>
                     </form>
 <!-- Chat 機能記述開始 jsによって表示されません -->
                         <!-- Form Modal-->
