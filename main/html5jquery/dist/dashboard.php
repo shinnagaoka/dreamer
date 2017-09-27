@@ -351,7 +351,7 @@ $search_word='';
                 <table class="table">
                   <thead>
                     <tr>
-                      <th>ステップ<?php echo $step['step_id']; ?>
+                      <th>ステップ<?php echo $step_i; ?>
                         <span  style="float: right">
                           あと
                           <FONT color="#ff0000" size="6">

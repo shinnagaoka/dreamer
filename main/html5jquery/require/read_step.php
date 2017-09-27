@@ -1,5 +1,5 @@
 <?php
-	$sql ='SELECT * FROM `dr_steps` WHERE `dream_id`=? ORDER BY `step_id` ASC';
+	$sql ='SELECT * FROM `dr_steps` WHERE `dream_id`=? ORDER BY `s_schedule` ASC';
 	$data = array($rd);
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute($data);
