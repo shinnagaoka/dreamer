@@ -29,10 +29,7 @@
                   <li><a href="edit.php"><span class="float-right nav-label"></span><span>夢編集</span></a></li>
 
                   <li><a href="edit_step_add.php"><span class="float-right nav-label"></span><span>ステップ追加</span></a></li>
-                  <li><a href="edit_step.php"><span class="float-right nav-label"></span><span>ステップ編集・削除</span></a></li>
-
-                  <li><a href="edit_step.php"><span class="float-right nav-label"></span><span>ショートステップ編集</span></a></li>
-
+                  <li><a href="edit_step.php"><span class="float-right nav-label"></span><span>ステップ変更・削除</span></a></li>
               </ul>
               <div class="sidebar-nav-heading">閲覧</div>
             </li>
