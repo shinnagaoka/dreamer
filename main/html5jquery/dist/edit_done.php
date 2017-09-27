@@ -67,14 +67,26 @@ if(!empty($_POST)){
 ?>
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <title>edit_doneページ</title>
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Bootstrap Admin Template">
+<meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+<!-- Vendor styles-->
+<!-- Animate.CSS-->
+<link rel="stylesheet" href="vendor/animate.css/animate.css">
+<!-- Bootstrap-->
+<link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+<!-- Ionicons-->
+<link rel="stylesheet" href="vendor/ionicons/css/ionicons.css">
+<!-- Material Colors-->
+<link rel="stylesheet" href="vendor/material-colors/dist/colors.css">
+  <title>edit_doneページ</title> 
 </head>
 <body>
-<h1 style="color: #42a5f5;">夢を修正しました。</h1>
-  <a href="dashboard.php">マイページへ</a>
-
+  <h1 style="color: #42a5f5;">夢を修正しました。</h1>
+  <div align="center">
+  <input type="button" onclick="location.href='dashboard.php'" value="マイページへ" style="WIDTH:300px; HEIGHT:70px; background-color:#42a5f5; color:white; font-size:15pt;">
+  </div>
 </body>
 </html>
 

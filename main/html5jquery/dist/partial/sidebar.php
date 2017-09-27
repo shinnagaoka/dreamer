@@ -32,12 +32,12 @@
               <li><a href="view_c_page.php"><span class="float-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="float-right nav-label"></span><span class="nav-icon"><em class="ion-ios-paper"></em></span><span>カテゴリー別</span></a>
                 <ul class="sidebar-subnav" id="tables">
                   <li><a href="view_c_page.php"><span class="float-right nav-label"></span><span>カテゴリー別</span></a></li>
-                  <li><a href="view_c_page.php #1"><span class="float-right nav-label"></span><span>仕事</span></a></li>
-                  <li><a href="view_c_page.php #2"><span class="float-right nav-label"></span><span>人間関係</span></a></li>
-                  <li><a href="view_c_page.php #3"><span class="float-right nav-label"></span><span>健康</span></a></li>
-                  <li><a href="view_c_page.php #4"><span class="float-right nav-label"></span><span>勉強</span></a></li>
-                  <li><a href="view_c_page.php #5"><span class="float-right nav-label"></span><span>お金</span></a></li>
-                  <li><a href="view_c_page.php #6"><span class="float-right nav-label"></span><span>その他</span></a></li>
+                  <li><a href="view_c_page.php#1"><span class="float-right nav-label"></span><span>仕事</span></a></li>
+                  <li><a href="view_c_page.php#2"><span class="float-right nav-label"></span><span>人間関係</span></a></li>
+                  <li><a href="view_c_page.php#3"><span class="float-right nav-label"></span><span>健康</span></a></li>
+                  <li><a href="view_c_page.php#4"><span class="float-right nav-label"></span><span>勉強</span></a></li>
+                  <li><a href="view_c_page.php#5"><span class="float-right nav-label"></span><span>お金</span></a></li>
+                  <li><a href="view_c_page.php#6"><span class="float-right nav-label"></span><span>その他</span></a></li>
                 </ul>
               </li>
 

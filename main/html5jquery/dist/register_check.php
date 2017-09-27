@@ -156,7 +156,7 @@ require('../require/read_users_session.php');
 
 					<form method="POST" action="">
 						<input type="hidden" name="aaa" value="sss">
-						<input type="button" value="戻る" onclick="history.back()" class="btn btn-primary btn-lg"><br>
+						<input type="button" value="戻る" onclick="history.back()"><br>
 						<input type="submit" value="マイページへ" class="btn btn-info btn-lg">
 					</form>
 
