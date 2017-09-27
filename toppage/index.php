@@ -86,7 +86,7 @@
             <ul class="main-nav nav navbar-nav navbar-right">
               <li class="wow fadeInDown" data-wow-delay="0s"><a href="#about_us">私たちのサービスとは？</a></li>
               <!-- <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="#dreamers">ドリーマーズ</a></li> -->
-              <li class="wow fadeInDown" data-wow-delay="0.2s"><a href="#how_to_use">How to Use</a></li>
+              <li class="wow fadeInDown" data-wow-delay="0.2s"><a href="#how_to_use">使い方</a></li>
               <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="#strong_point">夢を語る意味</a></li>
                 <!-- <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="#">Blog</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="#">Contact</a></li> -->
@@ -99,7 +99,7 @@
           <div class="slider">
             <div id="bg-slider" class="owl-carousel owl-theme">
 
-              <div class="item"><img src="img/slider01.jpg" alt="Mirror Edge"></div>
+              <div class="item"><img src="img/top.png" alt="Mirror Edge"></div>
               <div class="item"><img src="img/IMG_3750.jpg" alt="The Last of us"></div>
 
             </div>
@@ -236,7 +236,7 @@
 
                     <div class="container" id="how_to_use">
                       <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
-                        <h4>How to Use</h4>
+                        <h4>使い方</h4>
                       </div>
                       <div class="container">
                         <ul class="timeline">
