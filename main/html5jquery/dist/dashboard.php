@@ -257,9 +257,6 @@ $search_word='';
                 <div class="cardbox-body">
                   <div class="clearfix mb-3">
                     <div class="text-center" style=" margin-bottom: 10px; border: 100px;">
-                        <h5 class="alert alert-primary">
-                        <?php echo $read_step[0]['daily_goal_contents']; ?>
-                        </h5>
                       <form name="myForm" method="POST">
                         <div class="mx-auto" id="stopwatch" style="width: 250px;">
                             <span style="font-size: 40px;" id="stopwatchHour">00</span>
@@ -287,6 +284,9 @@ $search_word='';
             <div class="col-lg-12">
               <div class="cardbox">
                 <div class="cardbox-body">
+                        <h5 class="alert alert-primary">
+                        <?php echo $read_step[0]['daily_goal_contents']; ?>
+                        </h5>
                   <div class="container" style="width:100%">
                     <canvas id="myChart"></canvas>
                   </div>
