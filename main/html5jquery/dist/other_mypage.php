@@ -342,6 +342,13 @@ $search_word='';
             <div class="col-lg-12">
               <div class="cardbox">
                 <div class="cardbox-body">
+                        <h5 class="alert alert-primary">
+                        <?php
+                          $rd = $_GET['dream'];
+                          require('../require/read_step.php');
+                          echo $read_step[0]['daily_goal_contents'];
+                          ?>
+                        </h5>
                   <div class="container" style="width:100%">
                     <canvas id="myChart"></canvas>
                   </div>
@@ -405,7 +412,7 @@ $search_word='';
                 <table class="table">
                   <thead>
                     <tr>
-                      <th>ステップ<?php echo $step['step_id']; ?>
+                      <th>ステップ<?php echo $step_i; ?>
                         <span  style="float: right">
                           あと
                           <FONT color="#ff0000" size="6">
