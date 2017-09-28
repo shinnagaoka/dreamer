@@ -436,7 +436,6 @@ $search_word='';
                   <p style="text-align: right; margin-right: 15px; padding-bottom: 10px">
                     <span>〆<?php echo $step['s_schedule']; ?></span>
                       <input type="hidden" name="step_finsh" value="<?php echo $step['step_id']?>">
-                      <input type="submit" class="btn btn-primary" value="Finish!">
                   </p>
                 </form>
               </div>
