@@ -365,7 +365,7 @@ $search_word='';
               foreach ($read_step as $step) {
                 $step_i ++;
                 if (!empty($step['achieve']) && $step['achieve'] != '') { ?>
-                <div id="finish_step<?php echo $step['step_id']; ?>" class="text-center alert alert-primary" style="cursor : pointer;" >
+                <div id="finish_step<?php echo $step_i; ?>" class="text-center alert alert-primary" style="cursor : pointer;" >
                   <h3>ステップ<?php echo $step_i; ?>を達成済み！！</h3></div>
                   <div id="finish_step_content<?php echo $step['step_id']; ?>" class="finish_step_content">
                     <div class="cardbox">

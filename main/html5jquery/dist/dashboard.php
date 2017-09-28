@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 require('../dbconnect.php');
 //$_SESSIONが存在し、なおかつログインできればそのまま進める
